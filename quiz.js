@@ -472,7 +472,6 @@ const goHome = () => {
   }
 };
 $('btnBackToStart').addEventListener('click', goHome);
-if ($('btnQuitToStart')) $('btnQuitToStart').addEventListener('click', goHome);
 
 $('btnRetry').addEventListener('click', () => {
   const filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
@@ -496,12 +495,47 @@ $('btnGoStart').addEventListener('click', () => showScreen('screenStart'));
 
 
 // ============================================================
+//  Theme Toggle
+// ============================================================
+const initTheme = () => {
+  const toggleBtn = $('themeToggle');
+  if (!toggleBtn) return;
+  
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    toggleBtn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('dark');
+    toggleBtn.textContent = '🌙';
+  }
+  
+  toggleBtn.addEventListener('click', () => {
+    const willBeDark = !document.documentElement.classList.contains('dark');
+    if (willBeDark) {
+      document.documentElement.classList.add('dark');
+      toggleBtn.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      toggleBtn.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+};
+
+// ============================================================
 //  BOOTSTRAP
 // ============================================================
 let _bootstrapped = false;
 function bootstrap() {
   if (_bootstrapped) return;
   _bootstrapped = true;
+  initTheme();
   initStartScreen();
   showScreen('screenStart');
 }
