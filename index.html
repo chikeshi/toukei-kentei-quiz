@@ -12,6 +12,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
     onload="document.dispatchEvent(new Event('katex-ready'))"></script>
 
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,10 +133,6 @@
             <div id="feedbackCorrectNote" class="feedback-correct-note" hidden></div>
             <div class="feedback-section-label">解説</div>
             <div id="feedbackRationale" class="feedback-rationale"></div>
-            <button id="btnAI" class="btn-ai">
-              <span class="btn-ai-icon">✨</span>
-              AIでさらに詳しく解説（Gemini）
-            </button>
           </div>
         </div>
 
@@ -200,47 +197,6 @@
   </div>
 
 
-  <!-- ══════════════════════════════════
-       AI EXPLANATION MODAL
-       ══════════════════════════════════ -->
-  <div id="aiModal" class="modal-overlay" hidden aria-modal="true" role="dialog" aria-labelledby="modalTitle">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div class="modal-header-left">
-          <span class="modal-gemini-icon">✨</span>
-          <span id="modalTitle" class="modal-title">Gemini AI 解説</span>
-        </div>
-        <button id="btnCloseModal" class="btn-modal-close" aria-label="閉じる">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <div class="modal-topic-tag" id="modalTopicTag"></div>
-
-        <div class="modal-placeholder-notice">
-          <div class="modal-notice-icon">🚧</div>
-          <div>
-            <div class="modal-notice-title">実装用プレースホルダー</div>
-            <div class="modal-notice-text">
-              Gemini APIを呼び出して、この問題の背景知識を深掘りします...<br>
-              <span class="modal-notice-sub">（実装用プレースホルダー）</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-preview-label">▼ 実装後に表示される内容のイメージ</div>
-        <div class="modal-preview-box">
-          <div id="modalPreviewContent" class="modal-preview-content"></div>
-        </div>
-
-        <div class="modal-api-note">
-          <code class="modal-code-snippet">POST https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent</code>
-          <p>上記エンドポイントに問題文・カテゴリ・解説を含むプロンプトを送信し、<br>詳細解説・関連定理・試験対策ポイントを取得します。</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <script src="quiz.js"></script>

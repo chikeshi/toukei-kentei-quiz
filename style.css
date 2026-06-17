@@ -715,25 +715,6 @@ button { font-family: var(--font); cursor: pointer; }
   margin-bottom: 16px;
 }
 
-/* AI Button */
-.btn-ai {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 18px;
-  background: linear-gradient(135deg, var(--color-ai-from), var(--color-ai-to));
-  color: #fff;
-  border: none;
-  border-radius: var(--r-md);
-  font-size: .85rem;
-  font-weight: 600;
-  letter-spacing: .02em;
-  box-shadow: 0 4px 14px rgba(124,58,237,.28);
-  transition: transform var(--t), box-shadow var(--t), opacity var(--t);
-}
-.btn-ai:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,237,.38); }
-.btn-ai:active { transform: translateY(0); }
-.btn-ai-icon { font-size: 1rem; }
 
 /* Navigation */
 .nav-area {
@@ -957,179 +938,14 @@ button { font-family: var(--font); cursor: pointer; }
 }
 
 
-/* ══════════════════════════════════════════════════════════
-   AI MODAL
-   ══════════════════════════════════════════════════════════ */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15,23,42,.55);
-  backdrop-filter: blur(4px);
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  animation: fadeIn .2s ease;
-}
-
-.modal-overlay[hidden] { display: none; }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.modal-box {
-  background: var(--color-surface);
-  border-radius: var(--r-xl);
-  box-shadow: 0 20px 60px rgba(0,0,0,.2);
-  width: 100%;
-  max-width: 580px;
-  max-height: 90vh;
-  overflow-y: auto;
-  animation: modalSlideUp .3s cubic-bezier(.34,1.56,.64,1) both;
-}
-
-@keyframes modalSlideUp {
-  from { transform: translateY(30px) scale(.97); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  background: linear-gradient(135deg, var(--color-ai-from), var(--color-ai-to));
-  border-radius: var(--r-xl) var(--r-xl) 0 0;
-}
-
-.modal-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.modal-gemini-icon { font-size: 1.4rem; }
-
-.modal-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.btn-modal-close {
-  background: rgba(255,255,255,.2);
-  border: none;
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: background var(--t);
-}
-.btn-modal-close:hover { background: rgba(255,255,255,.35); }
-
-.modal-body {
-  padding: 24px;
-}
-
-.modal-topic-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  background: var(--blue-50);
-  border: 1px solid var(--blue-100);
-  border-radius: 100px;
-  font-size: .78rem;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 18px;
-  letter-spacing: .03em;
-}
-
-.modal-placeholder-notice {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  background: #fffbeb;
-  border: 1.5px solid #fcd34d;
-  border-radius: var(--r-md);
-  padding: 16px;
-  margin-bottom: 20px;
-}
-
-.modal-notice-icon { font-size: 1.5rem; flex-shrink: 0; }
-
-.modal-notice-title {
-  font-size: .85rem;
-  font-weight: 700;
-  color: #92400e;
-  margin-bottom: 4px;
-}
-
-.modal-notice-text {
-  font-size: .88rem;
-  color: #78350f;
-  line-height: 1.6;
-}
-
-.modal-notice-sub {
-  font-style: italic;
-  opacity: .8;
-}
-
-.modal-preview-label {
-  font-size: .75rem;
-  font-weight: 600;
-  color: var(--color-light);
-  letter-spacing: .04em;
-  margin-bottom: 8px;
-}
-
-.modal-preview-box {
-  background: var(--color-bg);
-  border: 1px dashed var(--color-border);
-  border-radius: var(--r-md);
-  padding: 18px;
-  margin-bottom: 20px;
-}
-
-.modal-preview-content {
-  font-size: .88rem;
-  line-height: 1.75;
-  color: var(--color-muted);
-}
-
-.modal-preview-content strong { color: var(--color-text); }
-
-.modal-api-note {
-  background: #0f172a;
-  border-radius: var(--r-md);
-  padding: 16px;
-  font-size: .8rem;
-  color: #94a3b8;
-  line-height: 1.65;
-}
-
-.modal-code-snippet {
-  display: block;
-  font-family: 'Courier New', monospace;
-  font-size: .78rem;
-  color: #7dd3fc;
-  margin-bottom: 10px;
-  word-break: break-all;
-  background: transparent;
-}
 
 
 /* ══════════════════════════════════════════════════════════
    KATEX OVERRIDES
    ══════════════════════════════════════════════════════════ */
 .katex { font-size: 1.02em; }
+
+
 
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE

@@ -733,13 +733,8 @@ function renderQuestion() {
       <div id="feedbackCorrectNote"     class="feedback-correct-note"      hidden></div>
       <div id="feedbackSectionLabel"    class="feedback-section-label"     hidden>解説</div>
       <div id="feedbackRationale"       class="feedback-rationale"         hidden></div>
-      <button id="btnAI" class="btn-ai">
-        <span class="btn-ai-icon">✨</span>
-        AIでさらに詳しく解説（Gemini）
-      </button>
     </div>
   `;
-  $('btnAI').addEventListener('click', () => openAIModal(q));
 
   const btnNext = $('btnNext');
   btnNext.disabled = true;
@@ -953,35 +948,7 @@ function showResult() {
   });
 }
 
-// ============================================================
-//  AI MODAL
-// ============================================================
-function openAIModal(q) {
-  $('modalTopicTag').textContent = `📂 ${q.category}  ／  問題ID: ${q.id}`;
 
-  const correctOpt = q.answerOptions.find(o => o.isCorrect);
-
-  $('modalPreviewContent').innerHTML = `
-    <strong>■ 問題ID：</strong>${q.id}<br>
-    <strong>■ カテゴリ：</strong>${q.category}<br><br>
-    <strong>■ 問題の概要：</strong><br>
-    ${q.question.replace(/\$/g, '')}<br><br>
-    <strong>■ Gemini に送るプロンプト（案）：</strong><br>
-    「以下の統計学の問題について、日本語で詳しく解説してください。<br>
-    ・問題：${q.question.replace(/\$/g, '')}<br>
-    ・正解：${correctOpt?.text || ''}<br>
-    ・解説：${correctOpt?.rationale || ''}<br>
-    上記を踏まえた上で、①背景知識 ②関連定理・公式 ③統計検定2級での頻出ポイントを教えてください。」
-  `;
-
-  $('aiModal').hidden = false;
-  document.body.style.overflow = 'hidden';
-}
-
-function closeAIModal() {
-  $('aiModal').hidden = true;
-  document.body.style.overflow = '';
-}
 
 // ============================================================
 //  EVENT LISTENERS
@@ -1038,9 +1005,7 @@ $('btnRetry').addEventListener('click', () => {
 
 $('btnGoStart').addEventListener('click', () => showScreen('screenStart'));
 
-$('btnCloseModal').addEventListener('click', closeAIModal);
-$('aiModal').addEventListener('click', e => { if (e.target === $('aiModal')) closeAIModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAIModal(); });
+
 
 // ============================================================
 //  BOOTSTRAP
