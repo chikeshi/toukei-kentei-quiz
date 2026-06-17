@@ -59,7 +59,10 @@ function renderMath(el) {
 }
 
 function countByCategory(catName) {
-  return QUIZ_DATA.filter(q => q.category === catName).length;
+  const optOnlyFormula = $('optOnlyFormula')?.checked;
+  let qs = QUIZ_DATA.filter(q => q.category === catName);
+  if (optOnlyFormula) qs = qs.filter(q => q.isFormula === 1);
+  return qs.length;
 }
 
 // ============================================================
@@ -150,8 +153,18 @@ function startQuiz(isRandom10 = false) {
 
   state.isRandom10 = isRandom10;
 
-  const filtered    = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
-  let shuffled      = shuffleArray(filtered);
+  const optOnlyFormula = $('optOnlyFormula')?.checked;
+  let filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
+  if (optOnlyFormula) {
+    filtered = filtered.filter(q => q.isFormula === 1);
+  }
+  
+  if (filtered.length === 0) {
+    alert('該当する問題がありません。オプションまたは分野を変更してください。');
+    return;
+  }
+
+  let shuffled = shuffleArray(filtered);
   
   if (state.isRandom10 && shuffled.length > 10) {
     shuffled = shuffled.slice(0, 10);
@@ -459,6 +472,18 @@ $('btnDeselectAll').addEventListener('click', () => {
   updateStartSummary();
 });
 
+if ($('optOnlyFormula')) {
+  $('optOnlyFormula').addEventListener('change', () => {
+    document.querySelectorAll('#categoryGrid .category-card').forEach(card => {
+      const catName = card.dataset.cat;
+      const count = countByCategory(catName);
+      const countEl = card.querySelector('.cat-count');
+      if (countEl) countEl.textContent = `${count}問`;
+    });
+    updateStartSummary();
+  });
+}
+
 $('btnStart').addEventListener('click', () => startQuiz(false));
 if ($('btnStart10')) {
   $('btnStart10').addEventListener('click', () => startQuiz(true));
@@ -474,7 +499,11 @@ const goHome = () => {
 $('btnBackToStart').addEventListener('click', goHome);
 
 $('btnRetry').addEventListener('click', () => {
-  const filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
+  const optOnlyFormula = $('optOnlyFormula')?.checked;
+  let filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
+  if (optOnlyFormula) {
+    filtered = filtered.filter(q => q.isFormula === 1);
+  }
   let shuffled     = shuffleArray(filtered);
   if (state.isRandom10 && shuffled.length > 10) {
     shuffled = shuffled.slice(0, 10);
