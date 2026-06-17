@@ -32,6 +32,7 @@
   /* Neutrals */
   --color-bg:       #f1f5f9;
   --color-surface:  #ffffff;
+  --color-surface-alt:#f8f9fa;
   --color-border:   #e2e8f0;
   --color-text:     #0f172a;
   --color-muted:    #64748b;
@@ -56,6 +57,8 @@
   /* Typography */
   --font: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
 
+  --color-note-bg: rgba(255,255,255,.7);
+
   /* Transition */
   --t: 180ms cubic-bezier(.4,0,.2,1);
 }
@@ -64,6 +67,7 @@
 html.dark {
   --color-bg:       #0f172a;
   --color-surface:  #1e293b;
+  --color-surface-alt:#0f172a;
   --color-border:   #334155;
   --color-text:     #f8fafc;
   --color-muted:    #94a3b8;
@@ -76,6 +80,8 @@ html.dark {
   --color-correct-border: #15803d;
   --color-wrong-bg:       rgba(220, 38, 38, 0.15);
   --color-wrong-border:   #b91c1c;
+
+  --color-note-bg: rgba(0,0,0,.2);
 }
 
 /* Theme Toggle */
@@ -560,7 +566,7 @@ button { font-family: var(--font); cursor: pointer; }
   align-items: center;
   height: 26px;
   padding: 0 10px;
-  background: #f8f9fa;
+  background: var(--color-surface-alt);
   color: var(--color-muted);
   font-size: .75rem;
   font-weight: 600;
@@ -593,7 +599,7 @@ button { font-family: var(--font); cursor: pointer; }
   gap: 12px;
   width: 100%;
   padding: 14px 16px;
-  background: #fafbfc;
+  background: var(--color-surface-alt);
   border: 2px solid var(--color-border);
   border-radius: var(--r-md);
   font-size: .94rem;
@@ -715,7 +721,7 @@ button { font-family: var(--font); cursor: pointer; }
   font-size: .88rem;
   font-weight: 600;
   padding: 8px 12px;
-  background: rgba(255,255,255,.7);
+  background: var(--color-note-bg);
   border-radius: var(--r-sm);
   margin-bottom: 12px;
   color: var(--color-text);
