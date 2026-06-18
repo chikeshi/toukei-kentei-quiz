@@ -531,4 +531,16 @@ const QUIZ_DATA = [
   { id: 222, isFormula: 0, category: "推測統計", question: "「母分散の推定」で用いられる分布と、その点推定値となる統計量の組み合わせとして正しいものはどれですか？", answerOptions: [{text: "分布: $\\chi^2$分布, 点推定値: 不偏分散 $s^2$", rationale: "母分散の点推定には不偏分散 $s^2$ を用い、区間推定には $\\chi^2$分布（カイ二乗分布）を用います。", isCorrect: true}, {text: "分布: t分布, 点推定値: 標本平均 $\\bar{x}$", rationale: "これは母平均の推定の組み合わせです。", isCorrect: false}, {text: "分布: Z分布, 点推定値: 標本比率 $\\hat{p}$", rationale: "これは母比率の推定の組み合わせです。", isCorrect: false}, {text: "分布: F分布, 点推定値: 標本分散 $s^2$", rationale: "母分散の推定にはF分布ではなく $\\chi^2$分布を用います。（2群の等分散性の検定などにF分布を用います）", isCorrect: false}] },
   { id: 223, isFormula: 1, category: "推測統計", question: "「2群の平均差の推定」において、等分散を仮定しない（Welchの手法）場合の「標準誤差（SE）」の式はどれですか？", answerOptions: [{text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "2つの群が独立であるため、それぞれの標本平均の分散（$\\frac{s_1^2}{n_1}$ と $\\frac{s_2^2}{n_2}$）を足し合わせたものの平方根になります。", isCorrect: true}, {text: "$\\frac{s}{\\sqrt{n}}$", rationale: "これは1つの群の「母平均の推定」の標準誤差です。", isCorrect: false}, {text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false}, {text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false}] },
   { id: 224, isFormula: 1, category: "推測統計", question: "「2群の比率差の推定」における「標準誤差（SE）」の計算式として正しいものはどれですか？（それぞれの標本比率を $\\hat{p}_1, \\hat{p}_2$ とする）", answerOptions: [{text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "それぞれの標本比率の分散を足し合わせたものの平方根となります。検定ではなく「推定」の場合、プールされた比率は使いません。", isCorrect: true}, {text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false}, {text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false}, {text: "$\\frac{s_1}{\\sqrt{n_1}} + \\frac{s_2}{\\sqrt{n_2}}$", rationale: "分散の和の平方根であり、標準誤差同士の単純な和ではありません。", isCorrect: false}] }
+  , {
+    id: 225,
+    isFormula: 1,
+    category: "線形モデル",
+    question: "変数 $z$ の影響を取り除いた、変数 $x, y$ 間の偏相関係数 $r_{xy \\cdot z}$ を求める式はどれですか？",
+    answerOptions: [
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "偏相関係数の正しい定義式です。$z$ の影響を除外するために計算されます。", isCorrect: true },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "分母の $r_{xz}^2$ が $r_{xy}^2$ になっており誤りです。", isCorrect: false },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "分母が掛け算ではなく足し算になっており誤りです。", isCorrect: false },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz} r_{yz}}$", rationale: "分母の形がまったく異なり誤りです。", isCorrect: false }
+    ]
+  }
 ];
