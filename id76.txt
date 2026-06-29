@@ -1,0 +1,12 @@
+{
+    id: 76,
+    isFormula: 1,
+    category: "時系列・指数",
+    question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、パーシェ価格指数を求める式はどれですか？",
+    answerOptions: [
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "パーシェ式は「比較時（現在の）の数量 $q_t$」をウェイトとして使用します。GDPデフレーターなどに使われます。", isCorrect: true },
+      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "これは「ラスパイレス式」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母と分子が逆になっています。", isCorrect: false },
+      { text: "$\\sqrt{ラスパイレス式 \\times パーシェ式}$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
+    ]
+  }

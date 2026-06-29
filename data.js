@@ -905,7 +905,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "パーシェ式は「比較時（現在の）の数量 $q_t$」をウェイトとして使用します。GDPデフレーターなどに使われます。", isCorrect: true },
       { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "これは「ラスパイレス式」の公式です。", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母と分子が逆になっています。", isCorrect: false },
-      { text: "$\\sqrt{ラスパイレス式 \\times パーシェ式}$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
+      { text: "$\\sqrt{ \\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times \\frac{\\sum p_t q_t}{\\sum p_0 q_t} } \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
     ]
   },
   {
@@ -1050,18 +1050,6 @@ const QUIZ_DATA = [
       { text: "2次", rationale: "2次のモーメントは「分散」に関係します。", isCorrect: false },
       { text: "4次", rationale: "4次のモーメントは分布の尖り具合を表す「尖度（Kurtosis）」に関係します。", isCorrect: false },
       { text: "1次", rationale: "平均の周りの1次のモーメントは常に $0$ です。", isCorrect: false },
-    ]
-  },
-  {
-    id: 90,
-    isFormula: 0,
-    category: "時系列・指数",
-    question: "現在の値 $y_t$ が、1期前の自身の値 $y_{t-1}$ とホワイトノイズ $\\epsilon_t$ の線形結合で表されるモデル $y_t = c + \\phi_1 y_{t-1} + \\epsilon_t$ を何と呼びますか？",
-    answerOptions: [
-      { text: "1次の自己回帰モデル（AR(1)モデル）", rationale: "過去の自分自身に回帰（AutoRegressive）する最も基本的な時系列モデルです。", isCorrect: true },
-      { text: "1次の移動平均モデル（MA(1)モデル）", rationale: "MAモデルは過去のホワイトノイズの線形結合で表されるモデルです。", isCorrect: false },
-      { text: "ランダムウォーク", rationale: "ランダムウォークは $\\phi_1 = 1, c = 0$ の特殊なケースです。", isCorrect: false },
-      { text: "指数平滑化モデル", rationale: "指数平滑化は過去の観測値を指数的に割り引いて予測する手法です。", isCorrect: false },
     ]
   },
   {
@@ -1518,18 +1506,6 @@ const QUIZ_DATA = [
       { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
       { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
-    ]
-  },
-  {
-    id: 132,
-    isFormula: 1,
-    category: "時系列・指数",
-    question: "物価指数を求める際、基準時の価格と数量をそれぞれ $p_0, q_0$、比較時の価格と数量を $p_1, q_1$ としたとき、「パーシェ式」による価格指数の公式はどれですか？",
-    answerOptions: [
-      { text: "$\\frac{\\sum p_1 q_1}{\\sum p_0 q_1}$", rationale: "パーシェ式は「比較時」の数量 $q_1$ をウェイトとして用います。", isCorrect: true },
-      { text: "$\\frac{\\sum p_1 q_0}{\\sum p_0 q_0}$", rationale: "これは基準時の数量 $q_0$ をウェイトとする「ラスパイレス式」の公式です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{\\sum p_1 q_0}{\\sum p_0 q_0} \\times \\frac{\\sum p_1 q_1}{\\sum p_0 q_1}}$", rationale: "これはラスパイレスとパーシェの幾何平均をとる「フィッシャー式」です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_1}{\\sum p_0}$", rationale: "これは数量ウェイトを考慮していない単純な価格比です。", isCorrect: false },
     ]
   },
   {
