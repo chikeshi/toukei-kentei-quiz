@@ -1,0 +1,52 @@
+{
+    id: 214,
+    isFormula: 1,
+    category: "確率",
+    question: "確率密度関数 $f(x)$ を持ち、期待値が $\\mu$ である連続型確率変数 $X$ の「分散 $V[X]$」を求める定義式はどれですか？",
+    answerOptions: [
+      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "分散は「平均からの偏差の2乗」の期待値として定義されます。", isCorrect: true },
+      { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
+      { text: "$\\sum_{x} (x - \\mu)^2 P(X=x)$", rationale: "これは離散型確率変数の分散の定義式です。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false },
+    ]
+  }
+
+{
+    id: 208,
+    isFormula: 0,
+    category: "確率分布",
+    question: "確率変数 $X$ が「標準正規分布」に従う場合、その期待値と分散の正しい組み合わせはどれですか？",
+    answerOptions: [
+      { text: "期待値: $0$, 分散: $1$", rationale: "標準正規分布は、平均 $\\mu=0$、分散 $\\sigma^2=1$ に標準化された正規分布です。", isCorrect: true },
+      { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは標準化される前の一般的な正規分布の期待値と分散です。", isCorrect: false },
+      { text: "期待値: $0$, 分散: $0$", rationale: "分散が $0$ の場合、すべてのデータが $0$ になり分布を持ちません。", isCorrect: false },
+      { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "これは指数分布の期待値と分散です。", isCorrect: false },
+    ]
+  }
+
+{
+    id: 125,
+    isFormula: 1,
+    category: "推測統計",
+    question: "母分散 $\\sigma^2$ が既知である正規母集団から抽出したサイズ $n$ の標本（標本平均 $\\bar{x}$）を用いた、「母平均 $\\mu$ の $95\\%$ 信頼区間」の公式はどれですか？（$Z_{0.025} = 1.96$ とする）",
+    answerOptions: [
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知なので標準正規分布を用い、標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
+      { text: "$\\bar{x} \\pm t_{0.025}(n-1) \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知の場合はt分布ではなくZ分布（標準正規分布）を用います。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false },
+    ]
+  }
+
+{
+    id: 171,
+    isFormula: 1,
+    category: "線形モデル",
+    question: "単回帰分析 $y = \hat{\beta}_0 + \hat{\beta}_1 x$ において、切片 $\hat{\beta}_0$ を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散または偏差積和、$S_{xx}$ は $x$ の分散または偏差平方和を表す）",
+    answerOptions: [
+      { text: "$\hat{\beta}_0 = \bar{y} - \frac{S_{xy}}{S_{xx}} \bar{x}$", rationale: "回帰係数（傾き）は $\frac{S_{xy}}{S_{xx}}$ で求められます。回帰直線は必ず平均点 $(\bar{x}, \bar{y})$ を通るため、$\bar{y} = \hat{\beta}_0 + \frac{S_{xy}}{S_{xx}} \bar{x}$ を変形して切片を求めます。", isCorrect: true },
+      { text: "$\hat{\beta}_0 = \bar{y} + \frac{S_{xy}}{S_{xx}} \bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
+      { text: "$\hat{\beta}_0 = \bar{x} - \frac{S_{xy}}{S_{xx}} \bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
+      { text: "$\hat{\beta}_0 = \frac{S_{xy}}{S_{xx}}$", rationale: "これは切片 $\hat{\beta}_0$ ではなく、傾き $\hat{\beta}_1$ を求める公式です。", isCorrect: false }
+    ]
+  }
+

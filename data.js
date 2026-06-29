@@ -1017,18 +1017,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 86,
-    isFormula: 1,
-    category: "推測統計",
-    question: "2つの独立した大標本（サイズ $n_1, n_2$、標本比率 $\\hat{p}_1, \\hat{p}_2$）を用いた「母比率の差 $p_1 - p_2$」の検定統計量 $Z$ において、帰無仮説 $p_1 = p_2 = p$ のもとで分母となる標準誤差の式はどれですか？",
-    answerOptions: [
-      { text: "$\\sqrt{\\hat{p}(1-\\hat{p}) \\left(\\frac{1}{n_1} + \\frac{1}{n_2}\\right)}$", rationale: "2つの群を合わせたプールされた比率 $\\hat{p}$ を用いて分散を計算します。", isCorrect: true },
-      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは比率の差の「区間推定」の際によく用いられる標準誤差です。帰無仮説のもとでは比率をプールします。", isCorrect: false },
-      { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}$", rationale: "ルートが外れています。これは分散です。", isCorrect: false },
-      { text: "$\\hat{p}(1-\\hat{p}) \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "ルートの中に $\\hat{p}(1-\\hat{p})$ が入る必要があります。", isCorrect: false },
-    ]
-  },
-  {
     id: 87,
     isFormula: 1,
     category: "線形モデル",
@@ -1444,8 +1432,8 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知なので標準正規分布を用い、標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
-      { text: "$\\bar{x} \\pm t_{0.025}(n-1) \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知の場合はt分布ではなくZ分布（標準正規分布）を用います。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
     ]
   },
   {
@@ -1470,18 +1458,6 @@ const QUIZ_DATA = [
       { text: "$\\frac{s_1^2}{s_2^2} \\pm F_{0.025} \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "分散の比の信頼区間は足し算・引き算ではなく、掛け算・割り算の形になります。", isCorrect: false },
       { text: "$\\left[ s_1^2 F_L, s_2^2 F_U \\right]$", rationale: "不偏分散の比の形になっていません。", isCorrect: false },
       { text: "$\\left[ \\frac{s_1 - s_2}{F_U}, \\frac{s_1 - s_2}{F_L} \\right]$", rationale: "標準偏差の差ではなく、分散の比を用います。", isCorrect: false },
-    ]
-  },
-  {
-    id: 128,
-    isFormula: 1,
-    category: "推測統計",
-    question: "一元配置分散分析（ANOVA）において、帰無仮説「すべての群の母平均は等しい」を検定するための検定統計量 $F$ 値は、どのように計算されますか？",
-    answerOptions: [
-      { text: "$F = \\frac{群間平方和(水準間平方和) / 群間の自由度}{群内平方和(残差平方和) / 群内の自由度}$", rationale: "それぞれの平方和を自由度で割った「平均平方（分散）」の比がF分布に従うことを利用します。", isCorrect: true },
-      { text: "$F = \\frac{群間平方和(水準間平方和)}{群内平方和(残差平方和)}$", rationale: "自由度で割って平均平方にする必要があります。", isCorrect: false },
-      { text: "$F = \\frac{群内平方和(残差平方和) / 群内の自由度}{群間平方和(水準間平方和) / 群間の自由度}$", rationale: "分母と分子が逆です。群間のバラツキが群内のバラツキよりどれだけ大きいかを見ます。", isCorrect: false },
-      { text: "$F = \\frac{総平方和}{群内平方和(残差平方和)}$", rationale: "分子は総平方和ではなく群間平方和(水準間平方和)です。", isCorrect: false },
     ]
   },
   {
@@ -1920,7 +1896,14 @@ const QUIZ_DATA = [
     id: 171,
     isFormula: 1,
     category: "線形モデル",
-    question: "単回帰分析 $y = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$ において、回帰直線の傾き $\\hat{\\beta}_1$ を求めた後、切片 $\\hat{\\beta}_0$ を求める公式はどれですか？",
+    question: "単回帰分析 $y = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$ において、切片 $\\hat{\\beta}_0$ を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散または偏差積和、$S_{xx}$ は $x$ の分散または偏差平方和を表す）",
+    answerOptions: [
+      { text: "$\\hat{\\beta}_0 = \\bar{y} - \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "回帰係数（傾き）は $\\frac{S_{xy}}{S_{xx}}$ で求められます。回帰直線は必ず平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\frac{S_{xy}}{S_{xx}} \\bar{x}$ を変形して切片を求めます。", isCorrect: true },
+      { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
+      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}{S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
+      { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
+    ]
+  }_0 + \\hat{\\beta}_1 x$ において、回帰直線の傾き $\\hat{\\beta}_1$ を求めた後、切片 $\\hat{\\beta}_0$ を求める公式はどれですか？",
     answerOptions: [
       { text: "$\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}$", rationale: "回帰直線は必ずデータの平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\bar{x}$ を変形して求めます。", isCorrect: true },
       { text: "$\\hat{\\beta}_0 = \\bar{y} + \\hat{\\beta}_1 \\bar{x}$", rationale: "符号が逆です。", isCorrect: false },
@@ -1938,18 +1921,6 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - 1}$", rationale: "これは説明変数がない単なる「不偏分散」の自由度です。", isCorrect: false },
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - k}$", rationale: "切片の分の自由度 $(-1)$ が引かれていません。", isCorrect: false },
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n}$", rationale: "標本分散と同じで、自由度の調整が行われておらず不偏推定量になりません。", isCorrect: false },
-    ]
-  },
-  {
-    id: 173,
-    isFormula: 1,
-    category: "推測統計",
-    question: "一元配置分散分析において、「群間平方和(水準間平方和)（要因平方和）$S_A$」を計算する数式として正しいものはどれですか？（群数を $a$、各群のサイズを $n_i$、群ごとの平均を $\\bar{x}_i$、全体の総平均を $\\bar{\\bar{x}}$ とする）",
-    answerOptions: [
-      { text: "$\\sum_{i=1}^a n_i (\\bar{x}_i - \\bar{\\bar{x}})^2$", rationale: "各群の平均が総平均からどれだけ離れているかを計算し、その群のデータ数 $n_i$ をかけて足し合わせたものが群間平方和(水準間平方和)です。", isCorrect: true },
-      { text: "$\\sum_{i=1}^a \\sum_{j=1}^{n_i} (x_{ij} - \\bar{x}_i)^2$", rationale: "これは各データが自分の属する群の平均からどれだけ離れているかを示す「群内平方和(残差平方和)（誤差平方和）」の数式です。", isCorrect: false },
-      { text: "$\\sum_{i=1}^a \\sum_{j=1}^{n_i} (x_{ij} - \\bar{\\bar{x}})^2$", rationale: "これは「総平方和」の数式です。", isCorrect: false },
-      { text: "$\\frac{\\sum_{i=1}^a (\\bar{x}_i - \\bar{\\bar{x}})^2}{a - 1}$", rationale: "これは群間平方和(水準間平方和)を自由度で割った「群間平均平方（群間分散）」の数式です。", isCorrect: false },
     ]
   },
   {
@@ -2307,9 +2278,9 @@ const QUIZ_DATA = [
     question: "確率変数 $X$ が「標準正規分布」に従う場合、その期待値と分散の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $0$, 分散: $1$", rationale: "標準正規分布は、平均 $\\mu=0$、分散 $\\sigma^2=1$ に標準化された正規分布です。", isCorrect: true },
-      { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは標準化される前の一般的な正規分布の期待値と分散です。", isCorrect: false },
-      { text: "期待値: $1$, 分散: $0$", rationale: "期待値と分散が逆、または誤りです。", isCorrect: false },
-      { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "これは指数分布の期待値と分散です。", isCorrect: false },
+      { text: "期待値: $1$, 分散: $1$", rationale: "標準化された正規分布の期待値（平均）は $0$ です。", isCorrect: false },
+      { text: "期待値: $0$, 分散: $0$", rationale: "分散が $0$ の場合、すべてのデータが $0$ になり分布を持ちません。", isCorrect: false },
+      { text: "期待値: $0$, 分散: $\\sigma^2$", rationale: "分散は $1$ に標準化されている必要があります。", isCorrect: false }
     ]
   },
   {
@@ -2368,20 +2339,8 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "分散は「平均からの偏差の2乗」の期待値として定義されます。", isCorrect: true },
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
-      { text: "$\\sum_{x} (x - \\mu)^2 P(X=x)$", rationale: "これは離散型確率変数の分散の定義式です。", isCorrect: false },
-      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false },
-    ]
-  },
-  {
-    id: 215,
-    isFormula: 1,
-    category: "推測統計",
-    question: "母分散 $\\sigma^2$ が既知のとき、「母平均の検定（z検定）」で用いられる検定統計量はどれですか？（標本平均 $\\bar{x}$、母平均の仮説値 $\\mu_0$、サンプルサイズ $n$）",
-    answerOptions: [
-      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "母分散が既知の場合、標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となり、標準正規分布 $N(0,1)$ に従う z 統計量を用います。", isCorrect: true },
-      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは母分散が未知の場合（不偏分散 $s^2$ を用いる）の t 統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは2群の平均差の検定に用いられる統計量です。", isCorrect: false },
-      { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "これは $\\chi^2$ 適合度・独立性検定で用いられる統計量です。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
     ]
   },
   {
