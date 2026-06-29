@@ -1,12 +1,3 @@
-const CATEGORIES = [
-  { name: "記述統計・基礎", desc: "グラフ、代表値、サンプリング手法", icon: "📊" },
-  { name: "確率", desc: "ベイズ、条件付き確率", icon: "🎲" },
-  { name: "確率分布", desc: "正規分布、二項分布、ポアソン分布、t/F/χ²分布", icon: "📈" },
-  { name: "推測統計", desc: "推定、仮説検定、過誤、P値", icon: "🔬" },
-  { name: "線形モデル", desc: "単回帰、重回帰、決定係数", icon: "📉" },
-  { name: "時系列・指数", desc: "季節変動、ラスパイレス式等", icon: "🕐" },
-];
-
 const QUIZ_DATA = [
   {
     id: 1,
@@ -209,7 +200,7 @@ const QUIZ_DATA = [
       { text: "$np$", rationale: "回数と確率の積になります。", isCorrect: true },
       { text: "$np(1-p)$", rationale: "これは二項分布の「分散」です。期待値ではありません。", isCorrect: false },
       { text: "$\\sqrt{np}$", rationale: "標準偏差は $\\sqrt{np(1-p)}$ であり、この式は正しくありません。", isCorrect: false },
-      { text: "$\\frac{n}, {p}$", rationale: "これは幾何分布の期待値 $\\frac{1}, {p}$ に近い概念で、二項分布の期待値ではありません。", isCorrect: false },
+      { text: "$\\frac{n}{p}$", rationale: "これは幾何分布の期待値 $\\frac{1}{p}$ に近い概念で、二項分布の期待値ではありません。", isCorrect: false },
     ]
   },
   {
@@ -614,8 +605,8 @@ const QUIZ_DATA = [
     category: "確率",
     question: "事象Aが起こったという条件のもとで、事象Bが起こる確率を求める式 $P(B|A)$ として正しいものはどれですか？",
     answerOptions: [
-      { text: "$\\frac{P(A \\cap B)}, {P(A)}$", rationale: "条件付き確率の定義式です。事象Aが起こる確率の中で、AとBが同時に起こる割合を示します。", isCorrect: true },
-      { text: "$\\frac{P(A \\cap B)}, {P(B)}$", rationale: "これは $P(A|B)$ （事象Bが起こった条件でのAの確率）を求める式です。", isCorrect: false },
+      { text: "$\\frac{P(A \\cap B)}{P(A)}$", rationale: "条件付き確率の定義式です。事象Aが起こる確率の中で、AとBが同時に起こる割合を示します。", isCorrect: true },
+      { text: "$\\frac{P(A \\cap B)}{P(B)}$", rationale: "これは $P(A|B)$ （事象Bが起こった条件でのAの確率）を求める式です。", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "これは事象AとBが「独立」である場合の $P(A \\cap B)$ を求める式です。", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "これは確率の加法定理であり、$P(A \\cup B)$ を求める式です。", isCorrect: false },
     ]
@@ -760,7 +751,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$E(X) = np, \\quad V(X) = np(1-p)$", rationale: "二項分布の最も基本的な公式です。分散は $npq$ （$q=1-p$）とも表されます。", isCorrect: true },
       { text: "$E(X) = np(1-p), \\quad V(X) = np$", rationale: "期待値と分散の式が逆になっています。", isCorrect: false },
-      { text: "$E(X) = p, \\quad V(X) = \\frac{p(1-p)}, {n}$", rationale: "これは「標本比率 $\\hat{p}$」の期待値と分散です。", isCorrect: false },
+      { text: "$E(X) = p, \\quad V(X) = \\frac{p(1-p)}{n}$", rationale: "これは「標本比率 $\\hat{p}$」の期待値と分散です。", isCorrect: false },
       { text: "$E(X) = np, \\quad V(X) = \\sqrt{np(1-p)}$", rationale: "$\\sqrt{np(1-p)}$ は分散ではなく「標準偏差」です。", isCorrect: false },
     ]
   },
@@ -772,7 +763,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$E(X) = \\lambda, \\quad V(X) = \\lambda$", rationale: "ポアソン分布の大きな特徴は、期待値と分散が等しくなることです。", isCorrect: true },
       { text: "$E(X) = \\lambda, \\quad V(X) = \\lambda^2$", rationale: "ポアソン分布の分散は $\\lambda^2$ ではなく $\\lambda$ です。", isCorrect: false },
-      { text: "$E(X) = \\frac{1}, {\\lambda}, \\quad V(X) = \\frac{1}, {\\lambda^2}$", rationale: "これは「指数分布」の期待値と分散です。", isCorrect: false },
+      { text: "$E(X) = \\frac{1}{\\lambda}, \\quad V(X) = \\frac{1}{\\lambda^2}$", rationale: "これは「指数分布」の期待値と分散です。", isCorrect: false },
       { text: "$E(X) = \\lambda, \\quad V(X) = \\sqrt{\\lambda}$", rationale: "$\\sqrt{\\lambda}$ は分散ではなく「標準偏差」です。", isCorrect: false },
     ]
   },
@@ -806,10 +797,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ が既知の正規母集団から抽出した、サイズ $n$ の標本平均 $\\bar{x}$ を用いた、母平均 $\\mu$ の $95\\%$ 信頼区間を表す式はどれですか？（$z_{0.025} \\approx 1.96$）",
     answerOptions: [
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}, {\\sqrt{n}}$", rationale: "標準誤差は $\\frac{\\sigma}, {\\sqrt{n}}$ であり、両側 $5\\%$ のパーセント点は $1.96$ となります。", isCorrect: true },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}, {n}$", rationale: "分母は $n$ ではなく $\\sqrt{n}$（ルートn）になります。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\sigma$", rationale: "$\\sigma$ ではなく、標本平均の標準偏差である $\\frac{\\sigma}, {\\sqrt{n}}$ を使います。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}, {\\sqrt{n-1}}$", rationale: "分母が $n-1$ になっており誤りです。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ であり、両側 $5\\%$ のパーセント点は $1.96$ となります。", isCorrect: true },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母は $n$ ではなく $\\sqrt{n}$（ルートn）になります。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\sigma$", rationale: "$\\sigma$ ではなく、標本平均の標準偏差である $\\frac{\\sigma}{\\sqrt{n}}$ を使います。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n-1}}$", rationale: "分母が $n-1$ になっており誤りです。", isCorrect: false },
     ]
   },
   {
@@ -818,10 +809,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散が未知の正規母集団から抽出したサイズ $n$ の標本について、不偏分散 $s^2$ を用いて母平均 $\\mu$ を区間推定するときに用いる分布と統計量はどれですか？",
     answerOptions: [
-      { text: "自由度 $n-1$ のt分布、 $\\frac{\\bar{x} - \\mu}, {s / \\sqrt{n}}$", rationale: "母分散の代わりに標本から求めた不偏分散を用いるため、標準正規分布ではなくt分布を用います。", isCorrect: true },
-      { text: "自由度 $n$ のt分布、 $\\frac{\\bar{x} - \\mu}, {s / \\sqrt{n}}$", rationale: "標本平均を計算する際に自由度を1つ消費するため、自由度は $n-1$ となります。", isCorrect: false },
-      { text: "自由度 $n-1$ のカイ二乗分布、 $\\frac{(n-1)s^2}, {\\sigma^2}$", rationale: "カイ二乗分布は「母分散 $\\sigma^2$」の区間推定に用いる分布です。", isCorrect: false },
-      { text: "標準正規分布、 $\\frac{\\bar{x} - \\mu}, {s / \\sqrt{n}}$", rationale: "母分散が未知で小標本の場合、標準正規分布は使えません。", isCorrect: false },
+      { text: "自由度 $n-1$ のt分布、 $\\frac{\\bar{x} - \\mu}{s / \\sqrt{n}}$", rationale: "母分散の代わりに標本から求めた不偏分散を用いるため、標準正規分布ではなくt分布を用います。", isCorrect: true },
+      { text: "自由度 $n$ のt分布、 $\\frac{\\bar{x} - \\mu}{s / \\sqrt{n}}$", rationale: "標本平均を計算する際に自由度を1つ消費するため、自由度は $n-1$ となります。", isCorrect: false },
+      { text: "自由度 $n-1$ のカイ二乗分布、 $\\frac{(n-1)s^2}{\\sigma^2}$", rationale: "カイ二乗分布は「母分散 $\\sigma^2$」の区間推定に用いる分布です。", isCorrect: false },
+      { text: "標準正規分布、 $\\frac{\\bar{x} - \\mu}{s / \\sqrt{n}}$", rationale: "母分散が未知で小標本の場合、標準正規分布は使えません。", isCorrect: false },
     ]
   },
   {
@@ -830,10 +821,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母平均 $\\mu$ の仮説検定（大標本、あるいは母分散 $\\sigma^2$ 既知）において、帰無仮説 $H_0: \\mu = \\mu_0$ を検定するための検定統計量 $Z$ はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma / \\sqrt{n}}$", rationale: "標本平均から帰無仮説の母平均を引き、標準誤差で割ることで標準化します。", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma}$", rationale: "分母は母集団の標準偏差ではなく「標本平均の標準偏差（標準誤差）」にする必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma^2 / n}$", rationale: "分母は分散ではなく標準偏差（平方根をとったもの）である必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {s / n}$", rationale: "分母の $n$ は平方根 $\\sqrt{n}$ である必要があります。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "標本平均から帰無仮説の母平均を引き、標準誤差で割ることで標準化します。", isCorrect: true },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母は母集団の標準偏差ではなく「標本平均の標準偏差（標準誤差）」にする必要があります。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "分母は分散ではなく標準偏差（平方根をとったもの）である必要があります。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / n}$", rationale: "分母の $n$ は平方根 $\\sqrt{n}$ である必要があります。", isCorrect: false },
     ]
   },
   {
@@ -842,10 +833,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "標本サイズ $n$、標本比率 $\\hat{p}$ のとき、母比率 $p$ の $95\\%$ 信頼区間を大標本近似で求めるための式はどれですか？（$z_{0.025} \\approx 1.96$）",
     answerOptions: [
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "二項分布の正規近似を用いた母比率の区間推定の標準的な公式です。", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}, {\\sqrt{n}}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n-1}}$", rationale: "比率の推定では分母は $n-1$ ではなく $n$ を用います。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}, {n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間の係数です。また、未知の $p$ は $\\hat{p}$ で代用します。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "二項分布の正規近似を用いた母比率の区間推定の標準的な公式です。", isCorrect: true },
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "比率の推定では分母は $n-1$ ではなく $n$ を用います。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間の係数です。また、未知の $p$ は $\\hat{p}$ で代用します。", isCorrect: false },
     ]
   },
   {
@@ -854,9 +845,9 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "単回帰モデル $y = \\beta_0 + \\beta_1 x + \\epsilon$ において、最小二乗法による傾きの推定量 $\\hat{\\beta}_1$ を求める式はどれですか？（$S_{xy}$: 偏差積和、 $S_{xx}$: $x$ の偏差平方和）",
     answerOptions: [
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}, {S_{xx}}$", rationale: "「xとyの共分散」を「xの分散」で割ったものと同じ意味になります。", isCorrect: true },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}, {S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}, {\\sqrt{S_{xx} S_{yy}}}$", rationale: "これは「相関係数 $r$」の公式です。", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "「xとyの共分散」を「xの分散」で割ったものと同じ意味になります。", isCorrect: true },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "これは「相関係数 $r$」の公式です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "これは切片 $\\hat{\\beta}_0$ を求める式の変形ですが、傾きの式ではありません。", isCorrect: false },
     ]
   },
@@ -866,10 +857,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "サイズ $n$ のデータセット $x_1, x_2, ..., x_n$ （標本平均 $\\bar{x}$）から母分散を偏りなく推定するための「不偏分散 $s^2$」の定義式はどれですか？",
     answerOptions: [
-      { text: "$s^2 = \\frac{1}, {n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本分散は $n$ で割りますが、不偏分散は自由度である $n-1$ で割ることで期待値が母分散に一致します。", isCorrect: true },
-      { text: "$s^2 = \\frac{1}, {n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の定義式です（母分散より少し小さく推定される傾向があります）。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}, {n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "通常、母平均 $\\mu$ は未知であるため $\\bar{x}$ を使います。$\\mu$ が既知なら分母は $n$ で済みます。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}, {n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "これは分散を計算するショートカット公式（2乗の平均 - 平均の2乗）です。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本分散は $n$ で割りますが、不偏分散は自由度である $n-1$ で割ることで期待値が母分散に一致します。", isCorrect: true },
+      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の定義式です（母分散より少し小さく推定される傾向があります）。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "通常、母平均 $\\mu$ は未知であるため $\\bar{x}$ を使います。$\\mu$ が既知なら分母は $n$ で済みます。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "これは分散を計算するショートカット公式（2乗の平均 - 平均の2乗）です。", isCorrect: false },
     ]
   },
   {
@@ -878,10 +869,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "2つの変数 $X, Y$ 間の直線的な関係の強さを測るピアソンの積率相関係数 $r$ の定義式はどれですか？（$S_{xy}$: 偏差積和, $S_{xx}$: Xの偏差平方和, $S_{yy}$: Yの偏差平方和）",
     answerOptions: [
-      { text: "$r = \\frac{S_{xy}}, {\\sqrt{S_{xx} S_{yy}}}$", rationale: "「共分散」を「Xの標準偏差とYの標準偏差の積」で割ったものと同義です。$-1 \\le r \\le 1$ の値をとります。", isCorrect: true },
-      { text: "$r = \\frac{S_{xy}}, {S_{xx} S_{yy}}$", rationale: "分母に平方根（ルート）がかかっていません。", isCorrect: false },
-      { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}, {S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$r = \\frac{S_{xx} + S_{yy}}, {S_{xy}}$", rationale: "分散の和を偏差積和で割るという式は存在しません。", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "「共分散」を「Xの標準偏差とYの標準偏差の積」で割ったものと同義です。$-1 \\le r \\le 1$ の値をとります。", isCorrect: true },
+      { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "分母に平方根（ルート）がかかっていません。", isCorrect: false },
+      { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}{S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$r = \\frac{S_{xx} + S_{yy}}{S_{xy}}$", rationale: "分散の和を偏差積和で割るという式は存在しません。", isCorrect: false },
     ]
   },
   {
@@ -890,10 +881,10 @@ const QUIZ_DATA = [
     category: "時系列・指数",
     question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、ラスパイレス価格指数を求める式はどれですか？",
     answerOptions: [
-      { text: "$\\frac{\\sum p_t q_0}, {\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定して価格の変動を比較します。消費者物価指数（CPI）などに使われます。", isCorrect: true },
-      { text: "$\\frac{\\sum p_t q_t}, {\\sum p_0 q_t} \\times 100$", rationale: "これは「パーシェ式」の公式です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_t q_t}, {\\sum p_0 q_0} \\times 100$", rationale: "これは単純な「金額指数（売上高の比）」であり、価格の変化だけを抽出できていません。", isCorrect: false },
-      { text: "$\\frac{\\sum p_0 q_0}, {\\sum p_t q_t} \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定して価格の変動を比較します。消費者物価指数（CPI）などに使われます。", isCorrect: true },
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは「パーシェ式」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_0} \\times 100$", rationale: "これは単純な「金額指数（売上高の比）」であり、価格の変化だけを抽出できていません。", isCorrect: false },
+      { text: "$\\frac{\\sum p_0 q_0}{\\sum p_t q_t} \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
     ]
   },
   {
@@ -902,10 +893,10 @@ const QUIZ_DATA = [
     category: "時系列・指数",
     question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、パーシェ価格指数を求める式はどれですか？",
     answerOptions: [
-      { text: "$\\frac{\\sum p_t q_t}, {\\sum p_0 q_t} \\times 100$", rationale: "パーシェ式は「比較時（現在の）の数量 $q_t$」をウェイトとして使用します。GDPデフレーターなどに使われます。", isCorrect: true },
-      { text: "$\\frac{\\sum p_t q_0}, {\\sum p_0 q_0} \\times 100$", rationale: "これは「ラスパイレス式」の公式です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_0 q_t}, {\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母と分子が逆になっています。", isCorrect: false },
-      { text: "$\\sqrt{ \\frac{\\sum p_t q_0}, {\\sum p_0 q_0} \\times \\frac{\\sum p_t q_t}, {\\sum p_0 q_t} } \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "パーシェ式は「比較時（現在の）の数量 $q_t$」をウェイトとして使用します。GDPデフレーターなどに使われます。", isCorrect: true },
+      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "これは「ラスパイレス式」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母と分子が逆になっています。", isCorrect: false },
+      { text: "$\\sqrt{ \\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times \\frac{\\sum p_t q_t}{\\sum p_0 q_t} } \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
     ]
   },
   {
@@ -924,7 +915,7 @@ const QUIZ_DATA = [
     id: 78,
     isFormula: 0,
     category: "確率分布",
-    question: "2つの独立な確率変数 $U$ と $V$ があり、$U$ が自由度 $m$ のカイ二乗分布、$V$ が自由度 $n$ のカイ二乗分布に従うとき、統計量 $F = \\frac{U/m}, {V/n}$ が従う分布は何ですか？",
+    question: "2つの独立な確率変数 $U$ と $V$ があり、$U$ が自由度 $m$ のカイ二乗分布、$V$ が自由度 $n$ のカイ二乗分布に従うとき、統計量 $F = \\frac{U/m}{V/n}$ が従う分布は何ですか？",
     answerOptions: [
       { text: "自由度 $(m, n)$ のF分布", rationale: "F分布は、2つの独立なカイ二乗分布をそれぞれの自由度で割った比の分布です。分散分析などで用いられます。", isCorrect: true },
       { text: "自由度 $m+n$ のt分布", rationale: "t分布は標準正規分布とカイ二乗分布の比から作られます。", isCorrect: false },
@@ -938,7 +929,7 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ に対する区間推定を行う際、標本サイズ $n$、不偏分散 $s^2$ を用いる場合に利用する分布はどれですか？",
     answerOptions: [
-      { text: "自由度 $n-1$ のカイ二乗分布", rationale: "統計量 $\\frac{(n-1)s^2}, {\\sigma^2}$ が自由度 $n-1$ のカイ二乗分布に従うことを利用して区間推定を行います。", isCorrect: true },
+      { text: "自由度 $n-1$ のカイ二乗分布", rationale: "統計量 $\\frac{(n-1)s^2}{\\sigma^2}$ が自由度 $n-1$ のカイ二乗分布に従うことを利用して区間推定を行います。", isCorrect: true },
       { text: "自由度 $n-1$ のt分布", rationale: "t分布は「母平均」の区間推定に用います。", isCorrect: false },
       { text: "標準正規分布", rationale: "標準正規分布は母分散既知のときの「母平均」の区間推定等に用います。", isCorrect: false },
       { text: "自由度 $(n-1, n-1)$ のF分布", rationale: "F分布は「2つの母分散の比」の区間推定や等分散性の検定に用います。", isCorrect: false },
@@ -948,12 +939,12 @@ const QUIZ_DATA = [
     id: 80,
     isFormula: 1,
     category: "推測統計",
-    question: "2つの独立な正規母集団の「母分散の比 $\\frac{\\sigma_1^2}, {\\sigma_2^2}$」についての仮説検定（等分散性の検定）で用いられる検定統計量はどれですか？（それぞれの不偏分散を $s_1^2, s_2^2$ とする）",
+    question: "2つの独立な正規母集団の「母分散の比 $\\frac{\\sigma_1^2}{\\sigma_2^2}$」についての仮説検定（等分散性の検定）で用いられる検定統計量はどれですか？（それぞれの不偏分散を $s_1^2, s_2^2$ とする）",
     answerOptions: [
-      { text: "$F = \\frac{s_1^2}, {s_2^2}$", rationale: "2つの不偏分散の比は、母分散が等しいという帰無仮説のもとでF分布に従います。", isCorrect: true },
-      { text: "$t = \\frac{s_1^2 - s_2^2}, {\\sqrt{s_1^2/n_1 + s_2^2/n_2}}$", rationale: "t値は主に平均の差の検定に用いられ、分散の比の検定には用いられません。", isCorrect: false },
-      { text: "$\\chi^2 = \\frac{s_1^2 + s_2^2}, {\\sigma^2}$", rationale: "カイ二乗値は1つの分散の検定などに用います。", isCorrect: false },
-      { text: "$Z = \\frac{s_1^2 - s_2^2}, {\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}$", rationale: "分散の比はZ分布（正規分布）には従いません。", isCorrect: false },
+      { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2つの不偏分散の比は、母分散が等しいという帰無仮説のもとでF分布に従います。", isCorrect: true },
+      { text: "$t = \\frac{s_1^2 - s_2^2}{\\sqrt{s_1^2/n_1 + s_2^2/n_2}}$", rationale: "t値は主に平均の差の検定に用いられ、分散の比の検定には用いられません。", isCorrect: false },
+      { text: "$\\chi^2 = \\frac{s_1^2 + s_2^2}{\\sigma^2}$", rationale: "カイ二乗値は1つの分散の検定などに用います。", isCorrect: false },
+      { text: "$Z = \\frac{s_1^2 - s_2^2}{\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}$", rationale: "分散の比はZ分布（正規分布）には従いません。", isCorrect: false },
     ]
   },
   {
@@ -962,10 +953,10 @@ const QUIZ_DATA = [
     category: "確率",
     question: "事象Aが起こる確率を $P(A)$、事象Aが起こったもとで事象Bが起こる条件付き確率を $P(B|A)$ とするとき、AとBが同時に起こる確率 $P(A \\cap B)$ を求める「確率の乗法定理」はどれですか？",
     answerOptions: [
-      { text: "$P(A) \\times P(B|A)$", rationale: "条件付き確率の定義式 $P(B|A) = \\frac{P(A \\cap B)}, {P(A)}$ の両辺に $P(A)$ を掛けた形です。", isCorrect: true },
+      { text: "$P(A) \\times P(B|A)$", rationale: "条件付き確率の定義式 $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ の両辺に $P(A)$ を掛けた形です。", isCorrect: true },
       { text: "$P(A) \\times P(B)$", rationale: "これは事象Aと事象Bが独立である場合の式です。", isCorrect: false },
       { text: "$P(A) + P(B|A)$", rationale: "確率を足すのは加法定理（和の確率）に関する場合であり、同時確率を求める式ではありません。", isCorrect: false },
-      { text: "$\\frac{P(A)}, {P(B|A)}$", rationale: "条件付き確率で割ることは通常ありません。", isCorrect: false },
+      { text: "$\\frac{P(A)}{P(B|A)}$", rationale: "条件付き確率で割ることは通常ありません。", isCorrect: false },
     ]
   },
   {
@@ -974,10 +965,10 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "区間 $[a, b]$ 上で一様に分布する（連続型）一様分布 $U(a, b)$ に従う確率変数 $X$ の期待値 $E(X)$ と分散 $V(X)$ はどれですか？",
     answerOptions: [
-      { text: "$E(X) = \\frac{a+b}, {2}, \\quad V(X) = \\frac{(b-a)^2}, {12}$", rationale: "期待値は区間の中点、分散は区間の幅の2乗を12で割った値になります。", isCorrect: true },
-      { text: "$E(X) = \\frac{b-a}, {2}, \\quad V(X) = \\frac{a+b}, {12}$", rationale: "期待値は区間の幅の半分ではなく、中点（和の半分）です。", isCorrect: false },
-      { text: "$E(X) = \\frac{a+b}, {2}, \\quad V(X) = \\frac{(b-a)^2}, {4}$", rationale: "分散の分母は4ではなく12です。", isCorrect: false },
-      { text: "$E(X) = ab, \\quad V(X) = \\frac{a^2 b^2}, {12}$", rationale: "期待値は積ではありません。", isCorrect: false },
+      { text: "$E(X) = \\frac{a+b}{2}, \\quad V(X) = \\frac{(b-a)^2}{12}$", rationale: "期待値は区間の中点、分散は区間の幅の2乗を12で割った値になります。", isCorrect: true },
+      { text: "$E(X) = \\frac{b-a}{2}, \\quad V(X) = \\frac{a+b}{12}$", rationale: "期待値は区間の幅の半分ではなく、中点（和の半分）です。", isCorrect: false },
+      { text: "$E(X) = \\frac{a+b}{2}, \\quad V(X) = \\frac{(b-a)^2}{4}$", rationale: "分散の分母は4ではなく12です。", isCorrect: false },
+      { text: "$E(X) = ab, \\quad V(X) = \\frac{a^2 b^2}{12}$", rationale: "期待値は積ではありません。", isCorrect: false },
     ]
   },
   {
@@ -989,7 +980,7 @@ const QUIZ_DATA = [
       { text: "$f(x) = \\lambda e^{-\\lambda x}$", rationale: "ポアソン過程において発生間隔が従う分布です。無記憶性を持つ唯一の連続型分布です。", isCorrect: true },
       { text: "$f(x) = e^{-\\lambda x}$", rationale: "係数 $\\lambda$ が抜けており、全区間で積分しても1になりません。", isCorrect: false },
       { text: "$f(x) = 1 - e^{-\\lambda x}$", rationale: "これは指数分布の「累積分布関数 $F(x)$」です。", isCorrect: false },
-      { text: "$f(x) = \\frac{1}, {\\lambda} e^{-\\frac{x}, {\\lambda}}$", rationale: "これは母数を $\\lambda$ ではなく $\\theta = \\frac{1}, {\\lambda}$ と置いた場合の式です。設問の定義とは異なります。", isCorrect: false },
+      { text: "$f(x) = \\frac{1}{\\lambda} e^{-\\frac{x}{\\lambda}}$", rationale: "これは母数を $\\lambda$ ではなく $\\theta = \\frac{1}{\\lambda}$ と置いた場合の式です。設問の定義とは異なります。", isCorrect: false },
     ]
   },
   {
@@ -998,10 +989,10 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "成功確率が $p$ の試行において、「初めて成功するまでの試行回数 $X$」が従う幾何分布の期待値 $E(X)$ はどれですか？",
     answerOptions: [
-      { text: "$\\frac{1}, {p}$", rationale: "例えばサイコロで1が出る確率が $\\frac{1}, {6}$ なら、平均 $6$ 回投げれば1が出ると期待されます。", isCorrect: true },
+      { text: "$\\frac{1}{p}$", rationale: "例えばサイコロで1が出る確率が $\\frac{1}{6}$ なら、平均 $6$ 回投げれば1が出ると期待されます。", isCorrect: true },
       { text: "$p$", rationale: "確率そのものであり、試行回数の期待値ではありません。", isCorrect: false },
       { text: "$1 - p$", rationale: "これは「1回目に失敗する確率」です。", isCorrect: false },
-      { text: "$\\frac{1-p}, {p^2}$", rationale: "これは幾何分布の「分散 $V(X)$」です。", isCorrect: false },
+      { text: "$\\frac{1-p}{p^2}$", rationale: "これは幾何分布の「分散 $V(X)$」です。", isCorrect: false },
     ]
   },
   {
@@ -1010,10 +1001,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ が未知の正規母集団から得たサイズ $n$ の標本（不偏分散 $s^2$）を用いた母分散の $95\\%$ 信頼区間はどれですか？（$\\chi^2$ は自由度 $n-1$ のカイ二乗分布のパーセント点）",
     answerOptions: [
-      { text: "$\\left[ \\frac{(n-1)s^2}, {\\chi^2_{0.025}}, \\frac{(n-1)s^2}, {\\chi^2_{0.975}} \\right]$", rationale: "統計量 $\\frac{(n-1)s^2}, {\\sigma^2}$ がカイ二乗分布に従うことを利用します。分母が大きいほど値は小さくなるため注意が必要です。", isCorrect: true },
-      { text: "$\\left[ \\frac{\\chi^2_{0.975}}, {(n-1)s^2}, \\frac{\\chi^2_{0.025}}, {(n-1)s^2} \\right]$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$s^2 \\pm t_{0.025} \\frac{s}, {\\sqrt{n}}$", rationale: "これは「母平均」の信頼区間の式に似ていますが、分散の区間推定には使えません。", isCorrect: false },
-      { text: "$s^2 \\pm 1.96 \\frac{s^2}, {n}$", rationale: "分散の区間推定は正規分布（1.96）ではなくカイ二乗分布を用います。", isCorrect: false },
+      { text: "$\\left[ \\frac{(n-1)s^2}{\\chi^2_{0.025}}, \\frac{(n-1)s^2}{\\chi^2_{0.975}} \\right]$", rationale: "統計量 $\\frac{(n-1)s^2}{\\sigma^2}$ がカイ二乗分布に従うことを利用します。分母が大きいほど値は小さくなるため注意が必要です。", isCorrect: true },
+      { text: "$\\left[ \\frac{\\chi^2_{0.975}}{(n-1)s^2}, \\frac{\\chi^2_{0.025}}{(n-1)s^2} \\right]$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$s^2 \\pm t_{0.025} \\frac{s}{\\sqrt{n}}$", rationale: "これは「母平均」の信頼区間の式に似ていますが、分散の区間推定には使えません。", isCorrect: false },
+      { text: "$s^2 \\pm 1.96 \\frac{s^2}{n}$", rationale: "分散の区間推定は正規分布（1.96）ではなくカイ二乗分布を用います。", isCorrect: false },
     ]
   },
   {
@@ -1022,10 +1013,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "重回帰分析において、説明変数の数 $k$ とサンプルサイズ $n$ を考慮して過大評価を補正した「自由度調整済み決定係数 $R^{*2}$」と、通常の決定係数 $R^2$ との関係式はどれですか？",
     answerOptions: [
-      { text: "$R^{*2} = 1 - \\frac{n-1}, {n-k-1} (1 - R^2)$", rationale: "定義式 $R^{*2} = 1 - \\frac{\\sum(\\text{残差})^2 / (n-k-1)}, {\\sum(\\text{偏差})^2 / (n-1)}$ に、通常の決定係数の関係式 $1-R^2 = \\frac{\\sum(\\text{残差})^2}, {\\sum(\\text{偏差})^2}$ を代入することで導かれます。説明変数を増やすとペナルティがかかり、$R^{*2} \\le R^2$ となります。", isCorrect: true },
-      { text: "$R^{*2} = 1 - \\frac{n-k-1}, {n-1} (1 - R^2)$", rationale: "分母と分子（自由度）が逆になっています。これでは説明変数を増やしたときに $R^{*2}$ が $R^2$ より大きくなってしまい、ペナルティとして機能しません。", isCorrect: false },
-      { text: "$R^{*2} = \\frac{n-k-1}, {n-1} R^2$", rationale: "残差の割合（$1 - R^2$）に対して自由度調整を行うため、この式は誤りです。", isCorrect: false },
-      { text: "$R^{*2} = R^2 - \\frac{k}, {n}$", rationale: "このような単純な引き算による補正ではありません。", isCorrect: false },
+      { text: "$R^{*2} = 1 - \\frac{n-1}{n-k-1} (1 - R^2)$", rationale: "定義式 $R^{*2} = 1 - \\frac{\\sum(\\text{残差})^2 / (n-k-1)}{\\sum(\\text{偏差})^2 / (n-1)}$ に、通常の決定係数の関係式 $1-R^2 = \\frac{\\sum(\\text{残差})^2}{\\sum(\\text{偏差})^2}$ を代入することで導かれます。説明変数を増やすとペナルティがかかり、$R^{*2} \\le R^2$ となります。", isCorrect: true },
+      { text: "$R^{*2} = 1 - \\frac{n-k-1}{n-1} (1 - R^2)$", rationale: "分母と分子（自由度）が逆になっています。これでは説明変数を増やしたときに $R^{*2}$ が $R^2$ より大きくなってしまい、ペナルティとして機能しません。", isCorrect: false },
+      { text: "$R^{*2} = \\frac{n-k-1}{n-1} R^2$", rationale: "残差の割合（$1 - R^2$）に対して自由度調整を行うため、この式は誤りです。", isCorrect: false },
+      { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "このような単純な引き算による補正ではありません。", isCorrect: false },
     ]
   },
   {
@@ -1046,9 +1037,9 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散が等しいと仮定できる2つの独立な正規母集団からの標本（サイズ $n_1, n_2$、標本不偏分散 $s_1^2, s_2^2$）を用いて、共通の母分散を推定する「プールされた分散 $s^2$」の式はどれですか？",
     answerOptions: [
-      { text: "$s^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}, {n_1 + n_2 - 2}$", rationale: "それぞれの偏差平方和を足し合わせ、全体の自由度 $(n_1-1) + (n_2-1)$ で割ったものです。", isCorrect: true },
-      { text: "$s^2 = \\frac{s_1^2 + s_2^2}, {2}$", rationale: "標本サイズが異なる場合、単純な平均では偏りが生じます。", isCorrect: false },
-      { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}, {n_1 + n_2}$", rationale: "不偏推定値にするためには、分母は自由度 $n_1 + n_2 - 2$ でなければなりません。", isCorrect: false },
+      { text: "$s^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}$", rationale: "それぞれの偏差平方和を足し合わせ、全体の自由度 $(n_1-1) + (n_2-1)$ で割ったものです。", isCorrect: true },
+      { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "標本サイズが異なる場合、単純な平均では偏りが生じます。", isCorrect: false },
+      { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "不偏推定値にするためには、分母は自由度 $n_1 + n_2 - 2$ でなければなりません。", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "分散を足し合わせただけでは、プールされた分散にはなりません。", isCorrect: false },
     ]
   },
@@ -1058,10 +1049,10 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "確率変数 $X$ が平均 $\\lambda$ のポアソン分布に従うとき、$X$ がちょうど $k$ 回発生する確率 $P(X=k)$ を表す式（確率関数）はどれですか？",
     answerOptions: [
-      { text: "$P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}, {k!}$", rationale: "二項分布において $n \\to \\infty, p \\to 0$ （$np=\\lambda$は一定）とした極限として導かれます。", isCorrect: true },
+      { text: "$P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}{k!}$", rationale: "二項分布において $n \\to \\infty, p \\to 0$ （$np=\\lambda$は一定）とした極限として導かれます。", isCorrect: true },
       { text: "$P(X=k) = \\lambda^k e^{-\\lambda}$", rationale: "分母の $k!$ が抜けています。これでは全確率の和が $1$ になりません。", isCorrect: false },
-      { text: "$P(X=k) = \\binom{n}, {k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "これは二項分布の確率関数の形です。", isCorrect: false },
-      { text: "$P(X=k) = \\frac{\\lambda e^{-k}}, {k!}$", rationale: "指数の肩は $-\\lambda$ であり、底は $e$ です。", isCorrect: false },
+      { text: "$P(X=k) = \\binom{n}{k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "これは二項分布の確率関数の形です。", isCorrect: false },
+      { text: "$P(X=k) = \\frac{\\lambda e^{-k}}{k!}$", rationale: "指数の肩は $-\\lambda$ であり、底は $e$ です。", isCorrect: false },
     ]
   },
   {
@@ -1094,10 +1085,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "クロス集計表などで、観測度数を $O_i$、期待度数を $E_i$ とするとき、ピアソンの適合度検定や独立性の検定で用いられるカイ二乗統計量 $\\chi^2$ の計算式はどれですか？",
     answerOptions: [
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}, {E_i}$", rationale: "観測値と期待値のズレの2乗を、期待値で割って足し合わせたものがカイ二乗分布に従います。", isCorrect: true },
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}, {O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
+      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値のズレの2乗を、期待値で割って足し合わせたものがカイ二乗分布に従います。", isCorrect: true },
+      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
       { text: "$\\chi^2 = \\sum (O_i - E_i)^2$", rationale: "期待度数で割って標準化しないと、元々の度数の大きさに依存してしまいます。", isCorrect: false },
-      { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}, {E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
+      { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
     ]
   },
   {
@@ -1116,7 +1107,7 @@ const QUIZ_DATA = [
     id: 97,
     isFormula: 0,
     category: "記述統計・基礎",
-    question: "平均値が異なる集団間でデータの散らばり具合（相対的なばらつき）を比較するために用いられる、標準偏差 $s$ を平均値 $\\bar{x}$ で割った指標（ $CV = \\frac{s}, {\\bar{x}}$ ）は何ですか？",
+    question: "平均値が異なる集団間でデータの散らばり具合（相対的なばらつき）を比較するために用いられる、標準偏差 $s$ を平均値 $\\bar{x}$ で割った指標（ $CV = \\frac{s}{\\bar{x}}$ ）は何ですか？",
     answerOptions: [
       { text: "変動係数", rationale: "単位を持たない無次元量となり、例えば「ゾウの体重」と「ネズミの体重」のばらつきを直接比較できます。", isCorrect: true },
       { text: "尖度", rationale: "尖度（Kurtosis）は分布の「尖り具合」を示す指標です。", isCorrect: false },
@@ -1140,12 +1131,12 @@ const QUIZ_DATA = [
     id: 100,
     isFormula: 1,
     category: "推測統計",
-    question: "母比率 $p$ の二項分布 $B(n, p)$ において、標本サイズ $n$ が十分に大きいとき、標本比率 $\\hat{p} = \\frac{X}, {n}$ は近似的に正規分布に従います。このとき、$\\hat{p}$ の分散 $V(\\hat{p})$ はどの式で表されますか？",
+    question: "母比率 $p$ の二項分布 $B(n, p)$ において、標本サイズ $n$ が十分に大きいとき、標本比率 $\\hat{p} = \\frac{X}{n}$ は近似的に正規分布に従います。このとき、$\\hat{p}$ の分散 $V(\\hat{p})$ はどの式で表されますか？",
     answerOptions: [
-      { text: "$\\frac{p(1-p)}, {n}$", rationale: "$V(X) = np(1-p)$ であり、$V(X/n) = \\frac{V(X)}, {n^2}$ となるためこの式になります。", isCorrect: true },
+      { text: "$\\frac{p(1-p)}{n}$", rationale: "$V(X) = np(1-p)$ であり、$V(X/n) = \\frac{V(X)}{n^2}$ となるためこの式になります。", isCorrect: true },
       { text: "$np(1-p)$", rationale: "これは成功回数 $X$ の分散です。", isCorrect: false },
-      { text: "$\\frac{p(1-p)}, {n^2}$", rationale: "分母は $n$ です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{p(1-p)}, {n}}$", rationale: "これは分散ではなく「標準偏差（標準誤差）」です。", isCorrect: false },
+      { text: "$\\frac{p(1-p)}{n^2}$", rationale: "分母は $n$ です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "これは分散ではなく「標準偏差（標準誤差）」です。", isCorrect: false },
     ]
   },
   {
@@ -1334,10 +1325,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "データ $x_1, x_2, \\dots, x_n$ （標本平均を $\\bar{x}$ とする）から計算される「不偏分散 $s^2$」の正しい公式はどれですか？",
     answerOptions: [
-      { text: "$s^2 = \\frac{1}, {n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$", rationale: "母分散を過小評価しないように、データ数 $n$ ではなく自由度 $n-1$ で割ったものが不偏分散です。", isCorrect: true },
-      { text: "$s^2 = \\frac{1}, {n} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$", rationale: "これは標本分散（データそのものの分散）の公式です。", isCorrect: false },
-      { text: "$s^2 = \\sqrt{\\frac{1}, {n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$", rationale: "これは不偏分散の平方根であり、標本標準偏差にあたります。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}, {n-1} \\left( \\sum_{i=1}^{n} x_i^2 - \\bar{x}^2 \\right)$", rationale: "式が誤っています。正しくは $\\frac{1}, {n-1}(\\sum x_i^2 - n\\bar{x}^2)$ 等になります。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$", rationale: "母分散を過小評価しないように、データ数 $n$ ではなく自由度 $n-1$ で割ったものが不偏分散です。", isCorrect: true },
+      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$", rationale: "これは標本分散（データそのものの分散）の公式です。", isCorrect: false },
+      { text: "$s^2 = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$", rationale: "これは不偏分散の平方根であり、標本標準偏差にあたります。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-1} \\left( \\sum_{i=1}^{n} x_i^2 - \\bar{x}^2 \\right)$", rationale: "式が誤っています。正しくは $\\frac{1}{n-1}(\\sum x_i^2 - n\\bar{x}^2)$ 等になります。", isCorrect: false },
     ]
   },
   {
@@ -1346,10 +1337,10 @@ const QUIZ_DATA = [
     category: "確率",
     question: "事象 $A$ と事象 $B$ についての「ベイズの定理」を表す公式はどれですか？",
     answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A) P(A)}, {P(B)}$", rationale: "事前確率 $P(A)$ に尤度 $P(B|A)$ を掛け、周辺確率 $P(B)$ で割ることで事後確率 $P(A|B)$ を求めます。", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A \\cap B)}, {P(A)}$", rationale: "分母が $P(B)$ であるべきです。", isCorrect: false },
+      { text: "$P(A|B) = \\frac{P(B|A) P(A)}{P(B)}$", rationale: "事前確率 $P(A)$ に尤度 $P(B|A)$ を掛け、周辺確率 $P(B)$ で割ることで事後確率 $P(A|B)$ を求めます。", isCorrect: true },
+      { text: "$P(A|B) = \\frac{P(A \\cap B)}{P(A)}$", rationale: "分母が $P(B)$ であるべきです。", isCorrect: false },
       { text: "$P(A|B) = P(B|A) \\times P(A)$", rationale: "分母の $P(B)$ が抜けています。", isCorrect: false },
-      { text: "$P(A|B) = \\frac{P(A) P(B)}, {P(B|A)}$", rationale: "分子と分母の構成が間違っています。", isCorrect: false },
+      { text: "$P(A|B) = \\frac{P(A) P(B)}{P(B|A)}$", rationale: "分子と分母の構成が間違っています。", isCorrect: false },
     ]
   },
   {
@@ -1370,9 +1361,9 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "ピアソンの積率相関係数 $r$ を、2変数 $X, Y$ の共分散 $Cov(X,Y)$ とそれぞれの標準偏差 $\\sigma_X, \\sigma_Y$ を用いて表した公式はどれですか？",
     answerOptions: [
-      { text: "$r = \\frac{Cov(X,Y)}, {\\sigma_X \\sigma_Y}$", rationale: "共分散をそれぞれの標準偏差の積で割ることで、$-1 \\le r \\le 1$ の範囲に標準化します。", isCorrect: true },
-      { text: "$r = \\frac{Cov(X,Y)}, {\\sigma_X^2 \\sigma_Y^2}$", rationale: "分母は分散の積ではなく標準偏差の積です。", isCorrect: false },
-      { text: "$r = \\frac{\\sigma_X \\sigma_Y}, {Cov(X,Y)}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$r = \\frac{Cov(X,Y)}{\\sigma_X \\sigma_Y}$", rationale: "共分散をそれぞれの標準偏差の積で割ることで、$-1 \\le r \\le 1$ の範囲に標準化します。", isCorrect: true },
+      { text: "$r = \\frac{Cov(X,Y)}{\\sigma_X^2 \\sigma_Y^2}$", rationale: "分母は分散の積ではなく標準偏差の積です。", isCorrect: false },
+      { text: "$r = \\frac{\\sigma_X \\sigma_Y}{Cov(X,Y)}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$r = Cov(X,Y) - (\\sigma_X \\times \\sigma_Y)$", rationale: "引き算ではありません。", isCorrect: false },
     ]
   },
@@ -1383,8 +1374,8 @@ const QUIZ_DATA = [
     question: "成功確率 $p$ の独立な試行を繰り返すとき、「初めて成功するまでに行う試行回数 $x$」が従う「幾何分布」の確率関数はどれですか？（$x = 1, 2, 3, \\dots$）",
     answerOptions: [
       { text: "$P(X=x) = (1-p)^{x-1} p$", rationale: "$x-1$ 回目まで連続して失敗し、$x$ 回目に初めて成功する確率を表しています。", isCorrect: true },
-      { text: "$P(X=x) = \\binom{n}, {x} p^x (1-p)^{n-x}$", rationale: "これは「二項分布」の確率関数です。", isCorrect: false },
-      { text: "$P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "これは「ポアソン分布」の確率関数です。", isCorrect: false },
+      { text: "$P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$", rationale: "これは「二項分布」の確率関数です。", isCorrect: false },
+      { text: "$P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これは「ポアソン分布」の確率関数です。", isCorrect: false },
       { text: "$P(X=x) = p^{x-1} (1-p)$", rationale: "成功と失敗の確率が逆になっています。", isCorrect: false },
     ]
   },
@@ -1406,9 +1397,9 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "平均 $\\mu$、分散 $\\sigma^2$ の正規分布 $N(\\mu, \\sigma^2)$ に従う確率変数 $X$ を、標準正規分布 $N(0, 1)$ に変換する「標準化（Z変換）」の数式はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{X - \\mu}, {\\sigma}$", rationale: "平均を引いて標準偏差で割ることで、平均0、分散1のデータに変換します。", isCorrect: true },
-      { text: "$Z = \\frac{X - \\mu}, {\\sigma^2}$", rationale: "分母は分散ではなく標準偏差です。", isCorrect: false },
-      { text: "$Z = \\frac{X}, {\\sigma} - \\mu$", rationale: "引く順番と割る順番が違います。", isCorrect: false },
+      { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "平均を引いて標準偏差で割ることで、平均0、分散1のデータに変換します。", isCorrect: true },
+      { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分母は分散ではなく標準偏差です。", isCorrect: false },
+      { text: "$Z = \\frac{X}{\\sigma} - \\mu$", rationale: "引く順番と割る順番が違います。", isCorrect: false },
       { text: "$Z = (X - \\mu) \\sigma$", rationale: "割るのではなく掛けてしまっています。", isCorrect: false },
     ]
   },
@@ -1418,8 +1409,8 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母平均の区間推定において、信頼水準を変えずに「信頼区間の幅を現在の半分」にしたい場合、サンプルサイズは元の何倍にする必要がありますか？（母分散は既知とする）",
     answerOptions: [
-      { text: "4倍", rationale: "信頼区間の幅は標準誤差 $\\frac{\\sigma}, {\\sqrt{n}}$ に比例します。幅を $\\frac{1}, {2}$ にするためには、分母の $\\sqrt{n}$ が2倍になる必要があり、サンプルサイズ $n$ は $2^2 = 4$ 倍にする必要があります。", isCorrect: true },
-      { text: "2倍", rationale: "サンプルサイズを2倍にしても、幅は $\\frac{1}, {\\sqrt{2}} \\approx 0.71$ 倍にしかなりません。", isCorrect: false },
+      { text: "4倍", rationale: "信頼区間の幅は標準誤差 $\\frac{\\sigma}{\\sqrt{n}}$ に比例します。幅を $\\frac{1}{2}$ にするためには、分母の $\\sqrt{n}$ が2倍になる必要があり、サンプルサイズ $n$ は $2^2 = 4$ 倍にする必要があります。", isCorrect: true },
+      { text: "2倍", rationale: "サンプルサイズを2倍にしても、幅は $\\frac{1}{\\sqrt{2}} \\approx 0.71$ 倍にしかなりません。", isCorrect: false },
       { text: "1/2倍", rationale: "サンプルサイズを減らすと、逆に信頼区間の幅は広くなってしまいます。", isCorrect: false },
       { text: "1/4倍", rationale: "サンプルサイズを減らすと幅は広くなります。", isCorrect: false },
     ]
@@ -1430,10 +1421,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ が既知である正規母集団から抽出したサイズ $n$ の標本（標本平均 $\\bar{x}$）を用いた、「母平均 $\\mu$ の $95\\%$ 信頼区間」の公式はどれですか？（$Z_{0.025} = 1.96$ とする）",
     answerOptions: [
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}, {\\sqrt{n}}$", rationale: "母分散が既知なので標準正規分布を用い、標準誤差は $\\frac{\\sigma}, {\\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}, {n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}, {\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}, {n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知なので標準正規分布を用い、標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
+      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
     ]
   },
   {
@@ -1442,22 +1433,22 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "大標本（標本サイズ $n$、標本比率 $\\hat{p}$）に基づく「母比率 $p$ の $95\\%$ 信頼区間」を近似的に求める公式はどれですか？（$Z_{0.025} = 1.96$ とする）",
     answerOptions: [
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "標本比率 $\\hat{p}$ の分散が $\\frac{\\hat{p}(1-\\hat{p})}, {n}$ で推定できることを利用した中心極限定理による近似です。", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}, {n}$", rationale: "ルートが抜けています。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}, {n}}$", rationale: "分子に $(1-\\hat{p})$ が抜けています。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}, {n}}$", rationale: "分子が1ではなく $\\hat{p}(1-\\hat{p})$ です。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "標本比率 $\\hat{p}$ の分散が $\\frac{\\hat{p}(1-\\hat{p})}{n}$ で推定できることを利用した中心極限定理による近似です。", isCorrect: true },
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートが抜けています。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "分子に $(1-\\hat{p})$ が抜けています。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "分子が1ではなく $\\hat{p}(1-\\hat{p})$ です。", isCorrect: false },
     ]
   },
   {
     id: 127,
     isFormula: 1,
     category: "推測統計",
-    question: "2つの独立な正規母集団からの標本（サイズ $n_1, n_2$、不偏分散 $s_1^2, s_2^2$）を用いた「母分散の比 $\\frac{\\sigma_1^2}, {\\sigma_2^2}$」の $95\\%$ 信頼区間の公式はどれですか？（$F_{L}$ と $F_{U}$ を適切なF分布のパーセント点とする）",
+    question: "2つの独立な正規母集団からの標本（サイズ $n_1, n_2$、不偏分散 $s_1^2, s_2^2$）を用いた「母分散の比 $\\frac{\\sigma_1^2}{\\sigma_2^2}$」の $95\\%$ 信頼区間の公式はどれですか？（$F_{L}$ と $F_{U}$ を適切なF分布のパーセント点とする）",
     answerOptions: [
-      { text: "$F_{1-\\alpha/2}(n_1-1, n_2-1) \\times \\frac{s_2^2}, {s_1^2} \\le \\frac{\\sigma_2^2}, {\\sigma_1^2} \\le F_{\\alpha/2}(n_1-1, n_2-1) \\times \\frac{s_2^2}, {s_1^2}$", rationale: "統計量 $(s_1^2 / \\sigma_1^2) / (s_2^2 / \\sigma_2^2)$ がF分布に従うことを利用して導出されます。", isCorrect: true },
-      { text: "$\\frac{s_1^2}, {s_2^2} \\pm F_{0.025} \\sqrt{\\frac{1}, {n_1} + \\frac{1}, {n_2}}$", rationale: "分散の比の信頼区間は足し算・引き算ではなく、掛け算・割り算の形になります。", isCorrect: false },
+      { text: "$F_{1-\\alpha/2}(n_1-1, n_2-1) \\times \\frac{s_2^2}{s_1^2} \\le \\frac{\\sigma_2^2}{\\sigma_1^2} \\le F_{\\alpha/2}(n_1-1, n_2-1) \\times \\frac{s_2^2}{s_1^2}$", rationale: "統計量 $(s_1^2 / \\sigma_1^2) / (s_2^2 / \\sigma_2^2)$ がF分布に従うことを利用して導出されます。", isCorrect: true },
+      { text: "$\\frac{s_1^2}{s_2^2} \\pm F_{0.025} \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "分散の比の信頼区間は足し算・引き算ではなく、掛け算・割り算の形になります。", isCorrect: false },
       { text: "$\\left[ s_1^2 F_L, s_2^2 F_U \\right]$", rationale: "不偏分散の比の形になっていません。", isCorrect: false },
-      { text: "$\\left[ \\frac{s_1 - s_2}, {F_U}, \\frac{s_1 - s_2}, {F_L} \\right]$", rationale: "標準偏差の差ではなく、分散の比を用います。", isCorrect: false },
+      { text: "$\\left[ \\frac{s_1 - s_2}{F_U}, \\frac{s_1 - s_2}{F_L} \\right]$", rationale: "標準偏差の差ではなく、分散の比を用います。", isCorrect: false },
     ]
   },
   {
@@ -1466,9 +1457,9 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "単回帰分析 $y = \\beta_0 + \\beta_1 x + \\epsilon$ において、最小二乗法による回帰係数（傾き） $\\hat{\\beta}_1$ の推定量を示す式はどれですか？（$S_{xy}$ は共分散の分子にあたる偏差積和、$S_{xx}$ は $x$ の偏差平方和）",
     answerOptions: [
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}, {S_{xx}}$", rationale: "相関係数 $r$ と標準偏差を用いて $\\hat{\\beta}_1 = r \\frac{s_y}, {s_x}$ と表すこともできます。", isCorrect: true },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}, {S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}, {S_{yy}}$", rationale: "分母は目的変数 $y$ の平方和ではなく、説明変数 $x$ の平方和です。", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "相関係数 $r$ と標準偏差を用いて $\\hat{\\beta}_1 = r \\frac{s_y}{s_x}$ と表すこともできます。", isCorrect: true },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{yy}}$", rationale: "分母は目的変数 $y$ の平方和ではなく、説明変数 $x$ の平方和です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "これは切片 $\\hat{\\beta}_0$ を求めるための式 $\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}$ が混ざった誤った式です。", isCorrect: false },
     ]
   },
@@ -1478,9 +1469,9 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "重回帰分析において、ある特定の偏回帰係数 $\\beta_j$ が「0である（有意ではない）」という帰無仮説を検定する際に用いられる $t$ 統計量の公式はどれですか？（$\\hat{\\beta}_j$ は推定値、$SE(\\hat{\\beta}_j)$ はその標準誤差とする）",
     answerOptions: [
-      { text: "$t = \\frac{\\hat{\\beta}_j}, {SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
-      { text: "$t = \\frac{SE(\\hat{\\beta}_j)}, {\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
-      { text: "$t = \\frac{\\hat{\\beta}_j^2}, {SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
+      { text: "$t = \\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
+      { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
       { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
     ]
   },
@@ -1490,9 +1481,9 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "ある確率分布において、期待値を $\\mu$、標準偏差を $\\sigma$ としたとき、「変動係数（CV）」を表す公式はどれですか？",
     answerOptions: [
-      { text: "$CV = \\frac{\\sigma}, {\\mu}$", rationale: "標準偏差を平均で割ることで、単位に依存しない相対的なデータのばらつきを比較できます。", isCorrect: true },
-      { text: "$CV = \\frac{\\mu}, {\\sigma}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$CV = \\frac{\\sigma^2}, {\\mu}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
+      { text: "$CV = \\frac{\\sigma}{\\mu}$", rationale: "標準偏差を平均で割ることで、単位に依存しない相対的なデータのばらつきを比較できます。", isCorrect: true },
+      { text: "$CV = \\frac{\\mu}{\\sigma}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$CV = \\frac{\\sigma^2}{\\mu}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
       { text: "$CV = \\sigma - \\mu$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
     ]
   },
@@ -1528,7 +1519,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "事象AとBが独立である場合、$P(A|B) = P(B)$ が成り立つ", rationale: "独立であれば、$P(A|B) = P(A)$ が成り立ちます。", isCorrect: true },
       { text: "事象AとBが独立である場合、$P(A \\cap B) = P(A)P(B)$ が成り立つ", rationale: "独立の定義として正しい式です。", isCorrect: false },
-      { text: "条件付き確率 $P(A|B)$ は $\\frac{P(A \\cap B)}, {P(B)}$ で定義される（$P(B)>0$）", rationale: "条件付き確率の定義として正しいです。", isCorrect: false },
+      { text: "条件付き確率 $P(A|B)$ は $\\frac{P(A \\cap B)}{P(B)}$ で定義される（$P(B)>0$）", rationale: "条件付き確率の定義として正しいです。", isCorrect: false },
       { text: "互いに排反な（共通部分がない）2つの事象が独立になるのは、少なくとも一方の確率が0の場合のみである", rationale: "排反の場合 $P(A \\cap B) = 0$ となり、独立（$P(A)P(B)=0$）となるにはどちらかの確率が0である必要があります。", isCorrect: false },
     ]
   },
@@ -1635,8 +1626,8 @@ const QUIZ_DATA = [
     question: "「連続一様分布」について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "正規分布と同じように、平均値の周辺にデータが最も集中して出現する", rationale: "一様分布は、区間内のどの値も「全く同じ確率密度」で発生するため、平均値の周辺に集中することはありません。", isCorrect: true },
-      { text: "区間 $[a, b]$ における確率密度関数は、$\\frac{1}, {b-a}$ の一定値をとる", rationale: "正しい確率密度関数の定義です。", isCorrect: false },
-      { text: "区間 $[a, b]$ における期待値（平均）は $\\frac{a+b}, {2}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
+      { text: "区間 $[a, b]$ における確率密度関数は、$\\frac{1}{b-a}$ の一定値をとる", rationale: "正しい確率密度関数の定義です。", isCorrect: false },
+      { text: "区間 $[a, b]$ における期待値（平均）は $\\frac{a+b}{2}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
       { text: "コンピュータの乱数生成（擬似乱数）の基礎としてよく用いられる", rationale: "正しい応用例です。", isCorrect: false },
     ]
   },
@@ -1648,7 +1639,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "事象が起きなかった時間が長ければ長いほど、次に事象が起きるまでの期待時間が短くなるという「記憶をもつ」性質がある", rationale: "指数分布は「無記憶性」を持ちます。これまでどれだけ待ったかにかかわらず、これから待つ時間の確率分布は常に同じです。", isCorrect: true },
       { text: "ランダムに発生する事象の「発生間隔（待ち時間）」をモデル化するためによく用いられる連続型確率分布である", rationale: "正しい用途です。", isCorrect: false },
-      { text: "単位時間あたりの平均発生回数を $\\lambda$ としたとき、期待値（平均待ち時間）は $\\frac{1}, {\\lambda}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
+      { text: "単位時間あたりの平均発生回数を $\\lambda$ としたとき、期待値（平均待ち時間）は $\\frac{1}{\\lambda}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
       { text: "ポアソン分布が「発生回数」を表すのに対し、指数分布はその「発生間隔」を表すという密接な関係がある", rationale: "ポアソン分布と指数分布の正しい関係性です。", isCorrect: false },
     ]
   },
@@ -1706,7 +1697,7 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "単回帰分析 $y = \\beta_0 + \\beta_1 x + \\epsilon$ について、**あてはまらない**ものはどれですか？",
     answerOptions: [
-      { text: "説明変数 $x$ と目的変数 $y$ を入れ替えて回帰分析を行っても、得られる回帰直線の傾き（回帰係数）は全く同じになる", rationale: "回帰係数 $\\hat{\\beta}_1$ は $r \\frac{S_y}, {S_x}$ です。xとyを入れ替えると $r \\frac{S_x}, {S_y}$ となるため、傾きは一般に異なります（相関係数 $r$ は同じです）。", isCorrect: true },
+      { text: "説明変数 $x$ と目的変数 $y$ を入れ替えて回帰分析を行っても、得られる回帰直線の傾き（回帰係数）は全く同じになる", rationale: "回帰係数 $\\hat{\\beta}_1$ は $r \\frac{S_y}{S_x}$ です。xとyを入れ替えると $r \\frac{S_x}{S_y}$ となるため、傾きは一般に異なります（相関係数 $r$ は同じです）。", isCorrect: true },
       { text: "最小二乗法による回帰直線は、必ず $x$ と $y$ それぞれの平均値の交点 $(\\bar{x}, \\bar{y})$ を通る", rationale: "正しい性質です。", isCorrect: false },
       { text: "目的変数 $y$ の分散のうち、説明変数 $x$ によって説明できる部分の割合を「決定係数 $R^2$」と呼ぶ", rationale: "正しい定義です。", isCorrect: false },
       { text: "単回帰分析における決定係数 $R^2$ は、$x$ と $y$ のピアソンの積率相関係数 $r$ の2乗に等しい", rationale: "正しい性質です。", isCorrect: false },
@@ -1802,10 +1793,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "データ数 $n$ の2つの変数 $X, Y$ に関する「標本共分散 $S_{xy}$」の定義式として正しいものはどれですか？（ただし、各変数の平均を $\\bar{x}, \\bar{y}$ とする）",
     answerOptions: [
-      { text: "$\\frac{1}, {n} \\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})$", rationale: "これが標本共分散の正しい定義式です。（※不偏共分散の場合は分母が $n-1$ になります）", isCorrect: true },
-      { text: "$\\frac{1}, {n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "平方の積を足すものではありません。", isCorrect: false },
-      { text: "$\\sum_{i=1}^n (x_i y_i) - \\bar{x}\\bar{y}$", rationale: "これは $\\frac{1}, {n} \\sum (x_i y_i) - \\bar{x}\\bar{y}$ ならば正しいですが、$\\frac{1}, {n}$ が抜けています。", isCorrect: false },
-      { text: "$\\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}, {\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}$", rationale: "これはピアソンの積率相関係数 $r$ の定義式です。", isCorrect: false },
+      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})(y_i - \\bar{y})$", rationale: "これが標本共分散の正しい定義式です。（※不偏共分散の場合は分母が $n-1$ になります）", isCorrect: true },
+      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "平方の積を足すものではありません。", isCorrect: false },
+      { text: "$\\sum_{i=1}^n (x_i y_i) - \\bar{x}\\bar{y}$", rationale: "これは $\\frac{1}{n} \\sum (x_i y_i) - \\bar{x}\\bar{y}$ ならば正しいですが、$\\frac{1}{n}$ が抜けています。", isCorrect: false },
+      { text: "$\\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}$", rationale: "これはピアソンの積率相関係数 $r$ の定義式です。", isCorrect: false },
     ]
   },
   {
@@ -1838,10 +1829,10 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "区間 $[a, b]$ における「連続一様分布」の分散 $V(X)$ を求める公式として正しいものはどれですか？",
     answerOptions: [
-      { text: "$\\frac{(b-a)^2}, {12}$", rationale: "連続一様分布の分散は $\\frac{(b-a)^2}, {12}$ となります。", isCorrect: true },
-      { text: "$\\frac{b-a}, {2}$", rationale: "これは「期待値（平均）」の公式 $\\frac{a+b}, {2}$ に似ていますが異なります。", isCorrect: false },
-      { text: "$\\frac{(b-a)^2}, {6}$", rationale: "分母は6ではなく12です。", isCorrect: false },
-      { text: "$\\frac{a+b}, {12}$", rationale: "区間の幅 $(b-a)$ の2乗が必要です。", isCorrect: false },
+      { text: "$\\frac{(b-a)^2}{12}$", rationale: "連続一様分布の分散は $\\frac{(b-a)^2}{12}$ となります。", isCorrect: true },
+      { text: "$\\frac{b-a}{2}$", rationale: "これは「期待値（平均）」の公式 $\\frac{a+b}{2}$ に似ていますが異なります。", isCorrect: false },
+      { text: "$\\frac{(b-a)^2}{6}$", rationale: "分母は6ではなく12です。", isCorrect: false },
+      { text: "$\\frac{a+b}{12}$", rationale: "区間の幅 $(b-a)$ の2乗が必要です。", isCorrect: false },
     ]
   },
   {
@@ -1853,7 +1844,7 @@ const QUIZ_DATA = [
       { text: "$np(1-p)$", rationale: "二項分布の分散は $np(1-p)$ または $npq$ と表されます。", isCorrect: true },
       { text: "$np$", rationale: "これは二項分布の「期待値 $E(X)$」の公式です。", isCorrect: false },
       { text: "$\\sqrt{np(1-p)}$", rationale: "これは分散ではなく「標準偏差」の公式です。", isCorrect: false },
-      { text: "$\\frac{p(1-p)}, {n}$", rationale: "これは「標本比率の分散」の公式です。", isCorrect: false },
+      { text: "$\\frac{p(1-p)}{n}$", rationale: "これは「標本比率の分散」の公式です。", isCorrect: false },
     ]
   },
   {
@@ -1862,10 +1853,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ が既知の正規母集団から抽出したサンプルサイズ $n$ の標本平均を $\\bar{x}$ としたとき、母平均の検定（帰無仮説 $\\mu = \\mu_0$）で用いる検定統計量 $Z$ はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma / \\sqrt{n}}$", rationale: "標準化の公式です。標本平均の標準誤差は $\\frac{\\sigma}, {\\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma}$", rationale: "分母が標準誤差 $\\frac{\\sigma}, {\\sqrt{n}}$ ではなく母標準偏差 $\\sigma$ になってしまっています。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {s / \\sqrt{n}}$", rationale: "これは母分散が「未知」のときに不偏標準偏差 $s$ を用いる「t検定」の統計量です。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}, {\\sigma^2 / n}$", rationale: "これは「母分散」の検定に用いるカイ二乗検定の統計量です。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "標準化の公式です。標本平均の標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母が標準誤差 $\\frac{\\sigma}{\\sqrt{n}}$ ではなく母標準偏差 $\\sigma$ になってしまっています。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは母分散が「未知」のときに不偏標準偏差 $s$ を用いる「t検定」の統計量です。", isCorrect: false },
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "これは「母分散」の検定に用いるカイ二乗検定の統計量です。", isCorrect: false },
     ]
   },
   {
@@ -1874,10 +1865,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "「対応のある2群の平均の差のt検定」において、各ペアの差を $d_i$、差の標本平均を $\\bar{d}$、差の不偏標準偏差を $s_d$、サンプルサイズを $n$ とした場合の検定統計量 $t$ はどれですか？",
     answerOptions: [
-      { text: "$t = \\frac{\\bar{d}}, {s_d / \\sqrt{n}}$", rationale: "帰無仮説は「差の母平均が0」なので、$t = \\frac{\\bar{d} - 0}, {s_d / \\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$t = \\frac{\\bar{x}_1 - \\bar{x}_2}, {\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "これは「対応のない（独立な）2群」の等分散を仮定したt検定の統計量です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}, {s_d / n}$", rationale: "標準誤差の分母は $n$ ではなく $\\sqrt{n}$ です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}, {\\sigma_d / \\sqrt{n}}$", rationale: "母分散 $\\sigma_d^2$ は未知であるため、不偏標準偏差 $s_d$ を用いる必要があります。", isCorrect: false },
+      { text: "$t = \\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "帰無仮説は「差の母平均が0」なので、$t = \\frac{\\bar{d} - 0}{s_d / \\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "これは「対応のない（独立な）2群」の等分散を仮定したt検定の統計量です。", isCorrect: false },
+      { text: "$t = \\frac{\\bar{d}}{s_d / n}$", rationale: "標準誤差の分母は $n$ ではなく $\\sqrt{n}$ です。", isCorrect: false },
+      { text: "$t = \\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "母分散 $\\sigma_d^2$ は未知であるため、不偏標準偏差 $s_d$ を用いる必要があります。", isCorrect: false },
     ]
   },
   {
@@ -1886,10 +1877,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母比率 $p$ の区間推定を行う際、信頼水準に基づく $Z$ 値を $Z_{\\alpha/2}$、許容したい最大の誤差（信頼区間の半分の幅）を $E$ とした場合、必要なサンプルサイズ $n$ を逆算する公式はどれですか？",
     answerOptions: [
-      { text: "$n = \\left(\\frac{Z_{\\alpha/2}}, {E}\\right)^2 p(1-p)$", rationale: "誤差 $E = Z_{\\alpha/2} \\sqrt{\\frac{p(1-p)}, {n}}$ を $n$ について解いた正しい公式です。", isCorrect: true },
-      { text: "$n = \\frac{Z_{\\alpha/2} p(1-p)}, {E^2}$", rationale: "$Z_{\\alpha/2}$ も2乗される必要があります。", isCorrect: false },
-      { text: "$n = \\left(\\frac{E}, {Z_{\\alpha/2}}\\right)^2 p(1-p)$", rationale: "$E$ と $Z_{\\alpha/2}$ の分母分子が逆になっています。", isCorrect: false },
-      { text: "$n = \\left(\\frac{Z_{\\alpha/2}}, {E}\\right) \\sqrt{p(1-p)}$", rationale: "$n$ を求めるには式全体を2乗する必要があります。", isCorrect: false },
+      { text: "$n = \\left(\\frac{Z_{\\alpha/2}}{E}\\right)^2 p(1-p)$", rationale: "誤差 $E = Z_{\\alpha/2} \\sqrt{\\frac{p(1-p)}{n}}$ を $n$ について解いた正しい公式です。", isCorrect: true },
+      { text: "$n = \\frac{Z_{\\alpha/2} p(1-p)}{E^2}$", rationale: "$Z_{\\alpha/2}$ も2乗される必要があります。", isCorrect: false },
+      { text: "$n = \\left(\\frac{E}{Z_{\\alpha/2}}\\right)^2 p(1-p)$", rationale: "$E$ と $Z_{\\alpha/2}$ の分母分子が逆になっています。", isCorrect: false },
+      { text: "$n = \\left(\\frac{Z_{\\alpha/2}}{E}\\right) \\sqrt{p(1-p)}$", rationale: "$n$ を求めるには式全体を2乗する必要があります。", isCorrect: false },
     ]
   },
   {
@@ -1898,10 +1889,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "単回帰分析 $y = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$ において、切片 $\\hat{\\beta}_0$ を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散または偏差積和、$S_{xx}$ は $x$ の分散または偏差平方和を表す）",
     answerOptions: [
-      { text: "$\\hat{\\beta}_0 = \\bar{y} - \\frac{S_{xy}}, {S_{xx}} \\bar{x}$", rationale: "回帰係数（傾き）は $\\frac{S_{xy}}, {S_{xx}}$ で求められます。回帰直線は必ず平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\frac{S_{xy}}, {S_{xx}} \\bar{x}$ を変形して切片を求めます。", isCorrect: true },
-      { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}, {S_{xx}} \\bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
-      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}, {S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
-      { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}, {S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
+      { text: "$\\hat{\\beta}_0 = \\bar{y} - \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "回帰係数（傾き）は $\\frac{S_{xy}}{S_{xx}}$ で求められます。回帰直線は必ず平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\frac{S_{xy}}{S_{xx}} \\bar{x}$ を変形して切片を求めます。", isCorrect: true },
+      { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
+      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}{S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
+      { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
     ]
   },
   {
@@ -1910,10 +1901,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "サンプルサイズ $n$、説明変数の数 $k$ の重回帰分析において、残差平方和を $SSE$ としたとき、誤差項の分散 $\\sigma^2$ の不偏推定量 $\\hat{\\sigma}^2$ の公式はどれですか？",
     answerOptions: [
-      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}, {n - k - 1}$", rationale: "残差の自由度は サンプルサイズ $n$ から推定するパラメータの数 $(k+1)$ を引いた $n-k-1$ となります。", isCorrect: true },
-      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}, {n - 1}$", rationale: "これは説明変数がない単なる「不偏分散」の自由度です。", isCorrect: false },
-      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}, {n - k}$", rationale: "切片の分の自由度 $(-1)$ が引かれていません。", isCorrect: false },
-      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}, {n}$", rationale: "標本分散と同じで、自由度の調整が行われておらず不偏推定量になりません。", isCorrect: false },
+      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - k - 1}$", rationale: "残差の自由度は サンプルサイズ $n$ から推定するパラメータの数 $(k+1)$ を引いた $n-k-1$ となります。", isCorrect: true },
+      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - 1}$", rationale: "これは説明変数がない単なる「不偏分散」の自由度です。", isCorrect: false },
+      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - k}$", rationale: "切片の分の自由度 $(-1)$ が引かれていません。", isCorrect: false },
+      { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n}$", rationale: "標本分散と同じで、自由度の調整が行われておらず不偏推定量になりません。", isCorrect: false },
     ]
   },
   {
@@ -1922,8 +1913,8 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "分布の非対称性を表す「歪度（Skewness）」のベースとなる考え方を示す、期待値を用いた定義式（3次の標準化モーメント）はどれですか？",
     answerOptions: [
-      { text: "$E\\left[ \\left( \\frac{X-\\mu}, {\\sigma} \\right)^3 \\right]$", rationale: "歪度は標準化した確率変数の「3乗」の期待値として定義されます。", isCorrect: true },
-      { text: "$E\\left[ \\left( \\frac{X-\\mu}, {\\sigma} \\right)^4 \\right]$", rationale: "標準化した変数の「4乗」の期待値は、分布の尖り具合を示す「尖度（Kurtosis）」です。", isCorrect: false },
+      { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^3 \\right]$", rationale: "歪度は標準化した確率変数の「3乗」の期待値として定義されます。", isCorrect: true },
+      { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^4 \\right]$", rationale: "標準化した変数の「4乗」の期待値は、分布の尖り具合を示す「尖度（Kurtosis）」です。", isCorrect: false },
       { text: "$E\\left[ (X-\\mu)^2 \\right]$", rationale: "これは「分散（2次の中心モーメント）」の定義式です。", isCorrect: false },
       { text: "$\\sqrt{E\\left[ (X-\\mu)^2 \\right]}$", rationale: "これは「標準偏差」の定義式です。", isCorrect: false },
     ]
@@ -1946,10 +1937,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "測定単位が異なるデータ同士の「相対的なばらつき」を比較するために用いる「変動係数（CV）」の定義式として正しいものはどれですか？（標本平均を $\\bar{x}$、標本標準偏差を $s$ とする）",
     answerOptions: [
-      { text: "$CV = \\frac{s}, {\\bar{x}}$", rationale: "変動係数は標準偏差を平均値で割った無次元量であり、データのスケールに依存せずにばらつきを評価できます。", isCorrect: true },
-      { text: "$CV = \\frac{\\bar{x}}, {s}$", rationale: "平均と標準偏差が逆になっています。", isCorrect: false },
-      { text: "$CV = \\frac{s^2}, {\\bar{x}}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
-      { text: "$CV = \\frac{s}, {\\bar{x}^2}$", rationale: "分母は平均の2乗ではありません。", isCorrect: false },
+      { text: "$CV = \\frac{s}{\\bar{x}}$", rationale: "変動係数は標準偏差を平均値で割った無次元量であり、データのスケールに依存せずにばらつきを評価できます。", isCorrect: true },
+      { text: "$CV = \\frac{\\bar{x}}{s}$", rationale: "平均と標準偏差が逆になっています。", isCorrect: false },
+      { text: "$CV = \\frac{s^2}{\\bar{x}}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
+      { text: "$CV = \\frac{s}{\\bar{x}^2}$", rationale: "分母は平均の2乗ではありません。", isCorrect: false },
     ]
   },
   {
@@ -1958,10 +1949,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "2つの変数 $X$ と $Y$ の「ピアソンの積率相関係数 $r$」を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散、$S_x, S_y$ はそれぞれの標準偏差、$S_{xx}, S_{yy}$ は偏差平方和とする）",
     answerOptions: [
-      { text: "$r = \\frac{S_{xy}}, {S_x S_y}$", rationale: "共分散をそれぞれの標準偏差の積で割って標準化したものが相関係数です。また $\\frac{S_{xy}}, {\\sqrt{S_{xx} S_{yy}}}$ とも表せます。", isCorrect: true },
-      { text: "$r = \\frac{S_x S_y}, {S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$r = \\frac{S_{xy}}, {S_{xx}}$", rationale: "これは単回帰分析における回帰直線の傾き $\\hat{\\beta}_1$ の公式です。", isCorrect: false },
-      { text: "$r = \\frac{S_{xy}}, {S_x + S_y}$", rationale: "分母は和ではなく積です。", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}}{S_x S_y}$", rationale: "共分散をそれぞれの標準偏差の積で割って標準化したものが相関係数です。また $\\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$ とも表せます。", isCorrect: true },
+      { text: "$r = \\frac{S_x S_y}{S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは単回帰分析における回帰直線の傾き $\\hat{\\beta}_1$ の公式です。", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}}{S_x + S_y}$", rationale: "分母は和ではなく積です。", isCorrect: false },
     ]
   },
   {
@@ -1970,10 +1961,10 @@ const QUIZ_DATA = [
     category: "記述統計・基礎",
     question: "テストの点数などを相対的に評価する際に用いられる「偏差値 $T$」の計算式として正しいものはどれですか？（データ値を $x$、平均値を $\\bar{x}$、標準偏差を $s$ とする）",
     answerOptions: [
-      { text: "$T = 50 + 10 \\times \\frac{x - \\bar{x}}, {s}$", rationale: "データを標準化（平均0、標準偏差1）した値に10を掛け、50を足すことで、平均50、標準偏差10のスケールに変換します。", isCorrect: true },
-      { text: "$T = 10 + 50 \\times \\frac{x - \\bar{x}}, {s}$", rationale: "50と10の役割が逆になっています。", isCorrect: false },
-      { text: "$T = 50 + 100 \\times \\frac{x - \\bar{x}}, {s}$", rationale: "標準偏差のスケールは通常10であり、100ではありません。", isCorrect: false },
-      { text: "$T = \\frac{x - \\bar{x}}, {10s} + 50$", rationale: "標準化の式に対する掛け算の位置が誤っています。", isCorrect: false },
+      { text: "$T = 50 + 10 \\times \\frac{x - \\bar{x}}{s}$", rationale: "データを標準化（平均0、標準偏差1）した値に10を掛け、50を足すことで、平均50、標準偏差10のスケールに変換します。", isCorrect: true },
+      { text: "$T = 10 + 50 \\times \\frac{x - \\bar{x}}{s}$", rationale: "50と10の役割が逆になっています。", isCorrect: false },
+      { text: "$T = 50 + 100 \\times \\frac{x - \\bar{x}}{s}$", rationale: "標準偏差のスケールは通常10であり、100ではありません。", isCorrect: false },
+      { text: "$T = \\frac{x - \\bar{x}}{10s} + 50$", rationale: "標準化の式に対する掛け算の位置が誤っています。", isCorrect: false },
     ]
   },
   {
@@ -1982,10 +1973,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散 $\\sigma^2$ の推定に用いる「不偏分散 $s^2$」の定義式として正しいものはどれですか？（サンプルサイズを $n$、標本平均を $\\bar{x}$ とする）",
     answerOptions: [
-      { text: "$s^2 = \\frac{1}, {n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本平均を用いて偏差を計算しているため、自由度が1減少し $n-1$ で割ることで不偏性を満たします。", isCorrect: true },
-      { text: "$s^2 = \\frac{1}, {n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の式であり、母分散を過小評価する傾向があります。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}, {n+1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "分母を $n+1$ にすると不偏になりません（平均二乗誤差を最小にする推定量ではありますが、不偏推定量ではありません）。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}, {n-2} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "自由度は $n-1$ です。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本平均を用いて偏差を計算しているため、自由度が1減少し $n-1$ で割ることで不偏性を満たします。", isCorrect: true },
+      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の式であり、母分散を過小評価する傾向があります。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n+1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "分母を $n+1$ にすると不偏になりません（平均二乗誤差を最小にする推定量ではありますが、不偏推定量ではありません）。", isCorrect: false },
+      { text: "$s^2 = \\frac{1}{n-2} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "自由度は $n-1$ です。", isCorrect: false },
     ]
   },
   {
@@ -1996,7 +1987,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$IQR = Q_3 - Q_1$", rationale: "第3四分位数から第1四分位数を引いたものであり、データの中央50%が分布する範囲の広さを表します。", isCorrect: true },
       { text: "$IQR = Q_4 - Q_0$", rationale: "これは「最大値 - 最小値」であり、「範囲（レンジ）」です。", isCorrect: false },
-      { text: "$IQR = \\frac{Q_3 - Q_1}, {2}$", rationale: "これは「四分位偏差」の定義です。", isCorrect: false },
+      { text: "$IQR = \\frac{Q_3 - Q_1}{2}$", rationale: "これは「四分位偏差」の定義です。", isCorrect: false },
       { text: "$IQR = Q_2 - Q_1$", rationale: "これは第2四分位数（中央値）から第1四分位数を引いたもので、全体の範囲を表していません。", isCorrect: false },
     ]
   },
@@ -2006,9 +1997,9 @@ const QUIZ_DATA = [
     category: "確率",
     question: "事象AとBにおいて、事前確率 $P(A)$ に証拠 $B$ を加味して事後確率 $P(A|B)$ を更新する「ベイズの定理」の公式はどれですか？",
     answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A)P(A)}, {P(B)}$", rationale: "条件付き確率の定義 $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ から導かれるベイズの定理の基本形です。", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A|B)P(B)}, {P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
-      { text: "$P(A|B) = P(B|A) \\frac{P(B)}, {P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
+      { text: "$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$", rationale: "条件付き確率の定義 $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ から導かれるベイズの定理の基本形です。", isCorrect: true },
+      { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
+      { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
       { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "このような関係式は成り立ちません。", isCorrect: false },
     ]
   },
@@ -2030,10 +2021,10 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "単位時間あたり平均 $\\lambda$ 回発生する事象が、ちょうど $x$ 回発生する確率を示す「ポアソン分布」の確率質量関数 $P(X=x)$ はどれですか？",
     answerOptions: [
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "ポアソン分布の定義となる確率質量関数です。", isCorrect: true },
+      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "ポアソン分布の定義となる確率質量関数です。", isCorrect: true },
       { text: "$\\lambda e^{-\\lambda x}$", rationale: "これは「指数分布」の確率密度関数です。", isCorrect: false },
-      { text: "$\\frac{e^{-x} x^\\lambda}, {\\lambda!}$", rationale: "$\\lambda$ と $x$ の役割が逆になっています。", isCorrect: false },
-      { text: "$\\frac{\\lambda^x}, {x!} (1-\\lambda)^{n-x}$", rationale: "二項分布の式と混同した形になっており、誤りです。", isCorrect: false },
+      { text: "$\\frac{e^{-x} x^\\lambda}{\\lambda!}$", rationale: "$\\lambda$ と $x$ の役割が逆になっています。", isCorrect: false },
+      { text: "$\\frac{\\lambda^x}{x!} (1-\\lambda)^{n-x}$", rationale: "二項分布の式と混同した形になっており、誤りです。", isCorrect: false },
     ]
   },
   {
@@ -2045,7 +2036,7 @@ const QUIZ_DATA = [
       { text: "$\\int_a^b f(x) dx$", rationale: "連続型確率変数の確率は、確率密度関数 $f(x)$ の定積分（面積）として求められます。", isCorrect: true },
       { text: "$f(b) - f(a)$", rationale: "これは累積分布関数 $F(x)$ が与えられた場合の $F(b)-F(a)$ に該当します。確率密度関数そのものの差ではありません。", isCorrect: false },
       { text: "$\\sum_{x=a}^b f(x)$", rationale: "これは離散型確率変数の場合の確率の計算方法です。", isCorrect: false },
-      { text: "$\\frac{f(a) + f(b)}, {2} (b-a)$", rationale: "これは台形公式による積分の近似であり、厳密な確率の定義ではありません。", isCorrect: false },
+      { text: "$\\frac{f(a) + f(b)}{2} (b-a)$", rationale: "これは台形公式による積分の近似であり、厳密な確率の定義ではありません。", isCorrect: false },
     ]
   },
   {
@@ -2054,9 +2045,9 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "平均 $\\mu$、標準偏差 $\\sigma$ の分布に従う確率変数 $X$ を、平均0、標準偏差1の変数 $Z$ に「標準化」するための公式はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{X - \\mu}, {\\sigma}$", rationale: "元の値から平均を引き、標準偏差で割ることで標準化されます。", isCorrect: true },
-      { text: "$Z = \\frac{X - \\mu}, {\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{X - \\sigma}, {\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
+      { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "元の値から平均を引き、標準偏差で割ることで標準化されます。", isCorrect: true },
+      { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
+      { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
       { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
     ]
   },
@@ -2066,10 +2057,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "二項分布に基づき、母比率 $p$ の母集団からサンプルサイズ $n$ で抽出した「標本比率 $\\hat{p}$」の標準誤差（標準偏差）の公式はどれですか？",
     answerOptions: [
-      { text: "$\\sqrt{\\frac{p(1-p)}, {n}}$", rationale: "標本比率の分散が $\\frac{p(1-p)}, {n}$ であるため、標準誤差はその平方根となります。", isCorrect: true },
+      { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "標本比率の分散が $\\frac{p(1-p)}{n}$ であるため、標準誤差はその平方根となります。", isCorrect: true },
       { text: "$np(1-p)$", rationale: "これは比率ではなく、「成功回数 $X$」の分散です。", isCorrect: false },
-      { text: "$\\frac{p(1-p)}, {\\sqrt{n}}$", rationale: "ルートの中に $p(1-p)$ も含まれる必要があります。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{p}, {n}}$", rationale: "分散の計算に必要な $(1-p)$ が抜けています。", isCorrect: false },
+      { text: "$\\frac{p(1-p)}{\\sqrt{n}}$", rationale: "ルートの中に $p(1-p)$ も含まれる必要があります。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{p}{n}}$", rationale: "分散の計算に必要な $(1-p)$ が抜けています。", isCorrect: false },
     ]
   },
   {
@@ -2102,10 +2093,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "ピアソンのカイ二乗検定（適合度検定や独立性の検定）において、観測度数を $O_i$、期待度数を $E_i$ としたときの「検定統計量 $\\chi^2$」の計算式はどれですか？",
     answerOptions: [
-      { text: "$\\sum \\frac{(O_i - E_i)^2}, {E_i}$", rationale: "観測値と期待値の差の2乗を期待値で割り、すべてのセルについて足し合わせたものがカイ二乗統計量です。", isCorrect: true },
-      { text: "$\\sum \\frac{(O_i - E_i)^2}, {O_i}$", rationale: "分母は観測度数ではなく「期待度数」である必要があります。", isCorrect: false },
-      { text: "$\\sum \\frac{|O_i - E_i|}, {E_i}$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
-      { text: "$\\frac{\\sum (O_i - E_i)^2}, {\\sum E_i}$", rationale: "全体で割るのではなく、各セルごとに期待度数で割ってから足し合わせる必要があります。", isCorrect: false },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値の差の2乗を期待値で割り、すべてのセルについて足し合わせたものがカイ二乗統計量です。", isCorrect: true },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数ではなく「期待度数」である必要があります。", isCorrect: false },
+      { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
+      { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "全体で割るのではなく、各セルごとに期待度数で割ってから足し合わせる必要があります。", isCorrect: false },
     ]
   },
   {
@@ -2114,9 +2105,9 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "クロス集計表における「独立性の検定」を行う際、行 $i$、列 $j$ のセルの「期待度数 $E_{ij}$」を算出する計算式として正しいものはどれですか？",
     answerOptions: [
-      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}, {\\text{全データの合計}}$", rationale: "独立性を仮定した場合の同時確率は周辺確率の積になるため、合計値の積を全体で割ることで期待度数が求まります。", isCorrect: true },
-      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) + (\\text{列 } j \\text{ の合計})}, {2}$", rationale: "行と列の平均値ではありません。", isCorrect: false },
-      { text: "$E_{ij} = \\frac{\\text{全データの合計}}, {(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}{\\text{全データの合計}}$", rationale: "独立性を仮定した場合の同時確率は周辺確率の積になるため、合計値の積を全体で割ることで期待度数が求まります。", isCorrect: true },
+      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) + (\\text{列 } j \\text{ の合計})}{2}$", rationale: "行と列の平均値ではありません。", isCorrect: false },
+      { text: "$E_{ij} = \\frac{\\text{全データの合計}}{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$E_{ij} = \\sqrt{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "幾何平均ではありません。", isCorrect: false },
     ]
   },
@@ -2126,10 +2117,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散が等しいと仮定できる場合の「独立な2群の母平均の差 $\\mu_1 - \\mu_2$」の信頼区間を求める公式はどれですか？（標本平均を $\\bar{x}_1, \\bar{x}_2$、プールされた標準偏差を $s_p$、t分布のパーセント点を $t_{\\alpha/2}$ とする）",
     answerOptions: [
-      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}, {n_1} + \\frac{1}, {n_2}}$", rationale: "等分散仮定時の標準誤差は $s_p \\sqrt{\\frac{1}, {n_1} + \\frac{1}, {n_2}}$ となります。", isCorrect: true },
-      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}, {n_1} + \\frac{s_2^2}, {n_2}}$", rationale: "これは「母分散が等しくない」と仮定した場合（ウェルチの近似法）の公式です。", isCorrect: false },
-      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}, {n_1} + \\frac{1}, {n_2}}$", rationale: "母分散が未知であるため、Z値（標準正規分布）ではなくt値（t分布）を用います。", isCorrect: false },
-      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}, {\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の分母の計算方法が誤っています。", isCorrect: false },
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "等分散仮定時の標準誤差は $s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$ となります。", isCorrect: true },
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「母分散が等しくない」と仮定した場合（ウェルチの近似法）の公式です。", isCorrect: false },
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "母分散が未知であるため、Z値（標準正規分布）ではなくt値（t分布）を用います。", isCorrect: false },
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の分母の計算方法が誤っています。", isCorrect: false },
     ]
   },
   {
@@ -2138,10 +2129,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "回帰分析において、モデルの当てはまりの良さを示す「決定係数 $R^2$」の定義式として正しいものはどれですか？（総平方和を $S_y$ または $SST$、残差平方和を $SSE$ とする）",
     answerOptions: [
-      { text: "$R^2 = 1 - \\frac{SSE}, {S_y}$", rationale: "データの全変動 $S_y$ のうち、モデルで説明できない残差の変動 $SSE$ の割合を引き去ったものが、モデルで説明できる割合（決定係数）になります。", isCorrect: true },
-      { text: "$R^2 = \\frac{SSE}, {S_y}$", rationale: "これはモデルで「説明できない」部分の割合になってしまいます。", isCorrect: false },
-      { text: "$R^2 = 1 - \\frac{S_y}, {SSE}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$R^2 = \\frac{S_y - SSE}, {SSE}$", rationale: "分母は残差平方和ではなく総平方和である必要があります。", isCorrect: false },
+      { text: "$R^2 = 1 - \\frac{SSE}{S_y}$", rationale: "データの全変動 $S_y$ のうち、モデルで説明できない残差の変動 $SSE$ の割合を引き去ったものが、モデルで説明できる割合（決定係数）になります。", isCorrect: true },
+      { text: "$R^2 = \\frac{SSE}{S_y}$", rationale: "これはモデルで「説明できない」部分の割合になってしまいます。", isCorrect: false },
+      { text: "$R^2 = 1 - \\frac{S_y}{SSE}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$R^2 = \\frac{S_y - SSE}{SSE}$", rationale: "分母は残差平方和ではなく総平方和である必要があります。", isCorrect: false },
     ]
   },
   {
@@ -2150,10 +2141,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "重回帰分析において、説明変数の数が増えることによる決定係数の見かけ上の増加を補正する「自由度調整済み決定係数 $R^{*2}$」の公式はどれですか？（サンプルサイズ $n$、説明変数の数 $k$）",
     answerOptions: [
-      { text: "$R^{*2} = 1 - \\frac{SSE / (n-k-1)}, {S_y / (n-1)}$", rationale: "残差平方和 $SSE$ と総平方和 $S_y$ を、それぞれの自由度で割った「分散」の比を用いて計算します。", isCorrect: true },
-      { text: "$R^{*2} = 1 - \\frac{SSE / (n-1)}, {S_y / (n-k-1)}$", rationale: "自由度の分母が逆になっています。", isCorrect: false },
-      { text: "$R^{*2} = 1 - \\frac{SSE - k}, {S_y}$", rationale: "単に数を引くわけではなく、自由度で割る必要があります。", isCorrect: false },
-      { text: "$R^{*2} = R^2 - \\frac{k}, {n-1}$", rationale: "このような単純な引き算の公式ではありません。", isCorrect: false },
+      { text: "$R^{*2} = 1 - \\frac{SSE / (n-k-1)}{S_y / (n-1)}$", rationale: "残差平方和 $SSE$ と総平方和 $S_y$ を、それぞれの自由度で割った「分散」の比を用いて計算します。", isCorrect: true },
+      { text: "$R^{*2} = 1 - \\frac{SSE / (n-1)}{S_y / (n-k-1)}$", rationale: "自由度の分母が逆になっています。", isCorrect: false },
+      { text: "$R^{*2} = 1 - \\frac{SSE - k}{S_y}$", rationale: "単に数を引くわけではなく、自由度で割る必要があります。", isCorrect: false },
+      { text: "$R^{*2} = R^2 - \\frac{k}{n-1}$", rationale: "このような単純な引き算の公式ではありません。", isCorrect: false },
     ]
   },
   {
@@ -2162,10 +2153,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "単回帰モデル $y = \\beta_0 + \\beta_1 x + \\epsilon$ における、最小二乗推定量である「回帰係数（傾き） $\\hat{\\beta}_1$ の分散 $V(\\hat{\\beta}_1)$」の公式はどれですか？（誤差項の分散を $\\sigma^2$、$x$ の偏差平方和を $S_{xx}$ とする）",
     answerOptions: [
-      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}, {S_{xx}}$", rationale: "説明変数 $x$ のばらつき（$S_{xx}$）が大きいほど、傾き $\\hat{\\beta}_1$ の推定精度は高くなり、分散は小さくなります。", isCorrect: true },
+      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{S_{xx}}$", rationale: "説明変数 $x$ のばらつき（$S_{xx}$）が大きいほど、傾き $\\hat{\\beta}_1$ の推定精度は高くなり、分散は小さくなります。", isCorrect: true },
       { text: "$V(\\hat{\\beta}_1) = \\sigma^2 S_{xx}$", rationale: "$S_{xx}$ は分母にくる必要があります。", isCorrect: false },
-      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}, {n}$", rationale: "標本平均の分散と同じ形ですが、回帰係数の分散には $S_{xx}$ が関わります。", isCorrect: false },
-      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}, {\\bar{x}^2}$", rationale: "$x$ の平均ではなく、偏差平方和 $S_{xx}$ を用います。", isCorrect: false },
+      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{n}$", rationale: "標本平均の分散と同じ形ですが、回帰係数の分散には $S_{xx}$ が関わります。", isCorrect: false },
+      { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{\\bar{x}^2}$", rationale: "$x$ の平均ではなく、偏差平方和 $S_{xx}$ を用います。", isCorrect: false },
     ]
   },
   {
@@ -2174,10 +2165,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "一元配置分散分析において、帰無仮説（各群の母平均は等しい）を検定するための「検定統計量F」の計算式はどれですか？（群間平方和(水準間平方和) $S_A$、群内平方和(残差平方和) $S_E$、群数 $a$、全体データ数 $n$ とする）",
     answerOptions: [
-      { text: "$F = \\frac{S_A / (a-1)}, {S_E / (n-a)}$", rationale: "それぞれの平方和を対応する自由度で割って「平均平方（分散）」を求め、その比をとったものがF統計量です。", isCorrect: true },
-      { text: "$F = \\frac{S_A}, {S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
-      { text: "$F = \\frac{S_E / (n-a)}, {S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
-      { text: "$F = \\frac{S_A / a}, {S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
+      { text: "$F = \\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "それぞれの平方和を対応する自由度で割って「平均平方（分散）」を求め、その比をとったものがF統計量です。", isCorrect: true },
+      { text: "$F = \\frac{S_A}{S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
+      { text: "$F = \\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
+      { text: "$F = \\frac{S_A / a}{S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
     ]
   },
   {
@@ -2186,10 +2177,10 @@ const QUIZ_DATA = [
     category: "時系列・指数",
     question: "基準時と対象時の2時点間で物価水準を比較する「ラスパイレス価格指数」の計算式として正しいものはどれですか？（価格を $p$、数量を $q$、基準時を $0$、対象時を $t$ とする）",
     answerOptions: [
-      { text: "$\\frac{\\sum p_t q_0}, {\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定し、価格の変化のみを比較します。", isCorrect: true },
-      { text: "$\\frac{\\sum p_t q_t}, {\\sum p_0 q_t} \\times 100$", rationale: "これは比較時の数量 $q_t$ をウェイトとする「パーシェ価格指数」の公式です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_t}, {\\sum p_0} \\times 100$", rationale: "数量のウェイトが考慮されていない単なる価格の比です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_0 q_t}, {\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母分子が逆になっています。", isCorrect: false },
+      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定し、価格の変化のみを比較します。", isCorrect: true },
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは比較時の数量 $q_t$ をウェイトとする「パーシェ価格指数」の公式です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "数量のウェイトが考慮されていない単なる価格の比です。", isCorrect: false },
+      { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母分子が逆になっています。", isCorrect: false },
     ]
   },
   {
@@ -2199,7 +2190,7 @@ const QUIZ_DATA = [
     question: "確率変数 $X$ が「2項分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "2項分布は、成功確率 $p$ の試行を $n$ 回行ったときの成功回数 $x$ の確率分布です。", isCorrect: true },
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
+      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
       { text: "${}_n\\mathrm{P}_x p^x (1-p)^{n-x}$", rationale: "順列（P）ではなく組合せ（C）を使います。", isCorrect: false },
     ]
@@ -2212,7 +2203,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "2項分布の期待値は $np$、分散は $np(1-p)$ です。", isCorrect: true },
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
-      { text: "期待値: $\\frac{1}, {p}$, 分散: $\\frac{1-p}, {p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
+      { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $0$, 分散: $1$", rationale: "これは標準正規分布の期待値と分散です。", isCorrect: false },
     ]
   },
@@ -2222,7 +2213,7 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "確率変数 $X$ が「ポアソン分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "ポアソン分布は、平均 $\\lambda$ 回起こる事象が $x$ 回起こる確率を表します。", isCorrect: true },
+      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "ポアソン分布は、平均 $\\lambda$ 回起こる事象が $x$ 回起こる確率を表します。", isCorrect: true },
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "これは2項分布の確率質量関数です。", isCorrect: false },
       { text: "$\\lambda e^{-\\lambda x}$", rationale: "これは指数分布の確率密度関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
@@ -2236,7 +2227,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "ポアソン分布の大きな特徴として、期待値と分散が等しく $\\lambda$ となります。", isCorrect: true },
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "これは2項分布の期待値と分散です。", isCorrect: false },
-      { text: "期待値: $\\frac{1}, {\\lambda}$, 分散: $\\frac{1}, {\\lambda^2}$", rationale: "これは指数分布の期待値と分散です。", isCorrect: false },
+      { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "これは指数分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは正規分布の期待値と分散です。", isCorrect: false },
     ]
   },
@@ -2247,7 +2238,7 @@ const QUIZ_DATA = [
     question: "確率変数 $X$ が「幾何分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
       { text: "$p(1-p)^{x-1}$", rationale: "幾何分布は、初めて成功するまでに $x$ 回試行を行う確率を表します。", isCorrect: true },
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
+      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
       { text: "$\\lambda e^{-\\lambda t}$", rationale: "これは指数分布の確率密度関数です。", isCorrect: false },
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "これは2項分布の確率質量関数です。", isCorrect: false },
     ]
@@ -2258,7 +2249,7 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "確率変数 $X$ が「幾何分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
-      { text: "期待値: $\\frac{1}, {p}$, 分散: $\\frac{1-p}, {p^2}$", rationale: "幾何分布の期待値は $\\frac{1}, {p}$、分散は $\\frac{1-p}, {p^2}$ となります。", isCorrect: true },
+      { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "幾何分布の期待値は $\\frac{1}{p}$、分散は $\\frac{1-p}{p^2}$ となります。", isCorrect: true },
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "これは2項分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $p$, 分散: $p(1-p)$", rationale: "これはベルヌーイ分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
@@ -2283,8 +2274,8 @@ const QUIZ_DATA = [
     question: "連続型確率変数 $X$ が「指数分布」に従う場合の確率密度関数として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\lambda e^{-\\lambda t}$", rationale: "指数分布は、ある事象が起こるまでの待ち時間などを表す分布です。", isCorrect: true },
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}, {x!}$", rationale: "これはポアソン分布（離散型）の確率質量関数です。", isCorrect: false },
-      { text: "$\\frac{1}, {\\sqrt{2\\pi}} \\exp \\left\\{ -\\frac{x^2}, {2} \\right\\}$", rationale: "これは標準正規分布の確率密度関数です。", isCorrect: false },
+      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布（離散型）の確率質量関数です。", isCorrect: false },
+      { text: "$\\frac{1}{\\sqrt{2\\pi}} \\exp \\left\\{ -\\frac{x^2}{2} \\right\\}$", rationale: "これは標準正規分布の確率密度関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
     ]
   },
@@ -2294,9 +2285,9 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "確率変数 $X$ が「指数分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
-      { text: "期待値: $\\frac{1}, {\\lambda}$, 分散: $\\frac{1}, {\\lambda^2}$", rationale: "指数分布の期待値は $\\frac{1}, {\\lambda}$、分散は $\\frac{1}, {\\lambda^2}$ となります。", isCorrect: true },
+      { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "指数分布の期待値は $\\frac{1}{\\lambda}$、分散は $\\frac{1}{\\lambda^2}$ となります。", isCorrect: true },
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
-      { text: "期待値: $\\frac{1}, {p}$, 分散: $\\frac{1-p}, {p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
+      { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは正規分布の期待値と分散です。", isCorrect: false },
     ]
   },
@@ -2332,8 +2323,8 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "分散は「平均からの偏差の2乗」の期待値として定義されます。", isCorrect: true },
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
-      { text: "\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
-      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
     ]
   },
   {
@@ -2342,10 +2333,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母分散が未知のとき、「一標本t検定（母平均の検定）」で用いられる検定統計量はどれですか？（不偏分散 $s^2$）",
     answerOptions: [
-      { text: "$\\frac{\\bar{x} - \\mu_0}, {s / \\sqrt{n}}$", rationale: "母分散が未知のため不偏分散 $s^2$ を用い、この統計量は自由度 $n-1$ の t分布に従います。", isCorrect: true },
-      { text: "$\\frac{\\bar{x} - \\mu_0}, {\\sigma / \\sqrt{n}}$", rationale: "これは母分散既知の場合の z 統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{d}}, {s_d / \\sqrt{n}}$", rationale: "これは「対応のあるt検定」で用いられる統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}, {SE}$", rationale: "これは「二標本t検定」で用いられる統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "母分散が未知のため不偏分散 $s^2$ を用い、この統計量は自由度 $n-1$ の t分布に従います。", isCorrect: true },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "これは母分散既知の場合の z 統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "これは「対応のあるt検定」で用いられる統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは「二標本t検定」で用いられる統計量です。", isCorrect: false },
     ]
   },
   {
@@ -2354,10 +2345,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "「対応のあるt検定（前後差・ペアデータ）」で用いられる検定統計量はどれですか？（差の平均 $\\bar{d}$、差の不偏分散 $s_d^2$）",
     answerOptions: [
-      { text: "$\\frac{\\bar{d}}, {s_d / \\sqrt{n}}$", rationale: "ペアのデータから「差 $d$」を計算し、その差についての一標本t検定として扱います。自由度は $n-1$ です。", isCorrect: true },
-      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}, {SE}$", rationale: "これは対応のない「2群の平均差の検定」の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}, {s / \\sqrt{n}}$", rationale: "これは一標本t検定の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\sum(O-E)^2}, {E}$", rationale: "これは $\\chi^2$ 検定の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "ペアのデータから「差 $d$」を計算し、その差についての一標本t検定として扱います。自由度は $n-1$ です。", isCorrect: true },
+      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは対応のない「2群の平均差の検定」の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは一標本t検定の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "これは $\\chi^2$ 検定の統計量です。", isCorrect: false },
     ]
   },
   {
@@ -2366,10 +2357,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "分布の一致度や2変数の関連を調べる「$\\chi^2$ 適合度検定」や「$\\chi^2$ 独立性検定」で共通して用いられる統計量の計算式はどれですか？（観測度数 $O$、期待度数 $E$）",
     answerOptions: [
-      { text: "$\\frac{\\sum (O - E)^2}, {E}$", rationale: "観測度数 $O$ と期待度数 $E$ のズレの2乗を期待度数で割ったものの総和が $\\chi^2$ 統計量となります。", isCorrect: true },
-      { text: "$\\frac{\\sum (O - E)}, {E}$", rationale: "差の2乗をとらないと、正負が打ち消し合ってしまいます。", isCorrect: false },
-      { text: "$\\frac{\\sum (O - E)^2}, {O}$", rationale: "分母は「観測度数 $O$」ではなく「期待度数 $E$」です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}, {\\sigma / \\sqrt{n}}$", rationale: "これは母平均の検定（z検定）の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\sum (O - E)^2}{E}$", rationale: "観測度数 $O$ と期待度数 $E$ のズレの2乗を期待度数で割ったものの総和が $\\chi^2$ 統計量となります。", isCorrect: true },
+      { text: "$\\frac{\\sum (O - E)}{E}$", rationale: "差の2乗をとらないと、正負が打ち消し合ってしまいます。", isCorrect: false },
+      { text: "$\\frac{\\sum (O - E)^2}{O}$", rationale: "分母は「観測度数 $O$」ではなく「期待度数 $E$」です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "これは母平均の検定（z検定）の統計量です。", isCorrect: false },
     ]
   },
   {
@@ -2378,9 +2369,9 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "母平均の推定において、母分散が未知の場合の「信頼区間の形」として正しいものはどれですか？（標本平均 $\\bar{x}$、不偏分散 $s^2$）",
     answerOptions: [
-      { text: "$\\bar{x} \\pm t \\cdot \\frac{s}, {\\sqrt{n}}$", rationale: "母分散未知のため、自由度 $n-1$ のt分布を用い、標準誤差は $\\frac{s}, {\\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$\\hat{p} \\pm z \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "これは「母比率の推定」の信頼区間です。", isCorrect: false },
-      { text: "$\\bar{x} \\pm z \\cdot \\frac{\\sigma}, {\\sqrt{n}}$", rationale: "これは「母分散既知」の場合（z分布を使用）の信頼区間です。", isCorrect: false },
+      { text: "$\\bar{x} \\pm t \\cdot \\frac{s}{\\sqrt{n}}$", rationale: "母分散未知のため、自由度 $n-1$ のt分布を用い、標準誤差は $\\frac{s}{\\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$\\hat{p} \\pm z \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率の推定」の信頼区間です。", isCorrect: false },
+      { text: "$\\bar{x} \\pm z \\cdot \\frac{\\sigma}{\\sqrt{n}}$", rationale: "これは「母分散既知」の場合（z分布を使用）の信頼区間です。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t \\cdot SE$", rationale: "これは「2群の平均差の推定」の信頼区間です。", isCorrect: false },
     ]
   },
@@ -2390,10 +2381,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "「母比率の推定」における「標準誤差（SE）」の計算式として正しいものはどれですか？（標本比率 $\\hat{p}$）",
     answerOptions: [
-      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "標本比率の分散は $\\frac{\\hat{p}(1-\\hat{p})}, {n}$ であり、その平方根が標準誤差となります。", isCorrect: true },
-      { text: "$\\frac{s}, {\\sqrt{n}}$", rationale: "これは「母平均の推定（母分散未知）」の標準誤差です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{s_1^2}, {n_1} + \\frac{s_2^2}, {n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}, {n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}, {n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "標本比率の分散は $\\frac{\\hat{p}(1-\\hat{p})}{n}$ であり、その平方根が標準誤差となります。", isCorrect: true },
+      { text: "$\\frac{s}{\\sqrt{n}}$", rationale: "これは「母平均の推定（母分散未知）」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
     ]
   },
   {
@@ -2414,10 +2405,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "「2群の平均差の推定」において、等分散を仮定しない（Welchの手法）場合の「標準誤差（SE）」の式はどれですか？",
     answerOptions: [
-      { text: "$\\sqrt{\\frac{s_1^2}, {n_1} + \\frac{s_2^2}, {n_2}}$", rationale: "2つの群が独立であるため、それぞれの標本平均の分散（$\\frac{s_1^2}, {n_1}$ と $\\frac{s_2^2}, {n_2}$）を足し合わせたものの平方根になります。", isCorrect: true },
-      { text: "$\\frac{s}, {\\sqrt{n}}$", rationale: "これは1つの群の「母平均の推定」の標準誤差です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}, {n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}, {n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "2つの群が独立であるため、それぞれの標本平均の分散（$\\frac{s_1^2}{n_1}$ と $\\frac{s_2^2}{n_2}$）を足し合わせたものの平方根になります。", isCorrect: true },
+      { text: "$\\frac{s}{\\sqrt{n}}$", rationale: "これは1つの群の「母平均の推定」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
     ]
   },
   {
@@ -2426,10 +2417,10 @@ const QUIZ_DATA = [
     category: "推測統計",
     question: "「2群の比率差の推定」における「標準誤差（SE）」の計算式として正しいものはどれですか？（それぞれの標本比率を $\\hat{p}_1, \\hat{p}_2$ とする）",
     answerOptions: [
-      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}, {n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}, {n_2}}$", rationale: "それぞれの標本比率の分散を足し合わせたものの平方根となります。検定ではなく「推定」の場合、プールされた比率は使いません。", isCorrect: true },
-      { text: "$\\sqrt{\\frac{s_1^2}, {n_1} + \\frac{s_2^2}, {n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}, {n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
-      { text: "$\\frac{s_1}, {\\sqrt{n_1}} + \\frac{s_2}, {\\sqrt{n_2}}$", rationale: "分散の和の平方根であり、標準誤差同士の単純な和ではありません。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "それぞれの標本比率の分散を足し合わせたものの平方根となります。検定ではなく「推定」の場合、プールされた比率は使いません。", isCorrect: true },
+      { text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
+      { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
+      { text: "$\\frac{s_1}{\\sqrt{n_1}} + \\frac{s_2}{\\sqrt{n_2}}$", rationale: "分散の和の平方根であり、標準誤差同士の単純な和ではありません。", isCorrect: false },
     ]
   },
   {
@@ -2438,10 +2429,10 @@ const QUIZ_DATA = [
     category: "線形モデル",
     question: "変数 $z$ の影響を取り除いた、変数 $x, y$ 間の偏相関係数 $r_{xy \\cdot z}$ を求める式はどれですか？",
     answerOptions: [
-      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}, {\\sqrt{1 - r_{xz}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "偏相関係数の正しい定義式です。$z$ の影響を除外するために計算されます。", isCorrect: true },
-      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}, {\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "分母の $r_{xz}^2$ が $r_{xy}^2$ になっており誤りです。", isCorrect: false },
-      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}, {\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "分母が掛け算ではなく足し算になっており誤りです。", isCorrect: false },
-      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}, {1 - r_{xz} r_{yz}}$", rationale: "分母の形がまったく異なり誤りです。", isCorrect: false },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "偏相関係数の正しい定義式です。$z$ の影響を除外するために計算されます。", isCorrect: true },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "分母の $r_{xz}^2$ が $r_{xy}^2$ になっており誤りです。", isCorrect: false },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "分母が掛け算ではなく足し算になっており誤りです。", isCorrect: false },
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz} r_{yz}}$", rationale: "分母の形がまったく異なり誤りです。", isCorrect: false },
     ]
   },
   {
@@ -2455,8 +2446,8 @@ const QUIZ_DATA = [
       { text: "$V(X + Y) > V(X - Y)$ であり、負の相関があるときは足し算のほうが分散（ばらつき）が大きくなる。", rationale: "和の分散の展開式に含まれる $+ 2Cov(X, Y)$ は、負の相関の場合マイナスの値をとるため、ばらつきは小さくなります。", isCorrect: false },
       { text: "$V(X + Y) < V(X - Y)$ であるが、負の相関の強さによっては $V(X + Y)$ のほうが大きくなることもある。", rationale: "負の相関（$Cov(X, Y) < 0$）である限り、必ず $V(X + Y) < V(X - Y)$ となるため、相関の強さによって大小関係が逆転することはありません。", isCorrect: false },
     ]
-  }
-  , {
+  },
+  {
     id: 227,
     isFormula: 1,
     category: "確率",
@@ -2467,7 +2458,8 @@ const QUIZ_DATA = [
       { text: "$1$", rationale: "相関係数 $r(X,X)$ であれば $1$ になりますが、共分散は分散に等しくなります。", isCorrect: false },
       { text: "$0$", rationale: "確率変数が定数でない限り、分散は $0$ より大きな値をとります。", isCorrect: false }
     ]
-  }, {
+  },
+  {
     id: 228,
     isFormula: 1,
     category: "確率",
@@ -2478,7 +2470,8 @@ const QUIZ_DATA = [
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "各変数の係数は足し算ではなく掛け合わせる必要があります。", isCorrect: false },
       { text: "$a^2 c^2 Cov(X, Y)$", rationale: "分散 $V(aX) = a^2 V(X)$ とは異なり、共分散の係数は2乗されずそのまま $a \times c$ となります。", isCorrect: false }
     ]
-  }, {
+  },
+  {
     id: 229,
     isFormula: 1,
     category: "確率",
@@ -2489,8 +2482,8 @@ const QUIZ_DATA = [
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "これは和の分散 $V(X+Y)$ の展開式であり、無関係の式です。", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "展開時に $X$ と $Y$ の共分散は発生しません。", isCorrect: false }
     ]
-  }
-  , {
+  },
+  {
     id: 230,
     isFormula: 0,
     category: "推測統計",
@@ -2501,7 +2494,8 @@ const QUIZ_DATA = [
       { text: "「局所管理」とは、実験を行う空間や時間を細かいブロックに区切り、ブロック内での条件をできるだけ均一に保つことで、環境による系統的な誤差を小さくする原則である。", rationale: "正しい記述です。ブロック化により系統誤差を分離・排除し、実験の精度を向上させます。", isCorrect: false },
       { text: "無作為化と局所管理は系統誤差（偏り）に対処するための原則であり、反復は偶然誤差（ばらつき）を評価するための原則である。", rationale: "正しい記述です。それぞれの原則の役割を正確に説明しています。", isCorrect: false }
     ]
-  }, {
+  },
+  {
     id: 231,
     isFormula: 0,
     category: "時系列・指数",
