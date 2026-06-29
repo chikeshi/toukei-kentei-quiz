@@ -1,0 +1,28 @@
+const CATEGORIES = [
+  { name: "記述統計・基礎", desc: "グラフ、代表値、サンプリング手法", icon: "📊" },
+  { name: "確率", desc: "ベイズ、条件付き確率", icon: "🎲" },
+  { name: "確率分布", desc: "正規分布、二項分布、ポアソン分布、t/F/χ²分布", icon: "📈" },
+  { name: "推測統計", desc: "推定、仮説検定、過誤、P値", icon: "🔬" },
+  { name: "線形モデル", desc: "単回帰、重回帰、決定係数", icon: "📉" },
+  { name: "時系列・指数", desc: "季節変動、ラスパイレス式等", icon: "🕐" },
+];
+
+const QUIZ_DATA = [
+  {
+    id: 1,
+    isFormula: 0,
+    category: "記述統計・基礎",
+    question: "標本抽出において、母集団をいくつかの層に分け、各層からランダムに抽出する手法を何と呼びますか？",
+    answerOptions: [
+      { text: "層化抽出法", rationale: "グループ（層）ごとの特性を反映させやすい手法です。", isCorrect: true },
+      { text: "多段抽出法", rationale: "複数の段階を経てサンプルを選ぶ手法であり、層ごとに選ぶ層化抽出とは異なります。", isCorrect: false },
+      { text: "系統抽出法", rationale: "リストから一定間隔でサンプルを機械的に選ぶ手法です。", isCorrect: false },
+      { text: "クラスター抽出法", rationale: "集落（クラスター）単位でそのまま選ぶ手法です。", isCorrect: false },
+    ]
+  },
+  {
+    id: 2,
+    isFormula: 0,
+    category: "記述統計・基礎",
+    question: "外れ値の影響を最も受けやすい代表値はどれですか？",
+    answerOpti
