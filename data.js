@@ -1903,13 +1903,6 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}, {S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}, {S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
     ]
-  }_0 + \\hat{\\beta}_1 x$ において、回帰直線の傾き $\\hat{\\beta}_1$ を求めた後、切片 $\\hat{\\beta}_0$ を求める公式はどれですか？",
-    answerOptions: [
-      { text: "$\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}$", rationale: "回帰直線は必ずデータの平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\bar{x}$ を変形して求めます。", isCorrect: true },
-      { text: "$\\hat{\\beta}_0 = \\bar{y} + \\hat{\\beta}_1 \\bar{x}$", rationale: "符号が逆です。", isCorrect: false },
-      { text: "$\\hat{\\beta}_0 = \\hat{\\beta}_1 \\frac{\\bar{y}}, {\\bar{x}}$", rationale: "このような公式はありません。", isCorrect: false },
-      { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}, {S_{xx}}$", rationale: "これは切片ではなく「傾き $\\hat{\\beta}_1$」を求める公式です。", isCorrect: false },
-    ]
   },
   {
     id: 172,
@@ -2339,8 +2332,8 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "分散は「平均からの偏差の2乗」の期待値として定義されます。", isCorrect: true },
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
-      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
-      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
+      { text: "\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
+      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false },
     ]
   },
   {
