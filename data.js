@@ -1,10 +1,8 @@
 const CATEGORIES = [
-  { name: "記述統計・基礎", desc: "グラフ、代表値、サンプリング手法", icon: "📊" },
-  { name: "確率", desc: "ベイズ、条件付き確率", icon: "🎲" },
-  { name: "確率分布", desc: "正規分布、二項分布、ポアソン分布、t/F/χ²分布", icon: "📈" },
+  { name: "記述統計・基礎", desc: "グラフ、代表値、サンプリング手法、季節変動、ラスパイレス式等", icon: "📊" },
+  { name: "確率・確率分布", desc: "ベイズ、条件付き確率、正規分布、二項分布、ポアソン分布、t/F/χ²分布", icon: "🎲" },
   { name: "推測統計", desc: "推定、仮説検定、過誤、P値", icon: "🔬" },
-  { name: "線形モデル", desc: "単回帰、重回帰、決定係数", icon: "📉" },
-  { name: "時系列・指数", desc: "季節変動、ラスパイレス式等", icon: "🕐" },
+  { name: "回帰分析・分散分析", desc: "単回帰、重回帰、決定係数、分散分析", icon: "📉" }
 ];
 
 const QUIZ_DATA = [
@@ -47,7 +45,7 @@ const QUIZ_DATA = [
   {
     id: 4,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "ポアソン分布が適している事象はどれですか？",
     answerOptions: [
       { text: "滅多に起きない事故の発生回数", rationale: "一定時間や範囲で稀に起こる事象の回数に適しています。", isCorrect: true },
@@ -59,7 +57,7 @@ const QUIZ_DATA = [
   {
     id: 5,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、説明変数を増やしたときに必ず増加または停滞し、減少することのない指標はどれですか？",
     answerOptions: [
       { text: "決定係数（R2）", rationale: "変数を増やすほど当てはまりは良くなる（または変わらない）ためです。", isCorrect: true },
@@ -71,7 +69,7 @@ const QUIZ_DATA = [
   {
     id: 6,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "物価指数において、基準時の数量を重み（ウェイト）として用いる計算式はどれですか？",
     answerOptions: [
       { text: "ラスパイレス式", rationale: "日本の消費者物価指数などで使われる、過去の数量固定方式です。", isCorrect: true },
@@ -95,7 +93,7 @@ const QUIZ_DATA = [
   {
     id: 8,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "正規分布において、平均値 ± 2 × 標準偏差の範囲に含まれるデータはおよそ何％ですか？",
     answerOptions: [
       { text: "約95%", rationale: "1σで約68%、2σで約95%となります。", isCorrect: true },
@@ -131,7 +129,7 @@ const QUIZ_DATA = [
   {
     id: 11,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象 $A$ が起きたという条件のもとで事象 $B$ が起きる確率 $P(B|A)$ を求める際に使われる定理は？",
     answerOptions: [
       { text: "ベイズの定理", rationale: "条件付き確率の更新に使われる重要な定理です。", isCorrect: true },
@@ -143,7 +141,7 @@ const QUIZ_DATA = [
   {
     id: 12,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "自由度が大きくなると標準正規分布に近づく分布はどれですか？",
     answerOptions: [
       { text: "t分布", rationale: "自由度nが無限大に近づくと、標準正規分布と一致します。", isCorrect: true },
@@ -155,7 +153,7 @@ const QUIZ_DATA = [
   {
     id: 13,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "相関係数が -0.9 のときの散布図の様子として適切なものは？",
     answerOptions: [
       { text: "右下がりに、かなり直線に近い形で並んでいる", rationale: "強い負の相関がある状態です。", isCorrect: true },
@@ -179,7 +177,7 @@ const QUIZ_DATA = [
   {
     id: 15,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの変動成分のうち、景気循環のように数年周期で繰り返されるものは？",
     answerOptions: [
       { text: "循環変動", rationale: "1年より長い周期のものを指します。", isCorrect: true },
@@ -203,7 +201,7 @@ const QUIZ_DATA = [
   {
     id: 17,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "二項分布 $B(n, p)$ の期待値（平均）を求める式はどれですか？",
     answerOptions: [
       { text: "$np$", rationale: "回数と確率の積になります。", isCorrect: true },
@@ -227,7 +225,7 @@ const QUIZ_DATA = [
   {
     id: 19,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "残差プロットにおいて、残差が特定のパターンを持たずランダムに散らばっている場合、どのようなことが言えますか？",
     answerOptions: [
       { text: "線形モデルの仮定が概ね満たされている", rationale: "残差に規則性がないことが良いモデルの条件です。", isCorrect: true },
@@ -239,7 +237,7 @@ const QUIZ_DATA = [
   {
     id: 20,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列分析において、現在の値が過去の値に依存するモデルを何と呼びますか？",
     answerOptions: [
       { text: "自己回帰モデル（ARモデル）", rationale: "Auto-Regressiveモデルの略です。", isCorrect: true },
@@ -263,7 +261,7 @@ const QUIZ_DATA = [
   {
     id: 22,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "カイ二乗分布が使われる代表的な検定はどれですか？",
     answerOptions: [
       { text: "独立性の検定（クロス集計表）", rationale: "適合度検定や独立性検定に用いられます。", isCorrect: true },
@@ -287,7 +285,7 @@ const QUIZ_DATA = [
   {
     id: 24,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "決定係数が 0.49 のとき、相関係数（正の相関と仮定）はいくらですか？",
     answerOptions: [
       { text: "0.7", rationale: "$0.7 \\times 0.7 = 0.49$ です。", isCorrect: true },
@@ -311,7 +309,7 @@ const QUIZ_DATA = [
   {
     id: 26,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "ベルヌーイ試行をn回繰り返したとき、成功回数xが従う分布は？",
     answerOptions: [
       { text: "二項分布", rationale: "成功・失敗の2択を繰り返す分布です。", isCorrect: true },
@@ -335,7 +333,7 @@ const QUIZ_DATA = [
   {
     id: 28,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "多重共線性（マルチコ）とはどのような現象ですか？",
     answerOptions: [
       { text: "説明変数同士に強い相関がある状態", rationale: "推定が不安定になるため避けるべき状態です。", isCorrect: true },
@@ -347,7 +345,7 @@ const QUIZ_DATA = [
   {
     id: 29,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "2つの母分散が等しいかどうかを検定する際に使われる分布は？",
     answerOptions: [
       { text: "F分布", rationale: "分散比の検定に使われます。", isCorrect: true },
@@ -359,7 +357,7 @@ const QUIZ_DATA = [
   {
     id: 30,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "物価指数において、比較時の数量を重みとして用いるのは？",
     answerOptions: [
       { text: "パーシェ式", rationale: "「今（比較時）」の構成を反映させる方式です。", isCorrect: true },
@@ -383,7 +381,7 @@ const QUIZ_DATA = [
   {
     id: 32,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "2つの事象 $A$ と $B$ が同時に起こることがない（$A \\cap B = \\emptyset$）とき、これらの事象の関係を何と呼びますか？",
     answerOptions: [
       { text: "互いに排反（排反事象）", rationale: "同時に発生する確率が0であるような、互いに相容れない関係を指します。", isCorrect: true },
@@ -395,7 +393,7 @@ const QUIZ_DATA = [
   {
     id: 33,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "連続型の確率分布であり、平均値を中心に左右対称な美しい釣鐘型の形状を持つ、統計学で最も重要な分布はどれですか？",
     answerOptions: [
       { text: "正規分布", rationale: "自然界や社会現象の多くに適合する、統計的推測の基礎となる分布です。", isCorrect: true },
@@ -419,7 +417,7 @@ const QUIZ_DATA = [
   {
     id: 35,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、目的変数の全変動のうち、回帰直線によって説明できる変動の割合を示す指標はどれですか？",
     answerOptions: [
       { text: "決定係数", rationale: "モデルの予測の正確さや説明力を $0$ から $1$ の範囲で表す指標です。", isCorrect: true },
@@ -431,7 +429,7 @@ const QUIZ_DATA = [
   {
     id: 36,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの変動成分のうち、数年から十数年の長期的なスパンで持続的に上昇または下落していく傾向のことを何と呼びますか？",
     answerOptions: [
       { text: "趨勢変動（トレンド）", rationale: "長期的な成長や衰退などの大まかな方向性を示す成分です。", isCorrect: true },
@@ -455,7 +453,7 @@ const QUIZ_DATA = [
   {
     id: 38,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「1分間にWebサイトを訪れるユーザー数」や「1年間にある交差点で起きる事故の件数」など、滅多に起きない現象の発生回数が従う不連続な確率分布はどれですか？",
     answerOptions: [
       { text: "ポアソン分布", rationale: "稀に起こる事象の回数をモデリングするのに最適な離散型確率分布です。", isCorrect: true },
@@ -479,7 +477,7 @@ const QUIZ_DATA = [
   {
     id: 40,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "2つの量的変数の間の相関関係の強さを $-1$ から $+1$ の範囲で表す指標（ピアソンの指標）を何と呼びますか？",
     answerOptions: [
       { text: "相関係数", rationale: "符号が直線の方向を、絶対値が直線への集中の強さを表します。", isCorrect: true },
@@ -491,7 +489,7 @@ const QUIZ_DATA = [
   {
     id: 41,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "日本の消費者物価指数（CPI）の計算において、基準年のウエイト（家計の消費構成）を数年間固定して物価の変化を測る計算方式はどれですか？",
     answerOptions: [
       { text: "ラスパイレス式", rationale: "基準時点の購入数量をベースにするため、計算が容易で速報性に優れています。", isCorrect: true },
@@ -515,7 +513,7 @@ const QUIZ_DATA = [
   {
     id: 43,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "母集団の標準偏差が未知でサンプルサイズが小さいとき、母平均の区間推定や検定において正規分布の代わりに用いられる、裾の厚い左右対称な分布はどれですか？",
     answerOptions: [
       { text: "t分布", rationale: "小標本の検定で非常によく使われ、自由度が大きくなると標準正規分布に近づきます。", isCorrect: true },
@@ -539,7 +537,7 @@ const QUIZ_DATA = [
   {
     id: 45,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、予測値と実際の観測値との間のズレ（誤差の推定量）のことを何と呼びますか？",
     answerOptions: [
       { text: "残差（Residual）", rationale: "モデルが説明しきれなかったバラつきの部分を指します。", isCorrect: true },
@@ -563,7 +561,7 @@ const QUIZ_DATA = [
   {
     id: 47,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "コインを投げたときの「表・裏」や、検査の「陽性・陰性」のように、結果が2通りしかない独立な試行を何と呼びますか？",
     answerOptions: [
       { text: "ベルヌーイ試行", rationale: "二項分布や幾何分布のベースとなる、統計学の最も基本的な試行です。", isCorrect: true },
@@ -587,7 +585,7 @@ const QUIZ_DATA = [
   {
     id: 49,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "重回帰分析において、投入した説明変数の中に互いに強い相関があるものが含まれていると、係数の分散が跳ね上がって推定が不安定になる現象を何と呼びますか？",
     answerOptions: [
       { text: "多重共線性（マルチコ）", rationale: "マルチコリニアリティの略で、変数の選定において最も注意すべき罠の一つです。", isCorrect: true },
@@ -599,7 +597,7 @@ const QUIZ_DATA = [
   {
     id: 50,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "毎年決まった時期（例：夏休みのアイスの売上増、年末の買い物客増など）に定期的に繰り返される、1年周期の変動成分を何と呼びますか？",
     answerOptions: [
       { text: "季節変動", rationale: "時系列データを要因分解する際、1年未満の定期サイクルを捉える成分です。", isCorrect: true },
@@ -611,7 +609,7 @@ const QUIZ_DATA = [
   {
     id: 51,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象Aが起こったという条件のもとで、事象Bが起こる確率を求める式 $P(B|A)$ として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\frac{P(A \\cap B)}{P(A)}$", rationale: "条件付き確率の定義式です。事象Aが起こる確率の中で、AとBが同時に起こる割合を示します。", isCorrect: true },
@@ -623,7 +621,7 @@ const QUIZ_DATA = [
   {
     id: 52,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "得られた新しい情報（データ）をもとに、ある事象が起こる確率（事前確率）を更新して「事後確率」を求めるための定理は何ですか？",
     answerOptions: [
       { text: "ベイズの定理", rationale: "原因の確率を結果から逆推論する際によく用いられる重要な定理です。", isCorrect: true },
@@ -635,7 +633,7 @@ const QUIZ_DATA = [
   {
     id: 53,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象Aと事象Bが互いに独立である場合、AとBが同時に起こる確率 $P(A \\cap B)$ はどのように計算されますか？",
     answerOptions: [
       { text: "$P(A) \\times P(B)$", rationale: "事象が独立であれば、同時確率はそれぞれの確率の積になります（積の法則）。", isCorrect: true },
@@ -647,7 +645,7 @@ const QUIZ_DATA = [
   {
     id: 54,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象Aまたは事象Bの少なくとも一方が起こる確率 $P(A \\cup B)$ を求める「確率の加法定理」の正しい式はどれですか？",
     answerOptions: [
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "AとBが重なる部分（同時確率）を二重に足さないように一度引く必要があります。", isCorrect: true },
@@ -659,7 +657,7 @@ const QUIZ_DATA = [
   {
     id: 55,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "ある事象Bが起こる確率を、互いに排反で全体を網羅する複数の原因事象に分けて計算する定理を何と呼びますか？",
     answerOptions: [
       { text: "全確率の定理", rationale: "各原因事象が起こる確率と、その条件下でBが起こる確率を掛けてすべて足し合わせます。", isCorrect: true },
@@ -671,7 +669,7 @@ const QUIZ_DATA = [
   {
     id: 56,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "医療検査などで、「実際には病気ではないのに、検査で陽性と判定されてしまう」確率のことを何と呼びますか？",
     answerOptions: [
       { text: "偽陽性率（False Positive Rate）", rationale: "「第1種の過誤」に相当し、特異度が低いとこの値が高くなります。", isCorrect: true },
@@ -683,7 +681,7 @@ const QUIZ_DATA = [
   {
     id: 57,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X, Y$ と定数 $a, b$ について、期待値 $E(aX + bY)$ が $aE(X) + bE(Y)$ となる性質を何と呼びますか？",
     answerOptions: [
       { text: "期待値の線形性", rationale: "XとYが独立でなくても、期待値については常にこの線形性が成り立ちます。", isCorrect: true },
@@ -695,7 +693,7 @@ const QUIZ_DATA = [
   {
     id: 58,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "「互いに排反」と「互いに独立」の違いについて、正しい説明はどれですか？",
     answerOptions: [
       { text: "排反は同時に起こらないこと、独立は確率に影響を与えないこと", rationale: "排反（$A \\cap B = \\emptyset$）と独立（$P(A|B) = P(A)$）は全く異なる概念です。一方が起きると他方が起きないなら、それは強い影響（非独立）を与えています。", isCorrect: true },
@@ -707,7 +705,7 @@ const QUIZ_DATA = [
   {
     id: 59,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、「予測値と実際の観測値とのズレ（残差）の二乗和を最も小さくする」ように回帰係数を求める手法を何と呼びますか？",
     answerOptions: [
       { text: "最小二乗法（OLS）", rationale: "残差の二乗和を最小化することで、最も当てはまりの良い直線を引く標準的な手法です。", isCorrect: true },
@@ -719,7 +717,7 @@ const QUIZ_DATA = [
   {
     id: 60,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの不規則な変動を滑らかにして全体的な傾向（トレンド）を把握するために、一定期間のデータの平均値をずらしながら計算する手法を何と呼びますか？",
     answerOptions: [
       { text: "移動平均法", rationale: "株価チャートなどでよく見られる、短期的なノイズを消してトレンドを浮かび上がらせる手法です。", isCorrect: true },
@@ -731,7 +729,7 @@ const QUIZ_DATA = [
   {
     id: 61,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データにおいて、ある時点のデータと、そこから時間をずらした（ラグを設けた）過去のデータとの間の相関関係を示す関数を何と呼びますか？",
     answerOptions: [
       { text: "自己相関関数（ACF）", rationale: "過去の値が現在の値にどれくらい影響を与えているか（周期性など）を調べるために用います。グラフにしたものをコレログラムと呼びます。", isCorrect: true },
@@ -743,7 +741,7 @@ const QUIZ_DATA = [
   {
     id: 62,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データから「毎年夏に売上が上がる」ような1年周期の規則的な変動成分（季節変動）を取り除く処理を何と呼びますか？",
     answerOptions: [
       { text: "季節調整", rationale: "景気の実態や本来のトレンドを正しく把握するために、季節的な要因を排除する処理です。", isCorrect: true },
@@ -755,7 +753,7 @@ const QUIZ_DATA = [
   {
     id: 63,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "成功確率が $p$ である試行を $n$ 回行う二項分布 $B(n, p)$ に従う確率変数 $X$ の期待値 $E(X)$ と分散 $V(X)$ を表す式の組み合わせとして正しいものはどれですか？",
     answerOptions: [
       { text: "$E(X) = np, \\quad V(X) = np(1-p)$", rationale: "二項分布の最も基本的な公式です。分散は $npq$ （$q=1-p$）とも表されます。", isCorrect: true },
@@ -767,7 +765,7 @@ const QUIZ_DATA = [
   {
     id: 64,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "平均発生回数が $\\lambda$ であるポアソン分布 $Po(\\lambda)$ に従う確率変数 $X$ の期待値 $E(X)$ と分散 $V(X)$ について正しい関係はどれですか？",
     answerOptions: [
       { text: "$E(X) = \\lambda, \\quad V(X) = \\lambda$", rationale: "ポアソン分布の大きな特徴は、期待値と分散が等しくなることです。", isCorrect: true },
@@ -779,7 +777,7 @@ const QUIZ_DATA = [
   {
     id: 66,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X$ と定数 $a, b$ について、分散の公式 $V(aX + b)$ として正しい展開はどれですか？",
     answerOptions: [
       { text: "$a^2 V(X)$", rationale: "分散は定数を足しても変わらず（位置の移動のみ）、定数倍は2乗されて外に出ます。", isCorrect: true },
@@ -791,7 +789,7 @@ const QUIZ_DATA = [
   {
     id: 67,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "2つの確率変数 $X, Y$ の和の分散 $V(X + Y)$ を展開した式として正しいものはどれですか？",
     answerOptions: [
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "和の分散は、それぞれの分散に共分散の2倍を足したものになります。$X, Y$ が独立なら共分散は0になります。", isCorrect: true },
@@ -851,7 +849,7 @@ const QUIZ_DATA = [
   {
     id: 72,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰モデル $y = \\beta_0 + \\beta_1 x + \\epsilon$ において、最小二乗法による傾きの推定量 $\\hat{\\beta}_1$ を求める式はどれですか？（$S_{xy}$: 偏差積和、 $S_{xx}$: $x$ の偏差平方和）",
     answerOptions: [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "「xとyの共分散」を「xの分散」で割ったものと同じ意味になります。", isCorrect: true },
@@ -887,7 +885,7 @@ const QUIZ_DATA = [
   {
     id: 75,
     isFormula: 1,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、ラスパイレス価格指数を求める式はどれですか？",
     answerOptions: [
       { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定して価格の変動を比較します。消費者物価指数（CPI）などに使われます。", isCorrect: true },
@@ -899,7 +897,7 @@ const QUIZ_DATA = [
   {
     id: 76,
     isFormula: 1,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、パーシェ価格指数を求める式はどれですか？",
     answerOptions: [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "パーシェ式は「比較時（現在の）の数量 $q_t$」をウェイトとして使用します。GDPデフレーターなどに使われます。", isCorrect: true },
@@ -911,7 +909,7 @@ const QUIZ_DATA = [
   {
     id: 77,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が標準正規分布 $N(0, 1)$ に従うとき、確率変数 $Y = X^2$ は自由度1のどの分布に従いますか？",
     answerOptions: [
       { text: "カイ二乗分布（$\\chi^2$ 分布）", rationale: "標準正規分布に従う確率変数の平方和は、その個数を自由度とするカイ二乗分布に従います。", isCorrect: true },
@@ -923,7 +921,7 @@ const QUIZ_DATA = [
   {
     id: 78,
     isFormula: 0,
-    category: "確率分布",
+    category: "回帰分析・分散分析",
     question: "2つの独立な確率変数 $U$ と $V$ があり、$U$ が自由度 $m$ のカイ二乗分布、$V$ が自由度 $n$ のカイ二乗分布に従うとき、統計量 $F = \\frac{U/m}{V/n}$ が従う分布は何ですか？",
     answerOptions: [
       { text: "自由度 $(m, n)$ のF分布", rationale: "F分布は、2つの独立なカイ二乗分布をそれぞれの自由度で割った比の分布です。分散分析などで用いられます。", isCorrect: true },
@@ -959,7 +957,7 @@ const QUIZ_DATA = [
   {
     id: 81,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象Aが起こる確率を $P(A)$、事象Aが起こったもとで事象Bが起こる条件付き確率を $P(B|A)$ とするとき、AとBが同時に起こる確率 $P(A \\cap B)$ を求める「確率の乗法定理」はどれですか？",
     answerOptions: [
       { text: "$P(A) \\times P(B|A)$", rationale: "条件付き確率の定義式 $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ の両辺に $P(A)$ を掛けた形です。", isCorrect: true },
@@ -971,7 +969,7 @@ const QUIZ_DATA = [
   {
     id: 82,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "区間 $[a, b]$ 上で一様に分布する（連続型）一様分布 $U(a, b)$ に従う確率変数 $X$ の期待値 $E(X)$ と分散 $V(X)$ はどれですか？",
     answerOptions: [
       { text: "$E(X) = \\frac{a+b}{2}, \\quad V(X) = \\frac{(b-a)^2}{12}$", rationale: "期待値は区間の中点、分散は区間の幅の2乗を12で割った値になります。", isCorrect: true },
@@ -983,7 +981,7 @@ const QUIZ_DATA = [
   {
     id: 83,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "時間あたり平均 $\\lambda$ 回起きる事象が「次に起こるまでの待ち時間」を表す指数分布の確率密度関数 $f(x)$（$x \\ge 0$）はどれですか？",
     answerOptions: [
       { text: "$f(x) = \\lambda e^{-\\lambda x}$", rationale: "ポアソン過程において発生間隔が従う分布です。無記憶性を持つ唯一の連続型分布です。", isCorrect: true },
@@ -995,7 +993,7 @@ const QUIZ_DATA = [
   {
     id: 84,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "成功確率が $p$ の試行において、「初めて成功するまでの試行回数 $X$」が従う幾何分布の期待値 $E(X)$ はどれですか？",
     answerOptions: [
       { text: "$\\frac{1}{p}$", rationale: "例えばサイコロで1が出る確率が $\\frac{1}{6}$ なら、平均 $6$ 回投げれば1が出ると期待されます。", isCorrect: true },
@@ -1019,7 +1017,7 @@ const QUIZ_DATA = [
   {
     id: 87,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "重回帰分析において、説明変数の数 $k$ とサンプルサイズ $n$ を考慮して過大評価を補正した「自由度調整済み決定係数 $R^{*2}$」と、通常の決定係数 $R^2$ との関係式はどれですか？",
     answerOptions: [
       { text: "$R^{*2} = 1 - \\frac{n-1}{n-k-1} (1 - R^2)$", rationale: "定義式 $R^{*2} = 1 - \\frac{\\sum(\\text{残差})^2 / (n-k-1)}{\\sum(\\text{偏差})^2 / (n-1)}$ に、通常の決定係数の関係式 $1-R^2 = \\frac{\\sum(\\text{残差})^2}{\\sum(\\text{偏差})^2}$ を代入することで導かれます。説明変数を増やすとペナルティがかかり、$R^{*2} \\le R^2$ となります。", isCorrect: true },
@@ -1055,7 +1053,7 @@ const QUIZ_DATA = [
   {
     id: 92,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が平均 $\\lambda$ のポアソン分布に従うとき、$X$ がちょうど $k$ 回発生する確率 $P(X=k)$ を表す式（確率関数）はどれですか？",
     answerOptions: [
       { text: "$P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}{k!}$", rationale: "二項分布において $n \\to \\infty, p \\to 0$ （$np=\\lambda$は一定）とした極限として導かれます。", isCorrect: true },
@@ -1067,7 +1065,7 @@ const QUIZ_DATA = [
   {
     id: 93,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、実測値 $y_i$ と予測値 $\\hat{y}_i$ の差の2乗をすべて足し合わせたもの $\\sum (y_i - \\hat{y}_i)^2$ を何と呼びますか？",
     answerOptions: [
       { text: "残差平方和（SSE）", rationale: "最小二乗法は、この残差平方和（Sum of Squared Errors）を最小にするようなパラメータを求める手法です。", isCorrect: true },
@@ -1187,7 +1185,7 @@ const QUIZ_DATA = [
   {
     id: 104,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率の基本的な性質（公理）に関する説明として、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "起こりうるすべての事象の確率を足し合わせると、無限大になる", rationale: "全事象の確率の和は常に「1」になります。", isCorrect: true },
@@ -1199,7 +1197,7 @@ const QUIZ_DATA = [
   {
     id: 105,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "「条件付き確率」および「事象の独立」に関する記述として、**誤っている**ものはどれですか？",
     answerOptions: [
       { text: "事象Aと事象Bが独立である場合、$P(A|B)$ と $P(B|A)$ は常に等しい値になる", rationale: "事象が独立であれば $P(A|B) = P(A)$、$P(B|A) = P(B)$ となりますが、$P(A)$ と $P(B)$ が等しいとは限りません。", isCorrect: true },
@@ -1211,7 +1209,7 @@ const QUIZ_DATA = [
   {
     id: 106,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「正規分布」の性質に関する記述として、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "平均値、中央値、最頻値（モード）の3つの値はすべて異なる", rationale: "正規分布は左右対称の山の形をしており、平均値、中央値、最頻値はすべて「完全に一致」します。", isCorrect: true },
@@ -1223,7 +1221,7 @@ const QUIZ_DATA = [
   {
     id: 107,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「ポアソン分布」に関する説明として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "身長や体重、テストの点数のような連続的な値をモデル化するための「連続型」確率分布である", rationale: "ポアソン分布は「発生回数（0回, 1回, 2回...）」を扱う「離散型」の確率分布です。", isCorrect: true },
@@ -1271,7 +1269,7 @@ const QUIZ_DATA = [
   {
     id: 111,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において直線をあてはめる「最小二乗法」の前提条件（ガウスマルコフの定理などの前提）として、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "誤差項は互いに強い「自己相関」を持っていること", rationale: "誤差項は互いに「無相関（独立）」であることが前提です。自己相関があると推定量の分散が正しく評価できなくなります。", isCorrect: true },
@@ -1283,7 +1281,7 @@ const QUIZ_DATA = [
   {
     id: 112,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰分析で得られる「回帰直線 $y = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$」の性質として、**誤っている**ものはどれですか？",
     answerOptions: [
       { text: "回帰直線は必ずグラフの原点 $(0, 0)$ を通る", rationale: "回帰直線は原点を通るとは限りません。原点を通る回帰を明示的に指定しない限り、切片 $\\hat{\\beta}_0$ が存在します。", isCorrect: true },
@@ -1295,7 +1293,7 @@ const QUIZ_DATA = [
   {
     id: 113,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰モデルの当てはまりの良さを示す「決定係数（$R^2$）」に関する説明として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "決定係数は常に0以上1以下の値をとり、値が0に近いほどモデルの当てはまりが良いことを示す", rationale: "決定係数は「1」に近いほど当てはまりが良い（予測精度が高い）ことを示します。", isCorrect: true },
@@ -1307,7 +1305,7 @@ const QUIZ_DATA = [
   {
     id: 114,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの変動を分解する際によく用いられる「変動成分」として、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "自己回帰変動（Auto-regressive variation）", rationale: "一般的に時系列の構成要素として分解されるのは「傾向（トレンド）」「循環」「季節」「不規則」の4要素です。自己回帰はモデルの名称です。", isCorrect: true },
@@ -1319,7 +1317,7 @@ const QUIZ_DATA = [
   {
     id: 115,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "物価の変動などを測る「ラスパイレス指数」に関する記述として、**誤っている**ものはどれですか？",
     answerOptions: [
       { text: "計算の際のウェイト（数量）として、「比較時（現在）」の数量データを用いる", rationale: "比較時の数量をウェイトにするのは「パーシェ式」です。ラスパイレス式は「基準時（過去）」の数量をウェイトにします。", isCorrect: true },
@@ -1343,7 +1341,7 @@ const QUIZ_DATA = [
   {
     id: 117,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象 $A$ と事象 $B$ についての「ベイズの定理」を表す公式はどれですか？",
     answerOptions: [
       { text: "$P(A|B) = \\frac{P(B|A) P(A)}{P(B)}$", rationale: "事前確率 $P(A)$ に尤度 $P(B|A)$ を掛け、周辺確率 $P(B)$ で割ることで事後確率 $P(A|B)$ を求めます。", isCorrect: true },
@@ -1355,7 +1353,7 @@ const QUIZ_DATA = [
   {
     id: 118,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X$ と $Y$ の一次結合 $aX + bY$ の分散 $V(aX + bY)$ を求める公式として正しいものはどれですか？（$Cov(X,Y)$ は共分散を表す）",
     answerOptions: [
       { text: "$a^2 V(X) + b^2 V(Y) + 2ab Cov(X,Y)$", rationale: "2つの変数が独立でない場合、共分散の項が必要になります。", isCorrect: true },
@@ -1379,7 +1377,7 @@ const QUIZ_DATA = [
   {
     id: 120,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "成功確率 $p$ の独立な試行を繰り返すとき、「初めて成功するまでに行う試行回数 $x$」が従う「幾何分布」の確率関数はどれですか？（$x = 1, 2, 3, \\dots$）",
     answerOptions: [
       { text: "$P(X=x) = (1-p)^{x-1} p$", rationale: "$x-1$ 回目まで連続して失敗し、$x$ 回目に初めて成功する確率を表しています。", isCorrect: true },
@@ -1391,7 +1389,7 @@ const QUIZ_DATA = [
   {
     id: 122,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "互いに独立な確率変数 $X$ と $Y$ がそれぞれポアソン分布 $Po(\\lambda_1)$ と $Po(\\lambda_2)$ に従うとき、その和 $X+Y$ はどのような分布に従いますか？（ポアソン分布の再生性）",
     answerOptions: [
       { text: "ポアソン分布 $Po(\\lambda_1 + \\lambda_2)$", rationale: "ポアソン分布は独立な変数の和をとってもポアソン分布になる「再生性」を持ちます。", isCorrect: true },
@@ -1403,7 +1401,7 @@ const QUIZ_DATA = [
   {
     id: 123,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "平均 $\\mu$、分散 $\\sigma^2$ の正規分布 $N(\\mu, \\sigma^2)$ に従う確率変数 $X$ を、標準正規分布 $N(0, 1)$ に変換する「標準化（Z変換）」の数式はどれですか？",
     answerOptions: [
       { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "平均を引いて標準偏差で割ることで、平均0、分散1のデータに変換します。", isCorrect: true },
@@ -1463,7 +1461,7 @@ const QUIZ_DATA = [
   {
     id: 129,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰分析 $y = \\beta_0 + \\beta_1 x + \\epsilon$ において、最小二乗法による回帰係数（傾き） $\\hat{\\beta}_1$ の推定量を示す式はどれですか？（$S_{xy}$ は共分散の分子にあたる偏差積和、$S_{xx}$ は $x$ の偏差平方和）",
     answerOptions: [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "相関係数 $r$ と標準偏差を用いて $\\hat{\\beta}_1 = r \\frac{s_y}{s_x}$ と表すこともできます。", isCorrect: true },
@@ -1475,7 +1473,7 @@ const QUIZ_DATA = [
   {
     id: 130,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "重回帰分析において、ある特定の偏回帰係数 $\\beta_j$ が「0である（有意ではない）」という帰無仮説を検定する際に用いられる $t$ 統計量の公式はどれですか？（$\\hat{\\beta}_j$ は推定値、$SE(\\hat{\\beta}_j)$ はその標準誤差とする）",
     answerOptions: [
       { text: "$t = \\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
@@ -1523,7 +1521,7 @@ const QUIZ_DATA = [
   {
     id: 138,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象の独立性と条件付き確率について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "事象AとBが独立である場合、$P(A|B) = P(B)$ が成り立つ", rationale: "独立であれば、$P(A|B) = P(A)$ が成り立ちます。", isCorrect: true },
@@ -1535,7 +1533,7 @@ const QUIZ_DATA = [
   {
     id: 139,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "正規分布の性質として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "平均値、中央値、最頻値がすべて異なる値をとる", rationale: "正規分布は左右対称であり、平均値、中央値、最頻値はすべて一致します。", isCorrect: true },
@@ -1547,7 +1545,7 @@ const QUIZ_DATA = [
   {
     id: 140,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "ポアソン分布について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "期待値（平均）と分散は異なる値をとる", rationale: "ポアソン分布は期待値と分散が等しい（どちらも $\\lambda$）という重要な性質を持ちます。", isCorrect: true },
@@ -1583,7 +1581,7 @@ const QUIZ_DATA = [
   {
     id: 143,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "重回帰分析における「多重共線性」について、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "多重共線性が存在すると、決定係数（$R^2$）が著しく低下してモデルの当てはまりが悪くなる", rationale: "多重共線性が存在しても決定係数自体は高いままのことが多いですが、偏回帰係数の推定値の分散が大きくなり、不安定になります。", isCorrect: true },
@@ -1595,7 +1593,7 @@ const QUIZ_DATA = [
   {
     id: 144,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析の残差プロット（残差分析）について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "残差の分布がＵ字型などの規則的なパターンを示している場合、モデルがデータに適切に適合している証拠である", rationale: "規則性が残っている場合、非線形な関係を捉えきれていないなど、モデルに改善の余地があることを示します。", isCorrect: true },
@@ -1607,7 +1605,7 @@ const QUIZ_DATA = [
   {
     id: 145,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列モデルについて、**正しくない**記述はどれですか？",
     answerOptions: [
       { text: "自己回帰（AR）モデルは、過去の予測誤差（ホワイトノイズ）の線形結合によって現在の値を予測するモデルである", rationale: "過去の予測誤差の線形結合で表されるのは「移動平均（MA）モデル」です。ARモデルは過去の自分自身の値の線形結合です。", isCorrect: true },
@@ -1631,7 +1629,7 @@ const QUIZ_DATA = [
   {
     id: 147,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「連続一様分布」について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "正規分布と同じように、平均値の周辺にデータが最も集中して出現する", rationale: "一様分布は、区間内のどの値も「全く同じ確率密度」で発生するため、平均値の周辺に集中することはありません。", isCorrect: true },
@@ -1643,7 +1641,7 @@ const QUIZ_DATA = [
   {
     id: 148,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「指数分布」の性質について、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "事象が起きなかった時間が長ければ長いほど、次に事象が起きるまでの期待時間が短くなるという「記憶をもつ」性質がある", rationale: "指数分布は「無記憶性」を持ちます。これまでどれだけ待ったかにかかわらず、これから待つ時間の確率分布は常に同じです。", isCorrect: true },
@@ -1655,7 +1653,7 @@ const QUIZ_DATA = [
   {
     id: 149,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "「t分布」の性質について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "自由度に関わらず、常に標準正規分布と全く同じ形状をしている", rationale: "自由度が小さいほど裾が厚く（極端な値が出やすく）なり、自由度が大きくなる（無限大に近づく）につれて標準正規分布に一致します。", isCorrect: true },
@@ -1703,7 +1701,7 @@ const QUIZ_DATA = [
   {
     id: 153,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰分析 $y = \\beta_0 + \\beta_1 x + \\epsilon$ について、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "説明変数 $x$ と目的変数 $y$ を入れ替えて回帰分析を行っても、得られる回帰直線の傾き（回帰係数）は全く同じになる", rationale: "回帰係数 $\\hat{\\beta}_1$ は $r \\frac{S_y}{S_x}$ です。xとyを入れ替えると $r \\frac{S_x}{S_y}$ となるため、傾きは一般に異なります（相関係数 $r$ は同じです）。", isCorrect: true },
@@ -1715,7 +1713,7 @@ const QUIZ_DATA = [
   {
     id: 154,
     isFormula: 0,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "最小二乗法を用いた回帰モデルにおける「残差（$e_i = y_i - \\hat{y}_i$）」の性質として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "モデルの当てはまりが非常に悪い場合、残差の合計（総和）は0にならず、大きな値をとる", rationale: "定数項（切片）を含む最小二乗法モデルであれば、モデルの良し悪しに関わらず「残差の和は必ず0」になります。", isCorrect: true },
@@ -1727,7 +1725,7 @@ const QUIZ_DATA = [
   {
     id: 155,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "物価指数に関する記述として、**あてはまらない**ものはどれですか？",
     answerOptions: [
       { text: "ラスパイレス指数は、生活様式の変化による安価な代替品への移行を反映できるため、物価上昇を過小評価する傾向がある", rationale: "ラスパイレス指数は「過去（基準時）」の数量をウェイトにするため、安価な代替品への移行（代替効果）を反映できず、物価上昇を「過大評価」する傾向があります。", isCorrect: true },
@@ -1739,7 +1737,7 @@ const QUIZ_DATA = [
   {
     id: 156,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの分析手法に関する記述として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "「移動平均法」は、過去のデータを平滑化してトレンドを把握するだけでなく、将来の長期的なトレンドを高い精度で予測するのにも最も適した手法である", rationale: "移動平均法は過去のデータを平滑化してノイズを減らすのには適していますが、「将来の予測」には不向きです（予測には指数平滑化やARIMAモデル等が適しています）。", isCorrect: true },
@@ -1787,7 +1785,7 @@ const QUIZ_DATA = [
   {
     id: 160,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X$ と $Y$ が「互いに独立」である場合の性質として、**正しくない**ものはどれですか？",
     answerOptions: [
       { text: "$X$ と $Y$ の和の分散 $V(X+Y)$ を求めるには、$V(X) + V(Y) + 2Cov(X,Y)$ のように共分散の項を足し合わせなければならない", rationale: "$X$ と $Y$ が独立であれば共分散 $Cov(X,Y)$ は0になるため、$V(X+Y) = V(X) + V(Y)$ となり、共分散の項は不要です。", isCorrect: true },
@@ -1811,7 +1809,7 @@ const QUIZ_DATA = [
   {
     id: 163,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X, Y$ と定数 $a, b$ における「期待値の線形性」を表す公式として正しいものはどれですか？（$X$ と $Y$ が独立でなくても成り立ちます）",
     answerOptions: [
       { text: "$E(aX + bY) = aE(X) + bE(Y)$", rationale: "期待値の線形性は常に成り立ちます。", isCorrect: true },
@@ -1823,7 +1821,7 @@ const QUIZ_DATA = [
   {
     id: 164,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率密度関数 $f(x)$ に従う「連続型確率変数 $X$」の期待値 $E(X)$ の定義式として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "連続型確率変数の期待値は、値 $x$ と確率密度 $f(x)$ の積を全範囲で積分して求めます。", isCorrect: true },
@@ -1835,7 +1833,7 @@ const QUIZ_DATA = [
   {
     id: 165,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "区間 $[a, b]$ における「連続一様分布」の分散 $V(X)$ を求める公式として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\frac{(b-a)^2}{12}$", rationale: "連続一様分布の分散は $\\frac{(b-a)^2}{12}$ となります。", isCorrect: true },
@@ -1847,7 +1845,7 @@ const QUIZ_DATA = [
   {
     id: 166,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "試行回数 $n$、成功確率 $p$ の「二項分布 $B(n, p)$」に従う確率変数の分散 $V(X)$ の公式はどれですか？",
     answerOptions: [
       { text: "$np(1-p)$", rationale: "二項分布の分散は $np(1-p)$ または $npq$ と表されます。", isCorrect: true },
@@ -1895,7 +1893,7 @@ const QUIZ_DATA = [
   {
     id: 171,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰分析 $y = \\hat{\\beta}_0 + \\hat{\\beta}_1 x$ において、切片 $\\hat{\\beta}_0$ を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散または偏差積和、$S_{xx}$ は $x$ の分散または偏差平方和を表す）",
     answerOptions: [
       { text: "$\\hat{\\beta}_0 = \\bar{y} - \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "回帰係数（傾き）は $\\frac{S_{xy}}{S_{xx}}$ で求められます。回帰直線は必ず平均点 $(\\bar{x}, \\bar{y})$ を通るため、$\\bar{y} = \\hat{\\beta}_0 + \\frac{S_{xy}}{S_{xx}} \\bar{x}$ を変形して切片を求めます。", isCorrect: true },
@@ -1907,7 +1905,7 @@ const QUIZ_DATA = [
   {
     id: 172,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "サンプルサイズ $n$、説明変数の数 $k$ の重回帰分析において、残差平方和を $SSE$ としたとき、誤差項の分散 $\\sigma^2$ の不偏推定量 $\\hat{\\sigma}^2$ の公式はどれですか？",
     answerOptions: [
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - k - 1}$", rationale: "残差の自由度は サンプルサイズ $n$ から推定するパラメータの数 $(k+1)$ を引いた $n-k-1$ となります。", isCorrect: true },
@@ -2003,7 +2001,7 @@ const QUIZ_DATA = [
   {
     id: 182,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "事象AとBにおいて、事前確率 $P(A)$ に証拠 $B$ を加味して事後確率 $P(A|B)$ を更新する「ベイズの定理」の公式はどれですか？",
     answerOptions: [
       { text: "$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$", rationale: "条件付き確率の定義 $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ から導かれるベイズの定理の基本形です。", isCorrect: true },
@@ -2015,7 +2013,7 @@ const QUIZ_DATA = [
   {
     id: 183,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "試行回数 $n$、成功確率 $p$ の「二項分布 $B(n, p)$」において、確率変数 $X$ がちょうど $k$ 回成功する確率 $P(X=k)$ を求める「確率質量関数」はどれですか？",
     answerOptions: [
       { text: "${}_n C_k p^k (1-p)^{n-k}$", rationale: "「$n$ 回中 $k$ 回成功する組み合わせ」×「成功が $k$ 回起きる確率」×「失敗が $n-k$ 回起きる確率」です。", isCorrect: true },
@@ -2027,7 +2025,7 @@ const QUIZ_DATA = [
   {
     id: 184,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "単位時間あたり平均 $\\lambda$ 回発生する事象が、ちょうど $x$ 回発生する確率を示す「ポアソン分布」の確率質量関数 $P(X=x)$ はどれですか？",
     answerOptions: [
       { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "ポアソン分布の定義となる確率質量関数です。", isCorrect: true },
@@ -2039,7 +2037,7 @@ const QUIZ_DATA = [
   {
     id: 186,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率密度関数 $f(x)$ に従う連続型確率変数 $X$ が、区間 $[a, b]$ の値をとる確率 $P(a \\le X \\le b)$ を計算する式として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\int_a^b f(x) dx$", rationale: "連続型確率変数の確率は、確率密度関数 $f(x)$ の定積分（面積）として求められます。", isCorrect: true },
@@ -2051,7 +2049,7 @@ const QUIZ_DATA = [
   {
     id: 187,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "平均 $\\mu$、標準偏差 $\\sigma$ の分布に従う確率変数 $X$ を、平均0、標準偏差1の変数 $Z$ に「標準化」するための公式はどれですか？",
     answerOptions: [
       { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "元の値から平均を引き、標準偏差で割ることで標準化されます。", isCorrect: true },
@@ -2135,7 +2133,7 @@ const QUIZ_DATA = [
   {
     id: 195,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "回帰分析において、モデルの当てはまりの良さを示す「決定係数 $R^2$」の定義式として正しいものはどれですか？（総平方和を $S_y$ または $SST$、残差平方和を $SSE$ とする）",
     answerOptions: [
       { text: "$R^2 = 1 - \\frac{SSE}{S_y}$", rationale: "データの全変動 $S_y$ のうち、モデルで説明できない残差の変動 $SSE$ の割合を引き去ったものが、モデルで説明できる割合（決定係数）になります。", isCorrect: true },
@@ -2147,7 +2145,7 @@ const QUIZ_DATA = [
   {
     id: 196,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "重回帰分析において、説明変数の数が増えることによる決定係数の見かけ上の増加を補正する「自由度調整済み決定係数 $R^{*2}$」の公式はどれですか？（サンプルサイズ $n$、説明変数の数 $k$）",
     answerOptions: [
       { text: "$R^{*2} = 1 - \\frac{SSE / (n-k-1)}{S_y / (n-1)}$", rationale: "残差平方和 $SSE$ と総平方和 $S_y$ を、それぞれの自由度で割った「分散」の比を用いて計算します。", isCorrect: true },
@@ -2159,7 +2157,7 @@ const QUIZ_DATA = [
   {
     id: 197,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "単回帰モデル $y = \\beta_0 + \\beta_1 x + \\epsilon$ における、最小二乗推定量である「回帰係数（傾き） $\\hat{\\beta}_1$ の分散 $V(\\hat{\\beta}_1)$」の公式はどれですか？（誤差項の分散を $\\sigma^2$、$x$ の偏差平方和を $S_{xx}$ とする）",
     answerOptions: [
       { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{S_{xx}}$", rationale: "説明変数 $x$ のばらつき（$S_{xx}$）が大きいほど、傾き $\\hat{\\beta}_1$ の推定精度は高くなり、分散は小さくなります。", isCorrect: true },
@@ -2171,7 +2169,7 @@ const QUIZ_DATA = [
   {
     id: 198,
     isFormula: 1,
-    category: "推測統計",
+    category: "回帰分析・分散分析",
     question: "一元配置分散分析において、帰無仮説（各群の母平均は等しい）を検定するための「検定統計量F」の計算式はどれですか？（群間平方和(水準間平方和) $S_A$、群内平方和(残差平方和) $S_E$、群数 $a$、全体データ数 $n$ とする）",
     answerOptions: [
       { text: "$F = \\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "それぞれの平方和を対応する自由度で割って「平均平方（分散）」を求め、その比をとったものがF統計量です。", isCorrect: true },
@@ -2183,7 +2181,7 @@ const QUIZ_DATA = [
   {
     id: 199,
     isFormula: 1,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "基準時と対象時の2時点間で物価水準を比較する「ラスパイレス価格指数」の計算式として正しいものはどれですか？（価格を $p$、数量を $q$、基準時を $0$、対象時を $t$ とする）",
     answerOptions: [
       { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定し、価格の変化のみを比較します。", isCorrect: true },
@@ -2195,7 +2193,7 @@ const QUIZ_DATA = [
   {
     id: 201,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「2項分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "2項分布は、成功確率 $p$ の試行を $n$ 回行ったときの成功回数 $x$ の確率分布です。", isCorrect: true },
@@ -2207,7 +2205,7 @@ const QUIZ_DATA = [
   {
     id: 202,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「2項分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "2項分布の期待値は $np$、分散は $np(1-p)$ です。", isCorrect: true },
@@ -2219,7 +2217,7 @@ const QUIZ_DATA = [
   {
     id: 203,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「ポアソン分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "ポアソン分布は、平均 $\\lambda$ 回起こる事象が $x$ 回起こる確率を表します。", isCorrect: true },
@@ -2231,7 +2229,7 @@ const QUIZ_DATA = [
   {
     id: 204,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「ポアソン分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "ポアソン分布の大きな特徴として、期待値と分散が等しく $\\lambda$ となります。", isCorrect: true },
@@ -2243,7 +2241,7 @@ const QUIZ_DATA = [
   {
     id: 205,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「幾何分布」に従う場合の確率質量関数として正しいものはどれですか？",
     answerOptions: [
       { text: "$p(1-p)^{x-1}$", rationale: "幾何分布は、初めて成功するまでに $x$ 回試行を行う確率を表します。", isCorrect: true },
@@ -2255,7 +2253,7 @@ const QUIZ_DATA = [
   {
     id: 206,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「幾何分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "幾何分布の期待値は $\\frac{1}{p}$、分散は $\\frac{1-p}{p^2}$ となります。", isCorrect: true },
@@ -2267,7 +2265,7 @@ const QUIZ_DATA = [
   {
     id: 208,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「標準正規分布」に従う場合、その期待値と分散の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $0$, 分散: $1$", rationale: "標準正規分布は、平均 $\\mu=0$、分散 $\\sigma^2=1$ に標準化された正規分布です。", isCorrect: true },
@@ -2279,7 +2277,7 @@ const QUIZ_DATA = [
   {
     id: 210,
     isFormula: 1,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "連続型確率変数 $X$ が「指数分布」に従う場合の確率密度関数として正しいものはどれですか？",
     answerOptions: [
       { text: "$\\lambda e^{-\\lambda t}$", rationale: "指数分布は、ある事象が起こるまでの待ち時間などを表す分布です。", isCorrect: true },
@@ -2291,7 +2289,7 @@ const QUIZ_DATA = [
   {
     id: 211,
     isFormula: 0,
-    category: "確率分布",
+    category: "確率・確率分布",
     question: "確率変数 $X$ が「指数分布」に従う場合、その期待値 $E[X]$ と分散 $V[X]$ の正しい組み合わせはどれですか？",
     answerOptions: [
       { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "指数分布の期待値は $\\frac{1}{\\lambda}$、分散は $\\frac{1}{\\lambda^2}$ となります。", isCorrect: true },
@@ -2303,7 +2301,7 @@ const QUIZ_DATA = [
   {
     id: 212,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "2つの確率変数 $X, Y$ の共分散 $Cov[X,Y]$ を計算する式として正しいものはどれですか？",
     answerOptions: [
       { text: "$E[XY] - E[X]E[Y]$", rationale: "共分散は「積の期待値」から「期待値の積」を引くことで計算できます。", isCorrect: true },
@@ -2315,7 +2313,7 @@ const QUIZ_DATA = [
   {
     id: 213,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率密度関数 $f(x)$ を持つ連続型確率変数 $X$ の「期待値 $E[X]$」を求める定義式はどれですか？",
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "連続型確率変数の期待値は、$x$ と確率密度関数 $f(x)$ の積を全区間で積分して求めます。", isCorrect: true },
@@ -2327,7 +2325,7 @@ const QUIZ_DATA = [
   {
     id: 214,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率密度関数 $f(x)$ を持ち、期待値が $\\mu$ である連続型確率変数 $X$ の「分散 $V[X]$」を求める定義式はどれですか？",
     answerOptions: [
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "分散は「平均からの偏差の2乗」の期待値として定義されます。", isCorrect: true },
@@ -2435,7 +2433,7 @@ const QUIZ_DATA = [
   {
     id: 225,
     isFormula: 1,
-    category: "線形モデル",
+    category: "回帰分析・分散分析",
     question: "変数 $z$ の影響を取り除いた、変数 $x, y$ 間の偏相関係数 $r_{xy \\cdot z}$ を求める式はどれですか？",
     answerOptions: [
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "偏相関係数の正しい定義式です。$z$ の影響を除外するために計算されます。", isCorrect: true },
@@ -2447,7 +2445,7 @@ const QUIZ_DATA = [
   {
     id: 226,
     isFormula: 0,
-    category: "確率",
+    category: "確率・確率分布",
     question: "2つの確率変数 $X$ と $Y$ の間に「負の相関（共分散 $Cov(X, Y) < 0$）」がある場合、その和の分散 $V(X + Y)$ と差の分散 $V(X - Y)$ の大小関係、および公式の展開に関する記述として最も適切なものはどれですか。ただし、それぞれの分散 $V(X), V(Y)$ はともに正の値をとるものとします。",
     answerOptions: [
       { text: "$V(X + Y) < V(X - Y)$ であり、負の相関があるときは引き算のほうが分散（ばらつき）が大きくなる。", rationale: "和の分散は $V(X + Y) = V(X) + V(Y) + 2Cov(X, Y)$ 、差の分散は $V(X - Y) = V(X) + V(Y) - 2Cov(X, Y)$ と展開されます。負の相関がある場合、共分散 $Cov(X, Y)$ は負の値になります。そのため、和の分散では値が引き算されて小さくなり、差の分散ではマイナスとマイナスが打ち消し合ってプラス（加算）されるため、必ず $V(X + Y) < V(X - Y)$ となります。", isCorrect: true },
@@ -2459,7 +2457,7 @@ const QUIZ_DATA = [
   {
     id: 227,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X$ について、自分自身との共分散 $Cov(X, X)$ を表す式として最も適切なものはどれですか？",
     answerOptions: [
       { text: "$V(X)$", rationale: "$Cov(X,X) = E[(X-E[X])(X-E[X])] = E[(X-E[X])^2] = V(X)$ となり、自分自身との共分散は分散と等しくなります。", isCorrect: true },
@@ -2471,7 +2469,7 @@ const QUIZ_DATA = [
   {
     id: 228,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X, Y$ と定数 $a, b, c, d$ について、共分散 $Cov(aX + b, cY + d)$ を展開した式として正しいものはどれですか？",
     answerOptions: [
       { text: "$ac Cov(X, Y)$", rationale: "共分散は定数の加算 ($+b, +d$) に影響されず、乗算された定数 ($a, c$) はそのまま外に出ます。", isCorrect: true },
@@ -2483,7 +2481,7 @@ const QUIZ_DATA = [
   {
     id: 229,
     isFormula: 1,
-    category: "確率",
+    category: "確率・確率分布",
     question: "確率変数 $X, Y, Z$ について、和と別の確率変数との共分散 $Cov(X + Y, Z)$ を展開した式として正しいものはどれですか？",
     answerOptions: [
       { text: "$Cov(X, Z) + Cov(Y, Z)$", rationale: "共分散は線形性を持つため、分配法則のように足し算で展開することができます。", isCorrect: true },
@@ -2507,7 +2505,7 @@ const QUIZ_DATA = [
   {
     id: 231,
     isFormula: 0,
-    category: "時系列・指数",
+    category: "記述統計・基礎",
     question: "時系列データの変化や推移を捉えるための4つの指標［差、比、変化率（伸び率）、指数］の計算式や特徴に関する記述として、最も適切なものはどれですか。",
     answerOptions: [
       { text: "「指数」は、ある特定の時点（基準時）の値を $100$ として、他の時点（比較時）の値がどの程度の割合になるかを算出したものであり、単位の異なるデータ間の推移を比較するのに適している。", rationale: "指数の定義として正確であり、単位に依存せず長期的な推移や複数系列の比較に用いられます。", isCorrect: true },
