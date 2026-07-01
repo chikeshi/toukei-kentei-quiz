@@ -705,7 +705,7 @@ var QUIZ_DATA = [
       { text: "$P(A) + P(B)$", rationale: "XAXBX", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "XAXBX $P(A \\cap B)$ X", isCorrect: false },
       { text: "$P(A) + P(B) + P(A \\cap B)$", rationale: "X", isCorrect: false },
-      { text: "P(A) \\times P(B)", rationale: "X", isCorrect: false }
+      { text: "$P(A) \\times P(B)$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -835,7 +835,7 @@ var QUIZ_DATA = [
       { text: "$E(X) = \\lambda, \\quad V(X) = \\lambda^2$", rationale: "X $\\lambda^2$ X $\\lambda$ X", isCorrect: false },
       { text: "$E(X) = \\frac{1}{\\lambda}, \\quad V(X) = \\frac{1}{\\lambda^2}$", rationale: "X", isCorrect: false },
       { text: "$E(X) = \\lambda, \\quad V(X) = \\sqrt{\\lambda}$", rationale: "$\\sqrt{\\lambda}$ X", isCorrect: false },
-      { text: "E(X) = \\lambda, V(X) = \\lambda^2", rationale: "X \\lambda X \\lambda^2 X", isCorrect: false }
+      { text: "$E(X) = \\lambda, V(X) = \\lambda^2$", rationale: "X \\lambda X \\lambda^2 X", isCorrect: false }
     ]
   },
   {
@@ -874,7 +874,7 @@ var QUIZ_DATA = [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "X $n$ X $\\sqrt{n}$XnX", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\sigma$", rationale: "$\\sigma$ X $\\frac{\\sigma}{\\sqrt{n}}$ X", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n-1}}$", rationale: "X $n-1$ X", isCorrect: false },
-      { text: "\\bar{x} \\pm 1.96 \\sigma", rationale: "X \\sigma/\\sqrt{n} X \\sigma X", isCorrect: false }
+      { text: "$\\bar{x} \\pm 1.96 \\sigma$", rationale: "X \\sigma/\\sqrt{n} X \\sigma X", isCorrect: false }
     ]
   },
   {
@@ -900,7 +900,7 @@ var QUIZ_DATA = [
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "X", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / n}$", rationale: "X $n$ X $\\sqrt{n}$ X", isCorrect: false },
-      { text: "Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}", rationale: "X\\sigma/\\sqrt{n}X", isCorrect: false }
+      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X\\sigma/\\sqrt{n}X", isCorrect: false }
     ]
   },
   {
@@ -913,7 +913,7 @@ var QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "X $n-1$ X $n$ X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ X $90\\%$ X $p$ X $\\hat{p}$ X", isCorrect: false },
-      { text: "\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}", rationale: "X \\hat{p}(1-\\hat{p})/n X", isCorrect: false }
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "X \\hat{p}(1-\\hat{p})/n X", isCorrect: false }
     ]
   },
   {
@@ -926,7 +926,7 @@ var QUIZ_DATA = [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "X $r$X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "X $\\hat{\\beta}_0$ X", isCorrect: false },
-      { text: "\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}", rationale: "X X X X,Y X", isCorrect: false }
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "X X X X,Y X", isCorrect: false }
     ]
   },
   {
@@ -939,7 +939,7 @@ var QUIZ_DATA = [
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "X $\\mu$ X $\\bar{x}$ X$\\mu$ X $n$ X", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "X2X - X2X", isCorrect: false },
-      { text: "s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2", rationale: "X n-1 X", isCorrect: false }
+      { text: "$s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2$", rationale: "X n-1 X", isCorrect: false }
     ]
   },
   {
@@ -952,7 +952,7 @@ var QUIZ_DATA = [
       { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "X", isCorrect: false },
       { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}{S_{xy}}$", rationale: "X", isCorrect: false },
       { text: "$r = \\frac{S_{xx} + S_{yy}}{S_{xy}}$", rationale: "X", isCorrect: false },
-      { text: "r = \\frac{S_{xy}}{S_{xx} S_{yy}}", rationale: "X", isCorrect: false }
+      { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -965,7 +965,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "X", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "X", isCorrect: false },
       { text: "$\\sqrt{ \\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times \\frac{\\sum p_t q_t}{\\sum p_0 q_t} } \\times 100$", rationale: "X", isCorrect: false },
-      { text: "\\frac{\\sum p_t q_0}{\\sum p_0 q_0}", rationale: "X", isCorrect: false }
+      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0}$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1030,7 +1030,7 @@ var QUIZ_DATA = [
       { text: "$P(A) \\times P(B)$", rationale: "XAXBX", isCorrect: false },
       { text: "$P(A) + P(B|A)$", rationale: "X", isCorrect: false },
       { text: "$\\frac{P(A)}{P(B|A)}$", rationale: "X", isCorrect: false },
-      { text: "P(A \\cap B) = P(A) + P(B|A)", rationale: "X", isCorrect: false }
+      { text: "$P(A \\cap B) = P(A) + P(B|A)$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1043,7 +1043,7 @@ var QUIZ_DATA = [
       { text: "$E(X) = \\frac{b-a}{2}, \\quad V(X) = \\frac{a+b}{12}$", rationale: "X", isCorrect: false },
       { text: "$E(X) = \\frac{a+b}{2}, \\quad V(X) = \\frac{(b-a)^2}{4}$", rationale: "X4X12X", isCorrect: false },
       { text: "$E(X) = ab, \\quad V(X) = \\frac{a^2 b^2}{12}$", rationale: "X", isCorrect: false },
-      { text: "E(X) = \\frac{a+b}{2}, V(X) = \\frac{(b-a)^2}{2}", rationale: "X2X12X", isCorrect: false }
+      { text: "$E(X) = \\frac{a+b}{2}, V(X) = \\frac{(b-a)^2}{2}$", rationale: "X2X12X", isCorrect: false }
     ]
   },
   {
@@ -1056,7 +1056,7 @@ var QUIZ_DATA = [
       { text: "$f(x) = e^{-\\lambda x}$", rationale: "X $\\lambda$ X1X", isCorrect: false },
       { text: "$f(x) = 1 - e^{-\\lambda x}$", rationale: "X $F(x)$X", isCorrect: false },
       { text: "$f(x) = \\frac{1}{\\lambda} e^{-\\frac{x}{\\lambda}}$", rationale: "X $\\lambda$ X $\\theta = \\frac{1}{\\lambda}$ X", isCorrect: false },
-      { text: "f(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}", rationale: "X", isCorrect: false }
+      { text: "$f(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1082,7 +1082,7 @@ var QUIZ_DATA = [
       { text: "$\\left[ \\frac{\\chi^2_{0.975}}{(n-1)s^2}, \\frac{\\chi^2_{0.025}}{(n-1)s^2} \\right]$", rationale: "X", isCorrect: false },
       { text: "$s^2 \\pm t_{0.025} \\frac{s}{\\sqrt{n}}$", rationale: "X", isCorrect: false },
       { text: "$s^2 \\pm 1.96 \\frac{s^2}{n}$", rationale: "X1.96X", isCorrect: false },
-      { text: "\\left[ s^2 - 1.96 \\frac{s}{\\sqrt{n}}, s^2 + 1.96 \\frac{s}{\\sqrt{n}} \\right]", rationale: "X", isCorrect: false }
+      { text: "$\\left[ s^2 - 1.96 \\frac{s}{\\sqrt{n}}, s^2 + 1.96 \\frac{s}{\\sqrt{n}} \\right]$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1095,7 +1095,7 @@ var QUIZ_DATA = [
       { text: "$R^{*2} = 1 - \\frac{n-k-1}{n-1} (1 - R^2)$", rationale: "X $R^{*2}$ X $R^2$ X", isCorrect: false },
       { text: "$R^{*2} = \\frac{n-k-1}{n-1} R^2$", rationale: "X$1 - R^2$X", isCorrect: false },
       { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "X", isCorrect: false },
-      { text: "R^{*2} = R^2 - \\frac{k}{n}", rationale: "X", isCorrect: false }
+      { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1121,7 +1121,7 @@ var QUIZ_DATA = [
       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "X $n_1 + n_2 - 2$ X", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "X", isCorrect: false },
-      { text: "s^2 = \\frac{s_1^2 + s_2^2}{2}", rationale: "X-1X", isCorrect: false }
+      { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "X-1X", isCorrect: false }
     ]
   },
   {
@@ -1134,7 +1134,7 @@ var QUIZ_DATA = [
       { text: "$P(X=k) = \\lambda^k e^{-\\lambda}$", rationale: "X $k!$ X $1$ X", isCorrect: false },
       { text: "$P(X=k) = \\binom{n}{k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "X", isCorrect: false },
       { text: "$P(X=k) = \\frac{\\lambda e^{-k}}{k!}$", rationale: "X $-\\lambda$ X $e$ X", isCorrect: false },
-      { text: "P(X=k) = \\lambda e^{-\\lambda k}", rationale: "X k! X", isCorrect: false }
+      { text: "$P(X=k) = \\lambda e^{-\\lambda k}$", rationale: "X k! X", isCorrect: false }
     ]
   },
   {
@@ -1173,7 +1173,7 @@ var QUIZ_DATA = [
       { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X $O_i$ X $E_i$ X", isCorrect: false },
       { text: "$\\chi^2 = \\sum (O_i - E_i)^2$", rationale: "X", isCorrect: false },
       { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "X2X", isCorrect: false },
-      { text: "\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}", rationale: "XE_iXO_iX", isCorrect: false }
+      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "XE_iXO_iX", isCorrect: false }
     ]
   },
   {
@@ -1186,7 +1186,7 @@ var QUIZ_DATA = [
       { text: "$r \\times c - 1$", rationale: "X - 1X", isCorrect: false },
       { text: "$r + c - 2$", rationale: "X", isCorrect: false },
       { text: "$(r-1) + (c-1)$", rationale: "X", isCorrect: false },
-      { text: "r \\times c - 1", rationale: "X1X (r-1)(c-1) X", isCorrect: false }
+      { text: "$r \\times c - 1$", rationale: "X1X (r-1)(c-1) X", isCorrect: false }
     ]
   },
   {
@@ -1225,7 +1225,7 @@ var QUIZ_DATA = [
       { text: "$np(1-p)$", rationale: "X $X$ X", isCorrect: false },
       { text: "$\\frac{p(1-p)}{n^2}$", rationale: "X $n$ X", isCorrect: false },
       { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "X", isCorrect: false },
-      { text: "V(\\hat{p}) = np(1-p)", rationale: "X XX \\hat{p} = X/n X n^2 X n X", isCorrect: false }
+      { text: "$V(\\hat{p}) = np(1-p)$", rationale: "X XX \\hat{p} = X/n X n^2 X n X", isCorrect: false }
     ]
   },
   {
@@ -1277,7 +1277,7 @@ var QUIZ_DATA = [
       { text: "X0X1X", rationale: "X", isCorrect: false },
       { text: "X0X", rationale: "X", isCorrect: false },
       { text: "X2X", rationale: "X3X", isCorrect: false },
-      { text: "X A X P(A) X 0 \\le P(A) \\le 1 X", rationale: "X0X1X1X", isCorrect: false }
+      { text: "$X A X P(A) X 0 \\le P(A) \\le 1 X$", rationale: "X0X1X1X", isCorrect: false }
     ]
   },
   {
@@ -1524,7 +1524,7 @@ var QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "X $(1-\\hat{p})$ X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "X1X $\\hat{p}(1-\\hat{p})$ X", isCorrect: false },
-      { text: "\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}", rationale: "X n-1 X n X", isCorrect: false }
+      { text: "$\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}$", rationale: "X n-1 X n X", isCorrect: false }
     ]
   },
   {
@@ -1901,7 +1901,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "X", isCorrect: false },
       { text: "$\\sum_{i=1}^n (x_i y_i) - \\bar{x}\\bar{y}$", rationale: "X $\\frac{1}{n} \\sum (x_i y_i) - \\bar{x}\\bar{y}$ X$\\frac{1}{n}$ X", isCorrect: false },
       { text: "$\\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}$", rationale: "X $r$ X", isCorrect: false },
-      { text: "\\\\frac{1}{n-1} \\\\sum_{i=1}^n (x_i - \\\\bar{x}) (y_i - \\\\bar{y})^2", rationale: "XyX2X", isCorrect: false }
+      { text: "$\\\\frac{1}{n-1} \\\\sum_{i=1}^n (x_i - \\\\bar{x}) (y_i - \\\\bar{y})^2$", rationale: "XyX2X", isCorrect: false }
     ]
   },
   {
@@ -1927,7 +1927,7 @@ var QUIZ_DATA = [
       { text: "$\\sum_{i=1}^{\\infty} x_i P(X = x_i)$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "X1X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "X $V(X)$X", isCorrect: false },
-      { text: "\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx", rationale: "X X X2X E(X^2) XX X", isCorrect: false }
+      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx$", rationale: "X X X2X E(X^2) XX X", isCorrect: false }
     ]
   },
   {
@@ -2109,7 +2109,7 @@ var QUIZ_DATA = [
       { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "X", isCorrect: false },
       { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "X", isCorrect: false },
       { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "X", isCorrect: false },
-      { text: "P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}", rationale: "X P(B|A) X P(A|B) X", isCorrect: false }
+      { text: "$P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}$", rationale: "X P(B|A) X P(A|B) X", isCorrect: false }
     ]
   },
   {
@@ -2135,7 +2135,7 @@ var QUIZ_DATA = [
       { text: "$f(b) - f(a)$", rationale: "X $F(x)$ X $F(b)-F(a)$ X", isCorrect: false },
       { text: "$\\sum_{x=a}^b f(x)$", rationale: "X", isCorrect: false },
       { text: "$\\frac{f(a) + f(b)}{2} (b-a)$", rationale: "X", isCorrect: false },
-      { text: "\\\\int_{-\\\\infty}^b f(x) dx - \\\\int_a^{\\\\infty} f(x) dx", rationale: "X F(b) - F(a) X", isCorrect: false }
+      { text: "$\\\\int_{-\\\\infty}^b f(x) dx - \\\\int_a^{\\\\infty} f(x) dx$", rationale: "X F(b) - F(a) X", isCorrect: false }
     ]
   },
   {
@@ -2148,7 +2148,7 @@ var QUIZ_DATA = [
       { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "X $\\sigma^2$ X $\\sigma$ X", isCorrect: false },
       { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "X", isCorrect: false },
       { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "X", isCorrect: false },
-      { text: "Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
+      { text: "$Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
     ]
   },
   {
@@ -2200,7 +2200,7 @@ var QUIZ_DATA = [
       { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X", isCorrect: false },
       { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "X2X", isCorrect: false },
       { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "X", isCorrect: false },
-      { text: "\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}", rationale: "X E_i X2X E_i^2 X", isCorrect: false }
+      { text: "$\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}$", rationale: "X E_i X2X E_i^2 X", isCorrect: false }
     ]
   },
   {
@@ -2226,7 +2226,7 @@ var QUIZ_DATA = [
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "X", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "XZXtXtX", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "X", isCorrect: false },
-      { text: "(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})", rationale: "X", isCorrect: false }
+      { text: "$(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2291,7 +2291,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "X $q_t$ X", isCorrect: false },
       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "X", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "X", isCorrect: false },
-      { text: "\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100", rationale: "X", isCorrect: false }
+      { text: "$\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2434,7 +2434,7 @@ var QUIZ_DATA = [
       { text: "$\\sum_{x} x P(X=x)$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "X $1$ X", isCorrect: false },
-      { text: "\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx", rationale: "F(x) X f(x) X x X", isCorrect: false }
+      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx$", rationale: "F(x) X f(x) X x X", isCorrect: false }
     ]
   },
   {
@@ -2447,7 +2447,7 @@ var QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "X0X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "X $X^2$ X $E[X^2]$ X $\\mu^2$ X", isCorrect: false }
-    ,      { text: "\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx", rationale: "X2X", isCorrect: false }
+    ,      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "X2X", isCorrect: false }
     ]
   },
   {
