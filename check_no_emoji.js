@@ -2608,6 +2608,45 @@ var QUIZ_DATA = [
       , { text: "X", rationale: "X (X - X) / X X1X", isCorrect: false }
     ]
   }
+  ,{
+    id: 232,
+    isFormula: 1,
+    category: "X",
+    question: "X $n$X $s^2$X $\sigma_0^2$ X",
+    answerOptions: [
+      { text: "$\chi^2 = \frac{(n-1)s^2}{\sigma_0^2}$", rationale: "X $s^2$ X $\chi^2$ X $n-1$X", isCorrect: true },
+      { text: "$\chi^2 = \frac{ns^2}{\sigma_0^2}$", rationale: "X $n$ X$n$X $n$ X $(n-1)$ X", isCorrect: false },
+      { text: "$t = \frac{s^2 - \sigma_0^2}{s/\sqrt{n}}$", rationale: "X $t$ X$t$ X", isCorrect: false },
+      { text: "$F = \frac{s^2}{\sigma_0^2}$", rationale: "2X $F$ X1X $\chi^2$ X", isCorrect: false },
+      { text: "$Z = \frac{s^2 - \sigma_0^2}{\sigma_0^2 / \sqrt{n}}$", rationale: "X $Z$ X $\chi^2$ X", isCorrect: false }
+    ]
+  },
+  {
+    id: 233,
+    isFormula: 1,
+    category: "X",
+    question: "X $n$ X $Z$ X $\hat{p}$X $p_0$ X",
+    answerOptions: [
+      { text: "$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$", rationale: "X $p = p_0$ X $p_0(1-p_0)/n$ X", isCorrect: true },
+      { text: "$Z = \frac{\hat{p} - p_0}{\sqrt{\hat{p}(1-\hat{p})/n}}$", rationale: "X $\hat{p}$ X $p_0$ X", isCorrect: false },
+      { text: "$t = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$", rationale: "X $Z$ X$t$ X", isCorrect: false },
+      { text: "$Z = \frac{\hat{p} - p_0}{p_0(1-p_0)/\sqrt{n}}$", rationale: "X", isCorrect: false },
+      { text: "$\chi^2 = \frac{(\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "X $Z^2$ X1X $\chi^2$ X $Z$ X", isCorrect: false }
+    ]
+  },
+  {
+    id: 234,
+    isFormula: 1,
+    category: "X",
+    question: "2X $n_1, n_2$X $\hat{p}_1, \hat{p}_2$X $Z$ X $p_1 = p_2$ X $\hat{p} = \frac{n_1\hat{p}_1 + n_2\hat{p}_2}{n_1+n_2}$ X",
+    answerOptions: [
+      { text: "$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}}$", rationale: "X $p_1 = p_2$ X$\hat{p}$ X", isCorrect: true },
+      { text: "$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}}$", rationale: "X", isCorrect: false },
+      { text: "$t = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}}$", rationale: "X$t$ X $Z$ X", isCorrect: false },
+      { text: "$Z = \frac{\hat{p}_1 - \hat{p}_2}{\hat{p}(1-\hat{p})\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$", rationale: "X$\hat{p}(1-\hat{p})$ X", isCorrect: false },
+      { text: "$F = \frac{\hat{p}_1(1-\hat{p}_1)/n_1}{\hat{p}_2(1-\hat{p}_2)/n_2}$", rationale: "X $F$ X", isCorrect: false }
+    ]
+  }
 ];
 
 
