@@ -694,7 +694,7 @@ var QUIZ_DATA = [
       { text: "$P(A) + P(B)$", rationale: "X $P(A \\cup B)$ X", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cup B)$", rationale: "X $P(A \\cap B)$ X", isCorrect: false },
       { text: "$P(A|B) \\times P(A)$", rationale: "X $P(A|B) \\times P(B)$ X $P(B|A) \\times P(A)$ X", isCorrect: false },
-      { text: "P(A) + P(B)", rationale: "X", isCorrect: false }
+      { text: "$P(A) + P(B)$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2539,8 +2539,8 @@ var QUIZ_DATA = [
       { text: "$V(X)$", rationale: "$Cov(X,X) = E[(X-E[X])(X-E[X])] = E[(X-E[X])^2] = V(X)$ X", isCorrect: true },
       { text: "$E(X)^2$", rationale: "$V(X) = E(X^2) - \{E(X)\}^2$ X", isCorrect: false },
       { text: "$1$", rationale: "X $r(X,X)$ X $1$ X", isCorrect: false },
-      { text: "$0$", rationale: "X $0$ X", isCorrect: false }
-      , { text: "E(X^2)", rationale: "Cov(X, X) X V(X) = E(X^2) - (E(X))^2 XE(X^2) X2X", isCorrect: false }
+      { text: "$0$", rationale: "X $0$ X", isCorrect: false },
+      { text: "$E(X^2)$", rationale: "Cov(X, X) X V(X) = E(X^2) - (E(X))^2 XE(X^2) X2X", isCorrect: false }
     ]
   },
   {
@@ -2552,7 +2552,7 @@ var QUIZ_DATA = [
       { text: "$ac Cov(X, Y)$", rationale: "X ($+b, +d$) X ($a, c$) X", isCorrect: true },
       { text: "$ac Cov(X, Y) + bd$", rationale: "X ($+b, +d$) X", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "X", isCorrect: false },
-      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \times c$ X", isCorrect: false }
+      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \\times c$ X", isCorrect: false }
       , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "X $b$ X $d$ X", isCorrect: false }
     ]
   },
@@ -2563,7 +2563,7 @@ var QUIZ_DATA = [
     question: "X $X, Y, Z$ X $Cov(X + Y, Z)$ X",
     answerOptions: [
       { text: "$Cov(X, Z) + Cov(Y, Z)$", rationale: "X", isCorrect: true },
-      { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "X", isCorrect: false },
+      { text: "$Cov(X, Z) \\times Cov(Y, Z)$", rationale: "X", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "X $V(X+Y)$ X", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false }
       , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "X", isCorrect: false }
