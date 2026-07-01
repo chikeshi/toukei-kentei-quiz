@@ -1,7 +1,7 @@
 import codecs
 import re
 
-old_text = codecs.open('old_data.js', 'r', 'utf-16').read()
+old_text = codecs.open('old_data_clean.js', 'r', 'utf-8').read()
 new_text = codecs.open('data.js', 'r', 'utf-8').read()
 
 # Extract old categories map
@@ -13,10 +13,12 @@ for b in old_blocks[1:]:
     if id_match and cat_match:
         old_cat_map[int(id_match.group(1))] = cat_match.group(1)
 
+print("Old cat map size:", len(old_cat_map))
+
 # Helper to classify 推測統計
 def classify_inference(text):
     text = text.lower()
-    hypothesis_keywords = ['検定', '帰無仮説', '対立仮説', '有意', '棄却', 'p値', '第一種の過誤', '第二種の過誤', '検出力']
+    hypothesis_keywords = ['検定', '帰無仮説', '対立仮説', '有意', '棄却', 'p値', '過誤', '検出力']
     for kw in hypothesis_keywords:
         if kw in text:
             return "仮説検定"
@@ -25,6 +27,8 @@ def classify_inference(text):
 # Now parse the current data.js to update categories
 new_blocks = new_text.split('\n  {\n    id: ')
 updated_blocks = [new_blocks[0]]
+
+counts = {"確率分布":0, "確率":0, "推定":0, "仮説検定":0}
 
 for b in new_blocks[1:]:
     id_match = re.search(r'^(\d+),', b)
@@ -47,18 +51,21 @@ for b in new_blocks[1:]:
     current_cat = cat_match.group(1)
     new_cat = current_cat
     
-    if current_cat == "確率・確率分布":
-        # Revert to old
+    # Since my previous script corrupted them to "確率分布", "推定", "仮説検定",
+    # we need to check if it's ANY of those, AND check the old map.
+    if current_cat in ["確率・確率分布", "確率分布", "確率"]:
         if q_id in old_cat_map:
             new_cat = old_cat_map[q_id]
-            # If the old category was something else (e.g. they were originally 確率 and 確率分布)
             if new_cat not in ["確率", "確率分布"]:
-                new_cat = "確率分布" # default fallback
+                new_cat = "確率分布"
         else:
             new_cat = "確率分布"
-    elif current_cat == "推測統計":
-        # Split into 推定 and 仮説検定
+    elif current_cat in ["推測統計", "推定", "仮説検定"]:
+        # Re-classify just in case
         new_cat = classify_inference(q_text)
+        
+    if new_cat in counts:
+        counts[new_cat] += 1
         
     # Replace the category in the block
     b_updated = re.sub(r'category:\s*"[^"]+"', f'category: "{new_cat}"', b)
@@ -79,4 +86,4 @@ final_text = re.sub(r'const\s+CATEGORIES\s*=\s*\[.*?\];', cat_array, final_text,
 with codecs.open('data.js', 'w', 'utf-8') as f:
     f.write(final_text)
 
-print("Categories remapped successfully.")
+print("Categories remapped successfully.", counts)
