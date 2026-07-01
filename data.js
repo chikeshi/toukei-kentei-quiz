@@ -893,19 +893,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 71,
-    isFormula: 1,
-    category: "推定",
-    question: "標本サイズ $n$、標本比率 $\\hat{p}$ のとき、母比率 $p$ の $95\\%$ 信頼区間を大標本近似で求めるための式はどれですか？（$z_{0.025} \\approx 1.96$）",
-    answerOptions: [
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "二項分布の正規近似を用いた母比率の区間推定の標準的な公式です。", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "比率の推定では分母は $n-1$ ではなく $n$ を用います。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間の係数です。また、未知の $p$ は $\\hat{p}$ で代用します。", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "平方根の中身が分散 \\hat{p}(1-\\hat{p})/n であるべきですが、分子にそのまま分散を持ってくるのは式の形として誤りです。", isCorrect: false }
-    ]
-  },
-  {
     id: 72,
     isFormula: 1,
     category: "回帰分析・分散分析",
@@ -1439,19 +1426,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 125,
-    isFormula: 1,
-    category: "推定",
-    question: "母分散 $\\sigma^2$ が既知である正規母集団から抽出したサイズ $n$ の標本（標本平均 $\\bar{x}$）を用いた、「母平均 $\\mu$ の $95\\%$ 信頼区間」の公式はどれですか？（$Z_{0.025} = 1.96$ とする）",
-    answerOptions: [
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "母分散が既知なので標準正規分布を用い、標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
-      , { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "正確には標準偏差 $\\sigma$ を $\\sqrt{n}$ で割る（$\\frac{\\sigma}{\\sqrt{n}}$）必要がありますが、分散 $\\sigma^2$ のまま使用しているため誤りです。標準誤差の定義を混同させる誤答です。", isCorrect: false }
-    ]
-  },
-  {
     id: 126,
     isFormula: 1,
     category: "推定",
@@ -1461,7 +1435,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートが抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "分子に $(1-\\hat{p})$ が抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "分子が1ではなく $\\hat{p}(1-\\hat{p})$ です。", isCorrect: false },
-      { text: "$\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}$", rationale: "分母が n-1 となっているため不偏分散の公式と混同しがちですが、大標本による母比率の信頼区間の近似式では分母に n を用います。", isCorrect: false }
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "分母が n-1 となっているため不偏分散の公式と混同しがちですが、大標本による母比率の信頼区間の近似式では分母に n を用います。", isCorrect: false }
     ]
   },
   {
@@ -2011,19 +1985,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 180,
-    isFormula: 1,
-    category: "推定",
-    question: "母分散 $\\sigma^2$ の推定に用いる「不偏分散 $s^2$」の定義式として正しいものはどれですか？（サンプルサイズを $n$、標本平均を $\\bar{x}$ とする）",
-    answerOptions: [
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本平均を用いて偏差を計算しているため、自由度が1減少し $n-1$ で割ることで不偏性を満たします。", isCorrect: true },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の式であり、母分散を過小評価する傾向があります。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n+1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "分母を $n+1$ にすると不偏になりません（平均二乗誤差を最小にする推定量ではありますが、不偏推定量ではありません）。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n-2} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "自由度は $n-1$ です。", isCorrect: false },
-      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは不偏分散ではなく、標本分散の定義式（分母が $n-1$ ではなく $n$）であるため誤りです。", isCorrect: false }
-    ]
-  },
-  {
     id: 181,
     isFormula: 1,
     category: "記述統計・基礎",
@@ -2089,19 +2050,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 189,
-    isFormula: 1,
-    category: "推定",
-    question: "二項分布に基づき、母比率 $p$ の母集団からサンプルサイズ $n$ で抽出した「標本比率 $\\hat{p}$」の標準誤差（標準偏差）の公式はどれですか？",
-    answerOptions: [
-      { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "標本比率の分散が $\\frac{p(1-p)}{n}$ であるため、標準誤差はその平方根となります。", isCorrect: true },
-      { text: "$np(1-p)$", rationale: "これは比率ではなく、「成功回数 $X$」の分散です。", isCorrect: false },
-      { text: "$\\frac{p(1-p)}{\\sqrt{n}}$", rationale: "ルートの中に $p(1-p)$ も含まれる必要があります。", isCorrect: false },
-      { text: "$\\sqrt{\\frac{p}{n}}$", rationale: "分散の計算に必要な $(1-p)$ が抜けています。", isCorrect: false },
-      { text: "$\\frac{p(1-p)}{n}$", rationale: "これは標本比率の分散であり、標準誤差（標準偏差）にするための平方根（ルート）が抜け落ちているため誤りです。", isCorrect: false }
-    ]
-  },
-  {
     id: 190,
     isFormula: 0,
     category: "仮説検定",
@@ -2150,7 +2098,7 @@ const QUIZ_DATA = [
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「母分散が等しくない」と仮定した場合（ウェルチの近似法）の公式です。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "母分散が未知であるため、Z値（標準正規分布）ではなくt値（t分布）を用います。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の分母の計算方法が誤っています。", isCorrect: false },
-      { text: "$(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})$", rationale: "標準誤差の部分において平方根（ルート）が抜け落ちており、信頼区間の計算式として誤っています。", isCorrect: false }
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\\\pm t_{\\alpha/2} \\times s_p (\\frac{1}{n_1} + \\frac{1}{n_2})$", rationale: "標準誤差の部分において平方根（ルート）が抜け落ちており、信頼区間の計算式として誤っています。", isCorrect: false }
     ]
   },
   {

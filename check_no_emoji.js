@@ -893,19 +893,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 71,
-    isFormula: 1,
-    category: "X",
-    question: "X $n$X $\\hat{p}$ X $p$ X $95\\%$ X$z_{0.025} \\approx 1.96$X",
-    answerOptions: [
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "X", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "X", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "X $n-1$ X $n$ X", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ X $90\\%$ X $p$ X $\\hat{p}$ X", isCorrect: false },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "X \\hat{p}(1-\\hat{p})/n X", isCorrect: false }
-    ]
-  },
-  {
     id: 72,
     isFormula: 1,
     category: "X",
@@ -1439,19 +1426,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 125,
-    isFormula: 1,
-    category: "X",
-    question: "X $\\sigma^2$ X $n$ X $\\bar{x}$X $\\mu$ X $95\\%$ X$Z_{0.025} = 1.96$ X",
-    answerOptions: [
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X", isCorrect: true },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "X", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ X $90\\%$ X$Z_{0.05}$X$95\\%$ X $1.96$ X", isCorrect: false },
-      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "X", isCorrect: false }
-      , { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "X $\\sigma$ X $\\sqrt{n}$ X$\\frac{\\sigma}{\\sqrt{n}}$X $\\sigma^2$ X", isCorrect: false }
-    ]
-  },
-  {
     id: 126,
     isFormula: 1,
     category: "X",
@@ -1461,7 +1435,7 @@ var QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "X $(1-\\hat{p})$ X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "X1X $\\hat{p}(1-\\hat{p})$ X", isCorrect: false },
-      { text: "$\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}$", rationale: "X n-1 X n X", isCorrect: false }
+      { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "X n-1 X n X", isCorrect: false }
     ]
   },
   {
@@ -2011,19 +1985,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 180,
-    isFormula: 1,
-    category: "X",
-    question: "X $\\sigma^2$ X $s^2$X $n$X $\\bar{x}$ X",
-    answerOptions: [
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X1X $n-1$ X", isCorrect: true },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n+1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X $n+1$ X", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n-2} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X $n-1$ X", isCorrect: false },
-      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X $n-1$ X $n$X", isCorrect: false }
-    ]
-  },
-  {
     id: 181,
     isFormula: 1,
     category: "X",
@@ -2089,19 +2050,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 189,
-    isFormula: 1,
-    category: "X",
-    question: "X $p$ X $n$ X $\\hat{p}$X",
-    answerOptions: [
-      { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "X $\\frac{p(1-p)}{n}$ X", isCorrect: true },
-      { text: "$np(1-p)$", rationale: "X $X$X", isCorrect: false },
-      { text: "$\\frac{p(1-p)}{\\sqrt{n}}$", rationale: "X $p(1-p)$ X", isCorrect: false },
-      { text: "$\\sqrt{\\frac{p}{n}}$", rationale: "X $(1-p)$ X", isCorrect: false },
-      { text: "$\\frac{p(1-p)}{n}$", rationale: "X", isCorrect: false }
-    ]
-  },
-  {
     id: 190,
     isFormula: 0,
     category: "X",
@@ -2150,7 +2098,7 @@ var QUIZ_DATA = [
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "X", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "XZXtXtX", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "X", isCorrect: false },
-      { text: "$(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})$", rationale: "X", isCorrect: false }
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\\\pm t_{\\alpha/2} \\times s_p (\\frac{1}{n_1} + \\frac{1}{n_2})$", rationale: "X", isCorrect: false }
     ]
   },
   {
