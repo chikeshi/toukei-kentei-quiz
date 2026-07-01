@@ -883,18 +883,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 75,
-    isFormula: 1,
-    category: "記述統計・基礎",
-    question: "基準時の価格を $p_0$、数量を $q_0$ とし、比較時の価格を $p_t$、数量を $q_t$ とするとき、ラスパイレス価格指数を求める式はどれですか？",
-    answerOptions: [
-      { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "ラスパイレス式は「基準時の数量 $q_0$」をウェイトとして固定して価格の変動を比較します。消費者物価指数（CPI）などに使われます。", isCorrect: true },
-      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは「パーシェ式」の公式です。", isCorrect: false },
-      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_0} \\times 100$", rationale: "これは単純な「金額指数（売上高の比）」であり、価格の変化だけを抽出できていません。", isCorrect: false },
-      { text: "$\\frac{\\sum p_0 q_0}{\\sum p_t q_t} \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
-    ]
-  },
-  {
     id: 76,
     isFormula: 1,
     category: "記述統計・基礎",
@@ -1315,18 +1303,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 115,
-    isFormula: 0,
-    category: "記述統計・基礎",
-    question: "物価の変動などを測る「ラスパイレス指数」に関する記述として、**誤っている**ものはどれですか？",
-    answerOptions: [
-      { text: "計算の際のウェイト（数量）として、「比較時（現在）」の数量データを用いる", rationale: "比較時の数量をウェイトにするのは「パーシェ式」です。ラスパイレス式は「基準時（過去）」の数量をウェイトにします。", isCorrect: true },
-      { text: "日本の消費者物価指数（CPI）や企業物価指数の計算に用いられている", rationale: "正しいです。", isCorrect: false },
-      { text: "基準時の数量を固定して計算するため、生活様式の変化による代替効果を反映できず、物価上昇を過大評価する傾向がある", rationale: "ラスパイレス指数の弱点（上方バイアス）として正しい説明です。", isCorrect: false },
-      { text: "パーシェ指数に比べて、毎年の数量データを調査し直す必要がないため、速報性が高い", rationale: "基準年のウェイトを使い回せるため、計算が早く実務的であるという正しい説明です。", isCorrect: false },
-    ]
-  },
-  {
     id: 116,
     isFormula: 1,
     category: "記述統計・基礎",
@@ -1360,18 +1336,6 @@ const QUIZ_DATA = [
       { text: "$a V(X) + b V(Y) + 2 Cov(X,Y)$", rationale: "定数倍は2乗されて外に出ます。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y)$", rationale: "これは $X$ と $Y$ が「独立」である場合の特別な式です。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y) + ab Cov(X,Y)$", rationale: "共分散の係数は $2ab$ になります。", isCorrect: false },
-    ]
-  },
-  {
-    id: 119,
-    isFormula: 1,
-    category: "記述統計・基礎",
-    question: "ピアソンの積率相関係数 $r$ を、2変数 $X, Y$ の共分散 $Cov(X,Y)$ とそれぞれの標準偏差 $\\sigma_X, \\sigma_Y$ を用いて表した公式はどれですか？",
-    answerOptions: [
-      { text: "$r = \\frac{Cov(X,Y)}{\\sigma_X \\sigma_Y}$", rationale: "共分散をそれぞれの標準偏差の積で割ることで、$-1 \\le r \\le 1$ の範囲に標準化します。", isCorrect: true },
-      { text: "$r = \\frac{Cov(X,Y)}{\\sigma_X^2 \\sigma_Y^2}$", rationale: "分母は分散の積ではなく標準偏差の積です。", isCorrect: false },
-      { text: "$r = \\frac{\\sigma_X \\sigma_Y}{Cov(X,Y)}$", rationale: "分母と分子が逆です。", isCorrect: false },
-      { text: "$r = Cov(X,Y) - (\\sigma_X \\times \\sigma_Y)$", rationale: "引き算ではありません。", isCorrect: false },
     ]
   },
   {
@@ -1480,18 +1444,6 @@ const QUIZ_DATA = [
       { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
       { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
-    ]
-  },
-  {
-    id: 134,
-    isFormula: 1,
-    category: "記述統計・基礎",
-    question: "ある確率分布において、期待値を $\\mu$、標準偏差を $\\sigma$ としたとき、「変動係数（CV）」を表す公式はどれですか？",
-    answerOptions: [
-      { text: "$CV = \\frac{\\sigma}{\\mu}$", rationale: "標準偏差を平均で割ることで、単位に依存しない相対的なデータのばらつきを比較できます。", isCorrect: true },
-      { text: "$CV = \\frac{\\mu}{\\sigma}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$CV = \\frac{\\sigma^2}{\\mu}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
-      { text: "$CV = \\sigma - \\mu$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
     ]
   },
   {
@@ -1951,18 +1903,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 178,
-    isFormula: 1,
-    category: "記述統計・基礎",
-    question: "2つの変数 $X$ と $Y$ の「ピアソンの積率相関係数 $r$」を求める公式として正しいものはどれですか？（ただし、$S_{xy}$ は共分散、$S_x, S_y$ はそれぞれの標準偏差、$S_{xx}, S_{yy}$ は偏差平方和とする）",
-    answerOptions: [
-      { text: "$r = \\frac{S_{xy}}{S_x S_y}$", rationale: "共分散をそれぞれの標準偏差の積で割って標準化したものが相関係数です。また $\\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$ とも表せます。", isCorrect: true },
-      { text: "$r = \\frac{S_x S_y}{S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$r = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは単回帰分析における回帰直線の傾き $\\hat{\\beta}_1$ の公式です。", isCorrect: false },
-      { text: "$r = \\frac{S_{xy}}{S_x + S_y}$", rationale: "分母は和ではなく積です。", isCorrect: false },
-    ]
-  },
-  {
     id: 179,
     isFormula: 1,
     category: "記述統計・基礎",
@@ -2020,18 +1960,6 @@ const QUIZ_DATA = [
       { text: "${}_n P_k p^k (1-p)^{n-k}$", rationale: "順列 $_nP_k$ ではなく、順序を考慮しない組み合わせ $_nC_k$ を使います。", isCorrect: false },
       { text: "$p^k (1-p)^{n-k}$", rationale: "これでは特定の順番で「成功が $k$ 回、失敗が $n-k$ 回」起こる確率しか求まらず、組み合わせの数が考慮されていません。", isCorrect: false },
       { text: "${}_n C_k p^{n-k} (1-p)^k$", rationale: "成功確率 $p$ の累乗は $k$ である必要があります。", isCorrect: false },
-    ]
-  },
-  {
-    id: 184,
-    isFormula: 1,
-    category: "確率・確率分布",
-    question: "単位時間あたり平均 $\\lambda$ 回発生する事象が、ちょうど $x$ 回発生する確率を示す「ポアソン分布」の確率質量関数 $P(X=x)$ はどれですか？",
-    answerOptions: [
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "ポアソン分布の定義となる確率質量関数です。", isCorrect: true },
-      { text: "$\\lambda e^{-\\lambda x}$", rationale: "これは「指数分布」の確率密度関数です。", isCorrect: false },
-      { text: "$\\frac{e^{-x} x^\\lambda}{\\lambda!}$", rationale: "$\\lambda$ と $x$ の役割が逆になっています。", isCorrect: false },
-      { text: "$\\frac{\\lambda^x}{x!} (1-\\lambda)^{n-x}$", rationale: "二項分布の式と混同した形になっており、誤りです。", isCorrect: false },
     ]
   },
   {
