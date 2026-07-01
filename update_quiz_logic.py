@@ -1,192 +1,11 @@
-/* =====================================================
-   統計検定2級 道場 – quiz.js
-   ===================================================== */
-'use strict';
+import codecs
+import re
 
-// ============================================================
-//  Category Definitions moved to data.js
-// ============================================================
+with codecs.open('quiz.js', 'r', 'utf-8') as f:
+    js = f.read()
 
-// ============================================================
-//  選択中カテゴリ（Set で管理）
-// ============================================================
-const selectedCats = new Set(CATEGORIES.map(c => c.name)); // 初期：全選択
-
-// ============================================================
-//  Quiz Data  – 30問・各問に一意の id
-// ============================================================
-
-// ============================================================
-//  State
-// ============================================================
-const state = {
-  selectedCategories: [],
-  questions:          [],
-  currentIndex:       0,
-  answered:           false,
-  score:              { correct: 0, total: 0 },
-  categoryResults:    {},
-  currentQuestion:    null,
-  answeredIds:        [],  // 解答した問題ID（順番通り）
-  incorrectIds:       [],  // 不正解だった問題ID（フィルタリング等に活用可能）
-  isRandom10:         false, // 10問抽出モードか
-};
-
-// ============================================================
-//  Utility
-// ============================================================
-const $  = id => document.getElementById(id);
-
-function shuffleArray(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function renderMath(el) {
-  if (el && window.renderMathInElement) {
-    renderMathInElement(el, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true  },
-        { left: '$',  right: '$',  display: false },
-      ],
-      throwOnError: false,
-    });
-  }
-}
-
-function countByCategory(catName) {
-  const optOnlyFormula = $('optOnlyFormula')?.checked;
-  let qs = QUIZ_DATA.filter(q => q.category === catName);
-  if (optOnlyFormula) qs = qs.filter(q => q.isFormula === 1);
-  return qs.length;
-}
-
-// ============================================================
-//  Screen Management
-// ============================================================
-function showScreen(screenId) {
-  ['screenStart', 'screenQuiz', 'screenResult'].forEach(id => {
-    const el = $(id);
-    if (el) el.hidden = id !== screenId;
-  });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// ============================================================
-//  START SCREEN
-// ============================================================
-function initStartScreen() {
-  const grid = $('categoryGrid');
-  grid.innerHTML = '';
-
-  CATEGORIES.forEach(cat => {
-    const count      = countByCategory(cat.name);
-    const isSelected = selectedCats.has(cat.name);
-
-    const card = document.createElement('div');
-    card.className = 'category-card' + (isSelected ? ' is-checked' : '');
-    card.dataset.cat = cat.name;
-    card.setAttribute('role', 'checkbox');
-    card.setAttribute('aria-checked', isSelected ? 'true' : 'false');
-    card.setAttribute('tabindex', '0');
-
-    card.innerHTML = `
-      <div class="cat-card-top">
-        <div class="cat-card-left">
-          <span class="cat-icon">${cat.icon}</span>
-          <span class="cat-name">${cat.name}</span>
-        </div>
-        <span class="cat-count">${count}問</span>
-      </div>
-      <div class="cat-desc">${cat.desc}</div>
-      <div class="cat-checkmark">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-    `;
-
-    const toggle = () => {
-      if (selectedCats.has(cat.name)) {
-        selectedCats.delete(cat.name);
-        card.classList.remove('is-checked');
-        card.setAttribute('aria-checked', 'false');
-      } else {
-        selectedCats.add(cat.name);
-        card.classList.add('is-checked');
-        card.setAttribute('aria-checked', 'true');
-      }
-      updateStartSummary();
-    };
-
-    card.addEventListener('click', toggle);
-    card.addEventListener('keydown', e => {
-      if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
-    });
-
-    grid.appendChild(card);
-  });
-
-  updateStartSummary();
-}
-
-function updateStartSummary() {
-  const catCount = selectedCats.size;
-  const totalQ   = [...selectedCats].reduce((sum, cat) => sum + countByCategory(cat), 0);
-
-  $('summaryText').innerHTML = catCount > 0
-    ? `<strong>${catCount}</strong> 分野 ／ <strong>${totalQ}</strong> 問 を選択中`
-    : '分野が選択されていません';
-
-  $('btnStart').disabled = catCount === 0;
-  if ($('btnStart10')) $('btnStart10').disabled = catCount === 0;
-}
-
-// ============================================================
-//  START QUIZ
-// ============================================================
-function startQuiz(isRandom10 = false) {
-  state.selectedCategories = [...selectedCats];
-  if (state.selectedCategories.length === 0) return;
-
-  state.isRandom10 = isRandom10;
-
-  const optOnlyFormula = $('optOnlyFormula')?.checked;
-  let filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
-  if (optOnlyFormula) {
-    filtered = filtered.filter(q => q.isFormula === 1);
-  }
-  
-  if (filtered.length === 0) {
-    alert('該当する問題がありません。オプションまたは分野を変更してください。');
-    return;
-  }
-
-  let shuffled = shuffleArray(filtered);
-  
-  if (state.isRandom10 && shuffled.length > 10) {
-    shuffled = shuffled.slice(0, 10);
-  }
-  state.questions = shuffled;
-
-  state.currentIndex  = 0;
-  state.answered      = false;
-  state.score         = { correct: 0, total: 0 };
-  state.categoryResults = {};
-  state.answeredIds   = [];
-  state.incorrectIds  = [];
-  state.selectedCategories.forEach(c => { state.categoryResults[c] = { correct: 0, total: 0 }; });
-
-  showScreen('screenQuiz');
-  renderQuestion();
-}
-
-// ============================================================
-//  RENDER QUESTION
-// ============================================================
-function renderQuestion() {
+# 1. Update renderQuestion to handle q.isAnswered
+render_question_replacement = """function renderQuestion() {
   const q = state.questions[state.currentIndex];
   state.currentQuestion = q;
   state.answered        = q.isAnswered || false;
@@ -356,12 +175,12 @@ function restoreFeedbackState(q, allOptions) {
 
   $('feedbackArea').classList.add('open');
   renderMath($('feedbackArea'));
-}
+}"""
 
-// ============================================================
-//  HANDLE ANSWER
-// ============================================================
-function handleAnswer(clickedBtn, clickedOpt, allOptions) {
+js = re.sub(r'function renderQuestion\(\)\s*\{.*?(?=\n// ===|\nfunction handleAnswer)', render_question_replacement + '\n', js, flags=re.DOTALL)
+
+# 2. Update handleAnswer
+handle_answer_replacement = """function handleAnswer(clickedBtn, clickedOpt, allOptions) {
   if (state.answered) return;
   state.answered = true;
 
@@ -497,67 +316,13 @@ function handlePrev() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
+"""
+
+js = re.sub(r'function handleAnswer\(clickedBtn, clickedOpt, allOptions\)\s*\{.*?(?=\n// ===|\nfunction handleNext)', handle_answer_replacement + '\n', js, flags=re.DOTALL)
 
 
-// ============================================================
-//  NEXT QUESTION
-// ============================================================
-function handleNext() {
-  const isLast = state.currentIndex === state.questions.length - 1;
-  if (isLast) {
-    showResult();
-  } else {
-    state.currentIndex++;
-    renderQuestion();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-
-// ============================================================
-//  RESULT SCREEN
-// ============================================================
-function showResult() {
-  showScreen('screenResult');
-
-  const { correct, total } = state.score;
-  const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-  $('resultCorrect').textContent = correct;
-  $('resultTotal').textContent   = total;
-  $('resultPct').textContent     = pct;
-
-  let emoji, msg;
-  if (pct >= 90)      { emoji = '🏆'; msg = '素晴らしい！ほぼ完璧です。本番でも自信を持って挑みましょう！'; }
-  else if (pct >= 70) { emoji = '🎉'; msg = 'よくできました！苦手な分野を重点的に復習してみましょう。'; }
-  else if (pct >= 50) { emoji = '📚'; msg = 'もう一息です！各問題の解説をじっくり読み直してみましょう。'; }
-  else                { emoji = '💪'; msg = '基礎からしっかり学び直しましょう。繰り返し挑戦することが大切です！'; }
-
-  $('resultEmoji').textContent   = emoji;
-  $('resultMessage').textContent = msg;
-
-  // カテゴリ別ブレイクダウン
-  const breakdownList = $('breakdownList');
-  breakdownList.innerHTML = '';
-  const catInfo = {};
-  CATEGORIES.forEach(c => { catInfo[c.name] = c.icon; });
-
-  state.selectedCategories.forEach(cat => {
-    const res    = state.categoryResults[cat] || { correct: 0, total: 0 };
-    const catPct = res.total > 0 ? Math.round((res.correct / res.total) * 100) : 0;
-
-    const item = document.createElement('div');
-    item.className = 'breakdown-item';
-    item.innerHTML = `
-      <span class="bd-icon">${catInfo[cat] || '📌'}</span>
-      <span class="bd-label">${cat}</span>
-      <div class="bd-bar-wrap">
-        <div class="bd-bar-fill" style="width:0%" data-pct="${catPct}"></div>
-      </div>
-      <span class="bd-score">${res.correct}/${res.total}</span>
-    `;
-    breakdownList.appendChild(item);
-  });
-
+# 3. Modify showResult to render accordion
+show_result_addition = """
   // 詳細結果（アコーディオンリスト）の生成
   const detailsList = $('resultDetailsList');
   if (detailsList) {
@@ -615,140 +380,10 @@ function showResult() {
       });
     });
   }
+"""
+
+js = re.sub(r'(breakdownList\.appendChild\(item\);\s*\});', r'\1' + '\n' + show_result_addition, js, flags=re.DOTALL)
 
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.bd-bar-fill').forEach(bar => {
-        bar.style.width = `${bar.dataset.pct}%`;
-      });
-    });
-  });
-}
-
-
-
-// ============================================================
-//  EVENT LISTENERS
-// ============================================================
-$('btnSelectAll').addEventListener('click', () => {
-  CATEGORIES.forEach(c => selectedCats.add(c.name));
-  document.querySelectorAll('#categoryGrid .category-card').forEach(card => {
-    card.classList.add('is-checked');
-    card.setAttribute('aria-checked', 'true');
-  });
-  updateStartSummary();
-});
-
-$('btnDeselectAll').addEventListener('click', () => {
-  selectedCats.clear();
-  document.querySelectorAll('#categoryGrid .category-card').forEach(card => {
-    card.classList.remove('is-checked');
-    card.setAttribute('aria-checked', 'false');
-  });
-  updateStartSummary();
-});
-
-if ($('optOnlyFormula')) {
-  $('optOnlyFormula').addEventListener('change', () => {
-    document.querySelectorAll('#categoryGrid .category-card').forEach(card => {
-      const catName = card.dataset.cat;
-      const count = countByCategory(catName);
-      const countEl = card.querySelector('.cat-count');
-      if (countEl) countEl.textContent = `${count}問`;
-    });
-    updateStartSummary();
-  });
-}
-
-$('btnStart').addEventListener('click', () => startQuiz(false));
-if ($('btnStart10')) {
-  $('btnStart10').addEventListener('click', () => startQuiz(true));
-}
-
-$('btnNext').addEventListener('click', handleNext);
-$('btnPrev').addEventListener('click', handlePrev);
-
-const goHome = () => {
-  if (confirm('ホーム画面に戻りますか？（現在の進捗はリセットされます）')) {
-    showScreen('screenStart');
-  }
-};
-$('btnBackToStart').addEventListener('click', goHome);
-
-$('btnRetry').addEventListener('click', () => {
-  const optOnlyFormula = $('optOnlyFormula')?.checked;
-  let filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
-  if (optOnlyFormula) {
-    filtered = filtered.filter(q => q.isFormula === 1);
-  }
-  let shuffled     = shuffleArray(filtered);
-  if (state.isRandom10 && shuffled.length > 10) {
-    shuffled = shuffled.slice(0, 10);
-  }
-  state.questions     = shuffled;
-  state.currentIndex  = 0;
-  state.answered      = false;
-  state.score         = { correct: 0, total: 0 };
-  state.answeredIds   = [];
-  state.incorrectIds  = [];
-  state.selectedCategories.forEach(c => { state.categoryResults[c] = { correct: 0, total: 0 }; });
-  showScreen('screenQuiz');
-  renderQuestion();
-});
-
-$('btnGoStart').addEventListener('click', () => showScreen('screenStart'));
-
-
-
-// ============================================================
-//  Theme Toggle
-// ============================================================
-const initTheme = () => {
-  const toggleBtn = $('themeToggle');
-  if (!toggleBtn) return;
-  
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-  
-  if (isDark) {
-    document.documentElement.classList.add('dark');
-    toggleBtn.textContent = '☀️';
-  } else {
-    document.documentElement.classList.remove('dark');
-    toggleBtn.textContent = '🌙';
-  }
-  
-  toggleBtn.addEventListener('click', () => {
-    const willBeDark = !document.documentElement.classList.contains('dark');
-    if (willBeDark) {
-      document.documentElement.classList.add('dark');
-      toggleBtn.textContent = '☀️';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      toggleBtn.textContent = '🌙';
-      localStorage.setItem('theme', 'light');
-    }
-  });
-};
-
-// ============================================================
-//  BOOTSTRAP
-// ============================================================
-let _bootstrapped = false;
-function bootstrap() {
-  if (_bootstrapped) return;
-  _bootstrapped = true;
-  initTheme();
-  initStartScreen();
-  showScreen('screenStart');
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bootstrap);
-} else {
-  bootstrap();
-}
+with codecs.open('quiz_updated.js', 'w', 'utf-8') as f:
+    f.write(js)
