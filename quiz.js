@@ -29,7 +29,7 @@ const state = {
   currentQuestion:    null,
   answeredIds:        [],  // 解答した問題ID（順番通り）
   incorrectIds:       [],  // 不正解だった問題ID（フィルタリング等に活用可能）
-  isRandom10:         false, // 10問抽出モードか
+  randomLimit: 0, // 10問抽出モードか
 };
 
 // ============================================================
@@ -142,16 +142,17 @@ function updateStartSummary() {
 
   $('btnStart').disabled = catCount === 0;
   if ($('btnStart10')) $('btnStart10').disabled = catCount === 0;
+  if ($('btnStart5')) $('btnStart5').disabled = catCount === 0;
 }
 
 // ============================================================
 //  START QUIZ
 // ============================================================
-function startQuiz(isRandom10 = false) {
+function startQuiz(randomLimit = 0) {
   state.selectedCategories = [...selectedCats];
   if (state.selectedCategories.length === 0) return;
 
-  state.isRandom10 = isRandom10;
+  state.randomLimit = randomLimit;
 
   const optOnlyFormula = $('optOnlyFormula')?.checked;
   let filtered = QUIZ_DATA.filter(q => state.selectedCategories.includes(q.category));
@@ -166,8 +167,8 @@ function startQuiz(isRandom10 = false) {
 
   let shuffled = shuffleArray(filtered);
   
-  if (state.isRandom10 && shuffled.length > 10) {
-    shuffled = shuffled.slice(0, 10);
+  if (state.randomLimit > 0 && shuffled.length > state.randomLimit) {
+    shuffled = shuffled.slice(0, state.randomLimit || 10);
   }
   state.questions = shuffled;
 
@@ -661,9 +662,12 @@ if ($('optOnlyFormula')) {
   });
 }
 
-$('btnStart').addEventListener('click', () => startQuiz(false));
+$('btnStart').addEventListener('click', () => startQuiz(0));
+if ($('btnStart5')) {
+  $('btnStart5').addEventListener('click', () => startQuiz(5));
+}
 if ($('btnStart10')) {
-  $('btnStart10').addEventListener('click', () => startQuiz(true));
+  $('btnStart10').addEventListener('click', () => startQuiz(10));
 }
 
 $('btnNext').addEventListener('click', handleNext);
@@ -683,8 +687,8 @@ $('btnRetry').addEventListener('click', () => {
     filtered = filtered.filter(q => q.isFormula === 1);
   }
   let shuffled     = shuffleArray(filtered);
-  if (state.isRandom10 && shuffled.length > 10) {
-    shuffled = shuffled.slice(0, 10);
+  if (state.randomLimit > 0 && shuffled.length > state.randomLimit) {
+    shuffled = shuffled.slice(0, state.randomLimit || 10);
   }
   state.questions     = shuffled;
   state.currentIndex  = 0;

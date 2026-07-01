@@ -1,11 +1,11 @@
-const CATEGORIES = [
+var CATEGORIES = [
   { name: "記述統計・基礎", desc: "グラフ、代表値、サンプリング手法、季節変動、ラスパイレス式等", icon: "📊" },
   { name: "確率・確率分布", desc: "ベイズ、条件付き確率、正規分布、二項分布、ポアソン分布、t/F/χ²分布", icon: "🎲" },
   { name: "推測統計", desc: "推定、仮説検定、過誤、P値", icon: "🔬" },
   { name: "回帰分析・分散分析", desc: "単回帰、重回帰、決定係数、分散分析", icon: "📉" }
 ];
 
-const QUIZ_DATA = [
+var QUIZ_DATA = [
   {
     id: 1,
     isFormula: 0,
@@ -1524,7 +1524,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートが抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "分子に $(1-\\hat{p})$ が抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "分子が1ではなく $\\hat{p}(1-\\hat{p})$ です。", isCorrect: false },
-      { text: "\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}", rationale: "分母が n-1 となっているため不偏分散の公式と混同しがちですが、大標本による母比率の信頼区間の近似式では分母に n を用います。", isCorrect: false }
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "誤差限界の計算には比率の分散の「平方根」をとった標準誤差 $\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{ text: "\\\\hat{p} \\\\pm 1.96 \\\\sqrt{\\\\frac{\\\\hat{p}(1-\\\\hat{p})}{n-1}}", rationale: "分母が n-1 となっているため不偏分散の公式と混同しがちですが、大標本による母比率の信頼区間の近似式では分母に n を用います。", isCorrect: false }
     ]
   },
   {
@@ -1901,7 +1901,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "平方の積を足すものではありません。", isCorrect: false },
       { text: "$\\sum_{i=1}^n (x_i y_i) - \\bar{x}\\bar{y}$", rationale: "これは $\\frac{1}{n} \\sum (x_i y_i) - \\bar{x}\\bar{y}$ ならば正しいですが、$\\frac{1}{n}$ が抜けています。", isCorrect: false },
       { text: "$\\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}$", rationale: "これはピアソンの積率相関係数 $r$ の定義式です。", isCorrect: false },
-      { text: "\\\\frac{1}{n-1} \\\\sum_{i=1}^n (x_i - \\\\bar{x}) (y_i - \\\\bar{y})^2", rationale: "不偏共分散と似ていますが、yの偏差が2乗されているため、共分散の定義式としては誤りです。", isCorrect: false }
+      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{ text: "\\\\frac{1}{n-1} \\\\sum_{i=1}^n (x_i - \\\\bar{x}) (y_i - \\\\bar{y})^2", rationale: "不偏共分散と似ていますが、yの偏差が2乗されているため、共分散の定義式としては誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1927,7 +1927,7 @@ const QUIZ_DATA = [
       { text: "$\\sum_{i=1}^{\\infty} x_i P(X = x_i)$", rationale: "これは「離散型確率変数」の期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "これは全確率が1になることを示す式であり、期待値ではありません。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは「分散 $V(X)$」の定義式です。", isCorrect: false },
-      { text: "\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx", rationale: "この式は X の2乗の期待値 E(X^2) を表すものであり、X の期待値（平均）の定義とは異なります。", isCorrect: false }
+      { text: "$\\int_{-\\infty}^{ text: "\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx", rationale: "この式は X の2乗の期待値 E(X^2) を表すものであり、X の期待値（平均）の定義とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2109,7 +2109,7 @@ const QUIZ_DATA = [
       { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
       { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
       { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "このような関係式は成り立ちません。", isCorrect: false },
-      { text: "P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}", rationale: "右辺は条件付き確率 P(B|A) の定義式であり、求めたい P(A|B) とは分母が逆になっているため誤りです。", isCorrect: false }
+      { text: "$P(A|B) = \\frac{P(A|B)P(B)}{ text: "P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}", rationale: "右辺は条件付き確率 P(B|A) の定義式であり、求めたい P(A|B) とは分母が逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2148,7 +2148,7 @@ const QUIZ_DATA = [
       { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
       { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
       { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
-      { text: "Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
+      { text: "$Z = \\frac{X - \\mu}{ text: "Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2200,7 +2200,7 @@ const QUIZ_DATA = [
       { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数ではなく「期待度数」である必要があります。", isCorrect: false },
       { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
       { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "全体で割るのではなく、各セルごとに期待度数で割ってから足し合わせる必要があります。", isCorrect: false },
-      { text: "\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}", rationale: "期待度数 E_i で割るところを、誤って期待度数の2乗 E_i^2 で割っているため、正しいカイ二乗統計量の計算式ではありません。", isCorrect: false }
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{ text: "\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}", rationale: "期待度数 E_i で割るところを、誤って期待度数の2乗 E_i^2 で割っているため、正しいカイ二乗統計量の計算式ではありません。", isCorrect: false }
     ]
   },
   {
@@ -2226,7 +2226,7 @@ const QUIZ_DATA = [
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「母分散が等しくない」と仮定した場合（ウェルチの近似法）の公式です。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "母分散が未知であるため、Z値（標準正規分布）ではなくt値（t分布）を用います。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の分母の計算方法が誤っています。", isCorrect: false },
-      { text: "(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})", rationale: "標準誤差の部分において平方根（ルート）が抜け落ちており、信頼区間の計算式として誤っています。", isCorrect: false }
+      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の計算式が間違っています。プールされた分散に基づく標準誤差は $\\sqrt{ text: "(\\\\bar{x}_1 - \\\\bar{x}_2) \\\\pm t_{\\\\alpha/2} \\\\times s_p (\\\\frac{1}{n_1} + \\\\frac{1}{n_2})", rationale: "標準誤差の部分において平方根（ルート）が抜け落ちており、信頼区間の計算式として誤っています。", isCorrect: false }
     ]
   },
   {
@@ -2291,7 +2291,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは比較時の数量 $q_t$ をウェイトとする「パーシェ価格指数」の公式です。", isCorrect: false },
       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "数量のウェイトが考慮されていない単なる価格の比です。", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母分子が逆になっています。", isCorrect: false },
-      { text: "\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100", rationale: "これは基準時と対象時の総取引額の比を表すものであり、数量を基準時に固定して価格変化のみを測定するラスパイレス価格指数とは異なります。", isCorrect: false }
+      { text: "$\\frac{\\sum p_t q_t}{ text: "\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100", rationale: "これは基準時と対象時の総取引額の比を表すものであり、数量を基準時に固定して価格変化のみを測定するラスパイレス価格指数とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2434,7 +2434,7 @@ const QUIZ_DATA = [
       { text: "$\\sum_{x} x P(X=x)$", rationale: "これは離散型確率変数の期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは連続型確率変数の「分散」の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "この式は確率の総和を表し、常に $1$ になります。", isCorrect: false },
-      { text: "\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx", rationale: "F(x) は累積分布関数であり、期待値を求めるためには確率密度関数 f(x) に x を掛けて積分する必要があるため誤りです。", isCorrect: false }
+      { text: "$\\int_{-\\infty}^{ text: "\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx", rationale: "F(x) は累積分布関数であり、期待値を求めるためには確率密度関数 f(x) に x を掛けて積分する必要があるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2447,7 +2447,7 @@ const QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
-    ,      { text: "\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
+    ,      { text: "$\\int_{-\\infty}^{ text: "\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2646,3 +2646,6 @@ const QUIZ_DATA = [
     ]
   }
 ];
+
+
+WScript.Echo("Syntax is OK!");
