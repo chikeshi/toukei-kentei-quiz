@@ -863,7 +863,7 @@ const QUIZ_DATA = [
       { text: "$V(X) + V(Y)$", rationale: "これは $X$ と $Y$ が無相関（独立など）の場合のみ成り立つ式です。", isCorrect: false },
       { text: "$V(X) + V(Y) + Cov(X, Y)$", rationale: "共分散 $Cov(X,Y)$ には2が掛かる必要があります。", isCorrect: false },
       { text: "$V(X) + V(Y) - 2Cov(X, Y)$", rationale: "これは差の分散 $V(X - Y)$ の公式です。", isCorrect: false },
-      { text: "$V(X + Y) = V(X) + V(Y)$", rationale: "XとYが独立であるという条件がない限り、共分散の項 2Cov(X,Y) が必要になります。", isCorrect: false }
+      { text: "$V(X) × V(Y)$", rationale: "分散の計算において、確率変数の和の分散がそれぞれの分散の「掛け算」に展開されることはありません。", isCorrect: false }
     ]
   },
   {
@@ -1422,7 +1422,7 @@ const QUIZ_DATA = [
       { text: "$a V(X) + b V(Y) + 2 Cov(X,Y)$", rationale: "定数倍は2乗されて外に出ます。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y)$", rationale: "これは $X$ と $Y$ が「独立」である場合の特別な式です。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y) + ab Cov(X,Y)$", rationale: "共分散の係数は $2ab$ になります。", isCorrect: false },
-      { text: "$aV(X) + bV(Y) + 2Cov(X,Y)$", rationale: "正しくは $a^2V(X) + b^2V(Y) + 2abCov(X,Y)$ ですが、係数 $a, b$ を二乗し忘れるというよくある計算ミスを突いた誤答です。", isCorrect: false }
+      { text: "$a^2 V(X) + b^2 V(Y) - ab Cov(X,Y)$", rationale: "正しくは $a^2V(X) + b^2V(Y) + 2abCov(X,Y)$ ですが、係数 $a, b$ を二乗し忘れるというよくある計算ミスを突いた誤答です。", isCorrect: false }
     ]
   },
   {
@@ -2007,7 +2007,7 @@ const QUIZ_DATA = [
       { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^4 \\right]$", rationale: "標準化した変数の「4乗」の期待値は、分布の尖り具合を示す「尖度（Kurtosis）」です。", isCorrect: false },
       { text: "$E\\left[ (X-\\mu)^2 \\right]$", rationale: "これは「分散（2次の中心モーメント）」の定義式です。", isCorrect: false },
       { text: "$\\sqrt{E\\left[ (X-\\mu)^2 \\right]}$", rationale: "これは「標準偏差」の定義式です。", isCorrect: false },
-      { text: "$E\\left[\\left(\\frac{X-\\mu}{\\sigma}\\right)^4\\right]$", rationale: "これは歪度（3次モーメント）ではなく、尖度（4次モーメント）の定義式であるため誤りです。", isCorrect: false }
+      { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^2 \\right]^2$", rationale: "これは歪度（3次モーメント）ではなく、尖度（4次モーメント）の定義式であるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2241,7 +2241,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{S_A}{S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
       { text: "$\\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
       { text: "$\\frac{S_A / a}{S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
-      { text: "$\\frac{S_E / (n - a)}{S_A / (a - 1)}$", rationale: "検定統計量Fは（群間変動／群内変動）で計算しますが、分母分子が逆になっているため誤りです。", isCorrect: false }
+      { text: "$\\frac{S_E / a}{S_A / n}$", rationale: "検定統計量Fは（群間変動／群内変動）で計算しますが、分母分子が逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2514,7 +2514,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "分母の $r_{xz}^2$ が $r_{xy}^2$ になっており誤りです。", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "分母が掛け算ではなく足し算になっており誤りです。", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz} r_{yz}}$", rationale: "分母の形がまったく異なり誤りです。", isCorrect: false },
-      { text: "$\\frac{r_{xy} - r_{xz}r_{yz}}{1 - r_{xz}r_{yz}}$", rationale: "分母はそれぞれ $(1 - r^2)$ の平方根の積になりますが、単に相関係数の積を1から引いたものに間違えているため誤りです。", isCorrect: false }
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz}^2 r_{yz}^2}$", rationale: "分母はそれぞれ $(1 - r^2)$ の平方根の積になりますが、単に相関係数の積を1から引いたものに間違えているため誤りです。", isCorrect: false }
     ]
   },
   {

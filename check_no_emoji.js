@@ -863,7 +863,7 @@ var QUIZ_DATA = [
       { text: "$V(X) + V(Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false },
       { text: "$V(X) + V(Y) + Cov(X, Y)$", rationale: "X $Cov(X,Y)$ X2X", isCorrect: false },
       { text: "$V(X) + V(Y) - 2Cov(X, Y)$", rationale: "X $V(X - Y)$ X", isCorrect: false },
-      { text: "$V(X + Y) = V(X) + V(Y)$", rationale: "XXYX 2Cov(X,Y) X", isCorrect: false }
+      { text: "$V(X) X V(Y)$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -1422,7 +1422,7 @@ var QUIZ_DATA = [
       { text: "$a V(X) + b V(Y) + 2 Cov(X,Y)$", rationale: "X2X", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y) + ab Cov(X,Y)$", rationale: "X $2ab$ X", isCorrect: false },
-      { text: "$aV(X) + bV(Y) + 2Cov(X,Y)$", rationale: "X $a^2V(X) + b^2V(Y) + 2abCov(X,Y)$ X $a, b$ X", isCorrect: false }
+      { text: "$a^2 V(X) + b^2 V(Y) - ab Cov(X,Y)$", rationale: "X $a^2V(X) + b^2V(Y) + 2abCov(X,Y)$ X $a, b$ X", isCorrect: false }
     ]
   },
   {
@@ -2007,7 +2007,7 @@ var QUIZ_DATA = [
       { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^4 \\right]$", rationale: "X4XKurtosisX", isCorrect: false },
       { text: "$E\\left[ (X-\\mu)^2 \\right]$", rationale: "X2X", isCorrect: false },
       { text: "$\\sqrt{E\\left[ (X-\\mu)^2 \\right]}$", rationale: "X", isCorrect: false },
-      { text: "$E\\left[\\left(\\frac{X-\\mu}{\\sigma}\\right)^4\\right]$", rationale: "X3X4X", isCorrect: false }
+      { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^2 \\right]^2$", rationale: "X3X4X", isCorrect: false }
     ]
   },
   {
@@ -2241,7 +2241,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{S_A}{S_E}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{S_A / a}{S_E / n}$", rationale: "X $a-1$X $n-a$ X", isCorrect: false },
-      { text: "$\\frac{S_E / (n - a)}{S_A / (a - 1)}$", rationale: "XFX", isCorrect: false }
+      { text: "$\\frac{S_E / a}{S_A / n}$", rationale: "XFX", isCorrect: false }
     ]
   },
   {
@@ -2514,7 +2514,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "X $r_{xz}^2$ X $r_{xy}^2$ X", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz} r_{yz}}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{r_{xy} - r_{xz}r_{yz}}{1 - r_{xz}r_{yz}}$", rationale: "X $(1 - r^2)$ X1X", isCorrect: false }
+      { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz}^2 r_{yz}^2}$", rationale: "X $(1 - r^2)$ X1X", isCorrect: false }
     ]
   },
   {
