@@ -1015,11 +1015,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "2X $\\frac{\\sigma_1^2}{\\sigma_2^2}$X $s_1^2, s_2^2$ X",
     answerOptions: [
-      { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2XFX", isCorrect: true },
-      { text: "$t = \\frac{s_1^2 - s_2^2}{\\sqrt{s_1^2/n_1 + s_2^2/n_2}}$", rationale: "tX", isCorrect: false },
-      { text: "$\\chi^2 = \\frac{s_1^2 + s_2^2}{\\sigma^2}$", rationale: "X1X", isCorrect: false },
-      { text: "$Z = \\frac{s_1^2 - s_2^2}{\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}$", rationale: "XZX", isCorrect: false },
-      { text: "tX", rationale: "2XFXFX", isCorrect: false }
+      { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2X2XFX $(n_1-1, n_2-1)$ XFX", isCorrect: true },
+      { text: "$F = \\frac{s_1^2(n_1-1)}{s_2^2(n_2-1)}$", rationale: "X $(n-1)$ XFX", isCorrect: false },
+      { text: "$\\chi^2 = \\frac{s_1^2}{s_2^2}$", rationale: "2X $\\chi^2$ XFX$\\chi^2$ X1X", isCorrect: false },
+      { text: "$\\chi^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{\\sigma^2}$", rationale: "X", isCorrect: false },
+      { text: "$F = \\frac{s_1^2 / n_1}{s_2^2 / n_2}$", rationale: "X $n$ X", isCorrect: false }
     ]
   },
   {
@@ -1513,7 +1513,7 @@ var QUIZ_DATA = [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "X", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ X $90\\%$ X$Z_{0.05}$X$95\\%$ X $1.96$ X", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "X", isCorrect: false }
-    ,      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "X $\\sigma$ X $\\sqrt{n}$ X$\\frac{\\sigma}{\\sqrt{n}}$X $\\sigma^2$ X", isCorrect: false }
+      , { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "X $\\sigma$ X $\\sqrt{n}$ X$\\frac{\\sigma}{\\sqrt{n}}$X $\\sigma^2$ X", isCorrect: false }
     ]
   },
   {
@@ -1964,11 +1964,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "X $\\sigma^2$ X $n$ X $\\bar{x}$ X $\\mu = \\mu_0$X $Z$ X",
     answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X $\\sigma$ X", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "X $s$ XtX", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X $\\sigma$ X", isCorrect: false }
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X", isCorrect: true },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X $\\sigma$ X", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "X $s$ XtX", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma^2}$", rationale: "X $\\frac{\\sigma}{\\sqrt{n}}$ X $\\sigma^2$ X", isCorrect: false }
     ]
   },
   {
@@ -1977,10 +1977,10 @@ var QUIZ_DATA = [
     category: "X",
     question: "X2XtX $d_i$X $\\bar{d}$X $s_d$X $n$ X $t$ X",
     answerOptions: [
-      { text: "$t = \\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "X0X$t = \\frac{\\bar{d} - 0}{s_d / \\sqrt{n}}$ X", isCorrect: true },
-      { text: "$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "X2XtX", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}{s_d / n}$", rationale: "X $n$ X $\\sqrt{n}$ X", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "X $\\sigma_d^2$ X $s_d$ X", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "X0X$t = \\frac{\\bar{d} - 0}{s_d / \\sqrt{n}}$ X", isCorrect: true },
+      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "X2XtX", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / n}$", rationale: "X $n$ X $\\sqrt{n}$ X", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "X $\\sigma_d^2$ X $s_d$ X", isCorrect: false },
       { text: "$\\frac{\\bar{d}}{s_d}$", rationale: "X $s_d / \\sqrt{n}$ X$\\sqrt{n}$ X", isCorrect: false }
     ]
   },
@@ -2007,7 +2007,7 @@ var QUIZ_DATA = [
       { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}{S_{xx}} \\bar{y}$", rationale: "$x$ X $y$ X", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}{S_{xx}}$", rationale: "X $\\hat{\\beta}_0$ X $\\hat{\\beta}_1$ X", isCorrect: false }
-    ,      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\hat{\\beta}_1 \\bar{y}$", rationale: "X$x$X$y$X", isCorrect: false }
+      , { text: "$\\hat{\\beta}_0 = \\bar{x} - \\hat{\\beta}_1 \\bar{y}$", rationale: "X$x$X$y$X", isCorrect: false }
     ]
   },
   {
@@ -2276,10 +2276,10 @@ var QUIZ_DATA = [
     category: "X",
     question: "XFX(X) $S_A$X(X) $S_E$X $a$X $n$ X",
     answerOptions: [
-      { text: "$F = \\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "XFX", isCorrect: true },
-      { text: "$F = \\frac{S_A}{S_E}$", rationale: "X", isCorrect: false },
-      { text: "$F = \\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "X", isCorrect: false },
-      { text: "$F = \\frac{S_A / a}{S_E / n}$", rationale: "X $a-1$X $n-a$ X", isCorrect: false },
+      { text: "$\\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "XFX", isCorrect: true },
+      { text: "$\\frac{S_A}{S_E}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{S_A / a}{S_E / n}$", rationale: "X $a-1$X $n-a$ X", isCorrect: false },
       { text: "$\\frac{S_E / (n - a)}{S_A / (a - 1)}$", rationale: "XFX", isCorrect: false }
     ]
   },
@@ -2384,7 +2384,7 @@ var QUIZ_DATA = [
       { text: "X: $1$, X: $1$", rationale: "X $0$ X", isCorrect: false },
       { text: "X: $0$, X: $0$", rationale: "X $0$ X $0$ X", isCorrect: false },
       { text: "X: $0$, X: $\\sigma^2$", rationale: "X $1$ X", isCorrect: false }
-    ,      { text: "$E[X] = 1, V[X] = 0$", rationale: "X0X1X", isCorrect: false }
+      , { text: "$E[X] = 1, V[X] = 0$", rationale: "X0X1X", isCorrect: false }
     ]
   },
   {
@@ -2449,7 +2449,7 @@ var QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "X0X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "X $X^2$ X $E[X^2]$ X $\\mu^2$ X", isCorrect: false }
-    ,      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "X2X", isCorrect: false }
+      , { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "X2X", isCorrect: false }
     ]
   },
   {
@@ -2475,7 +2475,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "X2X", isCorrect: false },
       { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "XtX", isCorrect: false },
       { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "X $\\chi^2$ X", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d} - 0}{s_d}$", rationale: "X $s_d / \\sqrt{n}$ X$\\sqrt{n}$ X", isCorrect: false }
+      { text: "$\\frac{\\bar{d} - 0}{s_d}$", rationale: "X $s_d / \\sqrt{n}$ X$\\sqrt{n}$ X", isCorrect: false }
     ]
   },
   {
@@ -2592,7 +2592,7 @@ var QUIZ_DATA = [
       { text: "$E(X)^2$", rationale: "$V(X) = E(X^2) - \{E(X)\}^2$ X", isCorrect: false },
       { text: "$1$", rationale: "X $r(X,X)$ X $1$ X", isCorrect: false },
       { text: "$0$", rationale: "X $0$ X", isCorrect: false }
-    ,      { text: "E(X^2)", rationale: "Cov(X, X) X V(X) = E(X^2) - (E(X))^2 XE(X^2) X2X", isCorrect: false }
+      , { text: "E(X^2)", rationale: "Cov(X, X) X V(X) = E(X^2) - (E(X))^2 XE(X^2) X2X", isCorrect: false }
     ]
   },
   {
@@ -2605,7 +2605,7 @@ var QUIZ_DATA = [
       { text: "$ac Cov(X, Y) + bd$", rationale: "X ($+b, +d$) X", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "X", isCorrect: false },
       { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \times c$ X", isCorrect: false }
-    ,      { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "X $b$ X $d$ X", isCorrect: false }
+      , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "X $b$ X $d$ X", isCorrect: false }
     ]
   },
   {
@@ -2618,7 +2618,7 @@ var QUIZ_DATA = [
       { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "X", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "X $V(X+Y)$ X", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false }
-    ,      { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "X", isCorrect: false }
+      , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2631,7 +2631,7 @@ var QUIZ_DATA = [
       { text: "X", rationale: "X", isCorrect: false },
       { text: "X", rationale: "X", isCorrect: false },
       { text: "X", rationale: "X", isCorrect: false }
-    ,      { text: "X", rationale: "X3X", isCorrect: false }
+      , { text: "X", rationale: "X3X", isCorrect: false }
     ]
   },
   {
@@ -2644,7 +2644,7 @@ var QUIZ_DATA = [
       { text: "X$\\%$X", rationale: "X - X/ X $\\%$ X", isCorrect: false },
       { text: "X", rationale: "X / X", isCorrect: false },
       { text: "X2X", rationale: "X", isCorrect: false }
-    ,      { text: "X", rationale: "X (X - X) / X X1X", isCorrect: false }
+      , { text: "X", rationale: "X (X - X) / X X1X", isCorrect: false }
     ]
   }
 ];
