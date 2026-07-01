@@ -1014,7 +1014,7 @@ const QUIZ_DATA = [
     isFormula: 1,
     category: "仮説検定",
     question: "2つの独立な正規母集団の「母分散の比 $\\frac{\\sigma_1^2}{\\sigma_2^2}$」についての仮説検定（等分散性の検定）で用いられる検定統計量はどれですか？（それぞれの不偏分散を $s_1^2, s_2^2$ とする）",
-        answerOptions: [
+    answerOptions: [
       { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2つの母分散の比に関する検定（等分散の検定）には、2つの標本不偏分散の比であるF統計量を用います。帰無仮説（等分散）のもとで自由度 $(n_1-1, n_2-1)$ のF分布に従います。", isCorrect: true },
       { text: "$F = \\frac{s_1^2(n_1-1)}{s_2^2(n_2-1)}$", rationale: "分子分母に $(n-1)$ をかけているため、これは不偏分散の比ではなく「標本平方和の比」になってしまいます。F統計量は不偏分散の比を用います。", isCorrect: false },
       { text: "$\\chi^2 = \\frac{s_1^2}{s_2^2}$", rationale: "2つの分散の比は $\\chi^2$ 統計量ではなく、F統計量となります。$\\chi^2$ 統計量は1つの母分散の検定などに用いられます。", isCorrect: false },
@@ -1513,7 +1513,7 @@ const QUIZ_DATA = [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
-    ,      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "正確には標準偏差 $\\sigma$ を $\\sqrt{n}$ で割る（$\\frac{\\sigma}{\\sqrt{n}}$）必要がありますが、分散 $\\sigma^2$ のまま使用しているため誤りです。標準誤差の定義を混同させる誤答です。", isCorrect: false }
+      , { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "正確には標準偏差 $\\sigma$ を $\\sqrt{n}$ で割る（$\\frac{\\sigma}{\\sqrt{n}}$）必要がありますが、分散 $\\sigma^2$ のまま使用しているため誤りです。標準誤差の定義を混同させる誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1964,11 +1964,11 @@ const QUIZ_DATA = [
     category: "仮説検定",
     question: "母分散 $\\sigma^2$ が既知の正規母集団から抽出したサンプルサイズ $n$ の標本平均を $\\bar{x}$ としたとき、母平均の検定（帰無仮説 $\\mu = \\mu_0$）で用いる検定統計量 $Z$ はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "標準化の公式です。標本平均の標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母が標準誤差 $\\frac{\\sigma}{\\sqrt{n}}$ ではなく母標準偏差 $\\sigma$ になってしまっています。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは母分散が「未知」のときに不偏標準偏差 $s$ を用いる「t検定」の統計量です。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "これは「母分散」の検定に用いるカイ二乗検定の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "標本平均の分布の標準偏差（標準誤差）は $\\frac{\\sigma}{\\sqrt{n}}$ でなければなりませんが、単なる母集団の標準偏差 $\\sigma$ で割ってしまっているよくある間違いです。", isCorrect: false }
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "標準化の公式です。標本平均の標準誤差は $\\frac{\\sigma}{\\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母が標準誤差 $\\frac{\\sigma}{\\sqrt{n}}$ ではなく母標準偏差 $\\sigma$ になってしまっています。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは母分散が「未知」のときに不偏標準偏差 $s$ を用いる「t検定」の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "これは「母分散」の検定に用いるカイ二乗検定の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma^2}$", rationale: "標本平均の分布の標準偏差（標準誤差）は $\\frac{\\sigma}{\\sqrt{n}}$ でなければなりませんが、単なる母集団の標準偏差 $\\sigma^2$ で割ってしまっているよくある間違いです。", isCorrect: false }
     ]
   },
   {
@@ -1977,10 +1977,10 @@ const QUIZ_DATA = [
     category: "仮説検定",
     question: "「対応のある2群の平均の差のt検定」において、各ペアの差を $d_i$、差の標本平均を $\\bar{d}$、差の不偏標準偏差を $s_d$、サンプルサイズを $n$ とした場合の検定統計量 $t$ はどれですか？",
     answerOptions: [
-      { text: "$t = \\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "帰無仮説は「差の母平均が0」なので、$t = \\frac{\\bar{d} - 0}{s_d / \\sqrt{n}}$ となります。", isCorrect: true },
-      { text: "$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "これは「対応のない（独立な）2群」の等分散を仮定したt検定の統計量です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}{s_d / n}$", rationale: "標準誤差の分母は $n$ ではなく $\\sqrt{n}$ です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "母分散 $\\sigma_d^2$ は未知であるため、不偏標準偏差 $s_d$ を用いる必要があります。", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "帰無仮説は「差の母平均が0」なので、$t = \\frac{\\bar{d} - 0}{s_d / \\sqrt{n}}$ となります。", isCorrect: true },
+      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "これは「対応のない（独立な）2群」の等分散を仮定したt検定の統計量です。", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{s_d / n}$", rationale: "標準誤差の分母は $n$ ではなく $\\sqrt{n}$ です。", isCorrect: false },
+      { text: "$\\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "母分散 $\\sigma_d^2$ は未知であるため、不偏標準偏差 $s_d$ を用いる必要があります。", isCorrect: false },
       { text: "$\\frac{\\bar{d}}{s_d}$", rationale: "分母は標本標準偏差ではなく標準誤差 $s_d / \\sqrt{n}$ である必要がありますが、$\\sqrt{n}$ で割るのを忘れている典型的な誤答です。", isCorrect: false }
     ]
   },
@@ -2007,7 +2007,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}{S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
-    ,      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\hat{\\beta}_1 \\bar{y}$", rationale: "回帰係数を用いて切片を求める式において、$x$と$y$の平均を逆にしてしまったよくある間違いです。", isCorrect: false }
+      , { text: "$\\hat{\\beta}_0 = \\bar{x} - \\hat{\\beta}_1 \\bar{y}$", rationale: "回帰係数を用いて切片を求める式において、$x$と$y$の平均を逆にしてしまったよくある間違いです。", isCorrect: false }
     ]
   },
   {
@@ -2276,10 +2276,10 @@ const QUIZ_DATA = [
     category: "回帰分析・分散分析",
     question: "一元配置分散分析において、帰無仮説（各群の母平均は等しい）を検定するための「検定統計量F」の計算式はどれですか？（群間平方和(水準間平方和) $S_A$、群内平方和(残差平方和) $S_E$、群数 $a$、全体データ数 $n$ とする）",
     answerOptions: [
-      { text: "$F = \\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "それぞれの平方和を対応する自由度で割って「平均平方（分散）」を求め、その比をとったものがF統計量です。", isCorrect: true },
-      { text: "$F = \\frac{S_A}{S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
-      { text: "$F = \\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
-      { text: "$F = \\frac{S_A / a}{S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
+      { text: "$\\frac{S_A / (a-1)}{S_E / (n-a)}$", rationale: "それぞれの平方和を対応する自由度で割って「平均平方（分散）」を求め、その比をとったものがF統計量です。", isCorrect: true },
+      { text: "$\\frac{S_A}{S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
+      { text: "$\\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
+      { text: "$\\frac{S_A / a}{S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
       { text: "$\\frac{S_E / (n - a)}{S_A / (a - 1)}$", rationale: "検定統計量Fは（群間変動／群内変動）で計算しますが、分母分子が逆になっているため誤りです。", isCorrect: false }
     ]
   },
@@ -2384,7 +2384,7 @@ const QUIZ_DATA = [
       { text: "期待値: $1$, 分散: $1$", rationale: "標準化された正規分布の期待値（平均）は $0$ です。", isCorrect: false },
       { text: "期待値: $0$, 分散: $0$", rationale: "分散が $0$ の場合、すべてのデータが $0$ になり分布を持ちません。", isCorrect: false },
       { text: "期待値: $0$, 分散: $\\sigma^2$", rationale: "分散は $1$ に標準化されている必要があります。", isCorrect: false }
-    ,      { text: "$E[X] = 1, V[X] = 0$", rationale: "標準正規分布の期待値は0、分散は1ですが、それを逆にしてしまっているため誤りです。", isCorrect: false }
+      , { text: "$E[X] = 1, V[X] = 0$", rationale: "標準正規分布の期待値は0、分散は1ですが、それを逆にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2449,7 +2449,7 @@ const QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
-    ,      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
+      , { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2475,7 +2475,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは対応のない「2群の平均差の検定」の統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは一標本t検定の統計量です。", isCorrect: false },
       { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "これは $\\chi^2$ 検定の統計量です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{d} - 0}{s_d}$", rationale: "分母は標準誤差 $s_d / \\sqrt{n}$ でなければなりませんが、サンプルサイズによる調整（$\\sqrt{n}$ で割る処理）が欠落しているため誤りです。", isCorrect: false }
+      { text: "$\\frac{\\bar{d} - 0}{s_d}$", rationale: "分母は標準誤差 $s_d / \\sqrt{n}$ でなければなりませんが、サンプルサイズによる調整（$\\sqrt{n}$ で割る処理）が欠落しているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2592,7 +2592,7 @@ const QUIZ_DATA = [
       { text: "$E(X)^2$", rationale: "$V(X) = E(X^2) - \{E(X)\}^2$ なので異なります。", isCorrect: false },
       { text: "$1$", rationale: "相関係数 $r(X,X)$ であれば $1$ になりますが、共分散は分散に等しくなります。", isCorrect: false },
       { text: "$0$", rationale: "確率変数が定数でない限り、分散は $0$ より大きな値をとります。", isCorrect: false }
-    ,      { text: "E(X^2)", rationale: "Cov(X, X) は分散 V(X) = E(X^2) - (E(X))^2 と等しくなります。E(X^2) のみでは平均の2乗を引いていないため誤りです。", isCorrect: false }
+      , { text: "E(X^2)", rationale: "Cov(X, X) は分散 V(X) = E(X^2) - (E(X))^2 と等しくなります。E(X^2) のみでは平均の2乗を引いていないため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2605,7 +2605,7 @@ const QUIZ_DATA = [
       { text: "$ac Cov(X, Y) + bd$", rationale: "分散や共分散において、足された定数項 ($+b, +d$) はばらつきに影響しないため無視されます。", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "各変数の係数は足し算ではなく掛け合わせる必要があります。", isCorrect: false },
       { text: "$a^2 c^2 Cov(X, Y)$", rationale: "分散 $V(aX) = a^2 V(X)$ とは異なり、共分散の係数は2乗されずそのまま $a \times c$ となります。", isCorrect: false }
-    ,      { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "共分散において定数の加算は影響しませんが、定数項 $b$ と $d$ の積を足してしまっているため誤りです。", isCorrect: false }
+      , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "共分散において定数の加算は影響しませんが、定数項 $b$ と $d$ の積を足してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2618,7 +2618,7 @@ const QUIZ_DATA = [
       { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "足し算が掛け算になることはありません。", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "これは和の分散 $V(X+Y)$ の展開式であり、無関係の式です。", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "展開時に $X$ と $Y$ の共分散は発生しません。", isCorrect: false }
-    ,      { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "共分散は線形性により和に分解できますが、積に分解してしまっているため誤りです。", isCorrect: false }
+      , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "共分散は線形性により和に分解できますが、積に分解してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2631,7 +2631,7 @@ const QUIZ_DATA = [
       { text: "「無作為化（ランダム化）」とは、実験順序や配置をくじ引きなどの偶然に任せて決定することで、制御できない未知の要因による系統的な偏りを相殺する原則である。", rationale: "正しい記述です。未知の要因を偶然誤差に転化し、偏り（バイアス）を防ぎます。", isCorrect: false },
       { text: "「局所管理」とは、実験を行う空間や時間を細かいブロックに区切り、ブロック内での条件をできるだけ均一に保つことで、環境による系統的な誤差を小さくする原則である。", rationale: "正しい記述です。ブロック化により系統誤差を分離・排除し、実験の精度を向上させます。", isCorrect: false },
       { text: "無作為化と局所管理は系統誤差（偏り）に対処するための原則であり、反復は偶然誤差（ばらつき）を評価するための原則である。", rationale: "正しい記述です。それぞれの原則の役割を正確に説明しています。", isCorrect: false }
-    ,      { text: "無作為化は、実験の順序や場所などの条件をランダムに割り当てることで、制御できない系統誤差を偶然誤差に転化させる目的がある。", rationale: "この選択肢はフィッシャーの3原則における「無作為化」の正しい説明です。この問題は「最も不適切なもの」を選ぶ問題なので、正しい記述を選択すると誤答になります。", isCorrect: false }
+      , { text: "無作為化は、実験の順序や場所などの条件をランダムに割り当てることで、制御できない系統誤差を偶然誤差に転化させる目的がある。", rationale: "この選択肢はフィッシャーの3原則における「無作為化」の正しい説明です。この問題は「最も不適切なもの」を選ぶ問題なので、正しい記述を選択すると誤答になります。", isCorrect: false }
     ]
   },
   {
@@ -2644,7 +2644,7 @@ const QUIZ_DATA = [
       { text: "「変化率（伸び率）」は、比較時の値から基準時の値を引いた「差」として定義され、パーセント（$\\%$）ではなく元のデータと同じ単位で表される。", rationale: "誤りです。変化率（伸び率）は「（比較時 - 基準時）/ 基準時」で計算され、通常は $\\%$ で表されます。説明文は「差」の特徴です。", isCorrect: false },
       { text: "「比」は、前年の値から当年の値を引くことによって求められ、系列全体の絶対的な増減量を把握するために用いられる。", rationale: "誤りです。比は「当年 / 前年」のように割り算で求めます。引き算で求めるのは「差」です。", isCorrect: false },
       { text: "「差」は、異なる単位を持つ2つの時系列データ（例：金額と重量）の変化の度合いを直接比較するのに最も適した指標である。", rationale: "誤りです。「差」は元のデータと同じ単位を持つため、単位の異なるデータの比較には適しません。単位の異なる比較には「変化率」や「指数」を用います。", isCorrect: false }
-    ,      { text: "「変化率（伸び率）」は、比較時点の値を基準時点の値で割った「比」と常に全く同じ値になる。", rationale: "「変化率」は通常 (比較時の値 - 基準時の値) / 基準時の値 で計算され、「比」から1を引いた値（またはそのパーセント表示）になるため、全く同じ値にはなりません。", isCorrect: false }
+      , { text: "「変化率（伸び率）」は、比較時点の値を基準時点の値で割った「比」と常に全く同じ値になる。", rationale: "「変化率」は通常 (比較時の値 - 基準時の値) / 基準時の値 で計算され、「比」から1を引いた値（またはそのパーセント表示）になるため、全く同じ値にはなりません。", isCorrect: false }
     ]
   }
 ];

@@ -152,6 +152,14 @@ function startQuiz(randomLimit = 0) {
   state.selectedCategories = [...selectedCats];
   if (state.selectedCategories.length === 0) return;
 
+  // Reset any previous state mutated on the question objects
+  QUIZ_DATA.forEach(q => {
+    q.isAnswered = false;
+    q.userOpt = null;
+    q.clickedBtnId = null;
+    q.shuffledOptions = null;
+  });
+
   state.randomLimit = randomLimit;
 
   const optOnlyFormula = $('optOnlyFormula')?.checked;
