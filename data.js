@@ -712,7 +712,7 @@ const QUIZ_DATA = [
   },
   {
     id: 55,
-    isFormula: 1,
+    isFormula: 0,
     category: "確率",
     question: "ある事象Bが起こる確率を、互いに排反で全体を網羅する複数の原因事象に分けて計算する定理を何と呼びますか？",
     answerOptions: [
@@ -850,7 +850,7 @@ const QUIZ_DATA = [
       { text: "$a V(X) + b$", rationale: "定数 $b$ を足しても分散は増えません。また $a$ は2乗になります。", isCorrect: false },
       { text: "$a^2 V(X) + b^2$", rationale: "定数 $b$ の分散は $0$ なので $b^2$ は足されません。", isCorrect: false },
       { text: "$a V(X)$", rationale: "定数倍 $a$ は外に出るとき $a^2$ になる必要があります。", isCorrect: false },
-      { text: "V(aX + b) = aV(X) + b", rationale: "分散に対する定数倍は2乗されて外に出る必要があり、また定数を足しても分散（ばらつき）は変化しません。期待値の公式と混同しています。", isCorrect: false }
+      { text: "$aV(X) + b$", rationale: "分散に対する定数倍は2乗されて外に出る必要があり、また定数を足しても分散（ばらつき）は変化しません。期待値の公式と混同しています。", isCorrect: false }
     ]
   },
   {
@@ -863,7 +863,7 @@ const QUIZ_DATA = [
       { text: "$V(X) + V(Y)$", rationale: "これは $X$ と $Y$ が無相関（独立など）の場合のみ成り立つ式です。", isCorrect: false },
       { text: "$V(X) + V(Y) + Cov(X, Y)$", rationale: "共分散 $Cov(X,Y)$ には2が掛かる必要があります。", isCorrect: false },
       { text: "$V(X) + V(Y) - 2Cov(X, Y)$", rationale: "これは差の分散 $V(X - Y)$ の公式です。", isCorrect: false },
-      { text: "V(X + Y) = V(X) + V(Y)", rationale: "XとYが独立であるという条件がない限り、共分散の項 2Cov(X,Y) が必要になります。", isCorrect: false }
+      { text: "$V(X + Y) = V(X) + V(Y)$", rationale: "XとYが独立であるという条件がない限り、共分散の項 2Cov(X,Y) が必要になります。", isCorrect: false }
     ]
   },
   {
@@ -1410,19 +1410,6 @@ const QUIZ_DATA = [
       { text: "$s^2 = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$", rationale: "これは不偏分散の平方根であり、標本標準偏差にあたります。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-1} \\left( \\sum_{i=1}^{n} x_i^2 - \\bar{x}^2 \\right)$", rationale: "式が誤っています。正しくは $\\frac{1}{n-1}(\\sum x_i^2 - n\\bar{x}^2)$ 等になります。", isCorrect: false },
       { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "この式は標本分散の公式であり、不偏分散は分母が $n-1$ でなければなりません。受験者が $n$ で割る標本分散と混同しやすい典型的な誤答です。", isCorrect: false }
-    ]
-  },
-  {
-    id: 117,
-    isFormula: 1,
-    category: "確率",
-    question: "事象 $A$ と事象 $B$ についての「ベイズの定理」を表す公式はどれですか？",
-    answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A) P(A)}{P(B)}$", rationale: "事前確率 $P(A)$ に尤度 $P(B|A)$ を掛け、周辺確率 $P(B)$ で割ることで事後確率 $P(A|B)$ を求めます。", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A \\cap B)}{P(A)}$", rationale: "分母が $P(B)$ であるべきです。", isCorrect: false },
-      { text: "$P(A|B) = P(B|A) \\times P(A)$", rationale: "分母の $P(B)$ が抜けています。", isCorrect: false },
-      { text: "$P(A|B) = \\frac{P(A) P(B)}{P(B|A)}$", rationale: "分子と分母の構成が間違っています。", isCorrect: false },
-      { text: "$P(A|B) = \\frac{P(B|A)P(B)}{P(A)}$", rationale: "正しくは $P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$ であり、$P(A)$ と $P(B)$ の位置が逆になっているため誤りです。条件付き確率の公式をうろ覚えしている受験者を誘引する誤答です。", isCorrect: false }
     ]
   },
   {
@@ -2094,11 +2081,11 @@ const QUIZ_DATA = [
     category: "確率",
     question: "事象AとBにおいて、事前確率 $P(A)$ に証拠 $B$ を加味して事後確率 $P(A|B)$ を更新する「ベイズの定理」の公式はどれですか？",
     answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$", rationale: "条件付き確率の定義 $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ から導かれるベイズの定理の基本形です。", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
-      { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
-      { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "このような関係式は成り立ちません。", isCorrect: false },
-      { text: "$P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}$", rationale: "右辺は条件付き確率 P(B|A) の定義式であり、求めたい P(A|B) とは分母が逆になっているため誤りです。", isCorrect: false }
+      { text: "$\\frac{P(B|A)P(A)}{P(B)}$", rationale: "条件付き確率の定義 $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ から導かれるベイズの定理の基本形です。", isCorrect: true },
+      { text: "$\\frac{P(A|B)P(B)}{P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
+      { text: "$P(B|A) \\frac{P(B)}{P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
+      { text: "$P(A) P(B) - P(B|A)$", rationale: "このような関係式は成り立ちません。", isCorrect: false },
+      { text: "$\\\\frac{P(A \\\\cap B)}{P(A)}$", rationale: "右辺は条件付き確率 P(B|A) の定義式であり、求めたい P(A|B) とは分母が逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2410,7 +2397,7 @@ const QUIZ_DATA = [
       { text: "$\\sum_{x} x P(X=x)$", rationale: "これは離散型確率変数の期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは連続型確率変数の「分散」の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "この式は確率の総和を表し、常に $1$ になります。", isCorrect: false },
-      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx$", rationale: "F(x) は累積分布関数であり、期待値を求めるためには確率密度関数 f(x) に x を掛けて積分する必要があるため誤りです。", isCorrect: false }
+      { text: "$\\int_{-\\infty}^{\\infty} x F(x) dx$", rationale: "F(x) は累積分布関数であり、期待値を求めるためには確率密度関数 f(x) に x を掛けて積分する必要があるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2423,7 +2410,7 @@ const QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
-      , { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
+      , { text: "$\\int_{-\\infty}^{\\infty} |x - \\mu| f(x) dx$", rationale: "これは平均絶対誤差（平均偏差）の定義式であり、偏差の2乗の期待値である分散の定義とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2608,7 +2595,7 @@ const QUIZ_DATA = [
       , { text: "「変化率（伸び率）」は、比較時点の値を基準時点の値で割った「比」と常に全く同じ値になる。", rationale: "「変化率」は通常 (比較時の値 - 基準時の値) / 基準時の値 で計算され、「比」から1を引いた値（またはそのパーセント表示）になるため、全く同じ値にはなりません。", isCorrect: false }
     ]
   }
-  ,{
+  , {
     id: 232,
     isFormula: 1,
     category: "仮説検定",
@@ -2647,7 +2634,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "比率の差の検定に $F$ 統計量（分散の比）は用いません。", isCorrect: false }
     ]
   }
-  ,{
+  , {
     id: 235,
     isFormula: 1,
     category: "仮説検定",

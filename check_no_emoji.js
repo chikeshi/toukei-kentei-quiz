@@ -712,7 +712,7 @@ var QUIZ_DATA = [
   },
   {
     id: 55,
-    isFormula: 1,
+    isFormula: 0,
     category: "X",
     question: "XBX",
     answerOptions: [
@@ -850,7 +850,7 @@ var QUIZ_DATA = [
       { text: "$a V(X) + b$", rationale: "X $b$ X $a$ X2X", isCorrect: false },
       { text: "$a^2 V(X) + b^2$", rationale: "X $b$ X $0$ X $b^2$ X", isCorrect: false },
       { text: "$a V(X)$", rationale: "X $a$ X $a^2$ X", isCorrect: false },
-      { text: "V(aX + b) = aV(X) + b", rationale: "X2X", isCorrect: false }
+      { text: "$aV(X) + b$", rationale: "X2X", isCorrect: false }
     ]
   },
   {
@@ -863,7 +863,7 @@ var QUIZ_DATA = [
       { text: "$V(X) + V(Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false },
       { text: "$V(X) + V(Y) + Cov(X, Y)$", rationale: "X $Cov(X,Y)$ X2X", isCorrect: false },
       { text: "$V(X) + V(Y) - 2Cov(X, Y)$", rationale: "X $V(X - Y)$ X", isCorrect: false },
-      { text: "V(X + Y) = V(X) + V(Y)", rationale: "XXYX 2Cov(X,Y) X", isCorrect: false }
+      { text: "$V(X + Y) = V(X) + V(Y)$", rationale: "XXYX 2Cov(X,Y) X", isCorrect: false }
     ]
   },
   {
@@ -1410,19 +1410,6 @@ var QUIZ_DATA = [
       { text: "$s^2 = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-1} \\left( \\sum_{i=1}^{n} x_i^2 - \\bar{x}^2 \\right)$", rationale: "X $\\frac{1}{n-1}(\\sum x_i^2 - n\\bar{x}^2)$ X", isCorrect: false },
       { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X $n-1$ X $n$ X", isCorrect: false }
-    ]
-  },
-  {
-    id: 117,
-    isFormula: 1,
-    category: "X",
-    question: "X $A$ X $B$ X",
-    answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A) P(A)}{P(B)}$", rationale: "X $P(A)$ X $P(B|A)$ X $P(B)$ X $P(A|B)$ X", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A \\cap B)}{P(A)}$", rationale: "X $P(B)$ X", isCorrect: false },
-      { text: "$P(A|B) = P(B|A) \\times P(A)$", rationale: "X $P(B)$ X", isCorrect: false },
-      { text: "$P(A|B) = \\frac{P(A) P(B)}{P(B|A)}$", rationale: "X", isCorrect: false },
-      { text: "$P(A|B) = \\frac{P(B|A)P(B)}{P(A)}$", rationale: "X $P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$ X$P(A)$ X $P(B)$ X", isCorrect: false }
     ]
   },
   {
@@ -2094,11 +2081,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "XAXBX $P(A)$ X $B$ X $P(A|B)$ X",
     answerOptions: [
-      { text: "$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$", rationale: "X $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ X", isCorrect: true },
-      { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "X", isCorrect: false },
-      { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "X", isCorrect: false },
-      { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "X", isCorrect: false },
-      { text: "$P(A|B) = \\\\frac{P(A \\\\cap B)}{P(A)}$", rationale: "X P(B|A) X P(A|B) X", isCorrect: false }
+      { text: "$\\frac{P(B|A)P(A)}{P(B)}$", rationale: "X $P(A|B)P(B) = P(B|A)P(A) = P(A \\cap B)$ X", isCorrect: true },
+      { text: "$\\frac{P(A|B)P(B)}{P(A)}$", rationale: "X", isCorrect: false },
+      { text: "$P(B|A) \\frac{P(B)}{P(A)}$", rationale: "X", isCorrect: false },
+      { text: "$P(A) P(B) - P(B|A)$", rationale: "X", isCorrect: false },
+      { text: "$\\\\frac{P(A \\\\cap B)}{P(A)}$", rationale: "X P(B|A) X P(A|B) X", isCorrect: false }
     ]
   },
   {
@@ -2410,7 +2397,7 @@ var QUIZ_DATA = [
       { text: "$\\sum_{x} x P(X=x)$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "X $1$ X", isCorrect: false },
-      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x F(x) dx$", rationale: "F(x) X f(x) X x X", isCorrect: false }
+      { text: "$\\int_{-\\infty}^{\\infty} x F(x) dx$", rationale: "F(x) X f(x) X x X", isCorrect: false }
     ]
   },
   {
@@ -2423,7 +2410,7 @@ var QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "X0X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "X $X^2$ X $E[X^2]$ X $\\mu^2$ X", isCorrect: false }
-      , { text: "$\\\\int_{-\\\\infty}^{\\\\infty} |x - \\\\mu| f(x) dx$", rationale: "X2X", isCorrect: false }
+      , { text: "$\\int_{-\\infty}^{\\infty} |x - \\mu| f(x) dx$", rationale: "X2X", isCorrect: false }
     ]
   },
   {
@@ -2608,7 +2595,7 @@ var QUIZ_DATA = [
       , { text: "X", rationale: "X (X - X) / X X1X", isCorrect: false }
     ]
   }
-  ,{
+  , {
     id: 232,
     isFormula: 1,
     category: "X",
@@ -2647,7 +2634,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "X $F$ X", isCorrect: false }
     ]
   }
-  ,{
+  , {
     id: 235,
     isFormula: 1,
     category: "X",
