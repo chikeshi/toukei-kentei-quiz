@@ -705,7 +705,7 @@ var QUIZ_DATA = [
     answerOptions: [
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "AXBX", isCorrect: true },
       { text: "$P(A) + P(B)$", rationale: "XAXBX", isCorrect: false },
-      { text: "$P(A) \\times P(B)$", rationale: "XAXBX $P(A \\cap B)$ X", isCorrect: false },
+      { text: "$P(A) + P(B) - 2P(A \\cap B)$", rationale: "XAXBX $P(A \\cap B)$ X", isCorrect: false },
       { text: "$P(A) + P(B) + P(A \\cap B)$", rationale: "X", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "X", isCorrect: false }
     ]
@@ -899,7 +899,7 @@ var QUIZ_DATA = [
     question: "X $n$X $\\hat{p}$ X $p$ X $95\\%$ X$z_{0.025} \\approx 1.96$X",
     answerOptions: [
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "X", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "X", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "X $n-1$ X $n$ X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ X $90\\%$ X $p$ X $\\hat{p}$ X", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "X \\hat{p}(1-\\hat{p})/n X", isCorrect: false }
@@ -912,7 +912,7 @@ var QUIZ_DATA = [
     question: "X $y = \\beta_0 + \\beta_1 x + \\epsilon$ X $\\hat{\\beta}_1$ X$S_{xy}$: X $S_{xx}$: $x$ X",
     answerOptions: [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "XxXyXxX", isCorrect: true },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "X", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}$", rationale: "X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "X $r$X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "X $\\hat{\\beta}_0$ X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "X X X X,Y X", isCorrect: false }
@@ -938,7 +938,7 @@ var QUIZ_DATA = [
     question: "2X $X, Y$ X $r$ X$S_{xy}$: X, $S_{xx}$: XX, $S_{yy}$: YX",
     answerOptions: [
       { text: "$r = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "XXXYX$-1 \\le r \\le 1$ X", isCorrect: true },
-      { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "X", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}^2}{S_{xx} S_{yy}}$", rationale: "X", isCorrect: false },
       { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}{S_{xy}}$", rationale: "X", isCorrect: false },
       { text: "$r = \\frac{S_{xx} + S_{yy}}{S_{xy}}$", rationale: "X", isCorrect: false },
       { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "X", isCorrect: false }
@@ -1083,7 +1083,7 @@ var QUIZ_DATA = [
       { text: "$R^{*2} = 1 - \\frac{n-1}{n-k-1} (1 - R^2)$", rationale: "X $R^{*2} = 1 - \\frac{\\sum(\\text{X})^2 / (n-k-1)}{\\sum(\\text{X})^2 / (n-1)}$ X $1-R^2 = \\frac{\\sum(\\text{X})^2}{\\sum(\\text{X})^2}$ X$R^{*2} \\le R^2$ X", isCorrect: true },
       { text: "$R^{*2} = 1 - \\frac{n-k-1}{n-1} (1 - R^2)$", rationale: "X $R^{*2}$ X $R^2$ X", isCorrect: false },
       { text: "$R^{*2} = \\frac{n-k-1}{n-1} R^2$", rationale: "X$1 - R^2$X", isCorrect: false },
-      { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "X", isCorrect: false },
+      { text: "$R^{*2} = 1 - \\frac{k}{n}R^2$", rationale: "X", isCorrect: false },
       { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "X", isCorrect: false }
     ]
   },
@@ -1107,7 +1107,7 @@ var QUIZ_DATA = [
     question: "X2X $n_1, n_2$X $s_1^2, s_2^2$X $s^2$X",
     answerOptions: [
       { text: "$s^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}$", rationale: "X $(n_1-1) + (n_2-1)$ X", isCorrect: true },
-      { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "X", isCorrect: false },
+      { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2 - 2}$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "X $n_1 + n_2 - 2$ X", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "X-1X", isCorrect: false }
@@ -1159,7 +1159,7 @@ var QUIZ_DATA = [
     question: "X $O_i$X $E_i$ X $\\chi^2$ X",
     answerOptions: [
       { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "X2X", isCorrect: true },
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X $O_i$ X $E_i$ X", isCorrect: false },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i^2}$", rationale: "X $O_i$ X $E_i$ X", isCorrect: false },
       { text: "$\\sum (O_i - E_i)^2$", rationale: "X", isCorrect: false },
       { text: "$\\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "X2X", isCorrect: false },
       { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "XE_iXO_iX", isCorrect: false }
@@ -1172,7 +1172,7 @@ var QUIZ_DATA = [
     question: "X $r$X $c$ X2X",
     answerOptions: [
       { text: "$(r-1)(c-1)$", rationale: "X", isCorrect: true },
-      { text: "$r \\times c - 1$", rationale: "X - 1X", isCorrect: false },
+      { text: "$(r-1) + (c-1)$", rationale: "X - 1X", isCorrect: false },
       { text: "$r + c - 2$", rationale: "X", isCorrect: false },
       { text: "$(r-1) + (c-1)$", rationale: "X", isCorrect: false },
       { text: "$r \\times c - 1$", rationale: "X1X (r-1)(c-1) X", isCorrect: false }
@@ -1549,7 +1549,7 @@ var QUIZ_DATA = [
     question: "X $\\beta_j$ X0X $t$ X$\\hat{\\beta}_j$ X$SE(\\hat{\\beta}_j)$ X",
     answerOptions: [
       { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "XtX", isCorrect: true },
-      { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)^2}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "X2X", isCorrect: false },
       { text: "$\\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "X", isCorrect: false },
       { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "X / X $\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$ X", isCorrect: false }
@@ -2396,7 +2396,7 @@ var QUIZ_DATA = [
       { text: "$E[XY] - E[X]E[Y]$", rationale: "X", isCorrect: true },
       { text: "$E[X+Y] - E[X]-E[Y]$", rationale: "X0X", isCorrect: false },
       { text: "$E[(X-\\mu)^2]$", rationale: "X $V[X]$ X", isCorrect: false },
-      { text: "$E[XY] + E[X]E[Y]$", rationale: "X", isCorrect: false },
+      { text: "$E[X+Y] - E[X]E[Y]$", rationale: "X", isCorrect: false },
       { text: "$E[XY] + E[X]E[Y]$", rationale: "X", isCorrect: false }
     ]
   },
@@ -2629,7 +2629,7 @@ var QUIZ_DATA = [
     answerOptions: [
       { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $p = p_0$ X $p_0(1-p_0)/n$ X", isCorrect: true },
       { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "X $\\hat{p}$ X $p_0$ X", isCorrect: false },
-      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $Z$ X$t$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/(n-1)}}$", rationale: "X $Z$ X$t$ X", isCorrect: false },
       { text: "$\\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "X $Z^2$ X1X $\\chi^2$ X $Z$ X", isCorrect: false }
     ]
@@ -2642,7 +2642,7 @@ var QUIZ_DATA = [
     answerOptions: [
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X $p_1 = p_2$ X$\\hat{p}$ X", isCorrect: true },
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X$t$ X $Z$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1-1} + \\frac{1}{n_2-1})}}$", rationale: "X$t$ X $Z$ X", isCorrect: false },
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "X$\\hat{p}(1-\\hat{p})$ X", isCorrect: false },
       { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "X $F$ X", isCorrect: false }
     ]

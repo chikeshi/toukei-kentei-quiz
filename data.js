@@ -705,7 +705,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "AとBが重なる部分（同時確率）を二重に足さないように一度引く必要があります。", isCorrect: true },
       { text: "$P(A) + P(B)$", rationale: "これはAとBが互いに排反（同時に起こらない）場合のみ成り立つ式です。", isCorrect: false },
-      { text: "$P(A) \\times P(B)$", rationale: "これはAとBが独立である場合の同時確率 $P(A \\cap B)$ を求める式です。", isCorrect: false },
+      { text: "$P(A) + P(B) - 2P(A \\cap B)$", rationale: "これはAとBが独立である場合の同時確率 $P(A \\cap B)$ を求める式です。", isCorrect: false },
       { text: "$P(A) + P(B) + P(A \\cap B)$", rationale: "重なる部分をさらに足してしまうため、誤った式です。", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "これは独立な事象が同時に起こる確率（乗法定理）であり、少なくとも一方が起こる確率（加法定理）ではありません。", isCorrect: false }
     ]
@@ -899,7 +899,7 @@ const QUIZ_DATA = [
     question: "標本サイズ $n$、標本比率 $\\hat{p}$ のとき、母比率 $p$ の $95\\%$ 信頼区間を大標本近似で求めるための式はどれですか？（$z_{0.025} \\approx 1.96$）",
     answerOptions: [
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "二項分布の正規近似を用いた母比率の区間推定の標準的な公式です。", isCorrect: true },
-      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
+      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "比率の推定では分母は $n-1$ ではなく $n$ を用います。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間の係数です。また、未知の $p$ は $\\hat{p}$ で代用します。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "平方根の中身が分散 \\hat{p}(1-\\hat{p})/n であるべきですが、分子にそのまま分散を持ってくるのは式の形として誤りです。", isCorrect: false }
@@ -912,7 +912,7 @@ const QUIZ_DATA = [
     question: "単回帰モデル $y = \\beta_0 + \\beta_1 x + \\epsilon$ において、最小二乗法による傾きの推定量 $\\hat{\\beta}_1$ を求める式はどれですか？（$S_{xy}$: 偏差積和、 $S_{xx}$: $x$ の偏差平方和）",
     answerOptions: [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{xx}}$", rationale: "「xとyの共分散」を「xの分散」で割ったものと同じ意味になります。", isCorrect: true },
-      { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "これは「相関係数 $r$」の公式です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "これは切片 $\\hat{\\beta}_0$ を求める式の変形ですが、傾きの式ではありません。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆になっています。傾きは X のばらつきに対する X,Y の共変の関係を示します。", isCorrect: false }
@@ -938,7 +938,7 @@ const QUIZ_DATA = [
     question: "2つの変数 $X, Y$ 間の直線的な関係の強さを測るピアソンの積率相関係数 $r$ の定義式はどれですか？（$S_{xy}$: 偏差積和, $S_{xx}$: Xの偏差平方和, $S_{yy}$: Yの偏差平方和）",
     answerOptions: [
       { text: "$r = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "「共分散」を「Xの標準偏差とYの標準偏差の積」で割ったものと同義です。$-1 \\le r \\le 1$ の値をとります。", isCorrect: true },
-      { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "分母に平方根（ルート）がかかっていません。", isCorrect: false },
+      { text: "$r = \\frac{S_{xy}^2}{S_{xx} S_{yy}}$", rationale: "分母に平方根（ルート）がかかっていません。", isCorrect: false },
       { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}{S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$r = \\frac{S_{xx} + S_{yy}}{S_{xy}}$", rationale: "分散の和を偏差積和で割るという式は存在しません。", isCorrect: false },
       { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "分母の偏差平方和の積には平方根（ルート）が必要ですが、それが抜け落ちています。", isCorrect: false }
@@ -1083,7 +1083,7 @@ const QUIZ_DATA = [
       { text: "$R^{*2} = 1 - \\frac{n-1}{n-k-1} (1 - R^2)$", rationale: "定義式 $R^{*2} = 1 - \\frac{\\sum(\\text{残差})^2 / (n-k-1)}{\\sum(\\text{偏差})^2 / (n-1)}$ に、通常の決定係数の関係式 $1-R^2 = \\frac{\\sum(\\text{残差})^2}{\\sum(\\text{偏差})^2}$ を代入することで導かれます。説明変数を増やすとペナルティがかかり、$R^{*2} \\le R^2$ となります。", isCorrect: true },
       { text: "$R^{*2} = 1 - \\frac{n-k-1}{n-1} (1 - R^2)$", rationale: "分母と分子（自由度）が逆になっています。これでは説明変数を増やしたときに $R^{*2}$ が $R^2$ より大きくなってしまい、ペナルティとして機能しません。", isCorrect: false },
       { text: "$R^{*2} = \\frac{n-k-1}{n-1} R^2$", rationale: "残差の割合（$1 - R^2$）に対して自由度調整を行うため、この式は誤りです。", isCorrect: false },
-      { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "このような単純な引き算による補正ではありません。", isCorrect: false },
+      { text: "$R^{*2} = 1 - \\frac{k}{n}R^2$", rationale: "このような単純な引き算による補正ではありません。", isCorrect: false },
       { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "自由度調整済み決定係数は残差平方和と全平方和をそれぞれの自由度で割って計算されるものであり、単純な引き算の形ではありません。", isCorrect: false }
     ]
   },
@@ -1107,7 +1107,7 @@ const QUIZ_DATA = [
     question: "母分散が等しいと仮定できる2つの独立な正規母集団からの標本（サイズ $n_1, n_2$、標本不偏分散 $s_1^2, s_2^2$）を用いて、共通の母分散を推定する「プールされた分散 $s^2$」の式はどれですか？",
     answerOptions: [
       { text: "$s^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}$", rationale: "それぞれの偏差平方和を足し合わせ、全体の自由度 $(n_1-1) + (n_2-1)$ で割ったものです。", isCorrect: true },
-      { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "標本サイズが異なる場合、単純な平均では偏りが生じます。", isCorrect: false },
+      { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2 - 2}$", rationale: "標本サイズが異なる場合、単純な平均では偏りが生じます。", isCorrect: false },
       { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "不偏推定値にするためには、分母は自由度 $n_1 + n_2 - 2$ でなければなりません。", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "分散を足し合わせただけでは、プールされた分散にはなりません。", isCorrect: false },
       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "単純な平均ではなく、それぞれのサンプルの自由度（サイズ-1）で重み付けした加重平均をとる必要があります。", isCorrect: false }
@@ -1159,7 +1159,7 @@ const QUIZ_DATA = [
     question: "クロス集計表などで、観測度数を $O_i$、期待度数を $E_i$ とするとき、ピアソンの適合度検定や独立性の検定で用いられるカイ二乗統計量 $\\chi^2$ の計算式はどれですか？",
     answerOptions: [
       { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値のズレの2乗を、期待値で割って足し合わせたものがカイ二乗分布に従います。", isCorrect: true },
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i^2}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
       { text: "$\\sum (O_i - E_i)^2$", rationale: "期待度数で割って標準化しないと、元々の度数の大きさに依存してしまいます。", isCorrect: false },
       { text: "$\\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
       { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は期待度数（E_i）である必要がありますが、観測度数（O_i）で割っています。", isCorrect: false }
@@ -1172,7 +1172,7 @@ const QUIZ_DATA = [
     question: "行の数が $r$、列の数が $c$ であるクロス集計表（分割表）において、2つの変数が独立であるかどうかの「独立性の検定」を行う際の、カイ二乗分布の自由度はどれですか？",
     answerOptions: [
       { text: "$(r-1)(c-1)$", rationale: "周辺度数（合計）が固定されているため、自由に値を決められるセルの数はこの計算式になります。", isCorrect: true },
-      { text: "$r \\times c - 1$", rationale: "これは行と列の「全セル数 - 1」であり、適合度検定などの自由度です。", isCorrect: false },
+      { text: "$(r-1) + (c-1)$", rationale: "これは行と列の「全セル数 - 1」であり、適合度検定などの自由度です。", isCorrect: false },
       { text: "$r + c - 2$", rationale: "これは誤った計算式です。", isCorrect: false },
       { text: "$(r-1) + (c-1)$", rationale: "掛け算ではなく足し算になっています。", isCorrect: false },
       { text: "$r \\times c - 1$", rationale: "分割表全体のセルの数から1を引いたものではなく、各行と各列の周辺和の制約を考慮して (r-1)(c-1) となります。", isCorrect: false }
@@ -1549,7 +1549,7 @@ const QUIZ_DATA = [
     question: "重回帰分析において、ある特定の偏回帰係数 $\\beta_j$ が「0である（有意ではない）」という帰無仮説を検定する際に用いられる $t$ 統計量の公式はどれですか？（$\\hat{\\beta}_j$ は推定値、$SE(\\hat{\\beta}_j)$ はその標準誤差とする）",
     answerOptions: [
       { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
-      { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)^2}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$\\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
       { text: "$\\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
       { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "検定統計量は「推定値 / 標準誤差」である $\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$ が正しいですが、分母と分子を逆にした形になっています。", isCorrect: false }
@@ -2396,7 +2396,7 @@ const QUIZ_DATA = [
       { text: "$E[XY] - E[X]E[Y]$", rationale: "共分散は「積の期待値」から「期待値の積」を引くことで計算できます。", isCorrect: true },
       { text: "$E[X+Y] - E[X]-E[Y]$", rationale: "これは期待値の線形性であり、常に0になります。", isCorrect: false },
       { text: "$E[(X-\\mu)^2]$", rationale: "これは分散 $V[X]$ の定義式です。", isCorrect: false },
-      { text: "$E[XY] + E[X]E[Y]$", rationale: "これは相関係数の定義式です。", isCorrect: false },
+      { text: "$E[X+Y] - E[X]E[Y]$", rationale: "これは相関係数の定義式です。", isCorrect: false },
       { text: "$E[XY] + E[X]E[Y]$", rationale: "積の期待値から各々の期待値の積を「引く」のが正しいですが、「足して」しまっているため誤りです。", isCorrect: false }
     ]
   },
@@ -2629,7 +2629,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "帰無仮説 $p = p_0$ が正しいと仮定したもとでの分散 $p_0(1-p_0)/n$ を用いて標準化します。", isCorrect: true },
       { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "分母の分散の計算に標本比率 $\\hat{p}$ ではなく、帰無仮説の母比率 $p_0$ を用いるのが正しい検定統計量です（区間推定の際とは異なります）。", isCorrect: false },
-      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "比率の検定では、二項分布の正規近似により $Z$ 統計量を用います。$t$ 分布は通常用いられません。", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/(n-1)}}$", rationale: "比率の検定では、二項分布の正規近似により $Z$ 統計量を用います。$t$ 分布は通常用いられません。", isCorrect: false },
       { text: "$\\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "分母全体がルートの中に入るのが正しい形です。", isCorrect: false },
       { text: "$\\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "この式は統計量 $Z^2$ と等価であり自由度1の $\\chi^2$ 分布に従いますが、通常の「母比率の検定の検定統計量」の定義式としては $Z$ を選ぶのが適切です。", isCorrect: false }
     ]
@@ -2642,7 +2642,7 @@ const QUIZ_DATA = [
     answerOptions: [
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "帰無仮説 $p_1 = p_2$ を仮定するため、全体の共通比率（プールされた比率）$\\hat{p}$ を用いて分散を計算します。", isCorrect: true },
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "これは「母比率の差の信頼区間（区間推定）」で用いられる分散の形であり、「等しい」という帰無仮説を置く検定統計量ではありません。", isCorrect: false },
-      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "標本サイズが十分大きい前提の正規近似による検定のため、$t$ 統計量ではなく $Z$ 統計量を用います。", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1-1} + \\frac{1}{n_2-1})}}$", rationale: "標本サイズが十分大きい前提の正規近似による検定のため、$t$ 統計量ではなく $Z$ 統計量を用います。", isCorrect: false },
       { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "分散の平方根（標準誤差）の計算式として正しくありません。$\\hat{p}(1-\\hat{p})$ もルートの中に入ります。", isCorrect: false },
       { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "比率の差の検定に $F$ 統計量（分散の比）は用いません。", isCorrect: false }
     ]
