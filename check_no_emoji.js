@@ -1158,11 +1158,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "X $O_i$X $E_i$ X $\\chi^2$ X",
     answerOptions: [
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "X2X", isCorrect: true },
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X $O_i$ X $E_i$ X", isCorrect: false },
-      { text: "$\\chi^2 = \\sum (O_i - E_i)^2$", rationale: "X", isCorrect: false },
-      { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "X2X", isCorrect: false },
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "XE_iXO_iX", isCorrect: false }
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "X2X", isCorrect: true },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X $O_i$ X $E_i$ X", isCorrect: false },
+      { text: "$\\sum (O_i - E_i)^2$", rationale: "X", isCorrect: false },
+      { text: "$\\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "X2X", isCorrect: false },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "XE_iXO_iX", isCorrect: false }
     ]
   },
   {
@@ -1548,10 +1548,10 @@ var QUIZ_DATA = [
     category: "X",
     question: "X $\\beta_j$ X0X $t$ X$\\hat{\\beta}_j$ X$SE(\\hat{\\beta}_j)$ X",
     answerOptions: [
-      { text: "$t = \\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "XtX", isCorrect: true },
-      { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "X", isCorrect: false },
-      { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "X2X", isCorrect: false },
-      { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "XtX", isCorrect: true },
+      { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "X2X", isCorrect: false },
+      { text: "$\\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "X", isCorrect: false },
       { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "X / X $\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$ X", isCorrect: false }
     ]
   },
@@ -2133,11 +2133,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "X $\\mu$X $\\sigma$ X $X$ X0X1X $Z$ X",
     answerOptions: [
-      { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "X", isCorrect: true },
-      { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "X $\\sigma^2$ X $\\sigma$ X", isCorrect: false },
-      { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "X", isCorrect: false },
-      { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "X", isCorrect: false },
-      { text: "$Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
+      { text: "$\\frac{X - \\mu}{\\sigma}$", rationale: "X", isCorrect: true },
+      { text: "$\\frac{X - \\mu}{\\sigma^2}$", rationale: "X $\\sigma^2$ X $\\sigma$ X", isCorrect: false },
+      { text: "$\\frac{X - \\sigma}{\\mu}$", rationale: "X", isCorrect: false },
+      { text: "$(X - \\mu) \\times \\sigma$", rationale: "X", isCorrect: false },
+      { text: "$\\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
     ]
   },
   {
@@ -2627,11 +2627,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "X $n$ X $Z$ X $\\hat{p}$X $p_0$ X",
     answerOptions: [
-      { text: "$Z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $p = p_0$ X $p_0(1-p_0)/n$ X", isCorrect: true },
-      { text: "$Z = \\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "X $\\hat{p}$ X $p_0$ X", isCorrect: false },
-      { text: "$t = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $Z$ X$t$ X", isCorrect: false },
-      { text: "$Z = \\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "X", isCorrect: false },
-      { text: "$\\chi^2 = \\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "X $Z^2$ X1X $\\chi^2$ X $Z$ X", isCorrect: false }
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $p = p_0$ X $p_0(1-p_0)/n$ X", isCorrect: true },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "X $\\hat{p}$ X $p_0$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "X $Z$ X$t$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "X $Z^2$ X1X $\\chi^2$ X $Z$ X", isCorrect: false }
     ]
   },
   {
@@ -2640,11 +2640,24 @@ var QUIZ_DATA = [
     category: "X",
     question: "2X $n_1, n_2$X $\\hat{p}_1, \\hat{p}_2$X $Z$ X $p_1 = p_2$ X $\\hat{p} = \\frac{n_1\\hat{p}_1 + n_2\\hat{p}_2}{n_1+n_2}$ X",
     answerOptions: [
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X $p_1 = p_2$ X$\\hat{p}$ X", isCorrect: true },
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "X", isCorrect: false },
-      { text: "$t = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X$t$ X $Z$ X", isCorrect: false },
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "X$\\hat{p}(1-\\hat{p})$ X", isCorrect: false },
-      { text: "$F = \\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "X $F$ X", isCorrect: false }
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X $p_1 = p_2$ X$\\hat{p}$ X", isCorrect: true },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "X$t$ X $Z$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "X$\\hat{p}(1-\\hat{p})$ X", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "X $F$ X", isCorrect: false }
+    ]
+  }
+  ,{
+    id: 235,
+    isFormula: 1,
+    category: "X",
+    question: "2X $n_1, n_2$X $\\hat{p}_1, \\hat{p}_2$X $p_1 = p_2$ X$\\hat{p}$X",
+    answerOptions: [
+      { text: "$\\frac{n_1\\hat{p}_1 + n_2\\hat{p}_2}{n_1 + n_2}$", rationale: "2X$n_1\\hat{p}_1 + n_2\\hat{p}_2$X$n_1 + n_2$X", isCorrect: true },
+      { text: "$\\frac{\\hat{p}_1 + \\hat{p}_2}{2}$", rationale: "X2X$n_1$ X $n_2$X", isCorrect: false },
+      { text: "$\\sqrt{\\hat{p}_1 \\hat{p}_2}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{n_1\\hat{p}_1 - n_2\\hat{p}_2}{n_1 + n_2}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}$", rationale: "X", isCorrect: false }
     ]
   }
 ];

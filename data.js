@@ -1158,11 +1158,11 @@ const QUIZ_DATA = [
     category: "仮説検定",
     question: "クロス集計表などで、観測度数を $O_i$、期待度数を $E_i$ とするとき、ピアソンの適合度検定や独立性の検定で用いられるカイ二乗統計量 $\\chi^2$ の計算式はどれですか？",
     answerOptions: [
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値のズレの2乗を、期待値で割って足し合わせたものがカイ二乗分布に従います。", isCorrect: true },
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
-      { text: "$\\chi^2 = \\sum (O_i - E_i)^2$", rationale: "期待度数で割って標準化しないと、元々の度数の大きさに依存してしまいます。", isCorrect: false },
-      { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
-      { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は期待度数（E_i）である必要がありますが、観測度数（O_i）で割っています。", isCorrect: false }
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値のズレの2乗を、期待値で割って足し合わせたものがカイ二乗分布に従います。", isCorrect: true },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
+      { text: "$\\sum (O_i - E_i)^2$", rationale: "期待度数で割って標準化しないと、元々の度数の大きさに依存してしまいます。", isCorrect: false },
+      { text: "$\\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
+      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は期待度数（E_i）である必要がありますが、観測度数（O_i）で割っています。", isCorrect: false }
     ]
   },
   {
@@ -1548,10 +1548,10 @@ const QUIZ_DATA = [
     category: "回帰分析・分散分析",
     question: "重回帰分析において、ある特定の偏回帰係数 $\\beta_j$ が「0である（有意ではない）」という帰無仮説を検定する際に用いられる $t$ 統計量の公式はどれですか？（$\\hat{\\beta}_j$ は推定値、$SE(\\hat{\\beta}_j)$ はその標準誤差とする）",
     answerOptions: [
-      { text: "$t = \\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
-      { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
-      { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
-      { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$", rationale: "係数の推定値をその標準誤差で割った値が、帰無仮説のもとでt分布に従うことを利用します。", isCorrect: true },
+      { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
+      { text: "$\\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
+      { text: "$\\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
       { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "検定統計量は「推定値 / 標準誤差」である $\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$ が正しいですが、分母と分子を逆にした形になっています。", isCorrect: false }
     ]
   },
@@ -2133,11 +2133,11 @@ const QUIZ_DATA = [
     category: "確率分布",
     question: "平均 $\\mu$、標準偏差 $\\sigma$ の分布に従う確率変数 $X$ を、平均0、標準偏差1の変数 $Z$ に「標準化」するための公式はどれですか？",
     answerOptions: [
-      { text: "$Z = \\frac{X - \\mu}{\\sigma}$", rationale: "元の値から平均を引き、標準偏差で割ることで標準化されます。", isCorrect: true },
-      { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
-      { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
-      { text: "$Z = \\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
+      { text: "$\\frac{X - \\mu}{\\sigma}$", rationale: "元の値から平均を引き、標準偏差で割ることで標準化されます。", isCorrect: true },
+      { text: "$\\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
+      { text: "$\\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
+      { text: "$(X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
+      { text: "$\\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -2627,11 +2627,11 @@ const QUIZ_DATA = [
     category: "仮説検定",
     question: "「母比率の検定」において、標本サイズ $n$ が十分に大きい場合に用いられる検定統計量 $Z$ はどれですか？（標本比率を $\\hat{p}$、帰無仮説の母比率を $p_0$ とする）",
     answerOptions: [
-      { text: "$Z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "帰無仮説 $p = p_0$ が正しいと仮定したもとでの分散 $p_0(1-p_0)/n$ を用いて標準化します。", isCorrect: true },
-      { text: "$Z = \\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "分母の分散の計算に標本比率 $\\hat{p}$ ではなく、帰無仮説の母比率 $p_0$ を用いるのが正しい検定統計量です（区間推定の際とは異なります）。", isCorrect: false },
-      { text: "$t = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "比率の検定では、二項分布の正規近似により $Z$ 統計量を用います。$t$ 分布は通常用いられません。", isCorrect: false },
-      { text: "$Z = \\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "分母全体がルートの中に入るのが正しい形です。", isCorrect: false },
-      { text: "$\\chi^2 = \\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "この式は統計量 $Z^2$ と等価であり自由度1の $\\chi^2$ 分布に従いますが、通常の「母比率の検定の検定統計量」の定義式としては $Z$ を選ぶのが適切です。", isCorrect: false }
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "帰無仮説 $p = p_0$ が正しいと仮定したもとでの分散 $p_0(1-p_0)/n$ を用いて標準化します。", isCorrect: true },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{\\hat{p}(1-\\hat{p})/n}}$", rationale: "分母の分散の計算に標本比率 $\\hat{p}$ ではなく、帰無仮説の母比率 $p_0$ を用いるのが正しい検定統計量です（区間推定の際とは異なります）。", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$", rationale: "比率の検定では、二項分布の正規近似により $Z$ 統計量を用います。$t$ 分布は通常用いられません。", isCorrect: false },
+      { text: "$\\frac{\\hat{p} - p_0}{p_0(1-p_0)/\\sqrt{n}}$", rationale: "分母全体がルートの中に入るのが正しい形です。", isCorrect: false },
+      { text: "$\\frac{(\\hat{p} - p_0)^2}{p_0(1-p_0)/n}$", rationale: "この式は統計量 $Z^2$ と等価であり自由度1の $\\chi^2$ 分布に従いますが、通常の「母比率の検定の検定統計量」の定義式としては $Z$ を選ぶのが適切です。", isCorrect: false }
     ]
   },
   {
@@ -2640,11 +2640,24 @@ const QUIZ_DATA = [
     category: "仮説検定",
     question: "2つの独立な標本（サイズ $n_1, n_2$、標本比率 $\\hat{p}_1, \\hat{p}_2$）による「母比率の差の検定」の検定統計量 $Z$ はどれですか？（帰無仮説 $p_1 = p_2$ のもとでのプールされた比率を $\\hat{p} = \\frac{n_1\\hat{p}_1 + n_2\\hat{p}_2}{n_1+n_2}$ とする）",
     answerOptions: [
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "帰無仮説 $p_1 = p_2$ を仮定するため、全体の共通比率（プールされた比率）$\\hat{p}$ を用いて分散を計算します。", isCorrect: true },
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "これは「母比率の差の信頼区間（区間推定）」で用いられる分散の形であり、「等しい」という帰無仮説を置く検定統計量ではありません。", isCorrect: false },
-      { text: "$t = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "標本サイズが十分大きい前提の正規近似による検定のため、$t$ 統計量ではなく $Z$ 統計量を用います。", isCorrect: false },
-      { text: "$Z = \\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "分散の平方根（標準誤差）の計算式として正しくありません。$\\hat{p}(1-\\hat{p})$ もルートの中に入ります。", isCorrect: false },
-      { text: "$F = \\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "比率の差の検定に $F$ 統計量（分散の比）は用いません。", isCorrect: false }
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "帰無仮説 $p_1 = p_2$ を仮定するため、全体の共通比率（プールされた比率）$\\hat{p}$ を用いて分散を計算します。", isCorrect: true },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}}$", rationale: "これは「母比率の差の信頼区間（区間推定）」で用いられる分散の形であり、「等しい」という帰無仮説を置く検定統計量ではありません。", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\sqrt{\\hat{p}(1-\\hat{p})(\\frac{1}{n_1} + \\frac{1}{n_2})}}$", rationale: "標本サイズが十分大きい前提の正規近似による検定のため、$t$ 統計量ではなく $Z$ 統計量を用います。", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1 - \\hat{p}_2}{\\hat{p}(1-\\hat{p})\\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}}$", rationale: "分散の平方根（標準誤差）の計算式として正しくありません。$\\hat{p}(1-\\hat{p})$ もルートの中に入ります。", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)/n_1}{\\hat{p}_2(1-\\hat{p}_2)/n_2}$", rationale: "比率の差の検定に $F$ 統計量（分散の比）は用いません。", isCorrect: false }
+    ]
+  }
+  ,{
+    id: 235,
+    isFormula: 1,
+    category: "仮説検定",
+    question: "2つの独立な標本（サイズ $n_1, n_2$、標本比率 $\\hat{p}_1, \\hat{p}_2$）を用いて「母比率の差の検定」を行う際、帰無仮説 $p_1 = p_2$ のもとで用いる「プールされた比率（共通比率）$\\hat{p}$」の定義式はどれですか？",
+    answerOptions: [
+      { text: "$\\frac{n_1\\hat{p}_1 + n_2\\hat{p}_2}{n_1 + n_2}$", rationale: "2つの標本を合わせた全体の「成功回数（$n_1\\hat{p}_1 + n_2\\hat{p}_2$）」を、全体の「標本サイズの和（$n_1 + n_2$）」で割ったものがプールされた比率です。", isCorrect: true },
+      { text: "$\\frac{\\hat{p}_1 + \\hat{p}_2}{2}$", rationale: "単純な相加平均ではありません。2つの標本サイズ（$n_1$ と $n_2$）が異なる場合に結果が歪んでしまいます。", isCorrect: false },
+      { text: "$\\sqrt{\\hat{p}_1 \\hat{p}_2}$", rationale: "相乗平均ではありません。", isCorrect: false },
+      { text: "$\\frac{n_1\\hat{p}_1 - n_2\\hat{p}_2}{n_1 + n_2}$", rationale: "分子は差（マイナス）ではなく、合わせた成功回数の和（プラス）になります。", isCorrect: false },
+      { text: "$\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}$", rationale: "これは「母比率の差の信頼区間」を求める際に用いられる、比率の差の分散の推定量です。", isCorrect: false }
     ]
   }
 ];
