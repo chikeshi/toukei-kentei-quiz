@@ -668,7 +668,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{P(A \\cap B)}{P(B)}$", rationale: "X $P(A|B)$ XBXAX", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "XAXBX $P(A \\cap B)$ X", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "X$P(A \\cup B)$ X", isCorrect: false },
-      { text: "P(A X B) / P(A)", rationale: "XAXBXAXP(A X B) XAXBX", isCorrect: false }
+      { text: "$P(A X B) / P(A)$", rationale: "XAXBXAXP(A X B) XAXBX", isCorrect: false }
     ]
   },
   {
@@ -916,19 +916,6 @@ var QUIZ_DATA = [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "X $r$X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "X $\\hat{\\beta}_0$ X", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "X X X X,Y X", isCorrect: false }
-    ]
-  },
-  {
-    id: 73,
-    isFormula: 1,
-    category: "X",
-    question: "X $n$ X $x_1, x_2, ..., x_n$ X $\\bar{x}$X $s^2$X",
-    answerOptions: [
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X $n$ X $n-1$ X", isCorrect: true },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "X", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "X $\\mu$ X $\\bar{x}$ X$\\mu$ X $n$ X", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "X2X - X2X", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2$", rationale: "X n-1 X", isCorrect: false }
     ]
   },
   {
@@ -2020,7 +2007,7 @@ var QUIZ_DATA = [
       { text: "$V(X) = E(X) - \\{E(X)\\}^2$", rationale: "X1X $E(X^2)$ X", isCorrect: false },
       { text: "$V(X) = \\{E(X)\\}^2 - E(X^2)$", rationale: "X $E(X^2) \\ge \\{E(X)\\}^2$ X", isCorrect: false },
       { text: "$V(X) = E(X^2) - E(X)$", rationale: "X2X2X", isCorrect: false },
-      { text: "$E(X^2) + \\{E(X)\\}^2$", rationale: "X", isCorrect: false }
+      { text: "$V(X) = E(X^2) + \\{E(X)\\}^2$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2029,11 +2016,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "XCVX $\\bar{x}$X $s$ X",
     answerOptions: [
-      { text: "$CV = \\frac{s}{\\bar{x}}$", rationale: "X", isCorrect: true },
-      { text: "$CV = \\frac{\\bar{x}}{s}$", rationale: "X", isCorrect: false },
-      { text: "$CV = \\frac{s^2}{\\bar{x}}$", rationale: "X", isCorrect: false },
-      { text: "$CV = \\frac{s}{\\bar{x}^2}$", rationale: "X2X", isCorrect: false },
-      { text: "$\\bar{x} / s$", rationale: "X", isCorrect: false }
+      { text: "$\\frac{s}{\\bar{x}}$", rationale: "X", isCorrect: true },
+      { text: "$\\frac{\\bar{x}}{s}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{s^2}{\\bar{x}}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{s}{\\bar{x}^2}$", rationale: "X2X", isCorrect: false },
+      { text: "$\\frac{\\bar{x}}{s^2}$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2068,10 +2055,10 @@ var QUIZ_DATA = [
     category: "X",
     question: "XIQR: Interquartile RangeX",
     answerOptions: [
-      { text: "$IQR = Q_3 - Q_1$", rationale: "X3X1X50%X", isCorrect: true },
-      { text: "$IQR = Q_4 - Q_0$", rationale: "X - X", isCorrect: false },
-      { text: "$IQR = \\frac{Q_3 - Q_1}{2}$", rationale: "X", isCorrect: false },
-      { text: "$IQR = Q_2 - Q_1$", rationale: "X2X1X", isCorrect: false },
+      { text: "$Q_3 - Q_1$", rationale: "X3X1X50%X", isCorrect: true },
+      { text: "$Q_4 - Q_0$", rationale: "X - X", isCorrect: false },
+      { text: "$\\frac{Q_3 - Q_1}{2}$", rationale: "X", isCorrect: false },
+      { text: "$Q_2 - Q_1$", rationale: "X2X1X", isCorrect: false },
       { text: "$Q_4 - Q_1$", rationale: "X3X($Q_3$)X1X($Q_1$)X4X", isCorrect: false }
     ]
   },
@@ -2254,7 +2241,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "X $q_t$ X", isCorrect: false },
       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "X", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "X", isCorrect: false },
-      { text: "$\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100$", rationale: "X", isCorrect: false }
+      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_0} \\times 100$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2552,7 +2539,7 @@ var QUIZ_DATA = [
       { text: "$ac Cov(X, Y)$", rationale: "X ($+b, +d$) X ($a, c$) X", isCorrect: true },
       { text: "$ac Cov(X, Y) + bd$", rationale: "X ($+b, +d$) X", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "X", isCorrect: false },
-      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \\times c$ X", isCorrect: false }
+      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \times c$ X", isCorrect: false }
       , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "X $b$ X $d$ X", isCorrect: false }
     ]
   },
@@ -2563,7 +2550,7 @@ var QUIZ_DATA = [
     question: "X $X, Y, Z$ X $Cov(X + Y, Z)$ X",
     answerOptions: [
       { text: "$Cov(X, Z) + Cov(Y, Z)$", rationale: "X", isCorrect: true },
-      { text: "$Cov(X, Z) \\times Cov(Y, Z)$", rationale: "X", isCorrect: false },
+      { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "X", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "X $V(X+Y)$ X", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false }
       , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "X", isCorrect: false }

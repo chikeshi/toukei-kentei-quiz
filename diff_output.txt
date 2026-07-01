@@ -1,0 +1,101 @@
+diff --git a/data.js b/data.js
+index bb49e94..df47883 100644
+--- a/data.js
++++ b/data.js
+@@ -668,7 +668,7 @@ const QUIZ_DATA = [
+       { text: "$\\frac{P(A \\cap B)}{P(B)}$", rationale: "これは $P(A|B)$ （事象Bが起こった条件でのAの確率）を求める式です。", isCorrect: false },
+       { text: "$P(A) \\times P(B)$", rationale: "これは事象AとBが「独立」である場合の $P(A \\cap B)$ を求める式です。", isCorrect: false },
+       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "これは確率の加法定理であり、$P(A \\cup B)$ を求める式です。", isCorrect: false },
+-      { text: "P(A ∪ B) / P(A)", rationale: "条件付き確率は「AとBが同時に起こる確率（積事象）」を「Aが起こる確率」で割ったものです。P(A ∪ B) は和事象（AまたはBが起こる確率）であり、誤りです。", isCorrect: false }
++      { text: "$P(A ∪ B) / P(A)$", rationale: "条件付き確率は「AとBが同時に起こる確率（積事象）」を「Aが起こる確率」で割ったものです。P(A ∪ B) は和事象（AまたはBが起こる確率）であり、誤りです。", isCorrect: false }
+     ]
+   },
+   {
+@@ -918,19 +918,6 @@ const QUIZ_DATA = [
+       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆になっています。傾きは X のばらつきに対する X,Y の共変の関係を示します。", isCorrect: false }
+     ]
+   },
+-  {
+-    id: 73,
+-    isFormula: 1,
+-    category: "記述統計・基礎",
+-    question: "サイズ $n$ のデータセット $x_1, x_2, ..., x_n$ （標本平均 $\\bar{x}$）から母分散を偏りなく推定するための「不偏分散 $s^2$」の定義式はどれですか？",
+-    answerOptions: [
+-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本分散は $n$ で割りますが、不偏分散は自由度である $n-1$ で割ることで期待値が母分散に一致します。", isCorrect: true },
+-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の定義式です（母分散より少し小さく推定される傾向があります）。", isCorrect: false },
+-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "通常、母平均 $\\mu$ は未知であるため $\\bar{x}$ を使います。$\\mu$ が既知なら分母は $n$ で済みます。", isCorrect: false },
+-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "これは分散を計算するショートカット公式（2乗の平均 - 平均の2乗）です。", isCorrect: false },
+-      { text: "$s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2$", rationale: "これは標本分散の定義であり、母分散の不偏推定量とするためには自由度 n-1 で割る必要があります。", isCorrect: false }
+-    ]
+-  },
+   {
+     id: 74,
+     isFormula: 1,
+@@ -2020,7 +2007,7 @@ const QUIZ_DATA = [
+       { text: "$V(X) = E(X) - \\{E(X)\\}^2$", rationale: "第1項は $E(X^2)$ である必要があります。", isCorrect: false },
+       { text: "$V(X) = \\{E(X)\\}^2 - E(X^2)$", rationale: "引く順番が逆です。必ず $E(X^2) \\ge \\{E(X)\\}^2$ となります。", isCorrect: false },
+       { text: "$V(X) = E(X^2) - E(X)$", rationale: "第2項は平均の2乗である必要があります。", isCorrect: false },
+-      { text: "$E(X^2) + \\{E(X)\\}^2$", rationale: "二乗の期待値と期待値の二乗の「差」であるところを、「和」にしてしまっているため誤りです。", isCorrect: false }
++      { text: "$V(X) = E(X^2) + \\{E(X)\\}^2$", rationale: "二乗の期待値と期待値の二乗の「差」であるところを、「和」にしてしまっているため誤りです。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2029,11 +2016,11 @@ const QUIZ_DATA = [
+     category: "記述統計・基礎",
+     question: "測定単位が異なるデータ同士の「相対的なばらつき」を比較するために用いる「変動係数（CV）」の定義式として正しいものはどれですか？（標本平均を $\\bar{x}$、標本標準偏差を $s$ とする）",
+     answerOptions: [
+-      { text: "$CV = \\frac{s}{\\bar{x}}$", rationale: "変動係数は標準偏差を平均値で割った無次元量であり、データのスケールに依存せずにばらつきを評価できます。", isCorrect: true },
+-      { text: "$CV = \\frac{\\bar{x}}{s}$", rationale: "平均と標準偏差が逆になっています。", isCorrect: false },
+-      { text: "$CV = \\frac{s^2}{\\bar{x}}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
+-      { text: "$CV = \\frac{s}{\\bar{x}^2}$", rationale: "分母は平均の2乗ではありません。", isCorrect: false },
+-      { text: "$\\bar{x} / s$", rationale: "標準偏差を平均で割るのが正しい定義ですが、逆に平均を標準偏差で割ってしまっている（シグナルノイズ比の逆）ため誤りです。", isCorrect: false }
++      { text: "$\\frac{s}{\\bar{x}}$", rationale: "変動係数は標準偏差を平均値で割った無次元量であり、データのスケールに依存せずにばらつきを評価できます。", isCorrect: true },
++      { text: "$\\frac{\\bar{x}}{s}$", rationale: "平均と標準偏差が逆になっています。", isCorrect: false },
++      { text: "$\\frac{s^2}{\\bar{x}}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
++      { text: "$\\frac{s}{\\bar{x}^2}$", rationale: "分母は平均の2乗ではありません。", isCorrect: false },
++      { text: "$\\frac{\\bar{x}}{s^2}$", rationale: "平均値を不偏分散で割ってしまっているため誤りです。変動係数は「標準偏差を平均値で割る」のが正しい定義です。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2068,10 +2055,10 @@ const QUIZ_DATA = [
+     category: "記述統計・基礎",
+     question: "データの外れ値の影響を受けにくい散布度（ばらつきの指標）である「四分位範囲（IQR: Interquartile Range）」を求める式はどれですか？",
+     answerOptions: [
+-      { text: "$IQR = Q_3 - Q_1$", rationale: "第3四分位数から第1四分位数を引いたものであり、データの中央50%が分布する範囲の広さを表します。", isCorrect: true },
+-      { text: "$IQR = Q_4 - Q_0$", rationale: "これは「最大値 - 最小値」であり、「範囲（レンジ）」です。", isCorrect: false },
+-      { text: "$IQR = \\frac{Q_3 - Q_1}{2}$", rationale: "これは「四分位偏差」の定義です。", isCorrect: false },
+-      { text: "$IQR = Q_2 - Q_1$", rationale: "これは第2四分位数（中央値）から第1四分位数を引いたもので、全体の範囲を表していません。", isCorrect: false },
++      { text: "$Q_3 - Q_1$", rationale: "第3四分位数から第1四分位数を引いたものであり、データの中央50%が分布する範囲の広さを表します。", isCorrect: true },
++      { text: "$Q_4 - Q_0$", rationale: "これは「最大値 - 最小値」であり、「範囲（レンジ）」です。", isCorrect: false },
++      { text: "$\\frac{Q_3 - Q_1}{2}$", rationale: "これは「四分位偏差」の定義です。", isCorrect: false },
++      { text: "$Q_2 - Q_1$", rationale: "これは第2四分位数（中央値）から第1四分位数を引いたもので、全体の範囲を表していません。", isCorrect: false },
+       { text: "$Q_4 - Q_1$", rationale: "第3四分位数($Q_3$)から第1四分位数($Q_1$)を引くのが正しいですが、最大値に相当する第4四分位数を用いてしまっているため誤りです。", isCorrect: false }
+     ]
+   },
+@@ -2254,7 +2241,7 @@ const QUIZ_DATA = [
+       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは比較時の数量 $q_t$ をウェイトとする「パーシェ価格指数」の公式です。", isCorrect: false },
+       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "数量のウェイトが考慮されていない単なる価格の比です。", isCorrect: false },
+       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母分子が逆になっています。", isCorrect: false },
+-      { text: "$\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100$", rationale: "これは基準時と対象時の総取引額の比を表すものであり、数量を基準時に固定して価格変化のみを測定するラスパイレス価格指数とは異なります。", isCorrect: false }
++      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_0} \\times 100$", rationale: "これは基準時と対象時の総取引額の比を表すものであり、数量を基準時に固定して価格変化のみを測定するラスパイレス価格指数とは異なります。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2552,7 +2539,7 @@ const QUIZ_DATA = [
+       { text: "$ac Cov(X, Y)$", rationale: "共分散は定数の加算 ($+b, +d$) に影響されず、乗算された定数 ($a, c$) はそのまま外に出ます。", isCorrect: true },
+       { text: "$ac Cov(X, Y) + bd$", rationale: "分散や共分散において、足された定数項 ($+b, +d$) はばらつきに影響しないため無視されます。", isCorrect: false },
+       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "各変数の係数は足し算ではなく掛け合わせる必要があります。", isCorrect: false },
+-      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "分散 $V(aX) = a^2 V(X)$ とは異なり、共分散の係数は2乗されずそのまま $a \\times c$ となります。", isCorrect: false }
++      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "分散 $V(aX) = a^2 V(X)$ とは異なり、共分散の係数は2乗されずそのまま $a \times c$ となります。", isCorrect: false }
+       , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "共分散において定数の加算は影響しませんが、定数項 $b$ と $d$ の積を足してしまっているため誤りです。", isCorrect: false }
+     ]
+   },
+@@ -2563,7 +2550,7 @@ const QUIZ_DATA = [
+     question: "確率変数 $X, Y, Z$ について、和と別の確率変数との共分散 $Cov(X + Y, Z)$ を展開した式として正しいものはどれですか？",
+     answerOptions: [
+       { text: "$Cov(X, Z) + Cov(Y, Z)$", rationale: "共分散は線形性を持つため、分配法則のように足し算で展開することができます。", isCorrect: true },
+-      { text: "$Cov(X, Z) \\times Cov(Y, Z)$", rationale: "足し算が掛け算になることはありません。", isCorrect: false },
++      { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "足し算が掛け算になることはありません。", isCorrect: false },
+       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "これは和の分散 $V(X+Y)$ の展開式であり、無関係の式です。", isCorrect: false },
+       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "展開時に $X$ と $Y$ の共分散は発生しません。", isCorrect: false }
+       , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "共分散は線形性により和に分解できますが、積に分解してしまっているため誤りです。", isCorrect: false }

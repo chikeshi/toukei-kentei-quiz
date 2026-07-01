@@ -919,19 +919,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 73,
-    isFormula: 1,
-    category: "記述統計・基礎",
-    question: "サイズ $n$ のデータセット $x_1, x_2, ..., x_n$ （標本平均 $\\bar{x}$）から母分散を偏りなく推定するための「不偏分散 $s^2$」の定義式はどれですか？",
-    answerOptions: [
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "標本分散は $n$ で割りますが、不偏分散は自由度である $n-1$ で割ることで期待値が母分散に一致します。", isCorrect: true },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の定義式です（母分散より少し小さく推定される傾向があります）。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "通常、母平均 $\\mu$ は未知であるため $\\bar{x}$ を使います。$\\mu$ が既知なら分母は $n$ で済みます。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "これは分散を計算するショートカット公式（2乗の平均 - 平均の2乗）です。", isCorrect: false },
-      { text: "$s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2$", rationale: "これは標本分散の定義であり、母分散の不偏推定量とするためには自由度 n-1 で割る必要があります。", isCorrect: false }
-    ]
-  },
-  {
     id: 74,
     isFormula: 1,
     category: "記述統計・基礎",
