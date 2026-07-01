@@ -216,7 +216,7 @@ function renderQuestion() {
   
   const optCont  = $('optionsContainer');
   optCont.innerHTML = '';
-  const LABELS = ['A', 'B', 'C', 'D'];
+  const LABELS = ['A', 'B', 'C', 'D', 'E'];
 
   shuffled.forEach((opt, idx) => {
     const btn = document.createElement('button');

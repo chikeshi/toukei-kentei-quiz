@@ -16,6 +16,7 @@ const QUIZ_DATA = [
       { text: "多段抽出法", rationale: "複数の段階を経てサンプルを選ぶ手法であり、層ごとに選ぶ層化抽出とは異なります。", isCorrect: false },
       { text: "系統抽出法", rationale: "リストから一定間隔でサンプルを機械的に選ぶ手法です。", isCorrect: false },
       { text: "クラスター抽出法", rationale: "集落（クラスター）単位でそのまま選ぶ手法です。", isCorrect: false },
+    ,      { text: "クラスター抽出法（集落抽出法）", rationale: "クラスター抽出法は母集団をいくつかの集落（クラスター）に分け、ランダムに選ばれたクラスター内の全ての個体を調査する手法であり、各層から抽出する層化抽出法とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -28,6 +29,7 @@ const QUIZ_DATA = [
       { text: "中央値", rationale: "中央値は順位に基づくため、外れ値の影響を受けにくいロバストな代表値です。", isCorrect: false },
       { text: "最頻値", rationale: "最も頻繁に現れる値のため、外れ値には基本的に左右されません。", isCorrect: false },
       { text: "第一四分位数", rationale: "分布の25%点であり、順位ベースなので外れ値に対して頑健です。", isCorrect: false },
+    ,      { text: "中央値", rationale: "中央値はデータを大きさ順に並べたときの中央の値であるため、外れ値の影響を受けにくい代表値（ロバストな統計量）です。外れ値の影響を最も受けやすいのは平均値です。", isCorrect: false }
     ]
   },
   {
@@ -40,6 +42,7 @@ const QUIZ_DATA = [
       { text: "帰無仮説を採択する", rationale: "帰無仮説を採択するのは P ≥ 有意水準 のときです。P < 有意水準なら棄却します。", isCorrect: false },
       { text: "検定をやり直す", rationale: "P値の大小によって自動的に再検定するという手続きはありません。", isCorrect: false },
       { text: "有意な差はないと判断する", rationale: "有意な差がないと判断するのはP値が有意水準以上のときです。", isCorrect: false },
+    ,      { text: "帰無仮説を採択し、「差がない」と結論づける。", rationale: "P値が有意水準より小さい場合、帰無仮説のもとでそのデータが得られる確率が極めて低いことを意味するため、帰無仮説を棄却します。「採択する」は誤りです。", isCorrect: false }
     ]
   },
   {
@@ -52,6 +55,7 @@ const QUIZ_DATA = [
       { text: "コイン投げの表が出る回数", rationale: "これは固定回数のベルヌーイ試行なので二項分布が適します。", isCorrect: false },
       { text: "日本人の身長の分布", rationale: "身長のような連続的で対称な分布には正規分布が適します。", isCorrect: false },
       { text: "サイコロの目の出方", rationale: "各目が等確率の離散一様分布です。", isCorrect: false },
+    ,      { text: "コインを100回投げて表が出る回数", rationale: "コイン投げのように成功か失敗かの2値の結果が一定の確率で生じる反復試行の成功回数は、二項分布に従います。ポアソン分布は「まれに起こる事象」に適しています。", isCorrect: false }
     ]
   },
   {
@@ -64,6 +68,7 @@ const QUIZ_DATA = [
       { text: "自由度調整済み決定係数", rationale: "調整済み決定係数は変数追加による「ペナルティ」があるため、変数追加で減少することもあります。", isCorrect: false },
       { text: "標準誤差", rationale: "残差の標準誤差は変数追加により小さくなることも大きくなることもあります。", isCorrect: false },
       { text: "P値", rationale: "個々の説明変数のP値は変数の追加によって変化し、増減どちらもあります。", isCorrect: false },
+    ,      { text: "自由度調整済み決定係数", rationale: "自由度調整済み決定係数は、意味のない説明変数を追加した場合に減少するようにペナルティが与えられた指標です。説明変数を追加して必ず増加または停滞するのは通常の決定係数です。", isCorrect: false }
     ]
   },
   {
@@ -76,6 +81,7 @@ const QUIZ_DATA = [
       { text: "パーシェ式", rationale: "パーシェ式は比較時（現在）の数量をウェイトとして用います。ラスパイレスとは逆です。", isCorrect: false },
       { text: "フィッシャー式", rationale: "フィッシャー式はラスパイレスとパーシェの幾何平均をとる「理想指数」です。", isCorrect: false },
       { text: "幾何平均式", rationale: "幾何平均式は単純に価格比の幾何平均をとるもので、数量をウェイトとして使いません。", isCorrect: false },
+    ,      { text: "パーシェ指数", rationale: "パーシェ指数は「比較時（現在）」の数量をウェイトとして用いる計算式です。「基準時」の数量をウェイトとして用いるのはラスパイレス指数です。", isCorrect: false }
     ]
   },
   {
@@ -88,6 +94,7 @@ const QUIZ_DATA = [
       { text: "帰無仮説が真であるのに、棄却してしまう", rationale: "これは第1種の過誤（α）の定義です。有意水準がその確率の上限です。", isCorrect: false },
       { text: "検出力が1である状態", rationale: "検出力が1（100%）は理想的な状態であり、第2種の過誤ではありません。", isCorrect: false },
       { text: "有意水準を0.01にすること", rationale: "有意水準の設定は第1種の過誤の許容確率の話であり、第2種の過誤ではありません。", isCorrect: false },
+    ,      { text: "帰無仮説が真であるのに、誤って棄却してしまう誤り。", rationale: "帰無仮説が真であるのに誤って棄却してしまう誤りは「第1種の過誤（α）」です。第2種の過誤（β）は、実際には差がある（対立仮説が真）のに差がないと判断してしまう誤りです。", isCorrect: false }
     ]
   },
   {
@@ -100,6 +107,7 @@ const QUIZ_DATA = [
       { text: "約68%", rationale: "約68%は ±1σ（1標準偏差）の範囲に対応します。", isCorrect: false },
       { text: "約99%", rationale: "約99.7%が ±3σ の範囲です。±2σは約95%です。", isCorrect: false },
       { text: "約50%", rationale: "約50%は ±0.674σ の範囲に対応します。", isCorrect: false },
+    ,      { text: "約68.3%", rationale: "平均値 ± 1 × 標準偏差 の範囲に含まれるデータが約68.3%です。±2標準偏差の範囲は約95.4%となります。", isCorrect: false }
     ]
   },
   {
@@ -112,6 +120,7 @@ const QUIZ_DATA = [
       { text: "平均値 ÷ 標準偏差", rationale: "これはCVの逆数であり、変動係数にはなりません。", isCorrect: false },
       { text: "分散 ÷ 平均値", rationale: "分散は単位の二乗になるため、平均値で割っても意味のある無次元量になりません。", isCorrect: false },
       { text: "偏差の合計 ÷ 標本サイズ", rationale: "偏差の合計は定義上ゼロになるため、常に0になりバラツキを表しません。", isCorrect: false },
+    ,      { text: "分散 / 平均値", rationale: "変動係数は、異なる単位のデータ間で散らばり具合を比較するために「標準偏差」を「平均値」で割ったものです。分散を平均値で割るものではありません。", isCorrect: false }
     ]
   },
   {
@@ -124,6 +133,7 @@ const QUIZ_DATA = [
       { text: "標本サイズを大きくすれば標本平均は母平均に一致する", rationale: "これは「大数の法則」の説明です。収束することと正規分布になることは別の話です。", isCorrect: false },
       { text: "正規分布から抽出した標本は必ず正規分布になる", rationale: "これは正規分布の再生性の説明であり、中心極限定理ではありません。", isCorrect: false },
       { text: "不偏分散は母分散の推定量として最適である", rationale: "これは不偏推定量の性質に関する説明であり、中心極限定理とは無関係です。", isCorrect: false },
+    ,      { text: "サンプルサイズが大きくなると、母集団の分布そのものが正規分布に近づく。", rationale: "サンプルサイズを大きくしても母集団の分布の形状は変わりません。正規分布に近づくのは、「標本平均」の確率分布です。", isCorrect: false }
     ]
   },
   {
@@ -136,6 +146,7 @@ const QUIZ_DATA = [
       { text: "加法定理", rationale: "加法定理は $P(A \\cup B)$ を求めるためのものであり、条件付き確率の更新ではありません。", isCorrect: false },
       { text: "大数の法則", rationale: "大数の法則は標本平均が母平均に収束することを示す定理です。", isCorrect: false },
       { text: "チェビシェフの定理", rationale: "チェビシェフの不等式は、平均から離れる確率の上限を与えるものです。", isCorrect: false },
+    ,      { text: "大数の法則", rationale: "大数の法則は、試行回数を増やすと標本平均が母平均に収束するという法則です。条件付き確率を逆算したり更新したりする際に使われるのは「ベイズの定理」です。", isCorrect: false }
     ]
   },
   {
@@ -148,6 +159,7 @@ const QUIZ_DATA = [
       { text: "F分布", rationale: "F分布は2つの分散の比の分布であり、自由度が増えても正規分布に近づきません。", isCorrect: false },
       { text: "カイ二乗分布", rationale: "カイ二乗分布は自由度が増えると対称に近づきますが、正規分布ではありません。", isCorrect: false },
       { text: "二項分布", rationale: "二項分布はnが大きくなると正規分布に近づきますが、「自由度」という概念はありません。", isCorrect: false },
+    ,      { text: "ポアソン分布", rationale: "ポアソン分布は平均（パラメータλ）が大きくなると正規分布に近づきますが、「自由度」というパラメータを持つ分布ではありません。自由度が大きくなると標準正規分布に近づくのはt分布などです。", isCorrect: false }
     ]
   },
   {
@@ -160,6 +172,7 @@ const QUIZ_DATA = [
       { text: "右上がりに並んでいる", rationale: "右上がりは正の相関（r > 0）を示します。符号が逆です。", isCorrect: false },
       { text: "円形にバラついている", rationale: "円形にバラついているのは無相関（r ≈ 0）の状態です。", isCorrect: false },
       { text: "垂直に並んでいる", rationale: "垂直（または水平）はデータが1変数に集中している特殊ケースであり、相関係数とは異なります。", isCorrect: false },
+    ,      { text: "ほとんど相関がなく、点が全体にばらついている状態。", rationale: "相関係数が -0.9 というのは「非常に強い負の相関」を示しています。したがって、散布図は右下がりの直線に点が密集した状態になります。", isCorrect: false }
     ]
   },
   {
@@ -172,6 +185,7 @@ const QUIZ_DATA = [
       { text: "平均身長は170cmではない", rationale: "これは対立仮説（両側検定）の形です。帰無仮説と対立仮説を混同しないようにしましょう。", isCorrect: false },
       { text: "平均身長は170cmより高い", rationale: "これは片側検定における対立仮説の形です。", isCorrect: false },
       { text: "平均身長は170cmより低い", rationale: "これも片側検定における対立仮説の形です。", isCorrect: false },
+    ,      { text: "日本人の平均身長は170cmではない（μ≠170）。", rationale: "「〜ではない」「差がある」という仮説は、通常「対立仮説」として設定されます。帰無仮説は「差がない」「等しい」という状態を表します。", isCorrect: false }
     ]
   },
   {
@@ -184,6 +198,7 @@ const QUIZ_DATA = [
       { text: "季節変動", rationale: "季節変動は1年以内の周期（夏・冬など）で繰り返されるパターンです。", isCorrect: false },
       { text: "趨勢変動（トレンド）", rationale: "トレンドは長期的な上昇・下降の傾向であり、周期的な変動ではありません。", isCorrect: false },
       { text: "不規則変動", rationale: "不規則変動は突発的な事件や天災による予測不可能なランダムな動きです。", isCorrect: false },
+    ,      { text: "季節変動", rationale: "季節変動は1年という短い周期（春夏秋冬など）で繰り返される変動成分です。数年周期で繰り返されるものは循環変動と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -196,6 +211,7 @@ const QUIZ_DATA = [
       { text: "負の相関", rationale: "負の相関は方向の話であり、第三要因による見かけの相関ではありません。", isCorrect: false },
       { text: "自己相関", rationale: "自己相関は時系列データの同じ変数の異なる時点間の相関のことです。", isCorrect: false },
       { text: "順関関係", rationale: "順位相関は相関の種類の一つであり、疑似相関とは異なる概念です。", isCorrect: false },
+    ,      { text: "交互作用", rationale: "交互作用は、2つ以上の要因が組み合わさることで、単独の効果の和以上の効果が現れる現象です。第3の変数の影響で見かけ上の相関が出るのは「擬似相関」です。", isCorrect: false }
     ]
   },
   {
@@ -208,6 +224,7 @@ const QUIZ_DATA = [
       { text: "$np(1-p)$", rationale: "これは二項分布の「分散」です。期待値ではありません。", isCorrect: false },
       { text: "$\\sqrt{np}$", rationale: "標準偏差は $\\sqrt{np(1-p)}$ であり、この式は正しくありません。", isCorrect: false },
       { text: "$\\frac{n}{p}$", rationale: "これは幾何分布の期待値 $\\frac{1}{p}$ に近い概念で、二項分布の期待値ではありません。", isCorrect: false },
+    ,      { text: "np(1-p)", rationale: "np(1-p) は二項分布の「分散」を求める式です。期待値（平均）は n（試行回数）と p（成功確率）の積である np となります。", isCorrect: false }
     ]
   },
   {
@@ -220,6 +237,7 @@ const QUIZ_DATA = [
       { text: "第1種の過誤を犯す確率", rationale: "第1種の過誤の確率はα（有意水準）であり、検出力ではありません。", isCorrect: false },
       { text: "P値が0.05より大きくなる確率", rationale: "これは帰無仮説を採択する確率に近い概念ですが、「検出力」の定義ではありません。", isCorrect: false },
       { text: "有意水準のこと", rationale: "有意水準はα（第1種の過誤の上限）であり、検出力（$1-\\beta$）とは別物です。", isCorrect: false },
+    ,      { text: "帰無仮説が真であるときに、誤って棄却してしまう確率。", rationale: "帰無仮説が真であるときに誤って棄却してしまう確率は「有意水準（α）」または第1種の過誤の確率です。検出力は「正しい対立仮説を正しく見つける力（1-β）」です。", isCorrect: false }
     ]
   },
   {
@@ -232,6 +250,7 @@ const QUIZ_DATA = [
       { text: "モデルが間違っている", rationale: "ランダムな散らばりは良いモデルのサインです。パターンがある場合に問題があります。", isCorrect: false },
       { text: "決定係数が0である", rationale: "残差のパターンと決定係数の大きさは別の話です。", isCorrect: false },
       { text: "外れ値が多すぎる", rationale: "外れ値の有無はランダムなパターンとは別に判断します。", isCorrect: false },
+    ,      { text: "回帰モデルに当てはまりが悪く、説明変数を追加する必要がある。", rationale: "残差がランダムに散らばっていることは、モデルがデータの構造を適切に捉えられており、残った誤差が確率的なノイズであることを意味するため、モデルは妥当と言えます。", isCorrect: false }
     ]
   },
   {
@@ -244,6 +263,7 @@ const QUIZ_DATA = [
       { text: "移動平均モデル（MAモデル）", rationale: "MAモデルは過去の「誤差項」に依存するモデルであり、過去の「観測値」ではありません。", isCorrect: false },
       { text: "指数平滑化法", rationale: "指数平滑化法は過去の値に指数的に減少するウェイトをかける予測手法です。", isCorrect: false },
       { text: "ランダムウォーク", rationale: "ランダムウォークはAR(1)の特殊ケース（係数が1）ですが、一般的なARモデルではありません。", isCorrect: false },
+    ,      { text: "移動平均（MA）モデル", rationale: "移動平均モデルは、過去の「誤差（ホワイトノイズ）」の線形結合として現在の値を表すモデルです。過去の「自身の値」に依存するモデルは自己回帰（AR）モデルです。", isCorrect: false }
     ]
   },
   {
@@ -256,6 +276,7 @@ const QUIZ_DATA = [
       { text: "範囲（レンジ）", rationale: "範囲は最大値から最小値を引いたものであり、箱の長さではありません。", isCorrect: false },
       { text: "標準偏差", rationale: "標準偏差は各データと平均値の差の二乗の平均の平方根です。", isCorrect: false },
       { text: "中央値", rationale: "中央値は箱の中の線として表されますが、箱の長さではありません。", isCorrect: false },
+    ,      { text: "標準偏差", rationale: "標準偏差は平均からのばらつきを示す指標です。第3四分位数と第1四分位数の差は「四分位範囲（IQR）」と呼ばれ、データの中央50%の散らばりを表します。", isCorrect: false }
     ]
   },
   {
@@ -268,6 +289,7 @@ const QUIZ_DATA = [
       { text: "2群の平均値の差の検定", rationale: "2群の平均の差の検定にはt検定（またはz検定）が使われます。", isCorrect: false },
       { text: "回帰係数の有意性検定", rationale: "回帰係数の検定にはt検定やF検定が使われます。", isCorrect: false },
       { text: "相関係数の検定", rationale: "相関係数の検定にはt検定が使われます。", isCorrect: false },
+    ,      { text: "2標本の母平均の差の検定", rationale: "母平均の差の検定には通常、t分布（t検定）が用いられます。カイ二乗分布は、クロス集計表における「独立性の検定」や「適合度検定」などに用いられます。", isCorrect: false }
     ]
   },
   {
@@ -280,6 +302,7 @@ const QUIZ_DATA = [
       { text: "母数が95%の確率でこの範囲に移動する", rationale: "母数は定数であり動きません。確率的に変動するのは標本から構成される区間の方です。", isCorrect: false },
       { text: "標本の95%がこの範囲に入っている", rationale: "これは予測区間の概念に近く、信頼区間ではありません。", isCorrect: false },
       { text: "次の調査で得られる値が95%入る範囲", rationale: "これも予測区間の概念であり、信頼区間の定義ではありません。", isCorrect: false },
+    ,      { text: "真の母数がその区間内に含まれる確率が95%である。", rationale: "頻度論において真の母数は固定された定数です。「確率が95%」ではなく、「100回同じ方法で推定を繰り返すと95回は母数を含む区間が得られる」と解釈します。", isCorrect: false }
     ]
   },
   {
@@ -292,6 +315,7 @@ const QUIZ_DATA = [
       { text: "0.24", rationale: "0.49 ÷ 2 は相関係数とは無関係です。$R^2 = r^2$ の関係を使います。", isCorrect: false },
       { text: "0.49", rationale: "$R^2$ と $r$ は等しくなりません。$r = \\sqrt{R^2}$ となります。", isCorrect: false },
       { text: "0.9", rationale: "$0.9^2 = 0.81$ であり 0.49 にはなりません。", isCorrect: false },
+    ,      { text: "0.2401", rationale: "決定係数は相関係数の2乗（R^2）です。相関係数を求めるには決定係数の平方根をとる必要があり 0.7 となります。0.2401は0.49をさらに2乗した誤った値です。", isCorrect: false }
     ]
   },
   {
@@ -304,6 +328,7 @@ const QUIZ_DATA = [
       { text: "単純無作為抽出法", rationale: "完全なリスト（抽出枠）が必要で、全員に番号を振る必要があります。", isCorrect: false },
       { text: "全数調査", rationale: "全数調査は母集団全員を調査するため、リストが必要でコストも大きくなります。", isCorrect: false },
       { text: "層化抽出法", rationale: "層化抽出は各層のリストが必要なため、母集団リストがないと実施できません。", isCorrect: false },
+    ,      { text: "単純無作為抽出法", rationale: "単純無作為抽出法は母集団全員のリスト（抽出枠）がないと実施が困難です。リストがない場合でも実施しやすいのはクラスター抽出法（集落抽出法）です。", isCorrect: false }
     ]
   },
   {
@@ -316,6 +341,7 @@ const QUIZ_DATA = [
       { text: "正規分布", rationale: "正規分布は連続確率分布であり、整数値の回数分布としては直接使えません。", isCorrect: false },
       { text: "指数分布", rationale: "指数分布は次のイベントまでの「待ち時間」をモデル化する連続分布です。", isCorrect: false },
       { text: "幾何分布", rationale: "幾何分布は初めて成功するまでの「試行回数」の分布であり、成功回数の分布ではありません。", isCorrect: false },
+    ,      { text: "幾何分布", rationale: "幾何分布は「初めて成功するまでに行う試行回数」が従う分布です。「n回中何回成功するか」が従うのは二項分布です。", isCorrect: false }
     ]
   },
   {
@@ -328,6 +354,7 @@ const QUIZ_DATA = [
       { text: "計算を簡単にするため", rationale: "簡略化のためではなく、統計的に正しい推定のための理論的根拠があります。", isCorrect: false },
       { text: "自由度がnだから", rationale: "逆です。標本平均を1つ推定することで自由度はn-1になり、それが(n-1)で割る理由です。", isCorrect: false },
       { text: "標本誤差を大きく見せるため", rationale: "不偏分散の目的は誤差を大きく見せることではなく、バイアスのない公平な推定です。", isCorrect: false },
+    ,      { text: "計算を簡単にして、割り切れる確率を上げるため。", rationale: "計算を簡単にするためではありません。標本分散が母分散を小さく見積もってしまうバイアス（偏り）を修正し、期待値が母分散に等しくなるように（不偏性を持たせるため）補正しています。", isCorrect: false }
     ]
   },
   {
@@ -340,6 +367,7 @@ const QUIZ_DATA = [
       { text: "目的変数と説明変数が無相関である", rationale: "目的変数と説明変数が無相関な場合はモデルの有効性がない問題であり、多重共線性とは別です。", isCorrect: false },
       { text: "残差に自己相関がある", rationale: "残差の自己相関はダービン・ワトソン比で検定する別の問題です。", isCorrect: false },
       { text: "変数が多すぎる状態", rationale: "変数が多いことは過学習の問題ですが、多重共線性は変数の「数」ではなく「相関」の問題です。", isCorrect: false },
+    ,      { text: "目的変数と説明変数の間に強い相関があり、予測精度が異常に高くなる現象。", rationale: "目的変数と説明変数の相関が高いこと自体は問題ありません。多重共線性は「説明変数同士」の相関が強すぎることで、各変数の影響が切り分けられなくなり推定が不安定になる問題です。", isCorrect: false }
     ]
   },
   {
@@ -352,6 +380,7 @@ const QUIZ_DATA = [
       { text: "t分布", rationale: "t分布は主に平均の差の検定に使われます。", isCorrect: false },
       { text: "カイ二乗分布", rationale: "カイ二乗分布は1つの母集団の分散検定や独立性検定に使われます。", isCorrect: false },
       { text: "標準正規分布", rationale: "標準正規分布は大標本での平均のz検定に使われます。", isCorrect: false },
+    ,      { text: "t分布", rationale: "t分布は母平均の検定などに用いられます。2つの母分散の比が従う分布であり、等分散性の検定に用いられるのはF分布です。", isCorrect: false }
     ]
   },
   {
@@ -364,6 +393,7 @@ const QUIZ_DATA = [
       { text: "ラスパイレス式", rationale: "ラスパイレス式は「過去（基準時）」の数量を固定してウェイトとします。", isCorrect: false },
       { text: "加重平均式", rationale: "加重平均式という特定の物価指数の名称はなく、一般的な加重平均の手法を指します。", isCorrect: false },
       { text: "単純算術平均式", rationale: "単純算術平均式は数量をウェイトとして用いず、単純に価格比を平均するものです。", isCorrect: false },
+    ,      { text: "ラスパイレス指数", rationale: "ラスパイレス指数は「基準時」の数量を重みとして用います。「比較時（現在など）」の数量を重みに用いるのはパーシェ指数です。", isCorrect: false }
     ]
   },
   {
@@ -376,6 +406,7 @@ const QUIZ_DATA = [
       { text: "標本調査", rationale: "母集団の一部（標本）を抽出して推測する調査です。すべてを調査するわけではありません。", isCorrect: false },
       { text: "有意抽出調査", rationale: "調査者の主観で代表的と思われるサンプルを選ぶ手法です。全数調査ではありません。", isCorrect: false },
       { text: "モニター調査", rationale: "あらかじめ登録されたモニターを対象に行う調査です。母集団すべてではありません。", isCorrect: false },
+    ,      { text: "標本調査", rationale: "標本調査は母集団の一部（サンプル）だけを抽出して調査し、全体の性質を推測する手法です。すべてを調査するのは全数調査（センサス）です。", isCorrect: false }
     ]
   },
   {
@@ -388,6 +419,7 @@ const QUIZ_DATA = [
       { text: "互いに独立", rationale: "独立は「一方の発生がもう一方の確率に影響を与えない（$P(A|B)=P(A)$）」ことであり、排反とは異なります。", isCorrect: false },
       { text: "余事象", rationale: "余事象は「Aが起こらない事象」のことであり、排反とは関係の定義が異なります。", isCorrect: false },
       { text: "条件付き確率", rationale: "条件付き確率は「ある事象が起きた条件下で別の事象が起きる確率」です。", isCorrect: false },
+    ,      { text: "独立事象", rationale: "独立事象は、一方の事象が起こったことが他方の事象が起こる確率に影響を与えない関係です。「同時に起こらない」関係は排反事象と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -400,6 +432,7 @@ const QUIZ_DATA = [
       { text: "指数分布", rationale: "指数分布は右に裾が長い非対称な分布であり、釣鐘型ではありません。", isCorrect: false },
       { text: "一様分布", rationale: "一様分布は四角い平坦な形をした分布です。", isCorrect: false },
       { text: "対数正規分布", rationale: "対数正規分布はゼロより大きい値を取り、右に裾が長い非対称な分布です。", isCorrect: false },
+    ,      { text: "指数分布", rationale: "指数分布はある事象が起きるまでの待ち時間などを表す分布で、右に裾を引く非対称な形状をしています。釣鐘型の左右対称な分布は正規分布です。", isCorrect: false }
     ]
   },
   {
@@ -412,6 +445,7 @@ const QUIZ_DATA = [
       { text: "残差平方和", rationale: "残差平方和は回帰分析における予測誤差の合計であり、標本分布のバラつきではありません。", isCorrect: false },
       { text: "不偏分散", rationale: "不偏分散は母分散の推定量であり、推定値のバラつきの指標（標準誤差）とは異なります。", isCorrect: false },
       { text: "変動係数", rationale: "変動係数は標準偏差を平均で割った相対的なバラつきです。", isCorrect: false },
+    ,      { text: "標本分散", rationale: "標本分散はデータそのものの平均からの散らばりを表す指標です。標本平均などの統計量が標本抽出のたびにどれくらいばらつくかを示す標準偏差は「標準誤差」と呼びます。", isCorrect: false }
     ]
   },
   {
@@ -424,6 +458,7 @@ const QUIZ_DATA = [
       { text: "相関係数", rationale: "相関係数は2変数の直線関係の強さを示しますが、説明できる変動の割合を示すのは決定係数です。", isCorrect: false },
       { text: "回帰係数", rationale: "回帰係数は直線の傾き（Xが1増えたときのYの増加量）を表します。", isCorrect: false },
       { text: "不偏分散", rationale: "不偏分散はデータのバラつきの推定値です。", isCorrect: false },
+    ,      { text: "相関係数", rationale: "相関係数は2変数間の直線的な関係の強さを示す指標です。回帰直線によって説明できる変動の「割合（全変動に対する回帰変動の比）」を示すのは決定係数（R^2）です。", isCorrect: false }
     ]
   },
   {
@@ -436,6 +471,7 @@ const QUIZ_DATA = [
       { text: "季節変動", rationale: "季節変動は1年以内の周期的な変動です。", isCorrect: false },
       { text: "循環変動", rationale: "循環変動は数年単位で波のように上下する変動です。", isCorrect: false },
       { text: "不規則変動", rationale: "不規則変動は予測不可能な突発的変動です。", isCorrect: false },
+    ,      { text: "不規則変動", rationale: "不規則変動は、予測不可能な突発的な出来事やノイズによる変動です。長期的に上昇・下落を持続する成分は傾向変動（トレンド）と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -448,6 +484,7 @@ const QUIZ_DATA = [
       { text: "中央値（第2四分位数）", rationale: "中央値は下から50%に位置する値です。", isCorrect: false },
       { text: "第3四分位数", rationale: "第3四分位数は下から75%に位置する値です。", isCorrect: false },
       { text: "最頻値", rationale: "最頻値はデータの中で最も多く出現する値です。", isCorrect: false },
+    ,      { text: "第3四分位数", rationale: "第3四分位数は下から75%（上から25%）に位置する値です。下から25%に位置するのは第1四分位数（Q1）です。", isCorrect: false }
     ]
   },
   {
@@ -460,6 +497,7 @@ const QUIZ_DATA = [
       { text: "幾何分布", rationale: "幾何分布は「初めて成功するまでの試行回数」の分布です。", isCorrect: false },
       { text: "正規分布", rationale: "正規分布は連続値の分布であり、発生回数のような離散値には適しません。", isCorrect: false },
       { text: "二項分布", rationale: "二項分布は「一定回数の試行中における成功回数」の分布です。", isCorrect: false },
+    ,      { text: "一様分布", rationale: "一様分布はサイコロの目のようにすべての事象が同じ確率で起こる分布です。一定期間にまれに発生する回数が従う分布はポアソン分布です。", isCorrect: false }
     ]
   },
   {
@@ -472,6 +510,7 @@ const QUIZ_DATA = [
       { text: "対立仮説", rationale: "対立仮説は、帰無仮説が棄却されたときに採択される「差がある」という仮説です。", isCorrect: false },
       { text: "作業仮説", rationale: "作業仮説は研究を進める上で一時的に立てる仮説です。", isCorrect: false },
       { text: "統計的仮説", rationale: "統計的仮説は帰無仮説と対立仮説の総称です。", isCorrect: false },
+    ,      { text: "対立仮説", rationale: "対立仮説は、研究者が実際に主張したい「差がある」「効果がある」という仮説です。否定されることを想定して立てる「差がない」という仮説は帰無仮説です。", isCorrect: false }
     ]
   },
   {
@@ -484,6 +523,7 @@ const QUIZ_DATA = [
       { text: "共分散", rationale: "共分散は相関の方向を示しますが、範囲が $-1$ から $+1$ に標準化されていません。", isCorrect: false },
       { text: "決定係数", rationale: "決定係数は相関係数の2乗であり、$0$ から $+1$ の値を取ります。", isCorrect: false },
       { text: "回帰係数", rationale: "回帰係数は直線の傾きであり、相関の強さそのものを表すわけではありません。", isCorrect: false },
+    ,      { text: "共分散", rationale: "共分散も2変数の関係性を表しますが、単位に依存するため上限下限がありません。-1から+1の範囲に標準化された指標がピアソンの積率相関係数です。", isCorrect: false }
     ]
   },
   {
@@ -496,6 +536,7 @@ const QUIZ_DATA = [
       { text: "パーシェ式", rationale: "パーシェ式は比較時点（現在）の購入数量をベースにします。", isCorrect: false },
       { text: "フィッシャー式", rationale: "フィッシャー式はラスパイレス式とパーシェ式の幾何平均をとる理想指数です。", isCorrect: false },
       { text: "幾何平均式", rationale: "幾何平均式は数量を固定せず、価格比の相乗平均をとる方式です。", isCorrect: false },
+    ,      { text: "パーシェ算式", rationale: "パーシェ算式は「比較時（現在）」のウェイトを用いて計算する方式です。基準年のウェイトを固定して計算する方式はラスパイレス算式です。", isCorrect: false }
     ]
   },
   {
@@ -508,6 +549,7 @@ const QUIZ_DATA = [
       { text: "逆の因果", rationale: "逆の因果は「原因と結果の方向が逆」であるケースを指します。", isCorrect: false },
       { text: "自己相関", rationale: "自己相関は時系列データにおいて、過去の自分自身と相関を持つ現象です。", isCorrect: false },
       { text: "偏相関", rationale: "偏相関は第3の変数の影響を取り除いたあとの「純粋な相関」のことです。", isCorrect: false },
+    ,      { text: "負の相関", rationale: "負の相関は一方が増えると他方が減るという関係性の方向を示す言葉です。第3の変数が原因で生じる見かけ上の関係は擬似相関と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -520,6 +562,7 @@ const QUIZ_DATA = [
       { text: "F分布", rationale: "F分布は2つの分散の比の分布であり、左右非対称で正の値のみをとります。", isCorrect: false },
       { text: "カイ二乗分布", rationale: "カイ二乗分布は分散の検定などに使われる左右非対称な分布です。", isCorrect: false },
       { text: "二項分布", rationale: "二項分布は「成功・失敗」の試行回数に関する離散型分布です。", isCorrect: false },
+    ,      { text: "カイ二乗分布", rationale: "カイ二乗分布は分散の検定などに使われる非対称な分布です。母分散未知でサンプルサイズが小さいときの母平均の検定などに使われる左右対称な分布はt分布です。", isCorrect: false }
     ]
   },
   {
@@ -532,6 +575,7 @@ const QUIZ_DATA = [
       { text: "第1種の過誤", rationale: "第1種の過誤は「実際には差がないのに、差があると言い切ってしまう誤り」です。", isCorrect: false },
       { text: "検定力不足の過誤", rationale: "検定力が不足すると第2種の過誤が増えますが、誤り自体の名称ではありません。", isCorrect: false },
       { text: "サンプリングエラー", rationale: "サンプリングエラー（標本誤差）は標本を抽出したことで生じる偶然のブレであり、過誤の種類ではありません。", isCorrect: false },
+    ,      { text: "第1種の過誤", rationale: "第1種の過誤（αエラー）は、実際には差がないのに「差がある」と誤って判断してしまうことです。差があることを見落として「差がない」とするのは第2種の過誤です。", isCorrect: false }
     ]
   },
   {
@@ -544,6 +588,7 @@ const QUIZ_DATA = [
       { text: "偏差", rationale: "偏差は「平均値」からのズレを指し、予測値からのズレ（残差）とは異なります。", isCorrect: false },
       { text: "分散", rationale: "分散はデータ全体のバラつきの大きさを表す指標です。", isCorrect: false },
       { text: "標準誤差", rationale: "標準誤差は推定量のバラつき（標本分布の標準偏差）のことです。", isCorrect: false },
+    ,      { text: "誤差（母誤差）", rationale: "誤差は真のモデルにおける観測できない理論上のズレです。実際にデータから得られた回帰式による予測値と観測値のズレは「残差」と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -556,6 +601,7 @@ const QUIZ_DATA = [
       { text: "不偏分散", rationale: "不偏分散は母集団の分散を偏りなく推定する値であり、単位を持ったままの指標です。", isCorrect: false },
       { text: "四分位範囲", rationale: "四分位範囲は中央50%の幅を示す指標ですが、単位をキャンセルする効果はありません。", isCorrect: false },
       { text: "標準誤差", rationale: "標準誤差は標本平均などの推定量のバラつきを表します。", isCorrect: false },
+    ,      { text: "決定係数", rationale: "決定係数は回帰モデルの当てはまりの良さを示す指標です。標準偏差を平均値で割って相対的なばらつきを示す指標は変動係数（CV）です。", isCorrect: false }
     ]
   },
   {
@@ -568,6 +614,7 @@ const QUIZ_DATA = [
       { text: "ランダムウォーク", rationale: "ランダムウォークは次の一歩がランダムに決まる過程全体のことです。", isCorrect: false },
       { text: "ポアソン試行", rationale: "ポアソン試行は発生確率が異なる独立試行の一般化であり、通常は稀な事象を扱います。", isCorrect: false },
       { text: "マルコフ過程", rationale: "マルコフ過程は「未来の状態が現在の状態のみに依存する」確率過程です。", isCorrect: false },
+    ,      { text: "マルコフ過程", rationale: "マルコフ過程は、未来の状態が現在の状態のみに依存して決まる確率過程のことです。結果が2通りしかない独立な1回の試行のことはベルヌーイ試行と呼びます。", isCorrect: false }
     ]
   },
   {
@@ -580,6 +627,7 @@ const QUIZ_DATA = [
       { text: "有意水準", rationale: "有意水準は「帰無仮説を棄却する判断の境界線（基準となる確率）」のことです。", isCorrect: false },
       { text: "信頼係数", rationale: "信頼係数は区間推定において「母数を含む確率（例：95%）」のことです。", isCorrect: false },
       { text: "棄却限界値", rationale: "棄却限界値は確率ではなく、統計量（Z値やt値など）の境界となる値のことです。", isCorrect: false },
+    ,      { text: "有意水準（α）", rationale: "有意水準は、仮説を棄却するかどうかの基準としてあらかじめ設定する確率です。データから計算される「極端な結果が得られる確率」はP値と呼ばれます。", isCorrect: false }
     ]
   },
   {
@@ -592,6 +640,7 @@ const QUIZ_DATA = [
       { text: "自己相関", rationale: "自己相関は時系列データにおける残差同士の相関のことです。", isCorrect: false },
       { text: "均一分散の崩壊", rationale: "均一分散の崩壊（不均一分散）は残差のバラつきが一定でない現象です。", isCorrect: false },
       { text: "過剰適合", rationale: "過剰適合（過学習）はモデルが訓練データに過度にフィットした状態であり、多重共線性とは別の問題です。", isCorrect: false },
+    ,      { text: "外挿（補外）", rationale: "外挿は、データが存在する範囲の外側に対して回帰式を適用し予測を行うことです。説明変数間の強い相関によって推定が不安定になるのは多重共線性（マルチコ）です。", isCorrect: false }
     ]
   },
   {
@@ -604,6 +653,7 @@ const QUIZ_DATA = [
       { text: "趨勢変動", rationale: "趨勢変動（トレンド）は長期的・持続的な方向性（右肩上がりなど）です。", isCorrect: false },
       { text: "循環変動", rationale: "循環変動は数年単位でゆっくりと波のように繰り返される景気循環などの変動です。", isCorrect: false },
       { text: "不規則変動", rationale: "不規則変動は予測不可能な突発的なランダム変動です。", isCorrect: false },
+    ,      { text: "傾向変動", rationale: "傾向変動（トレンド）は長期的な上昇・下降の傾向を指します。1年周期で夏や冬など決まった時期に繰り返されるのは季節変動です。", isCorrect: false }
     ]
   },
   {
@@ -616,6 +666,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{P(A \\cap B)}{P(B)}$", rationale: "これは $P(A|B)$ （事象Bが起こった条件でのAの確率）を求める式です。", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "これは事象AとBが「独立」である場合の $P(A \\cap B)$ を求める式です。", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "これは確率の加法定理であり、$P(A \\cup B)$ を求める式です。", isCorrect: false },
+    ,      { text: "P(A ∪ B) / P(A)", rationale: "条件付き確率は「AとBが同時に起こる確率（積事象）」を「Aが起こる確率」で割ったものです。P(A ∪ B) は和事象（AまたはBが起こる確率）であり、誤りです。", isCorrect: false }
     ]
   },
   {
@@ -628,6 +679,7 @@ const QUIZ_DATA = [
       { text: "中心極限定理", rationale: "中心極限定理は標本平均の分布が正規分布に近づくという定理です。", isCorrect: false },
       { text: "大数の法則", rationale: "大数の法則は試行回数を増やすと標本平均が母平均に収束するという法則です。", isCorrect: false },
       { text: "チェビシェフの不等式", rationale: "チェビシェフの不等式はデータが平均から大きく離れる確率の上限を示すものです。", isCorrect: false },
+    ,      { text: "大数の法則", rationale: "大数の法則は試行回数を増やすと標本平均が母平均に近づくという定理であり、事後確率の更新には用いられません。", isCorrect: false }
     ]
   },
   {
@@ -640,6 +692,7 @@ const QUIZ_DATA = [
       { text: "$P(A) + P(B)$", rationale: "これは排反事象における $P(A \\cup B)$ の計算式です。", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cup B)$", rationale: "この式は $P(A \\cap B)$ を加法定理から逆算する形ですが、独立の定義式ではありません。", isCorrect: false },
       { text: "$P(A|B) \\times P(A)$", rationale: "独立でない一般的な積の法則は $P(A|B) \\times P(B)$ または $P(B|A) \\times P(A)$ です。", isCorrect: false },
+    ,      { text: "P(A) + P(B)", rationale: "これは確率の加法定理と混同させる選択肢です。独立な事象が同時に起こる確率は積で求められます。", isCorrect: false }
     ]
   },
   {
@@ -652,6 +705,7 @@ const QUIZ_DATA = [
       { text: "$P(A) + P(B)$", rationale: "これはAとBが互いに排反（同時に起こらない）場合のみ成り立つ式です。", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "これはAとBが独立である場合の同時確率 $P(A \\cap B)$ を求める式です。", isCorrect: false },
       { text: "$P(A) + P(B) + P(A \\cap B)$", rationale: "重なる部分をさらに足してしまうため、誤った式です。", isCorrect: false },
+    ,      { text: "P(A) \\times P(B)", rationale: "これは独立な事象が同時に起こる確率（乗法定理）であり、少なくとも一方が起こる確率（加法定理）ではありません。", isCorrect: false }
     ]
   },
   {
@@ -664,6 +718,7 @@ const QUIZ_DATA = [
       { text: "ベイズの定理", rationale: "ベイズの定理は、全確率の定理を用いて「事後確率」を求める定理です。", isCorrect: false },
       { text: "大数の強法則", rationale: "大数の法則は標本平均が母平均に収束する法則であり、確率の分割とは無関係です。", isCorrect: false },
       { text: "マルコフの不等式", rationale: "マルコフの不等式は非負の確率変数が特定の値以上になる確率の上限を与えるものです。", isCorrect: false },
+    ,      { text: "中心極限定理", rationale: "中心極限定理は標本平均の分布が正規分布に近づくという定理であり、事象を網羅する原因事象に分けて確率を計算するものではありません。", isCorrect: false }
     ]
   },
   {
@@ -676,6 +731,7 @@ const QUIZ_DATA = [
       { text: "偽陰性率", rationale: "病気なのに陰性と判定される確率で、「第2種の過誤」に相当します。", isCorrect: false },
       { text: "感度", rationale: "感度は病気の人を正しく陽性と判定する確率です。", isCorrect: false },
       { text: "特異度", rationale: "特異度は病気でない人を正しく陰性と判定する確率です。", isCorrect: false },
+    ,      { text: "偽陰性", rationale: "偽陰性は「実際には病気であるのに陰性と判定される」確率であり、問題文とは逆の状況です。", isCorrect: false }
     ]
   },
   {
@@ -688,6 +744,7 @@ const QUIZ_DATA = [
       { text: "分散の加法性", rationale: "分散の加法性 $V(X+Y) = V(X)+V(Y)$ はXとYが「無相関（独立）」のときのみ成り立ちます。", isCorrect: false },
       { text: "無記憶性", rationale: "無記憶性は指数分布や幾何分布が持つ「過去の経過時間が未来に影響しない」性質です。", isCorrect: false },
       { text: "大数の法則", rationale: "大数の法則は標本平均の収束に関する法則です。", isCorrect: false },
+    ,      { text: "分散の加法性", rationale: "分散の場合は共分散項が必要（独立でなければならない）であり、期待値のように常にそのまま定数倍や和に分解できるわけではありません。", isCorrect: false }
     ]
   },
   {
@@ -700,6 +757,7 @@ const QUIZ_DATA = [
       { text: "排反は確率が0になること、独立は確率が1になること", rationale: "排反は同時確率が0になりますが、独立は確率が1になることではありません。", isCorrect: false },
       { text: "排反は原因が同じであること、独立は原因が異なること", rationale: "原因の同一性によって定義されるものではありません。", isCorrect: false },
       { text: "排反と独立は同じ意味である", rationale: "排反と独立は全く異なる概念であり、同時に成り立つことは通常ありません（一方が確率0の場合を除く）。", isCorrect: false },
+    ,      { text: "「互いに排反」であれば、必ず「互いに独立」になります。", rationale: "排反な事象（一方が起きれば他方は起きない）は互いに強い影響を与えているため、独立にはなりません。", isCorrect: false }
     ]
   },
   {
@@ -712,6 +770,7 @@ const QUIZ_DATA = [
       { text: "最尤推定法", rationale: "尤度関数を最大化する手法であり、正規分布を仮定した場合は最小二乗法と一致します。", isCorrect: false },
       { text: "勾配降下法", rationale: "勾配降下法は機械学習で最適解を探索するアルゴリズムであり、最小二乗法は解析的に解けます。", isCorrect: false },
       { text: "主成分分析", rationale: "主成分分析は次元削減の手法であり、回帰係数を求める手法ではありません。", isCorrect: false },
+    ,      { text: "最尤推定法", rationale: "最尤推定法は観測されたデータが得られる確率（尤度）を最大化する手法であり、残差の二乗和を最小化するものではありません（ただし正規分布の仮定下では結果が一致します）。", isCorrect: false }
     ]
   },
   {
@@ -724,6 +783,7 @@ const QUIZ_DATA = [
       { text: "指数平滑化法", rationale: "指数平滑化法は過去のデータに指数的に減少する重みをつけて平均する手法です。", isCorrect: false },
       { text: "自己回帰モデル", rationale: "自己回帰モデル（ARモデル）は過去の自分自身の値を用いて予測する統計モデルです。", isCorrect: false },
       { text: "階差法", rationale: "階差法は時系列データのトレンドを消去して定常化するために差分をとる手法です。", isCorrect: false },
+    ,      { text: "自己回帰（AR）", rationale: "自己回帰モデルは過去の値を用いて現在の値を予測するモデルであり、変動を滑らかにするための平均操作自体を指すものではありません。", isCorrect: false }
     ]
   },
   {
@@ -736,6 +796,7 @@ const QUIZ_DATA = [
       { text: "偏自己相関関数", rationale: "中間の時点の影響を取り除いた純粋な自己相関を見るのが偏自己相関関数（PACF）です。", isCorrect: false },
       { text: "相互相関関数", rationale: "相互相関関数は「2つの異なる時系列データ間」のラグを設けた相関を見ます。", isCorrect: false },
       { text: "スペクトル密度関数", rationale: "スペクトル密度関数は時系列データを周波数領域に変換して周期性を分析するものです。", isCorrect: false },
+    ,      { text: "相互相関関数", rationale: "相互相関関数は「異なる」2つの時系列データ間の相関を見るものであり、同一データの過去との相関ではありません。", isCorrect: false }
     ]
   },
   {
@@ -748,6 +809,7 @@ const QUIZ_DATA = [
       { text: "トレンド除去", rationale: "トレンド除去は長期的な上昇・下降傾向（トレンド）を取り除く処理です。", isCorrect: false },
       { text: "平滑化", rationale: "平滑化は短期的な不規則変動（ノイズ）を取り除いて滑らかにする処理です。", isCorrect: false },
       { text: "対数変換", rationale: "対数変換はデータの分散（バラつき）を安定させるために行われる前処理です。", isCorrect: false },
+    ,      { text: "階差（差分）をとる", rationale: "階差をとる処理は主にトレンドを除去して定常化するために用いられ、特定の周期成分を取り除く季節調整とは目的が異なります。", isCorrect: false }
     ]
   },
   {
@@ -760,6 +822,7 @@ const QUIZ_DATA = [
       { text: "$E(X) = np(1-p), \\quad V(X) = np$", rationale: "期待値と分散の式が逆になっています。", isCorrect: false },
       { text: "$E(X) = p, \\quad V(X) = \\frac{p(1-p)}{n}$", rationale: "これは「標本比率 $\\hat{p}$」の期待値と分散です。", isCorrect: false },
       { text: "$E(X) = np, \\quad V(X) = \\sqrt{np(1-p)}$", rationale: "$\\sqrt{np(1-p)}$ は分散ではなく「標準偏差」です。", isCorrect: false },
+    ,      { text: "E(X) = np, V(X) = np^2", rationale: "二項分布の分散は np(1-p) であり、np^2 とするのは誤りです。", isCorrect: false }
     ]
   },
   {
@@ -772,6 +835,7 @@ const QUIZ_DATA = [
       { text: "$E(X) = \\lambda, \\quad V(X) = \\lambda^2$", rationale: "ポアソン分布の分散は $\\lambda^2$ ではなく $\\lambda$ です。", isCorrect: false },
       { text: "$E(X) = \\frac{1}{\\lambda}, \\quad V(X) = \\frac{1}{\\lambda^2}$", rationale: "これは「指数分布」の期待値と分散です。", isCorrect: false },
       { text: "$E(X) = \\lambda, \\quad V(X) = \\sqrt{\\lambda}$", rationale: "$\\sqrt{\\lambda}$ は分散ではなく「標準偏差」です。", isCorrect: false },
+    ,      { text: "E(X) = \\lambda, V(X) = \\lambda^2", rationale: "ポアソン分布の期待値と分散は等しく \\lambda になります。分散を \\lambda^2 とするのは指数分布などと混同した誤りです。", isCorrect: false }
     ]
   },
   {
@@ -784,6 +848,7 @@ const QUIZ_DATA = [
       { text: "$a V(X) + b$", rationale: "定数 $b$ を足しても分散は増えません。また $a$ は2乗になります。", isCorrect: false },
       { text: "$a^2 V(X) + b^2$", rationale: "定数 $b$ の分散は $0$ なので $b^2$ は足されません。", isCorrect: false },
       { text: "$a V(X)$", rationale: "定数倍 $a$ は外に出るとき $a^2$ になる必要があります。", isCorrect: false },
+    ,      { text: "V(aX + b) = aV(X) + b", rationale: "分散に対する定数倍は2乗されて外に出る必要があり、また定数を足しても分散（ばらつき）は変化しません。期待値の公式と混同しています。", isCorrect: false }
     ]
   },
   {
@@ -796,6 +861,7 @@ const QUIZ_DATA = [
       { text: "$V(X) + V(Y)$", rationale: "これは $X$ と $Y$ が無相関（独立など）の場合のみ成り立つ式です。", isCorrect: false },
       { text: "$V(X) + V(Y) + Cov(X, Y)$", rationale: "共分散 $Cov(X,Y)$ には2が掛かる必要があります。", isCorrect: false },
       { text: "$V(X) + V(Y) - 2Cov(X, Y)$", rationale: "これは差の分散 $V(X - Y)$ の公式です。", isCorrect: false },
+    ,      { text: "V(X + Y) = V(X) + V(Y)", rationale: "XとYが独立であるという条件がない限り、共分散の項 2Cov(X,Y) が必要になります。", isCorrect: false }
     ]
   },
   {
@@ -808,6 +874,7 @@ const QUIZ_DATA = [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母は $n$ ではなく $\\sqrt{n}$（ルートn）になります。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\sigma$", rationale: "$\\sigma$ ではなく、標本平均の標準偏差である $\\frac{\\sigma}{\\sqrt{n}}$ を使います。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{\\sqrt{n-1}}$", rationale: "分母が $n-1$ になっており誤りです。", isCorrect: false },
+    ,      { text: "\\bar{x} \\pm 1.96 \\sigma", rationale: "標本平均の標準誤差 \\sigma/\\sqrt{n} ではなく、母標準偏差 \\sigma をそのまま使ってしまっています。", isCorrect: false }
     ]
   },
   {
@@ -820,6 +887,7 @@ const QUIZ_DATA = [
       { text: "自由度 $n$ のt分布、 $\\frac{\\bar{x} - \\mu}{s / \\sqrt{n}}$", rationale: "標本平均を計算する際に自由度を1つ消費するため、自由度は $n-1$ となります。", isCorrect: false },
       { text: "自由度 $n-1$ のカイ二乗分布、 $\\frac{(n-1)s^2}{\\sigma^2}$", rationale: "カイ二乗分布は「母分散 $\\sigma^2$」の区間推定に用いる分布です。", isCorrect: false },
       { text: "標準正規分布、 $\\frac{\\bar{x} - \\mu}{s / \\sqrt{n}}$", rationale: "母分散が未知で小標本の場合、標準正規分布は使えません。", isCorrect: false },
+    ,      { text: "標準正規分布を用いる", rationale: "母分散が未知であり不偏分散を用いる場合は、標準正規分布ではなくt分布を用いる必要があります。", isCorrect: false }
     ]
   },
   {
@@ -832,6 +900,7 @@ const QUIZ_DATA = [
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母は母集団の標準偏差ではなく「標本平均の標準偏差（標準誤差）」にする必要があります。", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "分母は分散ではなく標準偏差（平方根をとったもの）である必要があります。", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / n}$", rationale: "分母の $n$ は平方根 $\\sqrt{n}$ である必要があります。", isCorrect: false },
+    ,      { text: "Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}", rationale: "分母は分散の平方根である標準誤差（\\sigma/\\sqrt{n}）である必要がありますが、分散そのものを使っています。", isCorrect: false }
     ]
   },
   {
@@ -844,6 +913,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}$", rationale: "ルートは分子と分母全体にかかる必要があります。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n-1}}$", rationale: "比率の推定では分母は $n-1$ ではなく $n$ を用います。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{p}{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間の係数です。また、未知の $p$ は $\\hat{p}$ で代用します。", isCorrect: false },
+    ,      { text: "\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{\\sqrt{n}}", rationale: "平方根の中身が分散 \\hat{p}(1-\\hat{p})/n であるべきですが、分子にそのまま分散を持ってくるのは式の形として誤りです。", isCorrect: false }
     ]
   },
   {
@@ -856,6 +926,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{\\sqrt{S_{xx} S_{yy}}}$", rationale: "これは「相関係数 $r$」の公式です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "これは切片 $\\hat{\\beta}_0$ を求める式の変形ですが、傾きの式ではありません。", isCorrect: false },
+    ,      { text: "\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}", rationale: "分母と分子が逆になっています。傾きは X のばらつきに対する X,Y の共変の関係を示します。", isCorrect: false }
     ]
   },
   {
@@ -868,6 +939,7 @@ const QUIZ_DATA = [
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の定義式です（母分散より少し小さく推定される傾向があります）。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\mu)^2$", rationale: "通常、母平均 $\\mu$ は未知であるため $\\bar{x}$ を使います。$\\mu$ が既知なら分母は $n$ で済みます。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n x_i^2 - \\bar{x}^2$", rationale: "これは分散を計算するショートカット公式（2乗の平均 - 平均の2乗）です。", isCorrect: false },
+    ,      { text: "s^2 = \\frac{1}{n} \\sum (x_i - \\bar{x})^2", rationale: "これは標本分散の定義であり、母分散の不偏推定量とするためには自由度 n-1 で割る必要があります。", isCorrect: false }
     ]
   },
   {
@@ -880,6 +952,7 @@ const QUIZ_DATA = [
       { text: "$r = \\frac{S_{xy}}{S_{xx} S_{yy}}$", rationale: "分母に平方根（ルート）がかかっていません。", isCorrect: false },
       { text: "$r = \\frac{\\sqrt{S_{xx} S_{yy}}}{S_{xy}}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$r = \\frac{S_{xx} + S_{yy}}{S_{xy}}$", rationale: "分散の和を偏差積和で割るという式は存在しません。", isCorrect: false },
+    ,      { text: "r = \\frac{S_{xy}}{S_{xx} S_{yy}}", rationale: "分母の偏差平方和の積には平方根（ルート）が必要ですが、それが抜け落ちています。", isCorrect: false }
     ]
   },
   {
@@ -892,6 +965,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times 100$", rationale: "これは「ラスパイレス式」の公式です。", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母と分子が逆になっています。", isCorrect: false },
       { text: "$\\sqrt{ \\frac{\\sum p_t q_0}{\\sum p_0 q_0} \\times \\frac{\\sum p_t q_t}{\\sum p_0 q_t} } \\times 100$", rationale: "これは「フィッシャー式」の公式です。", isCorrect: false },
+    ,      { text: "\\frac{\\sum p_t q_0}{\\sum p_0 q_0}", rationale: "これはラスパイレス価格指数の式であり、比較時の数量ではなく基準時の数量で重み付けしています。", isCorrect: false }
     ]
   },
   {
@@ -904,6 +978,7 @@ const QUIZ_DATA = [
       { text: "t分布", rationale: "t分布は標準正規分布とカイ二乗分布の比で表される分布です。", isCorrect: false },
       { text: "F分布", rationale: "F分布は2つのカイ二乗分布の比で表される分布です。", isCorrect: false },
       { text: "指数分布", rationale: "正規分布の2乗は指数分布にはなりません。", isCorrect: false },
+    ,      { text: "t分布", rationale: "標準正規分布に従う確率変数の2乗は自由度1のカイ二乗分布に従います。t分布ではありません。", isCorrect: false }
     ]
   },
   {
@@ -916,6 +991,7 @@ const QUIZ_DATA = [
       { text: "自由度 $m+n$ のt分布", rationale: "t分布は標準正規分布とカイ二乗分布の比から作られます。", isCorrect: false },
       { text: "自由度 $m+n$ のカイ二乗分布", rationale: "カイ二乗分布の「和」は自由度 $m+n$ のカイ二乗分布になりますが、「比」はF分布になります。", isCorrect: false },
       { text: "標準正規分布", rationale: "カイ二乗分布の比は正規分布にはなりません。", isCorrect: false },
+    ,      { text: "カイ二乗分布", rationale: "2つのカイ二乗分布をそれぞれの自由度で割った比は、F分布に従います。", isCorrect: false }
     ]
   },
   {
@@ -928,6 +1004,7 @@ const QUIZ_DATA = [
       { text: "自由度 $n-1$ のt分布", rationale: "t分布は「母平均」の区間推定に用います。", isCorrect: false },
       { text: "標準正規分布", rationale: "標準正規分布は母分散既知のときの「母平均」の区間推定等に用います。", isCorrect: false },
       { text: "自由度 $(n-1, n-1)$ のF分布", rationale: "F分布は「2つの母分散の比」の区間推定や等分散性の検定に用います。", isCorrect: false },
+    ,      { text: "t分布", rationale: "t分布は母分散未知のときの母平均の推定に使われ、母分散自体の区間推定にはカイ二乗分布が用いられます。", isCorrect: false }
     ]
   },
   {
@@ -940,6 +1017,7 @@ const QUIZ_DATA = [
       { text: "$t = \\frac{s_1^2 - s_2^2}{\\sqrt{s_1^2/n_1 + s_2^2/n_2}}$", rationale: "t値は主に平均の差の検定に用いられ、分散の比の検定には用いられません。", isCorrect: false },
       { text: "$\\chi^2 = \\frac{s_1^2 + s_2^2}{\\sigma^2}$", rationale: "カイ二乗値は1つの分散の検定などに用います。", isCorrect: false },
       { text: "$Z = \\frac{s_1^2 - s_2^2}{\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}$", rationale: "分散の比はZ分布（正規分布）には従いません。", isCorrect: false },
+    ,      { text: "t統計量", rationale: "2つの集団の分散の比の検定（等分散性の検定）にはF分布（F統計量）が用いられます。", isCorrect: false }
     ]
   },
   {
@@ -952,6 +1030,7 @@ const QUIZ_DATA = [
       { text: "$P(A) \\times P(B)$", rationale: "これは事象Aと事象Bが独立である場合の式です。", isCorrect: false },
       { text: "$P(A) + P(B|A)$", rationale: "確率を足すのは加法定理（和の確率）に関する場合であり、同時確率を求める式ではありません。", isCorrect: false },
       { text: "$\\frac{P(A)}{P(B|A)}$", rationale: "条件付き確率で割ることは通常ありません。", isCorrect: false },
+    ,      { text: "P(A \\cap B) = P(A) + P(B|A)", rationale: "乗法定理という名の通り掛け算で表されますが、足し算（加法定理）と混同させる選択肢です。", isCorrect: false }
     ]
   },
   {
@@ -964,6 +1043,7 @@ const QUIZ_DATA = [
       { text: "$E(X) = \\frac{b-a}{2}, \\quad V(X) = \\frac{a+b}{12}$", rationale: "期待値は区間の幅の半分ではなく、中点（和の半分）です。", isCorrect: false },
       { text: "$E(X) = \\frac{a+b}{2}, \\quad V(X) = \\frac{(b-a)^2}{4}$", rationale: "分散の分母は4ではなく12です。", isCorrect: false },
       { text: "$E(X) = ab, \\quad V(X) = \\frac{a^2 b^2}{12}$", rationale: "期待値は積ではありません。", isCorrect: false },
+    ,      { text: "E(X) = \\frac{a+b}{2}, V(X) = \\frac{(b-a)^2}{2}", rationale: "分散の分母は2ではなく12になります。", isCorrect: false }
     ]
   },
   {
@@ -976,6 +1056,7 @@ const QUIZ_DATA = [
       { text: "$f(x) = e^{-\\lambda x}$", rationale: "係数 $\\lambda$ が抜けており、全区間で積分しても1になりません。", isCorrect: false },
       { text: "$f(x) = 1 - e^{-\\lambda x}$", rationale: "これは指数分布の「累積分布関数 $F(x)$」です。", isCorrect: false },
       { text: "$f(x) = \\frac{1}{\\lambda} e^{-\\frac{x}{\\lambda}}$", rationale: "これは母数を $\\lambda$ ではなく $\\theta = \\frac{1}{\\lambda}$ と置いた場合の式です。設問の定義とは異なります。", isCorrect: false },
+    ,      { text: "f(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}", rationale: "これはポアソン分布の確率関数であり、連続型の待ち時間を表す指数分布の確率密度関数ではありません。", isCorrect: false }
     ]
   },
   {
@@ -988,6 +1069,7 @@ const QUIZ_DATA = [
       { text: "$p$", rationale: "確率そのものであり、試行回数の期待値ではありません。", isCorrect: false },
       { text: "$1 - p$", rationale: "これは「1回目に失敗する確率」です。", isCorrect: false },
       { text: "$\\frac{1-p}{p^2}$", rationale: "これは幾何分布の「分散 $V(X)$」です。", isCorrect: false },
+    ,      { text: "E(X) = p", rationale: "幾何分布の期待値は確率の逆数 1/p となります。例えば特定の目が出る確率は1/6ですが、平均6回で出ます。", isCorrect: false }
     ]
   },
   {
@@ -1000,6 +1082,7 @@ const QUIZ_DATA = [
       { text: "$\\left[ \\frac{\\chi^2_{0.975}}{(n-1)s^2}, \\frac{\\chi^2_{0.025}}{(n-1)s^2} \\right]$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$s^2 \\pm t_{0.025} \\frac{s}{\\sqrt{n}}$", rationale: "これは「母平均」の信頼区間の式に似ていますが、分散の区間推定には使えません。", isCorrect: false },
       { text: "$s^2 \\pm 1.96 \\frac{s^2}{n}$", rationale: "分散の区間推定は正規分布（1.96）ではなくカイ二乗分布を用います。", isCorrect: false },
+    ,      { text: "\\left[ s^2 - 1.96 \\frac{s}{\\sqrt{n}}, s^2 + 1.96 \\frac{s}{\\sqrt{n}} \\right]", rationale: "分散の信頼区間はカイ二乗分布を用いて非対称に計算されます。正規分布の近似式を分散の推定に適用するのは誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1012,6 +1095,7 @@ const QUIZ_DATA = [
       { text: "$R^{*2} = 1 - \\frac{n-k-1}{n-1} (1 - R^2)$", rationale: "分母と分子（自由度）が逆になっています。これでは説明変数を増やしたときに $R^{*2}$ が $R^2$ より大きくなってしまい、ペナルティとして機能しません。", isCorrect: false },
       { text: "$R^{*2} = \\frac{n-k-1}{n-1} R^2$", rationale: "残差の割合（$1 - R^2$）に対して自由度調整を行うため、この式は誤りです。", isCorrect: false },
       { text: "$R^{*2} = R^2 - \\frac{k}{n}$", rationale: "このような単純な引き算による補正ではありません。", isCorrect: false },
+    ,      { text: "R^{*2} = R^2 - \\frac{k}{n}", rationale: "自由度調整済み決定係数は残差平方和と全平方和をそれぞれの自由度で割って計算されるものであり、単純な引き算の形ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1024,6 +1108,7 @@ const QUIZ_DATA = [
       { text: "2次", rationale: "2次のモーメントは「分散」に関係します。", isCorrect: false },
       { text: "4次", rationale: "4次のモーメントは分布の尖り具合を表す「尖度（Kurtosis）」に関係します。", isCorrect: false },
       { text: "1次", rationale: "平均の周りの1次のモーメントは常に $0$ です。", isCorrect: false },
+    ,      { text: "4次のモーメント", rationale: "4次のモーメントは分布の「尖度（Kurtosis）」を定義するために用いられます。歪度は3次です。", isCorrect: false }
     ]
   },
   {
@@ -1036,6 +1121,7 @@ const QUIZ_DATA = [
       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "標本サイズが異なる場合、単純な平均では偏りが生じます。", isCorrect: false },
       { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "不偏推定値にするためには、分母は自由度 $n_1 + n_2 - 2$ でなければなりません。", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "分散を足し合わせただけでは、プールされた分散にはなりません。", isCorrect: false },
+    ,      { text: "s^2 = \\frac{s_1^2 + s_2^2}{2}", rationale: "単純な平均ではなく、それぞれのサンプルの自由度（サイズ-1）で重み付けした加重平均をとる必要があります。", isCorrect: false }
     ]
   },
   {
@@ -1048,6 +1134,7 @@ const QUIZ_DATA = [
       { text: "$P(X=k) = \\lambda^k e^{-\\lambda}$", rationale: "分母の $k!$ が抜けています。これでは全確率の和が $1$ になりません。", isCorrect: false },
       { text: "$P(X=k) = \\binom{n}{k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "これは二項分布の確率関数の形です。", isCorrect: false },
       { text: "$P(X=k) = \\frac{\\lambda e^{-k}}{k!}$", rationale: "指数の肩は $-\\lambda$ であり、底は $e$ です。", isCorrect: false },
+    ,      { text: "P(X=k) = \\lambda e^{-\\lambda k}", rationale: "これは指数分布の確率密度関数と形が混ざった誤った式です。ポアソン分布は階乗 k! で割る必要があります。", isCorrect: false }
     ]
   },
   {
@@ -1060,6 +1147,7 @@ const QUIZ_DATA = [
       { text: "回帰平方和（SSR）", rationale: "回帰平方和は「予測値 $\\hat{y}_i$ と平均値 $\\bar{y}$ の差の2乗和」です。", isCorrect: false },
       { text: "総平方和（SST）", rationale: "総平方和は「実測値 $y_i$ と平均値 $\\bar{y}$ の差の2乗和」です。", isCorrect: false },
       { text: "決定係数", rationale: "決定係数 $R^2$ は SSR / SST で計算される比率です。", isCorrect: false },
+    ,      { text: "回帰平方和", rationale: "回帰平方和は「予測値と平均値の差の2乗和」であり、実測値と予測値の差（残差）の2乗和ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1072,6 +1160,7 @@ const QUIZ_DATA = [
       { text: "信頼度（Confidence level）", rationale: "信頼度は $1 - \\alpha$ のことであり、区間推定などで使われます。", isCorrect: false },
       { text: "P値（p-value）", rationale: "P値は帰無仮説のもとで、観測されたデータ以上に極端なデータが得られる確率です。", isCorrect: false },
       { text: "尤度（Likelihood）", rationale: "尤度は特定のパラメータのもとでそのデータが観測される確率（もっともらしさ）です。", isCorrect: false },
+    ,      { text: "有意水準", rationale: "有意水準（\\alpha）は帰無仮説が正しいときに誤って棄却してしまう（第1種の過誤）確率であり、検出力とは異なります。", isCorrect: false }
     ]
   },
   {
@@ -1084,6 +1173,7 @@ const QUIZ_DATA = [
       { text: "$\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数 $O_i$ ではなく、期待度数 $E_i$ になります。", isCorrect: false },
       { text: "$\\chi^2 = \\sum (O_i - E_i)^2$", rationale: "期待度数で割って標準化しないと、元々の度数の大きさに依存してしまいます。", isCorrect: false },
       { text: "$\\chi^2 = \\sum \\left| \\frac{O_i - E_i}{E_i} \\right|$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
+    ,      { text: "\\chi^2 = \\sum \\frac{(O_i - E_i)^2}{O_i}", rationale: "分母は期待度数（E_i）である必要がありますが、観測度数（O_i）で割っています。", isCorrect: false }
     ]
   },
   {
@@ -1096,6 +1186,7 @@ const QUIZ_DATA = [
       { text: "$r \\times c - 1$", rationale: "これは行と列の「全セル数 - 1」であり、適合度検定などの自由度です。", isCorrect: false },
       { text: "$r + c - 2$", rationale: "これは誤った計算式です。", isCorrect: false },
       { text: "$(r-1) + (c-1)$", rationale: "掛け算ではなく足し算になっています。", isCorrect: false },
+    ,      { text: "r \\times c - 1", rationale: "分割表全体のセルの数から1を引いたものではなく、各行と各列の周辺和の制約を考慮して (r-1)(c-1) となります。", isCorrect: false }
     ]
   },
   {
@@ -1108,6 +1199,7 @@ const QUIZ_DATA = [
       { text: "尖度", rationale: "尖度（Kurtosis）は分布の「尖り具合」を示す指標です。", isCorrect: false },
       { text: "標準誤差", rationale: "標準誤差は「標本平均のばらつき（標準偏差）」を示す指標です。", isCorrect: false },
       { text: "共分散", rationale: "共分散は2変数間の相関の強さを示す指標です。", isCorrect: false },
+    ,      { text: "決定係数", rationale: "決定係数は回帰分析においてモデルの当てはまりの良さを示す指標であり、データのばらつきを比較する変動係数とは全く異なります。", isCorrect: false }
     ]
   },
   {
@@ -1120,6 +1212,7 @@ const QUIZ_DATA = [
       { text: "四分位偏差", rationale: "四分位偏差は四分位範囲（IQR）をさらに2で割ったものです。", isCorrect: false },
       { text: "範囲（レンジ）", rationale: "範囲は最大値と最小値の差であり、外れ値の影響を強く受けます。", isCorrect: false },
       { text: "不偏分散", rationale: "不偏分散は母分散の推定量であり、外れ値の影響を受けます。", isCorrect: false },
+    ,      { text: "標準偏差", rationale: "標準偏差はすべてのデータを利用して計算されるため、極端な外れ値の影響を強く受けます。", isCorrect: false }
     ]
   },
   {
@@ -1132,6 +1225,7 @@ const QUIZ_DATA = [
       { text: "$np(1-p)$", rationale: "これは成功回数 $X$ の分散です。", isCorrect: false },
       { text: "$\\frac{p(1-p)}{n^2}$", rationale: "分母は $n$ です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{p(1-p)}{n}}$", rationale: "これは分散ではなく「標準偏差（標準誤差）」です。", isCorrect: false },
+    ,      { text: "V(\\hat{p}) = np(1-p)", rationale: "これは「成功回数 X」の分散であり、比率 \\hat{p} = X/n の分散はそれを n^2 で割るため分母に n がきます。", isCorrect: false }
     ]
   },
   {
@@ -1144,6 +1238,7 @@ const QUIZ_DATA = [
       { text: "横軸に階級、縦軸に度数（データの個数）をとる", rationale: "ヒストグラムの基本的な構造です。", isCorrect: false },
       { text: "柱と柱の間に隙間を空けずに描くのが一般的である", rationale: "連続的なデータを扱うため、隙間を空けないのが通常です（棒グラフとの違い）。", isCorrect: false },
       { text: "面積の総和が全体の度数（あるいは相対度数の場合は1）になるように描く", rationale: "正しい性質です。", isCorrect: false },
+    ,      { text: "横軸には連続的な階級をとり、柱同士の間に隙間を空けずに描画する。", rationale: "ヒストグラムにおいて階級は連続しており柱を隙間なく描くのは「正しい」性質です。この問題は「あてはまらないもの」を選ぶため、正しい性質は誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1156,6 +1251,7 @@ const QUIZ_DATA = [
       { text: "データを小さい順に並べたとき、ちょうど真ん中にくる値である", rationale: "中央値の定義そのものです。", isCorrect: false },
       { text: "データの個数が偶数の場合は、真ん中にある2つの値の平均を中央値とする", rationale: "偶数個の場合の正しい求め方です。", isCorrect: false },
       { text: "所得の分布など、右に裾が長い非対称な分布では、平均値よりも小さくなることが多い", rationale: "右に歪んだ分布では、一部の高所得者に平均が引っ張られるため、正しい説明です。", isCorrect: false },
+    ,      { text: "極端な外れ値が含まれていても、その影響をほとんど受けない代表値である。", rationale: "中央値は外れ値に対してロバスト（影響を受けにくい）という「正しい」性質を持ちます。この問題は「誤っているもの」を選ぶため、この選択肢は誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1168,6 +1264,7 @@ const QUIZ_DATA = [
       { text: "-1から1までの範囲の値をとり、単位には依存しない", rationale: "正しい性質です。", isCorrect: false },
       { text: "相関関係があることは、必ずしも因果関係があることを意味しない（擬似相関の可能性）", rationale: "統計学の重要な基本原則です。", isCorrect: false },
       { text: "外れ値が1つあるだけで、相関係数の値が大きく変わってしまうことがある", rationale: "ピアソンの相関係数は外れ値に敏感です。", isCorrect: false },
+    ,      { text: "相関係数は -1 から 1 の間の値をとり、絶対値が 1 に近いほど直線的な関係が強い。", rationale: "相関係数のとりうる値と性質として「正しい」説明です。「正しくないもの」を選ぶ問題においては、この選択肢は正解にはなりません。", isCorrect: false }
     ]
   },
   {
@@ -1180,6 +1277,7 @@ const QUIZ_DATA = [
       { text: "どのような事象であっても、その確率は0以上1以下の値をとる", rationale: "確率の第一公理です。", isCorrect: false },
       { text: "絶対に起こらない事象（空事象）の確率は0である", rationale: "正しい性質です。", isCorrect: false },
       { text: "互いに排反な（同時に起こらない）2つの事象について、どちらかが起こる確率はそれぞれの確率の和に等しい", rationale: "確率の加法定理（第3公理）です。", isCorrect: false },
+    ,      { text: "どのような事象 A に対しても、確率 P(A) は 0 \\le P(A) \\le 1 を満たす。", rationale: "確率は必ず0以上1以下の値をとるというのはコルモゴロフの公理の1つであり「正しい」性質です。したがって誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1192,6 +1290,7 @@ const QUIZ_DATA = [
       { text: "条件付き確率 $P(A|B)$ は、事象Bが起こったという条件のもとで事象Aが起こる確率である", rationale: "正しい定義です。", isCorrect: false },
       { text: "事象Aと事象Bが独立であるとき、$P(A \\cap B) = P(A) \\times P(B)$ が成り立つ", rationale: "独立の定義（積の法則）として正しいです。", isCorrect: false },
       { text: "一般に、$P(A \\cap B) = P(A|B) \\times P(B)$ と表すことができる", rationale: "確率の乗法定理として正しい式です。", isCorrect: false },
+    ,      { text: "事象 A と事象 B が独立である場合、P(B|A) = P(B) が成り立つ。", rationale: "独立の定義そのものであり「正しい」記述です。したがって「誤っているもの」を選ぶ問題の正解にはなりません。", isCorrect: false }
     ]
   },
   {
@@ -1204,6 +1303,7 @@ const QUIZ_DATA = [
       { text: "平均 $\\mu$ を中心に左右対称な釣鐘型（ベルカーブ）の分布である", rationale: "正規分布の基本的な形状の特徴です。", isCorrect: false },
       { text: "分布の形状は「平均」と「分散（標準偏差）」の2つのパラメータだけで完全に決まる", rationale: "正しい性質です。", isCorrect: false },
       { text: "平均から $\\pm 1$ 標準偏差の範囲内に、全体の約68%のデータが含まれる", rationale: "いわゆる「68-95-99.7の法則」の一部として正しいです。", isCorrect: false },
+    ,      { text: "平均、中央値、最頻値がすべて一致し、左右対称のベル型（釣鐘型）の分布となる。", rationale: "正規分布の基本的な特徴として「正しい」記述です。「あてはまらないもの」を選ぶ問題のため、これは選ぶべきではない誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1216,6 +1316,7 @@ const QUIZ_DATA = [
       { text: "一定期間や一定領域において、まれに起こる事象の発生回数を表すのによく用いられる", rationale: "ポアソン分布の代表的な利用シーンです。", isCorrect: false },
       { text: "分布の期待値（平均）と分散が等しくなるという特徴を持つ", rationale: "ポアソン分布の最も重要な性質の1つです。", isCorrect: false },
       { text: "二項分布において、試行回数 $n$ が大きく、成功確率 $p$ が非常に小さい極限として導かれる", rationale: "「ポアソンの極限定理」と呼ばれる正しい性質です。", isCorrect: false },
+    ,      { text: "ポアソン分布の期待値（平均）と分散は等しくなるという性質がある。", rationale: "ポアソン分布において平均と分散が等しくなるのは「正しい」性質です。「正しくないもの」を選ぶ問題なので、誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1228,6 +1329,7 @@ const QUIZ_DATA = [
       { text: "「同じ方法で標本抽出と区間推定を100回繰り返したとき、約95回の割合でその区間内に真の母平均が含まれる」", rationale: "これが頻度論における95%信頼区間の正しい解釈です。", isCorrect: false },
       { text: "「信頼係数を99%に上げると、95%のときよりも推定される区間の幅は広くなる」", rationale: "より確実に真の値を捉えるためには、より広い区間を主張する必要があるため正しいです。", isCorrect: false },
       { text: "「標本サイズ $n$ を大きくすると、標準誤差が小さくなり、信頼区間の幅は狭くなる」", rationale: "サンプル数が増えると推定の精度が上がるため、正しいです。", isCorrect: false },
+    ,      { text: "同じ方法で標本抽出と区間推定を100回繰り返したとき、そのうちの約95回の区間には真の母数が含まれるという意味である。", rationale: "これは頻度論における95%信頼区間の「正しい」解釈です。この問題は「あてはまらないもの（誤解）」を選ぶ問題であるため、正しい解釈は誤答になります。", isCorrect: false }
     ]
   },
   {
@@ -1240,6 +1342,7 @@ const QUIZ_DATA = [
       { text: "「P値が事前に定めた有意水準（例えば0.05）よりも小さければ、帰無仮説を棄却する」", rationale: "仮説検定の基本的な手順として正しいです。", isCorrect: false },
       { text: "「P値が小さいほど、帰無仮説に対する反証のデータ的な証拠が強いと言える」", rationale: "正しい解釈です。", isCorrect: false },
       { text: "「P値が有意水準より大きくても、帰無仮説が絶対に正しいと証明されたわけではない」", rationale: "「棄却できない（保留する）」だけであり、「正しいと証明された」わけではないため、この記述は正しいです。", isCorrect: false },
+    ,      { text: "P値は、帰無仮説が正しいと仮定したときに、実際の観測データ以上に極端なデータが得られる確率である。", rationale: "この選択肢はP値の正しい定義を述べているため、「誤っているもの」を選ぶ問題の正解（誤りの記述）ではなく、誤答（正答ではない選択肢）となります。", isCorrect: false }
     ]
   },
   {
@@ -1252,6 +1355,7 @@ const QUIZ_DATA = [
       { text: "「第1種の過誤」とは、本当は帰無仮説が正しいのに、誤って棄却してしまうこと（偽陽性）である", rationale: "正しい定義です。", isCorrect: false },
       { text: "「第2種の過誤」とは、本当は対立仮説が正しいのに、帰無仮説を棄却できないこと（偽陰性）である", rationale: "正しい定義です。", isCorrect: false },
       { text: "サンプルサイズ（データ数）を増やすことで、第1種・第2種の両方の過誤を同時に減らすことが可能である", rationale: "正しい性質です。情報量が増えれば両方の過誤の確率を抑えられます。", isCorrect: false },
+    ,      { text: "第一種の過誤を小さくしようとすると、第二種の過誤が大きくなる傾向がある。", rationale: "第一種の過誤と第二種の過誤はトレードオフの関係にあり、この記述は統計学的に正しい事実です。したがって「正しくないもの」を問うこの問題では誤答（不正解の選択肢）となります。", isCorrect: false }
     ]
   },
   {
@@ -1264,6 +1368,7 @@ const QUIZ_DATA = [
       { text: "誤差項の期待値（平均）は0であること", rationale: "正しい前提条件です。", isCorrect: false },
       { text: "誤差項の分散はすべてのデータにおいて一定であること（等分散性）", rationale: "正しい前提条件です。", isCorrect: false },
       { text: "説明変数は確率的に変動するものではなく、固定された値であること", rationale: "標準的な最小二乗法の前提（非確率的説明変数）として正しいです。", isCorrect: false },
+    ,      { text: "誤差項の分散はすべての観測値において一定である（等分散性）。", rationale: "等分散性は最小二乗法の重要な前提条件の一つであるため、「あてはまらないもの」を選ぶ問題においては不正解の選択肢となります。", isCorrect: false }
     ]
   },
   {
@@ -1276,6 +1381,7 @@ const QUIZ_DATA = [
       { text: "回帰直線は、必ず $X$ の平均値 $\\bar{x}$ と $Y$ の平均値 $\\bar{y}$ の交点 $(\\bar{x}, \\bar{y})$ を通る", rationale: "回帰直線の重要な性質の1つとして正しいです。", isCorrect: false },
       { text: "回帰分析における残差（実測値と予測値のズレ）の総和は常に0になる", rationale: "最小二乗法で切片を含めて推定した場合、残差の和は必ず0になります。", isCorrect: false },
       { text: "回帰係数（傾き）の符号は、$X$ と $Y$ の相関係数の符号と常に一致する", rationale: "正しいです。傾きの分子は偏差積和（共分散の分子）であるため符号は一致します。", isCorrect: false },
+    ,      { text: "回帰直線は、必ず説明変数 $x$ の平均値と目的変数 $y$ の平均値が交わる点 $(\\bar{x}, \\bar{y})$ を通る。", rationale: "最小二乗法によって求められた回帰直線は常にデータの重心 $(\\bar{x}, \\bar{y})$ を通るという正しい性質を述べているため、誤っているものを探す問題では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1288,6 +1394,7 @@ const QUIZ_DATA = [
       { text: "単回帰分析の場合、決定係数は $X$ と $Y$ のピアソンの相関係数 $r$ を2乗したものと一致する", rationale: "正しい性質です。", isCorrect: false },
       { text: "重回帰分析で説明変数の数を増やすと、意味のない変数であっても通常の決定係数 $R^2$ は決して減少しない", rationale: "正しいです。そのため、補正した「自由度調整済み決定係数」が用いられます。", isCorrect: false },
       { text: "総平方和（全変動）のうち、回帰平方和（回帰モデルによって説明できた変動）が占める割合を表す", rationale: "決定係数の定義そのものです。", isCorrect: false },
+    ,      { text: "決定係数は $0$ から $1$ の間の値を取り、$1$ に近いほどモデルの当てはまりが良いことを示す。", rationale: "決定係数の基本的な性質を正しく説明しているため、「正しくないもの」を選ぶ本問では誤答（不正解の選択肢）となります。", isCorrect: false }
     ]
   },
   {
@@ -1300,6 +1407,7 @@ const QUIZ_DATA = [
       { text: "傾向変動（トレンド変動：長期的な上昇・下降傾向）", rationale: "", isCorrect: false },
       { text: "季節変動（1年周期などの定期的なパターンの変動）", rationale: "", isCorrect: false },
       { text: "不規則変動（ノイズなど、予測不可能な突発的な変動）", rationale: "", isCorrect: false },
+    ,      { text: "季節ごとの規則的なパターンを表す「季節変動」", rationale: "季節変動は時系列データの代表的な変動成分の一つであるため、「あてはまらないもの」を選ぶ問題の正解にはならず、誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1312,6 +1420,7 @@ const QUIZ_DATA = [
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$", rationale: "これは標本分散（データそのものの分散）の公式です。", isCorrect: false },
       { text: "$s^2 = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2}$", rationale: "これは不偏分散の平方根であり、標本標準偏差にあたります。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-1} \\left( \\sum_{i=1}^{n} x_i^2 - \\bar{x}^2 \\right)$", rationale: "式が誤っています。正しくは $\\frac{1}{n-1}(\\sum x_i^2 - n\\bar{x}^2)$ 等になります。", isCorrect: false },
+    ,      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "この式は標本分散の公式であり、不偏分散は分母が $n-1$ でなければなりません。受験者が $n$ で割る標本分散と混同しやすい典型的な誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1324,6 +1433,7 @@ const QUIZ_DATA = [
       { text: "$P(A|B) = \\frac{P(A \\cap B)}{P(A)}$", rationale: "分母が $P(B)$ であるべきです。", isCorrect: false },
       { text: "$P(A|B) = P(B|A) \\times P(A)$", rationale: "分母の $P(B)$ が抜けています。", isCorrect: false },
       { text: "$P(A|B) = \\frac{P(A) P(B)}{P(B|A)}$", rationale: "分子と分母の構成が間違っています。", isCorrect: false },
+    ,      { text: "$P(A|B) = \\frac{P(B|A)P(B)}{P(A)}$", rationale: "正しくは $P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$ であり、$P(A)$ と $P(B)$ の位置が逆になっているため誤りです。条件付き確率の公式をうろ覚えしている受験者を誘引する誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1336,6 +1446,7 @@ const QUIZ_DATA = [
       { text: "$a V(X) + b V(Y) + 2 Cov(X,Y)$", rationale: "定数倍は2乗されて外に出ます。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y)$", rationale: "これは $X$ と $Y$ が「独立」である場合の特別な式です。", isCorrect: false },
       { text: "$a^2 V(X) + b^2 V(Y) + ab Cov(X,Y)$", rationale: "共分散の係数は $2ab$ になります。", isCorrect: false },
+    ,      { text: "$aV(X) + bV(Y) + 2Cov(X,Y)$", rationale: "正しくは $a^2V(X) + b^2V(Y) + 2abCov(X,Y)$ ですが、係数 $a, b$ を二乗し忘れるというよくある計算ミスを突いた誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1348,6 +1459,7 @@ const QUIZ_DATA = [
       { text: "$P(X=x) = \\binom{n}{x} p^x (1-p)^{n-x}$", rationale: "これは「二項分布」の確率関数です。", isCorrect: false },
       { text: "$P(X=x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これは「ポアソン分布」の確率関数です。", isCorrect: false },
       { text: "$P(X=x) = p^{x-1} (1-p)$", rationale: "成功と失敗の確率が逆になっています。", isCorrect: false },
+    ,      { text: "$p(1-p)^{x}$", rationale: "試行回数 $x$ で初めて成功する場合、失敗は $x-1$ 回起こるため正しい式は $p(1-p)^{x-1}$ です。指数の部分を間違えやすい点を突いた誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1360,6 +1472,7 @@ const QUIZ_DATA = [
       { text: "正規分布 $N(\\lambda_1 + \\lambda_2, \\lambda_1 + \\lambda_2)$", rationale: "ポアソン分布の和はポアソン分布です。正規分布にはなりません。", isCorrect: false },
       { text: "二項分布 $B(\\lambda_1, \\lambda_2)$", rationale: "二項分布にはなりません。", isCorrect: false },
       { text: "指数分布 $Ex(\\lambda_1 + \\lambda_2)$", rationale: "指数分布にはなりません。", isCorrect: false },
+    ,      { text: "ポアソン分布 $Po(\\lambda_1 \\times \\lambda_2)$", rationale: "ポアソン分布の再生性によりパラメータは和になる（$\\lambda_1 + \\lambda_2$）のが正しいですが、パラメータが掛け算になると勘違いさせるための誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1372,6 +1485,7 @@ const QUIZ_DATA = [
       { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分母は分散ではなく標準偏差です。", isCorrect: false },
       { text: "$Z = \\frac{X}{\\sigma} - \\mu$", rationale: "引く順番と割る順番が違います。", isCorrect: false },
       { text: "$Z = (X - \\mu) \\sigma$", rationale: "割るのではなく掛けてしまっています。", isCorrect: false },
+    ,      { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "正しい標準化の式は $Z = \\frac{X - \\mu}{\\sigma}$ ですが、引くべき平均 $\\mu$ と割るべき標準偏差 $\\sigma$ が逆転しており、公式を不正確に覚えている人を惑わす誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1384,6 +1498,7 @@ const QUIZ_DATA = [
       { text: "2倍", rationale: "サンプルサイズを2倍にしても、幅は $\\frac{1}{\\sqrt{2}} \\approx 0.71$ 倍にしかなりません。", isCorrect: false },
       { text: "1/2倍", rationale: "サンプルサイズを減らすと、逆に信頼区間の幅は広くなってしまいます。", isCorrect: false },
       { text: "1/4倍", rationale: "サンプルサイズを減らすと幅は広くなります。", isCorrect: false },
+    ,      { text: "$2$ 倍", rationale: "信頼区間の幅はサンプルサイズの平方根に反比例するため、幅を半分にするにはサンプルサイズを $4$ 倍（$2^2$）にする必要があります。直感的に $2$ 倍と答えがちになるため、もっともらしい誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1396,6 +1511,7 @@ const QUIZ_DATA = [
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{n}$", rationale: "標準誤差は分散ではなく標準偏差で表します。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.64 \\frac{\\sigma}{\\sqrt{n}}$", rationale: "$1.64$ は $90\\%$ 信頼区間（$Z_{0.05}$）の係数です。$95\\%$ の場合は $1.96$ を用います。", isCorrect: false },
       { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma}{n}$", rationale: "分母に平方根（ルート）が抜けています。", isCorrect: false }
+    ,      { text: "$\\bar{x} \\pm 1.96 \\frac{\\sigma^2}{\\sqrt{n}}$", rationale: "正確には標準偏差 $\\sigma$ を $\\sqrt{n}$ で割る（$\\frac{\\sigma}{\\sqrt{n}}$）必要がありますが、分散 $\\sigma^2$ のまま使用しているため誤りです。標準誤差の定義を混同させる誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1408,6 +1524,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "ルートが抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "分子に $(1-\\hat{p})$ が抜けています。", isCorrect: false },
       { text: "$\\hat{p} \\pm 1.96 \\sqrt{\\frac{1}{n}}$", rationale: "分子が1ではなく $\\hat{p}(1-\\hat{p})$ です。", isCorrect: false },
+    ,      { text: "$\\hat{p} \\pm 1.96 \\frac{\\hat{p}(1-\\hat{p})}{n}$", rationale: "誤差限界の計算には比率の分散の「平方根」をとった標準誤差 $\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$ を用いる必要がありますが、根号（ルート）が抜け落ちているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1420,6 +1537,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{s_1^2}{s_2^2} \\pm F_{0.025} \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "分散の比の信頼区間は足し算・引き算ではなく、掛け算・割り算の形になります。", isCorrect: false },
       { text: "$\\left[ s_1^2 F_L, s_2^2 F_U \\right]$", rationale: "不偏分散の比の形になっていません。", isCorrect: false },
       { text: "$\\left[ \\frac{s_1 - s_2}{F_U}, \\frac{s_1 - s_2}{F_L} \\right]$", rationale: "標準偏差の差ではなく、分散の比を用います。", isCorrect: false },
+    ,      { text: "$\\frac{s_1^2}{s_2^2} \\pm 1.96 \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "分散比の信頼区間はF分布を用いて構成しますが、この式は「2標本の平均の差」の区間推定における形を真似ており、F分布ではなくZ値を使っているため全くの誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1432,6 +1550,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xx}}{S_{xy}}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\frac{S_{xy}}{S_{yy}}$", rationale: "分母は目的変数 $y$ の平方和ではなく、説明変数 $x$ の平方和です。", isCorrect: false },
       { text: "$\\hat{\\beta}_1 = \\bar{y} - \\hat{\\beta}_0 \\bar{x}$", rationale: "これは切片 $\\hat{\\beta}_0$ を求めるための式 $\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}$ が混ざった誤った式です。", isCorrect: false },
+    ,      { text: "$\\frac{S_{xx}}{S_{xy}}$", rationale: "正しくは $\\frac{S_{xy}}{S_{xx}}$ ですが、分母と分子が逆になっているため誤りです。公式の形をうろ覚えしている受験者を引っ掛けるための選択肢です。", isCorrect: false }
     ]
   },
   {
@@ -1444,6 +1563,7 @@ const QUIZ_DATA = [
       { text: "$t = \\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "分母と分子が逆です。", isCorrect: false },
       { text: "$t = \\frac{\\hat{\\beta}_j^2}{SE(\\hat{\\beta}_j)}$", rationale: "推定値を2乗する必要はありません。", isCorrect: false },
       { text: "$t = \\hat{\\beta}_j - SE(\\hat{\\beta}_j)$", rationale: "割り算ではなく引き算になっています。", isCorrect: false },
+    ,      { text: "$\\frac{SE(\\hat{\\beta}_j)}{\\hat{\\beta}_j}$", rationale: "検定統計量は「推定値 / 標準誤差」である $\\frac{\\hat{\\beta}_j}{SE(\\hat{\\beta}_j)}$ が正しいですが、分母と分子を逆にした形になっています。", isCorrect: false }
     ]
   },
   {
@@ -1456,6 +1576,7 @@ const QUIZ_DATA = [
       { text: "箱ひげ図の「箱」の下端は第1四分位数、上端は第3四分位数を表す", rationale: "正しい説明です。", isCorrect: false },
       { text: "第1四分位数から第3四分位数までの範囲を「四分位範囲（IQR）」と呼ぶ", rationale: "正しい定義です。", isCorrect: false },
       { text: "四分位範囲（IQR）は外れ値の影響を受けにくいばらつきの指標である", rationale: "正しい性質です。", isCorrect: false },
+    ,      { text: "箱ひげ図の箱の中には、データの中央50%が含まれている。", rationale: "第一四分位数から第三四分位数までの箱の部分にはデータの中央50%が含まれるため、これは正しい記述であり、「あてはまらないもの」を選ぶ問題の誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1468,6 +1589,7 @@ const QUIZ_DATA = [
       { text: "相関係数は2変数の単位に依存しない無次元量である", rationale: "正しい性質です。", isCorrect: false },
       { text: "強い相関関係があることは、直接的な因果関係があることを必ずしも意味しない", rationale: "正しい性質です。", isCorrect: false },
       { text: "散布図に1つ極端な外れ値があるだけで、相関係数の値が大きく変わることがある", rationale: "ピアソンの相関係数は外れ値に敏感です。", isCorrect: false },
+    ,      { text: "相関係数が0に近くても、変数間に非線形な強い関係が存在することがある。", rationale: "ピアソンの積率相関係数は直線的な関係の強さのみを測るため、U字型のような非線形な関係がある場合は相関係数が0に近くなることがあります。これは正しい事実であり、正答（正しくない記述）ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1480,6 +1602,7 @@ const QUIZ_DATA = [
       { text: "事象AとBが独立である場合、$P(A \\cap B) = P(A)P(B)$ が成り立つ", rationale: "独立の定義として正しい式です。", isCorrect: false },
       { text: "条件付き確率 $P(A|B)$ は $\\frac{P(A \\cap B)}{P(B)}$ で定義される（$P(B)>0$）", rationale: "条件付き確率の定義として正しいです。", isCorrect: false },
       { text: "互いに排反な（共通部分がない）2つの事象が独立になるのは、少なくとも一方の確率が0の場合のみである", rationale: "排反の場合 $P(A \\cap B) = 0$ となり、独立（$P(A)P(B)=0$）となるにはどちらかの確率が0である必要があります。", isCorrect: false },
+    ,      { text: "事象Aと事象Bが独立である場合、条件付き確率 $P(A|B)$ は周辺確率 $P(A)$ に等しい。", rationale: "独立性の定義そのものであり、正しい記述であるため「あてはまらないもの」を選ぶ本問では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1492,6 +1615,7 @@ const QUIZ_DATA = [
       { text: "分布の形状は平均と分散（標準偏差）の2つのパラメータによって完全に決まる", rationale: "正しい性質です。", isCorrect: false },
       { text: "平均から $\\pm 1\\sigma$ （標準偏差）の範囲には、全体の約68%のデータが含まれる", rationale: "正しい性質です。", isCorrect: false },
       { text: "変数を線形変換（定数倍や定数の加算）しても、変換後の分布は正規分布となる", rationale: "正規分布の再生性・線形変換の性質として正しいです。", isCorrect: false },
+    ,      { text: "正規分布の曲線は平均値に対して左右対称な釣鐘型になる。", rationale: "正規分布の最も基本的な性質を正しく述べているため、「正しくないもの」の選択肢としては不適切（誤答）です。", isCorrect: false }
     ]
   },
   {
@@ -1504,6 +1628,7 @@ const QUIZ_DATA = [
       { text: "一定期間にある事象がまれに発生する回数を表す離散型の確率分布である", rationale: "ポアソン分布の代表的な説明です。", isCorrect: false },
       { text: "二項分布において、試行回数 $n$ が大きく成功確率 $p$ が小さい極限として近似できる", rationale: "ポアソンの小数の法則（極限定理）として正しいです。", isCorrect: false },
       { text: "互いに独立なポアソン分布に従う確率変数の和も、ポアソン分布に従う（再生性）", rationale: "ポアソン分布の再生性として正しいです。", isCorrect: false },
+    ,      { text: "ポアソン分布の期待値と分散は、どちらもパラメータ $\\lambda$ に等しい。", rationale: "ポアソン分布において期待値と分散が一致することは正しい性質であるため、「あてはまらないもの」を選ぶ問題では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1516,6 +1641,7 @@ const QUIZ_DATA = [
       { text: "第1種の過誤とは、本当は帰無仮説が正しいのに誤って棄却してしまうことである", rationale: "正しい定義です。", isCorrect: false },
       { text: "第2種の過誤とは、本当は対立仮説が正しいのに帰無仮説を棄却できないことである", rationale: "正しい定義です。", isCorrect: false },
       { text: "検出力（1 - $\\beta$）は、本当は差があるときに正しく対立仮説を採択できる確率である", rationale: "正しい定義です。", isCorrect: false },
+    ,      { text: "サンプルサイズを増やすことで、有意水準を一定に保ちながら検出力を高めることができる。", rationale: "サンプルサイズの増加によって第二種の過誤確率を下げ（検出力を高め）ることは統計的に正しいため、「正しくない記述」ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1528,6 +1654,7 @@ const QUIZ_DATA = [
       { text: "同じ方法で標本抽出と区間推定を繰り返すと、そのうち約95%の区間が母平均を含む", rationale: "これが頻度論における正しい解釈です。", isCorrect: false },
       { text: "信頼水準を95%から99%に上げると、信頼区間の幅は広くなる", rationale: "より確実に捉えるため区間は広がります。", isCorrect: false },
       { text: "標本サイズ（サンプル数）を大きくすると、信頼区間の幅は狭くなる", rationale: "標準誤差が小さくなるため、区間は狭くなります。", isCorrect: false },
+    ,      { text: "同じ方法で標本抽出と区間推定を多数回繰り返した場合、そのうちの約95%の区間が真の母平均を含む。", rationale: "これは頻度論的アプローチにおける信頼区間の「正しい解釈」そのものであるため、「あてはまらない解釈」を選ぶ問題の正解にはならず、誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1540,6 +1667,7 @@ const QUIZ_DATA = [
       { text: "説明変数間に強い相関がある場合に発生する問題である", rationale: "多重共線性の定義です。", isCorrect: false },
       { text: "多重共線性の程度を評価する指標として、VIF（分散拡大要因）がよく用いられる", rationale: "正しい説明です。", isCorrect: false },
       { text: "対処法の一つとして、相関の強い変数のうち一方をモデルから外すことが考えられる", rationale: "一般的な対処法として正しいです。", isCorrect: false },
+    ,      { text: "多重共線性が存在すると、偏回帰係数の標準誤差が大きくなり、係数の推定が不安定になる。", rationale: "多重共線性の典型的な悪影響を正しく説明しているため、「正しくないもの」を探す問題では不正解の選択肢（誤答）となります。", isCorrect: false }
     ]
   },
   {
@@ -1552,6 +1680,7 @@ const QUIZ_DATA = [
       { text: "残差が横軸の全域にわたってランダムに散らばっていることが望ましい", rationale: "正しい説明です。", isCorrect: false },
       { text: "残差の分散が説明変数の値によって変化している場合、等分散性の仮定に反している", rationale: "ファン状（扇形）に広がっている場合など、等分散性の問題を発見できます。", isCorrect: false },
       { text: "極端に大きな残差を持つデータ点は、外れ値である可能性がある", rationale: "正しい説明です。", isCorrect: false },
+    ,      { text: "残差が予測値に対してランダムに散らばっている場合、モデルの等分散性の仮定が満たされていると判断できる。", rationale: "残差プロットで特定のパターンが見られないことは回帰モデルの仮定が満たされている証拠であり、正しい説明です。したがって「あてはまらないもの」の正解ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1564,6 +1693,7 @@ const QUIZ_DATA = [
       { text: "時系列データが定常性を持つとは、平均や分散が時間によって変化せず一定であることを意味する", rationale: "（弱）定常性の基本的な説明として正しいです。", isCorrect: false },
       { text: "自己相関係数（コレログラム）は、時系列データ自身の過去の値との相関を見るための指標である", rationale: "正しい説明です。", isCorrect: false },
       { text: "ARMAモデルは、自己回帰（AR）モデルと移動平均（MA）モデルを組み合わせたものである", rationale: "正しい説明です。", isCorrect: false },
+    ,      { text: "自己回帰（AR）モデルは、過去の自身の値を用いて現在の値を予測するモデルである。", rationale: "ARモデルの定義として完全に正しい記述であるため、「正しくない記述」を選ぶ問題においては誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1576,6 +1706,7 @@ const QUIZ_DATA = [
       { text: "ローレンツ曲線が「完全均等線（対角線）」に近づくほど、格差が小さいことを意味する", rationale: "正しい説明です。", isCorrect: false },
       { text: "ジニ係数は、完全均等線とローレンツ曲線の間の面積を、完全均等線の下の三角形の面積で割ったものである", rationale: "ジニ係数の定義として正しいです。", isCorrect: false },
       { text: "ローレンツ曲線の横軸には所得の低い順から並べた人数の累積相対度数を、縦軸には所得の累積相対度数をとる", rationale: "正しいグラフの描き方です。", isCorrect: false },
+    ,      { text: "ローレンツ曲線が完全平等線（対角線）に近いほど、所得の格差が小さいことを意味する。", rationale: "ローレンツ曲線の正しい性質を述べているため、「正しくないもの」を選ぶこの問題では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1588,6 +1719,7 @@ const QUIZ_DATA = [
       { text: "区間 $[a, b]$ における確率密度関数は、$\\frac{1}{b-a}$ の一定値をとる", rationale: "正しい確率密度関数の定義です。", isCorrect: false },
       { text: "区間 $[a, b]$ における期待値（平均）は $\\frac{a+b}{2}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
       { text: "コンピュータの乱数生成（擬似乱数）の基礎としてよく用いられる", rationale: "正しい応用例です。", isCorrect: false },
+    ,      { text: "取りうる値の区間内において、確率密度関数の値は常に一定である。", rationale: "連続一様分布の定義そのものであり、正しい記述であるため誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1600,6 +1732,7 @@ const QUIZ_DATA = [
       { text: "ランダムに発生する事象の「発生間隔（待ち時間）」をモデル化するためによく用いられる連続型確率分布である", rationale: "正しい用途です。", isCorrect: false },
       { text: "単位時間あたりの平均発生回数を $\\lambda$ としたとき、期待値（平均待ち時間）は $\\frac{1}{\\lambda}$ となる", rationale: "正しい期待値の計算式です。", isCorrect: false },
       { text: "ポアソン分布が「発生回数」を表すのに対し、指数分布はその「発生間隔」を表すという密接な関係がある", rationale: "ポアソン分布と指数分布の正しい関係性です。", isCorrect: false },
+    ,      { text: "指数分布は「無記憶性（マルコフ性）」と呼ばれる、過去の経過時間が未来の発生確率に影響を与えない性質を持つ。", rationale: "無記憶性は指数分布の最も特徴的な正しい性質であるため、「正しくないもの」を問う問題の正解にはなりません。", isCorrect: false }
     ]
   },
   {
@@ -1612,6 +1745,7 @@ const QUIZ_DATA = [
       { text: "母分散が未知の場合に、標本から母平均の区間推定や仮説検定を行う際によく用いられる", rationale: "正しい用途です。", isCorrect: false },
       { text: "平均0を中心とした左右対称な釣鐘型の分布である", rationale: "正しい形状の説明です。", isCorrect: false },
       { text: "同じ有意水準で検定する場合、自由度が小さいt分布のパーセント点は、標準正規分布のパーセント点よりも絶対値が大きくなる", rationale: "裾が厚いため、より遠くまで外れないと有意にならず、正しい性質です。", isCorrect: false },
+    ,      { text: "自由度が大きくなるにつれて、t分布は標準正規分布に近づいていく。", rationale: "t分布の代表的な正しい性質であるため、「あてはまらないもの」を選ぶ本問では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1624,6 +1758,7 @@ const QUIZ_DATA = [
       { text: "P値が事前に決めた有意水準（例えば0.05）より小さければ、帰無仮説を棄却し、統計的に有意であると判断する", rationale: "正しい仮説検定の手順です。", isCorrect: false },
       { text: "サンプルサイズが非常に大きくなると、実質的な意味がほとんどない微小な差でもP値が小さくなり、有意になりやすくなる", rationale: "P値の持つ重要な性質（弱点）であり、正しい説明です。", isCorrect: false },
       { text: "P値が0.10であったため帰無仮説を棄却できなかった場合、それは「帰無仮説が正しいことが証明された」わけではない", rationale: "棄却できない（保留する）だけであり、正しいことが証明されたわけではないため、正しい解釈です。", isCorrect: false },
+    ,      { text: "P値が有意水準未満であっても、効果の大きさが実用的に重要であるとは限らない。", rationale: "統計的有意性と実質的有意性の違いを正しく指摘した妥当な解釈であるため、「よくある誤解（正しくない解釈）」を選ぶ問題では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1636,6 +1771,7 @@ const QUIZ_DATA = [
       { text: "母集団の分散（ばらつき）が大きいと予想される場合、同じ精度の推定を行うにはより大きなサンプルサイズが必要になる", rationale: "ばらつきが大きいほど多くのデータが必要になるため、正しいです。", isCorrect: false },
       { text: "信頼水準を95%から99%に上げたい場合、同じ誤差の範囲に収めるためにはより大きなサンプルサイズが必要になる", rationale: "より確実な推定を行うにはデータが多く必要になるため、正しいです。", isCorrect: false },
       { text: "目標とする推定精度（許容誤差）と、あらかじめ見込んだ母分散に基づいて、調査前に必要なサンプルサイズを逆算することができる", rationale: "正しい手順です。", isCorrect: false },
+    ,      { text: "許容できる誤差の限界を小さく設定するほど、必要なサンプルサイズは大きくなる。", rationale: "精度を高める（誤差を小さくする）にはより多くのデータが必要になるという正しい事実であるため、誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1648,6 +1784,7 @@ const QUIZ_DATA = [
       { text: "観測されたデータは、離散的なカテゴリカルデータ（名義尺度や順序尺度など）の度数（カウントデータ）である必要がある", rationale: "連続値ではなく度数である必要があるため、正しいです。", isCorrect: false },
       { text: "各観測対象（サンプル）は、互いに独立に抽出されたものでなければならない", rationale: "正しい前提条件です。", isCorrect: false },
       { text: "計算される検定統計量 $\\chi^2$ は、観測度数と期待度数のズレの大きさを表している", rationale: "正しい定義です。", isCorrect: false },
+    ,      { text: "各セルにおける期待度数が十分に大きい（一般的には5以上）ことが望ましい。", rationale: "カイ二乗検定を適用するための有名な前提条件であり、正しい記述であるため誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1660,6 +1797,7 @@ const QUIZ_DATA = [
       { text: "最小二乗法による回帰直線は、必ず $x$ と $y$ それぞれの平均値の交点 $(\\bar{x}, \\bar{y})$ を通る", rationale: "正しい性質です。", isCorrect: false },
       { text: "目的変数 $y$ の分散のうち、説明変数 $x$ によって説明できる部分の割合を「決定係数 $R^2$」と呼ぶ", rationale: "正しい定義です。", isCorrect: false },
       { text: "単回帰分析における決定係数 $R^2$ は、$x$ と $y$ のピアソンの積率相関係数 $r$ の2乗に等しい", rationale: "正しい性質です。", isCorrect: false },
+    ,      { text: "最小二乗法で推定された残差の総和は常にゼロになる。", rationale: "単回帰分析における最小二乗法の数学的な帰結として正しい事実であるため、「あてはまらないもの」を選ぶ問題では誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1672,6 +1810,7 @@ const QUIZ_DATA = [
       { text: "残差の平方和（SSE）を最小化するように、回帰係数が推定される", rationale: "最小二乗法の定義として正しいです。", isCorrect: false },
       { text: "各データ点の残差は、実際の観測値と回帰直線上の予測値との間の縦方向（y軸方向）の距離である", rationale: "正しい幾何学的解釈です。", isCorrect: false },
       { text: "残差と説明変数の間の相関係数は0になる（無相関である）", rationale: "最小二乗法の正規方程式の帰結として、残差と説明変数は直交（無相関）するため正しいです。", isCorrect: false },
+    ,      { text: "残差は、目的変数の実際の観測値とモデルによる予測値との差である。", rationale: "残差の定義そのものであり、正しい記述であるため「正しくないもの」の選択肢としては不適（誤答）です。", isCorrect: false }
     ]
   },
   {
@@ -1684,6 +1823,7 @@ const QUIZ_DATA = [
       { text: "日本の消費者物価指数（CPI）は、主にラスパイレス指数方式で計算されている", rationale: "正しい説明です。", isCorrect: false },
       { text: "パーシェ指数は「比較時（現在）」の数量をウェイトとして用いるため、代替効果を反映できるが、毎年の数量調査のコストがかかる", rationale: "正しい説明です。", isCorrect: false },
       { text: "フィッシャー指数は、ラスパイレス指数とパーシェ指数の幾何平均をとることで、両者のバイアスを緩和しようとするものである", rationale: "正しい説明です。", isCorrect: false },
+    ,      { text: "ラスパイレス指数は、基準年における購入数量を重みとして物価の変動を計算する指数である。", rationale: "ラスパイレス指数の定義として正しいため、「あてはまらないもの」を選ぶ本問では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1696,6 +1836,7 @@ const QUIZ_DATA = [
       { text: "時系列データを「トレンド（傾向）」「季節」「循環」「不規則」の4つの変動成分に分解して分析することがある", rationale: "成分分解の基本的な考え方として正しいです。", isCorrect: false },
       { text: "「季節調整」とは、原系列から1年周期などの季節変動成分を取り除き、背後にあるトレンドや景気の基調を見えやすくする処理である", rationale: "季節調整の目的として正しいです。", isCorrect: false },
       { text: "自己相関とは、ある時点のデータと、それより過去（ラグk）の時点のデータとの間に見られる相関関係のことである", rationale: "正しい定義です。", isCorrect: false },
+    ,      { text: "移動平均は、短期的な変動を平滑化し、データの長期的なトレンドを把握するために用いられる。", rationale: "移動平均の目的と機能を正しく説明しているため、この問題の正解（正しくないもの）ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1708,6 +1849,7 @@ const QUIZ_DATA = [
       { text: "第一種の過誤とは「本当は帰無仮説が正しいのに、誤って棄却してしまう（偽陽性）」エラーのことである", rationale: "正しい定義です。", isCorrect: false },
       { text: "第二種の過誤とは「本当は対立仮説が正しいのに、誤って帰無仮説を棄却しない（偽陰性）」エラーのことである", rationale: "正しい定義です。", isCorrect: false },
       { text: "サンプルサイズ（データ数）を十分に大きくすることで、第一種の過誤の確率を固定したまま、第二種の過誤の確率を小さくすることができる", rationale: "情報量が増えることで検出力（$1-\\beta$）が上がるため、正しい性質です。", isCorrect: false },
+    ,      { text: "第一種の過誤は、帰無仮説が実際には正しいのに、それを棄却してしまう誤りのことである。", rationale: "第一種の過誤の正しい定義を述べているため、「正しくないもの」を探す問題においては誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1720,6 +1862,7 @@ const QUIZ_DATA = [
       { text: "反復（Replication）", rationale: "偶然誤差を評価し精度を高めるために、同じ条件で実験を繰り返す原則であり、正しいです。", isCorrect: false },
       { text: "無作為化（Randomization）", rationale: "制御できない要因による系統的な偏りを防ぐために、実験順序などをランダムにする原則であり、正しいです。", isCorrect: false },
       { text: "局所管理（Local control）", rationale: "実験環境をブロックに分け、ブロック内を均質にすることで系統誤差を減らす原則であり、正しいです。", isCorrect: false },
+    ,      { text: "局所管理化の原則（実験を行う場をブロックに分け、ブロック内の環境を均一にする）", rationale: "局所管理化はフィッシャーの三原則（反復、無作為化、局所管理化）の1つであるため、「含まれないもの」を選ぶこの問題では誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1732,6 +1875,7 @@ const QUIZ_DATA = [
       { text: "正規分布のように完全に左右対称な釣鐘型の分布では、平均値・中央値・最頻値の3つが完全に一致する", rationale: "正しい性質です。", isCorrect: false },
       { text: "テストの点数で満点に近い人が多く「左に裾が長い（左に歪んだ）」分布では、一般に平均値は中央値よりも小さくなる", rationale: "低い点数の人に引っ張られて平均が下がるため、正しい性質です。", isCorrect: false },
       { text: "極端な外れ値が存在する場合、平均値はその影響を強く受けるが、中央値は影響を受けにくい", rationale: "代表値のロバスト性（頑健性）に関する正しい性質です。", isCorrect: false },
+    ,      { text: "分布が右に裾を引く（右に歪んだ）場合、一般に 平均値 > 中央値 となる傾向がある。", rationale: "外れ値に引きずられる平均値の性質を正しく表しており、「あてはまらないもの」の正解ではありません。", isCorrect: false }
     ]
   },
   {
@@ -1744,6 +1888,7 @@ const QUIZ_DATA = [
       { text: "事象 $X=x$ と事象 $Y=y$ が同時に起こる同時確率は、それぞれの周辺確率の積 $P(X=x) P(Y=y)$ に等しくなる", rationale: "独立性の定義として正しいです。", isCorrect: false },
       { text: "$X$ と $Y$ の積の期待値 $E(XY)$ は、それぞれの期待値の積 $E(X)E(Y)$ に等しくなる", rationale: "独立な場合の重要な性質として正しいです。", isCorrect: false },
       { text: "条件付き確率 $P(Y=y | X=x)$ は、$X$ の値に関わらず常に $P(Y=y)$ に等しくなる", rationale: "情報 $X$ を知っても $Y$ の確率に影響を与えないという、独立の正しい性質です。", isCorrect: false },
+    ,      { text: "共分散 $Cov(X, Y)$ は $0$ になる。", rationale: "独立であれば必ず共分散（および相関係数）は0になるという正しい性質であるため、誤答となります。", isCorrect: false }
     ]
   },
   {
@@ -1756,6 +1901,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "平方の積を足すものではありません。", isCorrect: false },
       { text: "$\\sum_{i=1}^n (x_i y_i) - \\bar{x}\\bar{y}$", rationale: "これは $\\frac{1}{n} \\sum (x_i y_i) - \\bar{x}\\bar{y}$ ならば正しいですが、$\\frac{1}{n}$ が抜けています。", isCorrect: false },
       { text: "$\\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}$", rationale: "これはピアソンの積率相関係数 $r$ の定義式です。", isCorrect: false },
+    ,      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2 (y_i - \\bar{y})^2$", rationale: "共分散は偏差の「積の平均」ですが、偏差をそれぞれ二乗してから掛けてしまっているため全くの誤りです。分散の公式と混同しやすい点を突いた誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1768,6 +1914,7 @@ const QUIZ_DATA = [
       { text: "$E(aX + bY) = aE(X) + bE(Y) + 2ab Cov(X,Y)$", rationale: "これは「分散」の加法定理 $V(aX+bY)$ の公式と混同しています。", isCorrect: false },
       { text: "$E(aX + bY) = ab E(XY)$", rationale: "このような公式はありません。", isCorrect: false },
       { text: "$E(aX + bY) = a^2 E(X) + b^2 E(Y)$", rationale: "期待値の線形性は $X$ と $Y$ が独立「でなくても」成り立ちます。", isCorrect: false },
+    ,      { text: "$aE(X) \\times bE(Y)$", rationale: "和の期待値は期待値の和 $aE(X) + bE(Y)$ になりますが、掛け算にしてしまっている誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1780,6 +1927,7 @@ const QUIZ_DATA = [
       { text: "$\\sum_{i=1}^{\\infty} x_i P(X = x_i)$", rationale: "これは「離散型確率変数」の期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "これは全確率が1になることを示す式であり、期待値ではありません。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは「分散 $V(X)$」の定義式です。", isCorrect: false },
+    ,      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "この式は期待値ではなく「分散」の定義式です。確率変数のモーメントに関する定義を混同させるための誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1792,6 +1940,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{b-a}{2}$", rationale: "これは「期待値（平均）」の公式 $\\frac{a+b}{2}$ に似ていますが異なります。", isCorrect: false },
       { text: "$\\frac{(b-a)^2}{6}$", rationale: "分母は6ではなく12です。", isCorrect: false },
       { text: "$\\frac{a+b}{12}$", rationale: "区間の幅 $(b-a)$ の2乗が必要です。", isCorrect: false },
+    ,      { text: "$\\frac{a+b}{2}$", rationale: "これは連続一様分布の分散ではなく「期待値」の公式です。期待値と分散の公式を混同している受験者を引っ掛ける誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1804,6 +1953,7 @@ const QUIZ_DATA = [
       { text: "$np$", rationale: "これは二項分布の「期待値 $E(X)$」の公式です。", isCorrect: false },
       { text: "$\\sqrt{np(1-p)}$", rationale: "これは分散ではなく「標準偏差」の公式です。", isCorrect: false },
       { text: "$\\frac{p(1-p)}{n}$", rationale: "これは「標本比率の分散」の公式です。", isCorrect: false },
+    ,      { text: "$np$", rationale: "$np$ は二項分布の分散ではなく「期待値」の公式です。分散の正しい公式 $np(1-p)$ と混同させることを狙った誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1816,6 +1966,7 @@ const QUIZ_DATA = [
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母が標準誤差 $\\frac{\\sigma}{\\sqrt{n}}$ ではなく母標準偏差 $\\sigma$ になってしまっています。", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは母分散が「未知」のときに不偏標準偏差 $s$ を用いる「t検定」の統計量です。", isCorrect: false },
       { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "これは「母分散」の検定に用いるカイ二乗検定の統計量です。", isCorrect: false },
+    ,      { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "標本平均の分布の標準偏差（標準誤差）は $\\frac{\\sigma}{\\sqrt{n}}$ でなければなりませんが、単なる母集団の標準偏差 $\\sigma$ で割ってしまっているよくある間違いです。", isCorrect: false }
     ]
   },
   {
@@ -1828,6 +1979,7 @@ const QUIZ_DATA = [
       { text: "$t = \\frac{\\bar{x}_1 - \\bar{x}_2}{\\sqrt{s^2(1/n_1 + 1/n_2)}}$", rationale: "これは「対応のない（独立な）2群」の等分散を仮定したt検定の統計量です。", isCorrect: false },
       { text: "$t = \\frac{\\bar{d}}{s_d / n}$", rationale: "標準誤差の分母は $n$ ではなく $\\sqrt{n}$ です。", isCorrect: false },
       { text: "$t = \\frac{\\bar{d}}{\\sigma_d / \\sqrt{n}}$", rationale: "母分散 $\\sigma_d^2$ は未知であるため、不偏標準偏差 $s_d$ を用いる必要があります。", isCorrect: false },
+    ,      { text: "$\\frac{\\bar{d}}{s_d}$", rationale: "分母は標本標準偏差ではなく標準誤差 $s_d / \\sqrt{n}$ である必要がありますが、$\\sqrt{n}$ で割るのを忘れている典型的な誤答です。", isCorrect: false }
     ]
   },
   {
@@ -1840,6 +1992,7 @@ const QUIZ_DATA = [
       { text: "$n = \\frac{Z_{\\alpha/2} p(1-p)}{E^2}$", rationale: "$Z_{\\alpha/2}$ も2乗される必要があります。", isCorrect: false },
       { text: "$n = \\left(\\frac{E}{Z_{\\alpha/2}}\\right)^2 p(1-p)$", rationale: "$E$ と $Z_{\\alpha/2}$ の分母分子が逆になっています。", isCorrect: false },
       { text: "$n = \\left(\\frac{Z_{\\alpha/2}}{E}\\right) \\sqrt{p(1-p)}$", rationale: "$n$ を求めるには式全体を2乗する必要があります。", isCorrect: false },
+    ,      { text: "$n = \\left( \\frac{Z_{\\alpha/2}}{E} \\right) \\cdot p(1-p)$", rationale: "正確には括弧内を二乗して $\\left( \\frac{Z_{\\alpha/2}}{E} \\right)^2$ とする必要がありますが、二乗が抜け落ちているため誤りとなる選択肢です。", isCorrect: false }
     ]
   },
   {
@@ -1852,6 +2005,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\beta}_0 = \\bar{y} + \\frac{S_{xy}}{S_{xx}} \\bar{x}$", rationale: "引き算ではなく足し算になっており誤りです。", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\bar{x} - \\frac{S_{xy}}{S_{xx}} \\bar{y}$", rationale: "$x$ の平均と $y$ の平均が逆になっています。", isCorrect: false },
       { text: "$\\hat{\\beta}_0 = \\frac{S_{xy}}{S_{xx}}$", rationale: "これは切片 $\\hat{\\beta}_0$ ではなく、傾き $\\hat{\\beta}_1$ を求める公式です。", isCorrect: false }
+    ,      { text: "$\\hat{\\beta}_0 = \\bar{x} - \\hat{\\beta}_1 \\bar{y}$", rationale: "回帰係数を用いて切片を求める式において、$x$と$y$の平均を逆にしてしまったよくある間違いです。", isCorrect: false }
     ]
   },
   {
@@ -1864,6 +2018,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - 1}$", rationale: "これは説明変数がない単なる「不偏分散」の自由度です。", isCorrect: false },
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n - k}$", rationale: "切片の分の自由度 $(-1)$ が引かれていません。", isCorrect: false },
       { text: "$\\hat{\\sigma}^2 = \\frac{SSE}{n}$", rationale: "標本分散と同じで、自由度の調整が行われておらず不偏推定量になりません。", isCorrect: false },
+    ,      { text: "$\\frac{SSE}{n - 1}$", rationale: "単純な不偏分散の分母（自由度 $n-1$）と混同し、説明変数の数 $k$ による自由度の減少を考慮していないため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1876,6 +2031,7 @@ const QUIZ_DATA = [
       { text: "$E\\left[ \\left( \\frac{X-\\mu}{\\sigma} \\right)^4 \\right]$", rationale: "標準化した変数の「4乗」の期待値は、分布の尖り具合を示す「尖度（Kurtosis）」です。", isCorrect: false },
       { text: "$E\\left[ (X-\\mu)^2 \\right]$", rationale: "これは「分散（2次の中心モーメント）」の定義式です。", isCorrect: false },
       { text: "$\\sqrt{E\\left[ (X-\\mu)^2 \\right]}$", rationale: "これは「標準偏差」の定義式です。", isCorrect: false },
+    ,      { text: "$E\\left[\\left(\\frac{X-\\mu}{\\sigma}\\right)^4\\right]$", rationale: "これは歪度（3次モーメント）ではなく、尖度（4次モーメント）の定義式であるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1888,6 +2044,7 @@ const QUIZ_DATA = [
       { text: "$V(X) = E(X) - \\{E(X)\\}^2$", rationale: "第1項は $E(X^2)$ である必要があります。", isCorrect: false },
       { text: "$V(X) = \\{E(X)\\}^2 - E(X^2)$", rationale: "引く順番が逆です。必ず $E(X^2) \\ge \\{E(X)\\}^2$ となります。", isCorrect: false },
       { text: "$V(X) = E(X^2) - E(X)$", rationale: "第2項は平均の2乗である必要があります。", isCorrect: false },
+    ,      { text: "$E(X^2) + \\{E(X)\\}^2$", rationale: "二乗の期待値と期待値の二乗の「差」であるところを、「和」にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1900,6 +2057,7 @@ const QUIZ_DATA = [
       { text: "$CV = \\frac{\\bar{x}}{s}$", rationale: "平均と標準偏差が逆になっています。", isCorrect: false },
       { text: "$CV = \\frac{s^2}{\\bar{x}}$", rationale: "分子は分散ではなく標準偏差です。", isCorrect: false },
       { text: "$CV = \\frac{s}{\\bar{x}^2}$", rationale: "分母は平均の2乗ではありません。", isCorrect: false },
+    ,      { text: "$\\bar{x} / s$", rationale: "標準偏差を平均で割るのが正しい定義ですが、逆に平均を標準偏差で割ってしまっている（シグナルノイズ比の逆）ため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1912,6 +2070,7 @@ const QUIZ_DATA = [
       { text: "$T = 10 + 50 \\times \\frac{x - \\bar{x}}{s}$", rationale: "50と10の役割が逆になっています。", isCorrect: false },
       { text: "$T = 50 + 100 \\times \\frac{x - \\bar{x}}{s}$", rationale: "標準偏差のスケールは通常10であり、100ではありません。", isCorrect: false },
       { text: "$T = \\frac{x - \\bar{x}}{10s} + 50$", rationale: "標準化の式に対する掛け算の位置が誤っています。", isCorrect: false },
+    ,      { text: "$10 \\times \\frac{x - \\bar{x}}{s^2} + 50$", rationale: "標準化する際に標準偏差 $s$ ではなく分散 $s^2$ で割ってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1924,6 +2083,7 @@ const QUIZ_DATA = [
       { text: "$s^2 = \\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは「標本分散」の式であり、母分散を過小評価する傾向があります。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n+1} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "分母を $n+1$ にすると不偏になりません（平均二乗誤差を最小にする推定量ではありますが、不偏推定量ではありません）。", isCorrect: false },
       { text: "$s^2 = \\frac{1}{n-2} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "自由度は $n-1$ です。", isCorrect: false },
+    ,      { text: "$\\frac{1}{n} \\sum_{i=1}^n (x_i - \\bar{x})^2$", rationale: "これは不偏分散ではなく、標本分散の定義式（分母が $n-1$ ではなく $n$）であるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1936,6 +2096,7 @@ const QUIZ_DATA = [
       { text: "$IQR = Q_4 - Q_0$", rationale: "これは「最大値 - 最小値」であり、「範囲（レンジ）」です。", isCorrect: false },
       { text: "$IQR = \\frac{Q_3 - Q_1}{2}$", rationale: "これは「四分位偏差」の定義です。", isCorrect: false },
       { text: "$IQR = Q_2 - Q_1$", rationale: "これは第2四分位数（中央値）から第1四分位数を引いたもので、全体の範囲を表していません。", isCorrect: false },
+    ,      { text: "$Q_4 - Q_1$", rationale: "第3四分位数($Q_3$)から第1四分位数($Q_1$)を引くのが正しいですが、最大値に相当する第4四分位数を用いてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1948,6 +2109,7 @@ const QUIZ_DATA = [
       { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "公式の左右が循環しており、また式の形が誤っています。", isCorrect: false },
       { text: "$P(A|B) = P(B|A) \\frac{P(B)}{P(A)}$", rationale: "分母と分子の事前確率が逆になっています。", isCorrect: false },
       { text: "$P(A|B) = P(A) P(B) - P(B|A)$", rationale: "このような関係式は成り立ちません。", isCorrect: false },
+    ,      { text: "$P(A|B) = \\frac{P(A|B)P(B)}{P(A)}$", rationale: "右辺の条件付き確率が逆になっており、ベイズの定理の基本的な形を崩してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1960,6 +2122,7 @@ const QUIZ_DATA = [
       { text: "${}_n P_k p^k (1-p)^{n-k}$", rationale: "順列 $_nP_k$ ではなく、順序を考慮しない組み合わせ $_nC_k$ を使います。", isCorrect: false },
       { text: "$p^k (1-p)^{n-k}$", rationale: "これでは特定の順番で「成功が $k$ 回、失敗が $n-k$ 回」起こる確率しか求まらず、組み合わせの数が考慮されていません。", isCorrect: false },
       { text: "${}_n C_k p^{n-k} (1-p)^k$", rationale: "成功確率 $p$ の累乗は $k$ である必要があります。", isCorrect: false },
+    ,      { text: "$\\binom{n}{k} p^{n-k} (1-p)^k$", rationale: "成功確率 $p$ と失敗確率 $1-p$ の指数が逆になってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1972,6 +2135,7 @@ const QUIZ_DATA = [
       { text: "$f(b) - f(a)$", rationale: "これは累積分布関数 $F(x)$ が与えられた場合の $F(b)-F(a)$ に該当します。確率密度関数そのものの差ではありません。", isCorrect: false },
       { text: "$\\sum_{x=a}^b f(x)$", rationale: "これは離散型確率変数の場合の確率の計算方法です。", isCorrect: false },
       { text: "$\\frac{f(a) + f(b)}{2} (b-a)$", rationale: "これは台形公式による積分の近似であり、厳密な確率の定義ではありません。", isCorrect: false },
+    ,      { text: "$f(b) - f(a)$", rationale: "確率密度関数の定積分で計算するところを、密度関数の値の差で求めてしまっている（累積分布関数 $F(x)$ と混同している）ため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1984,6 +2148,7 @@ const QUIZ_DATA = [
       { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
       { text: "$Z = \\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
       { text: "$Z = (X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
+    ,      { text: "$Z = \\frac{X - \\mu}{\\sigma^2}$", rationale: "分母は標準偏差 $\\sigma$ とすべきところを、分散 $\\sigma^2$ で割ってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -1996,6 +2161,7 @@ const QUIZ_DATA = [
       { text: "$np(1-p)$", rationale: "これは比率ではなく、「成功回数 $X$」の分散です。", isCorrect: false },
       { text: "$\\frac{p(1-p)}{\\sqrt{n}}$", rationale: "ルートの中に $p(1-p)$ も含まれる必要があります。", isCorrect: false },
       { text: "$\\sqrt{\\frac{p}{n}}$", rationale: "分散の計算に必要な $(1-p)$ が抜けています。", isCorrect: false },
+    ,      { text: "$\\frac{p(1-p)}{n}$", rationale: "これは標本比率の分散であり、標準誤差（標準偏差）にするための平方根（ルート）が抜け落ちているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2008,6 +2174,7 @@ const QUIZ_DATA = [
       { text: "$P(\\text{帰無仮説が真である} \\mid \\text{帰無仮説を棄却する})$", rationale: "これはベイズ的な事後確率であり、頻度論における有意水準の定義ではありません。", isCorrect: false },
       { text: "$P(\\text{帰無仮説を棄却しない} \\mid \\text{対立仮説が真である})$", rationale: "これは「第二種の過誤の確率（$\\beta$）」の定義です。", isCorrect: false },
       { text: "$P(\\text{帰無仮説を棄却する} \\mid \\text{対立仮説が真である})$", rationale: "これは「検出力（$1-\\beta$）」の定義です。", isCorrect: false },
+    ,      { text: "$P(帰無仮説を棄却しない | 帰無仮説が真である)$", rationale: "帰無仮説が真であるにもかかわらず誤って棄却してしまう確率が第一種の過誤ですが、棄却しない確率としてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2020,6 +2187,7 @@ const QUIZ_DATA = [
       { text: "$P(\\text{帰無仮説を棄却しない} \\mid \\text{帰無仮説が真である})$", rationale: "これは正しい判断ではありますが、検出力とは呼びません（確率は $1-\\alpha$ となります）。", isCorrect: false },
       { text: "$P(\\text{対立仮説が真である} \\mid \\text{帰無仮説を棄却する})$", rationale: "条件と結果が逆になっています。", isCorrect: false },
       { text: "$P(\\text{帰無仮説を棄却しない} \\mid \\text{対立仮説が真である})$", rationale: "これは第二種の過誤（$\\beta$）を見逃してしまう確率です。", isCorrect: false },
+    ,      { text: "$P(帰無仮説を棄却する | 帰無仮説が真である)$", rationale: "これは検出力ではなく、第一種の過誤の確率（有意水準 $\\alpha$）の定義であるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2032,6 +2200,7 @@ const QUIZ_DATA = [
       { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数ではなく「期待度数」である必要があります。", isCorrect: false },
       { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
       { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "全体で割るのではなく、各セルごとに期待度数で割ってから足し合わせる必要があります。", isCorrect: false },
+    ,      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "差の平方を割る分母は期待度数 $E_i$ でなければなりませんが、観測度数 $O_i$ で割ってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2044,6 +2213,7 @@ const QUIZ_DATA = [
       { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) + (\\text{列 } j \\text{ の合計})}{2}$", rationale: "行と列の平均値ではありません。", isCorrect: false },
       { text: "$E_{ij} = \\frac{\\text{全データの合計}}{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$E_{ij} = \\sqrt{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "幾何平均ではありません。", isCorrect: false },
+    ,      { text: "(行 $i$ の合計 $+$ 列 $j$ の合計) / 総度数", rationale: "周辺度数の積を総度数で割るのが正しいですが、積ではなく和にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2056,6 +2226,7 @@ const QUIZ_DATA = [
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「母分散が等しくない」と仮定した場合（ウェルチの近似法）の公式です。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm Z_{\\alpha/2} \\times s_p \\sqrt{\\frac{1}{n_1} + \\frac{1}{n_2}}$", rationale: "母分散が未知であるため、Z値（標準正規分布）ではなくt値（t分布）を用います。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の分母の計算方法が誤っています。", isCorrect: false },
+    ,      { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\times \\frac{s_p}{\\sqrt{n_1 + n_2}}$", rationale: "標準誤差の計算式が間違っています。プールされた分散に基づく標準誤差は $\\sqrt{1/n_1 + 1/n_2}$ を掛けるのが正しいです。", isCorrect: false }
     ]
   },
   {
@@ -2068,6 +2239,7 @@ const QUIZ_DATA = [
       { text: "$R^2 = \\frac{SSE}{S_y}$", rationale: "これはモデルで「説明できない」部分の割合になってしまいます。", isCorrect: false },
       { text: "$R^2 = 1 - \\frac{S_y}{SSE}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
       { text: "$R^2 = \\frac{S_y - SSE}{SSE}$", rationale: "分母は残差平方和ではなく総平方和である必要があります。", isCorrect: false },
+    ,      { text: "$1 - \\frac{SST}{SSE}$", rationale: "総平方和と残差平方和の分母・分子が逆になっており、これでは決定係数が負の大きな値になってしまうため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2080,6 +2252,7 @@ const QUIZ_DATA = [
       { text: "$R^{*2} = 1 - \\frac{SSE / (n-1)}{S_y / (n-k-1)}$", rationale: "自由度の分母が逆になっています。", isCorrect: false },
       { text: "$R^{*2} = 1 - \\frac{SSE - k}{S_y}$", rationale: "単に数を引くわけではなく、自由度で割る必要があります。", isCorrect: false },
       { text: "$R^{*2} = R^2 - \\frac{k}{n-1}$", rationale: "このような単純な引き算の公式ではありません。", isCorrect: false },
+    ,      { text: "$1 - \\frac{SSE / (n - 1)}{SST / (n - k - 1)}$", rationale: "$SSE$ と $SST$ をそれぞれの自由度で割る際、自由度の割り当てが逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2092,6 +2265,7 @@ const QUIZ_DATA = [
       { text: "$V(\\hat{\\beta}_1) = \\sigma^2 S_{xx}$", rationale: "$S_{xx}$ は分母にくる必要があります。", isCorrect: false },
       { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{n}$", rationale: "標本平均の分散と同じ形ですが、回帰係数の分散には $S_{xx}$ が関わります。", isCorrect: false },
       { text: "$V(\\hat{\\beta}_1) = \\frac{\\sigma^2}{\\bar{x}^2}$", rationale: "$x$ の平均ではなく、偏差平方和 $S_{xx}$ を用います。", isCorrect: false },
+    ,      { text: "$\\frac{S_{xx}}{\\sigma^2}$", rationale: "誤差分散を $x$ の変動で割るのが正しいですが、分母と分子が逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2104,6 +2278,7 @@ const QUIZ_DATA = [
       { text: "$F = \\frac{S_A}{S_E}$", rationale: "平方和のまま比をとるのではなく、自由度で割る必要があります。", isCorrect: false },
       { text: "$F = \\frac{S_E / (n-a)}{S_A / (a-1)}$", rationale: "通常、帰無仮説が偽のときに値が大きくなるように「群間分散」を分子にします。", isCorrect: false },
       { text: "$F = \\frac{S_A / a}{S_E / n}$", rationale: "自由度の計算が誤っています。水準間の自由度は $a-1$、残差の自由度は $n-a$ です。", isCorrect: false },
+    ,      { text: "$\\frac{S_E / (n - a)}{S_A / (a - 1)}$", rationale: "検定統計量Fは（群間変動／群内変動）で計算しますが、分母分子が逆になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2116,6 +2291,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これは比較時の数量 $q_t$ をウェイトとする「パーシェ価格指数」の公式です。", isCorrect: false },
       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "数量のウェイトが考慮されていない単なる価格の比です。", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "パーシェ式の分母分子が逆になっています。", isCorrect: false },
+    ,      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "これはラスパイレス価格指数ではなく、パーシェ価格指数（比較時の数量を重みとする）の計算式であるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2128,6 +2304,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
       { text: "${}_n\\mathrm{P}_x p^x (1-p)^{n-x}$", rationale: "順列（P）ではなく組合せ（C）を使います。", isCorrect: false },
+    ,      { text: "$p^x (1-p)^{n-x}$", rationale: "組み合わせの数 $\\binom{n}{x}$ が掛けられておらず、特定の1つの順序で成功・失敗が起こる確率になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2140,6 +2317,7 @@ const QUIZ_DATA = [
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $0$, 分散: $1$", rationale: "これは標準正規分布の期待値と分散です。", isCorrect: false },
+    ,      { text: "$E[X] = np$, $V[X] = np$", rationale: "期待値は正しいですが、分散はポアソン分布のものであり、二項分布の分散 $np(1-p)$ ではないため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2152,6 +2330,7 @@ const QUIZ_DATA = [
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "これは2項分布の確率質量関数です。", isCorrect: false },
       { text: "$\\lambda e^{-\\lambda x}$", rationale: "これは指数分布の確率密度関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
+    ,      { text: "$\\frac{\\lambda^x e^{-\\lambda}}{n!}$", rationale: "分母は確率変数の値 $x$ の階乗 $x!$ とすべきところを、試行回数などに使われる $n!$ にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2164,6 +2343,7 @@ const QUIZ_DATA = [
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "これは2項分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\frac{1}{\\lambda}$, 分散: $\\frac{1}{\\lambda^2}$", rationale: "これは指数分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは正規分布の期待値と分散です。", isCorrect: false },
+    ,      { text: "$E[X] = \\lambda$, $V[X] = \\lambda^2$", rationale: "ポアソン分布では期待値と分散が等しくなりますが、分散を $\\lambda^2$ と間違えているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2176,6 +2356,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布の確率質量関数です。", isCorrect: false },
       { text: "$\\lambda e^{-\\lambda t}$", rationale: "これは指数分布の確率密度関数です。", isCorrect: false },
       { text: "${}_n\\mathrm{C}_x p^x (1-p)^{n-x}$", rationale: "これは2項分布の確率質量関数です。", isCorrect: false },
+    ,      { text: "$p^{x-1}(1-p)$", rationale: "$x-1$ 回失敗して最後に成功する確率ですが、成功と失敗の確率が逆転してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2188,6 +2369,7 @@ const QUIZ_DATA = [
       { text: "期待値: $np$, 分散: $np(1-p)$", rationale: "これは2項分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $p$, 分散: $p(1-p)$", rationale: "これはベルヌーイ分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
+    ,      { text: "$E[X] = p$, $V[X] = p(1-p)$", rationale: "ベルヌーイ分布の期待値と分散になっており、幾何分布のものではないため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2200,6 +2382,7 @@ const QUIZ_DATA = [
       { text: "期待値: $1$, 分散: $1$", rationale: "標準化された正規分布の期待値（平均）は $0$ です。", isCorrect: false },
       { text: "期待値: $0$, 分散: $0$", rationale: "分散が $0$ の場合、すべてのデータが $0$ になり分布を持ちません。", isCorrect: false },
       { text: "期待値: $0$, 分散: $\\sigma^2$", rationale: "分散は $1$ に標準化されている必要があります。", isCorrect: false }
+    ,      { text: "$E[X] = 1, V[X] = 0$", rationale: "標準正規分布の期待値は0、分散は1ですが、それを逆にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2212,6 +2395,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布（離散型）の確率質量関数です。", isCorrect: false },
       { text: "$\\frac{1}{\\sqrt{2\\pi}} \\exp \\left\\{ -\\frac{x^2}{2} \\right\\}$", rationale: "これは標準正規分布の確率密度関数です。", isCorrect: false },
       { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
+    ,      { text: "$e^{-\\lambda x}$", rationale: "密度関数の積分が1になるための係数 $\\lambda$ が欠落しているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2224,6 +2408,7 @@ const QUIZ_DATA = [
       { text: "期待値: $\\lambda$, 分散: $\\lambda$", rationale: "これはポアソン分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\frac{1}{p}$, 分散: $\\frac{1-p}{p^2}$", rationale: "これは幾何分布の期待値と分散です。", isCorrect: false },
       { text: "期待値: $\\mu$, 分散: $\\sigma^2$", rationale: "これは正規分布の期待値と分散です。", isCorrect: false },
+    ,      { text: "$E[X] = \\lambda, V[X] = \\lambda^2$", rationale: "期待値と分散はパラメータ $\\lambda$ の逆数やその二乗になりますが、逆数にするのを忘れているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2236,6 +2421,7 @@ const QUIZ_DATA = [
       { text: "$E[X+Y] - E[X]-E[Y]$", rationale: "これは期待値の線形性であり、常に0になります。", isCorrect: false },
       { text: "$E[(X-\\mu)^2]$", rationale: "これは分散 $V[X]$ の定義式です。", isCorrect: false },
       { text: "$E[XY] + E[X]E[Y]$", rationale: "これは相関係数の定義式です。", isCorrect: false },
+    ,      { text: "$E[XY] + E[X]E[Y]$", rationale: "積の期待値から各々の期待値の積を「引く」のが正しいですが、「足して」しまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2248,6 +2434,7 @@ const QUIZ_DATA = [
       { text: "$\\sum_{x} x P(X=x)$", rationale: "これは離散型確率変数の期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは連続型確率変数の「分散」の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "この式は確率の総和を表し、常に $1$ になります。", isCorrect: false },
+    ,      { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "確率変数 $x$ を掛けずに積分しており、これでは単に確率の総和（常に1）を計算しているだけになるため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2260,6 +2447,7 @@ const QUIZ_DATA = [
       { text: "$\\int_{-\\infty}^{\\infty} x f(x) dx$", rationale: "これは期待値の定義式です。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "これは平均からの偏差の期待値であり、計算すると必ず0になります。", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "これは $X^2$ の期待値 $E[X^2]$ であり、ここから $\\mu^2$ を引けば分散になります。", isCorrect: false }
+    ,      { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu) f(x) dx$", rationale: "$(x - \\mu)$ を二乗せずに積分しており、これでは常に計算結果が0になってしまうため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2272,6 +2460,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "これは母分散既知の場合の z 統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "これは「対応のあるt検定」で用いられる統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは「二標本t検定」で用いられる統計量です。", isCorrect: false },
+    ,      { text: "$t = \\frac{\\bar{x} - \\mu_0}{s^2 / n}$", rationale: "分母は標準誤差（不偏分散の平方根に基づく値）を用いるべきですが、分散のまま計算してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2284,6 +2473,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは対応のない「2群の平均差の検定」の統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは一標本t検定の統計量です。", isCorrect: false },
       { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "これは $\\chi^2$ 検定の統計量です。", isCorrect: false },
+    ,      { text: "$t = \\frac{\\bar{d} - 0}{s_d}$", rationale: "分母は標準誤差 $s_d / \\sqrt{n}$ でなければなりませんが、サンプルサイズによる調整（$\\sqrt{n}$ で割る処理）が欠落しているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2296,6 +2486,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\sum (O - E)}{E}$", rationale: "差の2乗をとらないと、正負が打ち消し合ってしまいます。", isCorrect: false },
       { text: "$\\frac{\\sum (O - E)^2}{O}$", rationale: "分母は「観測度数 $O$」ではなく「期待度数 $E$」です。", isCorrect: false },
       { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "これは母平均の検定（z検定）の統計量です。", isCorrect: false },
+    ,      { text: "$\\sum \\frac{(O - E)^2}{O}$", rationale: "期待度数 $E$ で割るのが正しい定義ですが、観測度数 $O$ で割ってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2308,6 +2499,7 @@ const QUIZ_DATA = [
       { text: "$\\hat{p} \\pm z \\cdot \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率の推定」の信頼区間です。", isCorrect: false },
       { text: "$\\bar{x} \\pm z \\cdot \\frac{\\sigma}{\\sqrt{n}}$", rationale: "これは「母分散既知」の場合（z分布を使用）の信頼区間です。", isCorrect: false },
       { text: "$(\\bar{x}_1 - \\bar{x}_2) \\pm t \\cdot SE$", rationale: "これは「2群の平均差の推定」の信頼区間です。", isCorrect: false },
+    ,      { text: "$\\bar{x} \\pm z_{\\alpha/2} \\frac{s}{\\sqrt{n}}$", rationale: "母分散未知の場合はt分布を用いる必要がありますが、標準正規分布のパーセント点（$z_{\\alpha/2}$）を用いてしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2320,6 +2512,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{s}{\\sqrt{n}}$", rationale: "これは「母平均の推定（母分散未知）」の標準誤差です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
+    ,      { text: "$\\sqrt{\\frac{\\hat{p}}{n}}$", rationale: "分子は $\\hat{p}(1-\\hat{p})$ でなければなりませんが、$(1-\\hat{p})$ が欠落しているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2332,6 +2525,7 @@ const QUIZ_DATA = [
       { text: "分布: t分布, 点推定値: 標本平均 $\\bar{x}$", rationale: "これは母平均の推定の組み合わせです。", isCorrect: false },
       { text: "分布: Z分布, 点推定値: 標本比率 $\\hat{p}$", rationale: "これは母比率の推定の組み合わせです。", isCorrect: false },
       { text: "分布: F分布, 点推定値: 標本分散 $s^2$", rationale: "母分散の推定にはF分布ではなく $\\chi^2$分布を用います。（2群の等分散性の検定などにF分布を用います）", isCorrect: false },
+    ,      { text: "t分布, 標本分散 $S^2$", rationale: "母分散の推定にはカイ二乗分布を用いますが、平均の推定で用いるt分布と間違えているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2344,6 +2538,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{s}{\\sqrt{n}}$", rationale: "これは1つの群の「母平均の推定」の標準誤差です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{\\hat{p}_1(1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}$", rationale: "これは「2群の比率差の推定」の標準誤差です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
+    ,      { text: "$\\sqrt{\\frac{s_1^2 + s_2^2}{n_1 + n_2}}$", rationale: "それぞれの分散をそれぞれのサンプルサイズで割ってから足すのが正しいですが、分散を足してからサンプルサイズの和で割ってしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2356,6 +2551,7 @@ const QUIZ_DATA = [
       { text: "$\\sqrt{\\frac{s_1^2}{n_1} + \\frac{s_2^2}{n_2}}$", rationale: "これは「2群の平均差の推定」の標準誤差です。", isCorrect: false },
       { text: "$\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$", rationale: "これは「母比率（1群）」の標準誤差です。", isCorrect: false },
       { text: "$\\frac{s_1}{\\sqrt{n_1}} + \\frac{s_2}{\\sqrt{n_2}}$", rationale: "分散の和の平方根であり、標準誤差同士の単純な和ではありません。", isCorrect: false },
+    ,      { text: "$\\sqrt{\\frac{\\hat{p}_1 \\hat{p}_2}{n_1 + n_2}}$", rationale: "2つの比率の積を全体のサンプルサイズで割るという、全く無意味な計算式になっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2368,6 +2564,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xy}^2} \\sqrt{1 - r_{yz}^2}}$", rationale: "分母の $r_{xz}^2$ が $r_{xy}^2$ になっており誤りです。", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{\\sqrt{1 - r_{xz}^2} + \\sqrt{1 - r_{yz}^2}}$", rationale: "分母が掛け算ではなく足し算になっており誤りです。", isCorrect: false },
       { text: "$\\frac{r_{xy} - r_{xz} r_{yz}}{1 - r_{xz} r_{yz}}$", rationale: "分母の形がまったく異なり誤りです。", isCorrect: false },
+    ,      { text: "$\\frac{r_{xy} - r_{xz}r_{yz}}{1 - r_{xz}r_{yz}}$", rationale: "分母はそれぞれ $(1 - r^2)$ の平方根の積になりますが、単に相関係数の積を1から引いたものに間違えているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2380,6 +2577,7 @@ const QUIZ_DATA = [
       { text: "$V(X + Y) > V(X - Y)$ であり、いかなる相関関係であっても和の分散のほうが必ず大きくなる。", rationale: "正の相関（$Cov(X, Y) > 0$）がある場合は和の分散の方が大きくなりますが、いかなる場合でも必ず大きくなるわけではありません。", isCorrect: false },
       { text: "$V(X + Y) > V(X - Y)$ であり、負の相関があるときは足し算のほうが分散（ばらつき）が大きくなる。", rationale: "和の分散の展開式に含まれる $+ 2Cov(X, Y)$ は、負の相関の場合マイナスの値をとるため、ばらつきは小さくなります。", isCorrect: false },
       { text: "$V(X + Y) < V(X - Y)$ であるが、負の相関の強さによっては $V(X + Y)$ のほうが大きくなることもある。", rationale: "負の相関（$Cov(X, Y) < 0$）である限り、必ず $V(X + Y) < V(X - Y)$ となるため、相関の強さによって大小関係が逆転することはありません。", isCorrect: false },
+    ,      { text: "$V(X + Y) = V(X - Y)$", rationale: "共分散が0（無相関）の場合にのみ等しくなりますが、負の相関がある場合は共分散の項が影響するため等しくはなりません。", isCorrect: false }
     ]
   },
   {
@@ -2392,6 +2590,7 @@ const QUIZ_DATA = [
       { text: "$E(X)^2$", rationale: "$V(X) = E(X^2) - \{E(X)\}^2$ なので異なります。", isCorrect: false },
       { text: "$1$", rationale: "相関係数 $r(X,X)$ であれば $1$ になりますが、共分散は分散に等しくなります。", isCorrect: false },
       { text: "$0$", rationale: "確率変数が定数でない限り、分散は $0$ より大きな値をとります。", isCorrect: false }
+    ,      { text: "$E(X)^2$", rationale: "自分自身との共分散は分散 $V(X)$ になりますが、期待値の二乗と間違えているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2404,6 +2603,7 @@ const QUIZ_DATA = [
       { text: "$ac Cov(X, Y) + bd$", rationale: "分散や共分散において、足された定数項 ($+b, +d$) はばらつきに影響しないため無視されます。", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "各変数の係数は足し算ではなく掛け合わせる必要があります。", isCorrect: false },
       { text: "$a^2 c^2 Cov(X, Y)$", rationale: "分散 $V(aX) = a^2 V(X)$ とは異なり、共分散の係数は2乗されずそのまま $a \times c$ となります。", isCorrect: false }
+    ,      { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "共分散において定数の加算は影響しませんが、定数項 $b$ と $d$ の積を足してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2416,6 +2616,7 @@ const QUIZ_DATA = [
       { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "足し算が掛け算になることはありません。", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "これは和の分散 $V(X+Y)$ の展開式であり、無関係の式です。", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "展開時に $X$ と $Y$ の共分散は発生しません。", isCorrect: false }
+    ,      { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "共分散は線形性により和に分解できますが、積に分解してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {
@@ -2428,6 +2629,7 @@ const QUIZ_DATA = [
       { text: "「無作為化（ランダム化）」とは、実験順序や配置をくじ引きなどの偶然に任せて決定することで、制御できない未知の要因による系統的な偏りを相殺する原則である。", rationale: "正しい記述です。未知の要因を偶然誤差に転化し、偏り（バイアス）を防ぎます。", isCorrect: false },
       { text: "「局所管理」とは、実験を行う空間や時間を細かいブロックに区切り、ブロック内での条件をできるだけ均一に保つことで、環境による系統的な誤差を小さくする原則である。", rationale: "正しい記述です。ブロック化により系統誤差を分離・排除し、実験の精度を向上させます。", isCorrect: false },
       { text: "無作為化と局所管理は系統誤差（偏り）に対処するための原則であり、反復は偶然誤差（ばらつき）を評価するための原則である。", rationale: "正しい記述です。それぞれの原則の役割を正確に説明しています。", isCorrect: false }
+    ,      { text: "無作為化は、実験の順序や場所などの条件をランダムに割り当てることで、制御できない系統誤差を偶然誤差に転化させる目的がある。", rationale: "この選択肢はフィッシャーの3原則における「無作為化」の正しい説明です。この問題は「最も不適切なもの」を選ぶ問題なので、正しい記述を選択すると誤答になります。", isCorrect: false }
     ]
   },
   {
@@ -2440,6 +2642,7 @@ const QUIZ_DATA = [
       { text: "「変化率（伸び率）」は、比較時の値から基準時の値を引いた「差」として定義され、パーセント（$\\%$）ではなく元のデータと同じ単位で表される。", rationale: "誤りです。変化率（伸び率）は「（比較時 - 基準時）/ 基準時」で計算され、通常は $\\%$ で表されます。説明文は「差」の特徴です。", isCorrect: false },
       { text: "「比」は、前年の値から当年の値を引くことによって求められ、系列全体の絶対的な増減量を把握するために用いられる。", rationale: "誤りです。比は「当年 / 前年」のように割り算で求めます。引き算で求めるのは「差」です。", isCorrect: false },
       { text: "「差」は、異なる単位を持つ2つの時系列データ（例：金額と重量）の変化の度合いを直接比較するのに最も適した指標である。", rationale: "誤りです。「差」は元のデータと同じ単位を持つため、単位の異なるデータの比較には適しません。単位の異なる比較には「変化率」や「指数」を用います。", isCorrect: false }
+    ,      { text: "「変化率（伸び率）」は、比較時点の値を基準時点の値で割った「比」と常に全く同じ値になる。", rationale: "「変化率」は通常 (比較時の値 - 基準時の値) / 基準時の値 で計算され、「比」から1を引いた値（またはそのパーセント表示）になるため、全く同じ値にはなりません。", isCorrect: false }
     ]
   }
 ];
