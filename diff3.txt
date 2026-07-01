@@ -1,0 +1,109 @@
+diff --git a/data.js b/data.js
+index 03f49a1..522ad05 100644
+--- a/data.js
++++ b/data.js
+@@ -824,7 +824,7 @@ const QUIZ_DATA = [
+       { text: "$E(X) = np(1-p), \\quad V(X) = np$", rationale: "期待値と分散の式が逆になっています。", isCorrect: false },
+       { text: "$E(X) = p, \\quad V(X) = \\frac{p(1-p)}{n}$", rationale: "これは「標本比率 $\\hat{p}$」の期待値と分散です。", isCorrect: false },
+       { text: "$E(X) = np, \\quad V(X) = \\sqrt{np(1-p)}$", rationale: "$\\sqrt{np(1-p)}$ は分散ではなく「標準偏差」です。", isCorrect: false },
+-      { text: "E(X) = np, V(X) = np^2", rationale: "二項分布の分散は np(1-p) であり、np^2 とするのは誤りです。", isCorrect: false }
++      { text: "$E(X) = np, V(X) = np^2$", rationale: "二項分布の分散は np(1-p) であり、np^2 とするのは誤りです。", isCorrect: false }
+     ]
+   },
+   {
+@@ -1022,19 +1022,6 @@ const QUIZ_DATA = [
+       { text: "$E(X) = \\frac{a+b}{2}, V(X) = \\frac{(b-a)^2}{2}$", rationale: "分散の分母は2ではなく12になります。", isCorrect: false }
+     ]
+   },
+-  {
+-    id: 83,
+-    isFormula: 1,
+-    category: "確率分布",
+-    question: "時間あたり平均 $\\lambda$ 回起きる事象が「次に起こるまでの待ち時間」を表す指数分布の確率密度関数 $f(x)$（$x \\ge 0$）はどれですか？",
+-    answerOptions: [
+-      { text: "$f(x) = \\lambda e^{-\\lambda x}$", rationale: "ポアソン過程において発生間隔が従う分布です。無記憶性を持つ唯一の連続型分布です。", isCorrect: true },
+-      { text: "$f(x) = e^{-\\lambda x}$", rationale: "係数 $\\lambda$ が抜けており、全区間で積分しても1になりません。", isCorrect: false },
+-      { text: "$f(x) = 1 - e^{-\\lambda x}$", rationale: "これは指数分布の「累積分布関数 $F(x)$」です。", isCorrect: false },
+-      { text: "$f(x) = \\frac{1}{\\lambda} e^{-\\frac{x}{\\lambda}}$", rationale: "これは母数を $\\lambda$ ではなく $\\theta = \\frac{1}{\\lambda}$ と置いた場合の式です。設問の定義とは異なります。", isCorrect: false },
+-      { text: "$f(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$", rationale: "これはポアソン分布の確率関数であり、連続型の待ち時間を表す指数分布の確率密度関数ではありません。", isCorrect: false }
+-    ]
+-  },
+   {
+     id: 84,
+     isFormula: 1,
+@@ -1100,19 +1087,6 @@ const QUIZ_DATA = [
+       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "単純な平均ではなく、それぞれのサンプルの自由度（サイズ-1）で重み付けした加重平均をとる必要があります。", isCorrect: false }
+     ]
+   },
+-  {
+-    id: 92,
+-    isFormula: 1,
+-    category: "確率分布",
+-    question: "確率変数 $X$ が平均 $\\lambda$ のポアソン分布に従うとき、$X$ がちょうど $k$ 回発生する確率 $P(X=k)$ を表す式（確率関数）はどれですか？",
+-    answerOptions: [
+-      { text: "$P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}{k!}$", rationale: "二項分布において $n \\to \\infty, p \\to 0$ （$np=\\lambda$は一定）とした極限として導かれます。", isCorrect: true },
+-      { text: "$P(X=k) = \\lambda^k e^{-\\lambda}$", rationale: "分母の $k!$ が抜けています。これでは全確率の和が $1$ になりません。", isCorrect: false },
+-      { text: "$P(X=k) = \\binom{n}{k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "これは二項分布の確率関数の形です。", isCorrect: false },
+-      { text: "$P(X=k) = \\frac{\\lambda e^{-k}}{k!}$", rationale: "指数の肩は $-\\lambda$ であり、底は $e$ です。", isCorrect: false },
+-      { text: "$P(X=k) = \\lambda e^{-\\lambda k}$", rationale: "これは指数分布の確率密度関数と形が混ざった誤った式です。ポアソン分布は階乗 k! で割る必要があります。", isCorrect: false }
+-    ]
+-  },
+   {
+     id: 93,
+     isFormula: 0,
+@@ -1890,7 +1864,7 @@ const QUIZ_DATA = [
+       { text: "$\\sum_{i=1}^{\\infty} x_i P(X = x_i)$", rationale: "これは「離散型確率変数」の期待値の定義式です。", isCorrect: false },
+       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "これは全確率が1になることを示す式であり、期待値ではありません。", isCorrect: false },
+       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "これは「分散 $V(X)$」の定義式です。", isCorrect: false },
+-      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx$", rationale: "この式は X の2乗の期待値 E(X^2) を表すものであり、X の期待値（平均）の定義とは異なります。", isCorrect: false }
++      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "この式は X の2乗の期待値 E(X^2) を表すものであり、X の期待値（平均）の定義とは異なります。", isCorrect: false }
+     ]
+   },
+   {
+@@ -1916,7 +1890,7 @@ const QUIZ_DATA = [
+       { text: "$np$", rationale: "これは二項分布の「期待値 $E(X)$」の公式です。", isCorrect: false },
+       { text: "$\\sqrt{np(1-p)}$", rationale: "これは分散ではなく「標準偏差」の公式です。", isCorrect: false },
+       { text: "$\\frac{p(1-p)}{n}$", rationale: "これは「標本比率の分散」の公式です。", isCorrect: false },
+-      { text: "n^2 p(1-p)", rationale: "二項分布の分散にさらに試行回数 n が掛けられており、正しい分散である np(1-p) とは異なります。", isCorrect: false }
++      { text: "$n^2 p(1-p)$", rationale: "二項分布の分散にさらに試行回数 n が掛けられており、正しい分散である np(1-p) とは異なります。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2098,7 +2072,7 @@ const QUIZ_DATA = [
+       { text: "$f(b) - f(a)$", rationale: "これは累積分布関数 $F(x)$ が与えられた場合の $F(b)-F(a)$ に該当します。確率密度関数そのものの差ではありません。", isCorrect: false },
+       { text: "$\\sum_{x=a}^b f(x)$", rationale: "これは離散型確率変数の場合の確率の計算方法です。", isCorrect: false },
+       { text: "$\\frac{f(a) + f(b)}{2} (b-a)$", rationale: "これは台形公式による積分の近似であり、厳密な確率の定義ではありません。", isCorrect: false },
+-      { text: "$\\\\int_{-\\\\infty}^b f(x) dx - \\\\int_a^{\\\\infty} f(x) dx$", rationale: "正しくは累積分布関数を用いて F(b) - F(a) となりますが、この選択肢は引き算の右辺が上側確率となっており誤りです。", isCorrect: false }
++      { text: "$\\int_{-\\infty}^b f(x) dx - \\int_a^{\\infty} f(x) dx$", rationale: "正しくは累積分布関数を用いて F(b) - F(a) となりますが、この選択肢は引き算の右辺が上側確率となっており誤りです。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2111,7 +2085,7 @@ const QUIZ_DATA = [
+       { text: "$\\frac{X - \\mu}{\\sigma^2}$", rationale: "分散 $\\sigma^2$ ではなく、標準偏差 $\\sigma$ で割る必要があります。", isCorrect: false },
+       { text: "$\\frac{X - \\sigma}{\\mu}$", rationale: "平均と標準偏差の役割が逆です。", isCorrect: false },
+       { text: "$(X - \\mu) \\times \\sigma$", rationale: "標準偏差を掛けるのではなく、割る必要があります。", isCorrect: false },
+-      { text: "$\\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
++      { text: "$\\frac{X - \\mu}{\\sqrt{n}}$", rationale: "分母の \\\\sqrt{n} は標本平均の標準化などに現れる標準誤差に関連する項であり、単一の変数 X の標準化に用いる標準偏差 \\\\sigma とは異なります。", isCorrect: false }
+     ]
+   },
+   {
+@@ -2335,19 +2309,6 @@ const QUIZ_DATA = [
+       , { text: "$E[X] = 1, V[X] = 0$", rationale: "標準正規分布の期待値は0、分散は1ですが、それを逆にしてしまっているため誤りです。", isCorrect: false }
+     ]
+   },
+-  {
+-    id: 210,
+-    isFormula: 1,
+-    category: "確率分布",
+-    question: "連続型確率変数 $X$ が「指数分布」に従う場合の確率密度関数として正しいものはどれですか？",
+-    answerOptions: [
+-      { text: "$\\lambda e^{-\\lambda t}$", rationale: "指数分布は、ある事象が起こるまでの待ち時間などを表す分布です。", isCorrect: true },
+-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "これはポアソン分布（離散型）の確率質量関数です。", isCorrect: false },
+-      { text: "$\\frac{1}{\\sqrt{2\\pi}} \\exp \\left\\{ -\\frac{x^2}{2} \\right\\}$", rationale: "これは標準正規分布の確率密度関数です。", isCorrect: false },
+-      { text: "$p(1-p)^{x-1}$", rationale: "これは幾何分布の確率質量関数です。", isCorrect: false },
+-      { text: "$e^{-\\lambda x}$", rationale: "密度関数の積分が1になるための係数 $\\lambda$ が欠落しているため誤りです。", isCorrect: false }
+-    ]
+-  },
+   {
+     id: 211,
+     isFormula: 0,

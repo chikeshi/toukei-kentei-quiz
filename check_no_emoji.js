@@ -668,7 +668,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{P(A \\cap B)}{P(B)}$", rationale: "X $P(A|B)$ XBXAX", isCorrect: false },
       { text: "$P(A) \\times P(B)$", rationale: "XAXBX $P(A \\cap B)$ X", isCorrect: false },
       { text: "$P(A) + P(B) - P(A \\cap B)$", rationale: "X$P(A \\cup B)$ X", isCorrect: false },
-      { text: "$P(A X B) / P(A)$", rationale: "XAXBXAXP(A X B) XAXBX", isCorrect: false }
+      { text: "P(A X B) / P(A)", rationale: "XAXBXAXP(A X B) XAXBX", isCorrect: false }
     ]
   },
   {
@@ -824,7 +824,7 @@ var QUIZ_DATA = [
       { text: "$E(X) = np(1-p), \\quad V(X) = np$", rationale: "X", isCorrect: false },
       { text: "$E(X) = p, \\quad V(X) = \\frac{p(1-p)}{n}$", rationale: "X $\\hat{p}$X", isCorrect: false },
       { text: "$E(X) = np, \\quad V(X) = \\sqrt{np(1-p)}$", rationale: "$\\sqrt{np(1-p)}$ X", isCorrect: false },
-      { text: "E(X) = np, V(X) = np^2", rationale: "X np(1-p) Xnp^2 X", isCorrect: false }
+      { text: "$E(X) = np, V(X) = np^2$", rationale: "X np(1-p) Xnp^2 X", isCorrect: false }
     ]
   },
   {
@@ -1023,19 +1023,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 83,
-    isFormula: 1,
-    category: "X",
-    question: "X $\\lambda$ X $f(x)$X$x \\ge 0$X",
-    answerOptions: [
-      { text: "$f(x) = \\lambda e^{-\\lambda x}$", rationale: "X", isCorrect: true },
-      { text: "$f(x) = e^{-\\lambda x}$", rationale: "X $\\lambda$ X1X", isCorrect: false },
-      { text: "$f(x) = 1 - e^{-\\lambda x}$", rationale: "X $F(x)$X", isCorrect: false },
-      { text: "$f(x) = \\frac{1}{\\lambda} e^{-\\frac{x}{\\lambda}}$", rationale: "X $\\lambda$ X $\\theta = \\frac{1}{\\lambda}$ X", isCorrect: false },
-      { text: "$f(x) = \\frac{\\lambda^x e^{-\\lambda}}{x!}$", rationale: "X", isCorrect: false }
-    ]
-  },
-  {
     id: 84,
     isFormula: 1,
     category: "X",
@@ -1098,19 +1085,6 @@ var QUIZ_DATA = [
       { text: "$s^2 = \\frac{n_1 s_1^2 + n_2 s_2^2}{n_1 + n_2}$", rationale: "X $n_1 + n_2 - 2$ X", isCorrect: false },
       { text: "$s^2 = s_1^2 + s_2^2$", rationale: "X", isCorrect: false },
       { text: "$s^2 = \\frac{s_1^2 + s_2^2}{2}$", rationale: "X-1X", isCorrect: false }
-    ]
-  },
-  {
-    id: 92,
-    isFormula: 1,
-    category: "X",
-    question: "X $X$ X $\\lambda$ X$X$ X $k$ X $P(X=k)$ X",
-    answerOptions: [
-      { text: "$P(X=k) = \\frac{e^{-\\lambda} \\lambda^k}{k!}$", rationale: "X $n \\to \\infty, p \\to 0$ X$np=\\lambda$X", isCorrect: true },
-      { text: "$P(X=k) = \\lambda^k e^{-\\lambda}$", rationale: "X $k!$ X $1$ X", isCorrect: false },
-      { text: "$P(X=k) = \\binom{n}{k} \\lambda^k (1-\\lambda)^{n-k}$", rationale: "X", isCorrect: false },
-      { text: "$P(X=k) = \\frac{\\lambda e^{-k}}{k!}$", rationale: "X $-\\lambda$ X $e$ X", isCorrect: false },
-      { text: "$P(X=k) = \\lambda e^{-\\lambda k}$", rationale: "X k! X", isCorrect: false }
     ]
   },
   {
@@ -1890,7 +1864,7 @@ var QUIZ_DATA = [
       { text: "$\\sum_{i=1}^{\\infty} x_i P(X = x_i)$", rationale: "X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} f(x) dx$", rationale: "X1X", isCorrect: false },
       { text: "$\\int_{-\\infty}^{\\infty} (x - \\mu)^2 f(x) dx$", rationale: "X $V(X)$X", isCorrect: false },
-      { text: "$\\\\int_{-\\\\infty}^{\\\\infty} x^2 f(x) dx$", rationale: "X X X2X E(X^2) XX X", isCorrect: false }
+      { text: "$\\int_{-\\infty}^{\\infty} x^2 f(x) dx$", rationale: "X X X2X E(X^2) XX X", isCorrect: false }
     ]
   },
   {
@@ -1916,7 +1890,7 @@ var QUIZ_DATA = [
       { text: "$np$", rationale: "X $E(X)$X", isCorrect: false },
       { text: "$\\sqrt{np(1-p)}$", rationale: "X", isCorrect: false },
       { text: "$\\frac{p(1-p)}{n}$", rationale: "X", isCorrect: false },
-      { text: "n^2 p(1-p)", rationale: "X n X np(1-p) X", isCorrect: false }
+      { text: "$n^2 p(1-p)$", rationale: "X n X np(1-p) X", isCorrect: false }
     ]
   },
   {
@@ -2007,7 +1981,7 @@ var QUIZ_DATA = [
       { text: "$V(X) = E(X) - \\{E(X)\\}^2$", rationale: "X1X $E(X^2)$ X", isCorrect: false },
       { text: "$V(X) = \\{E(X)\\}^2 - E(X^2)$", rationale: "X $E(X^2) \\ge \\{E(X)\\}^2$ X", isCorrect: false },
       { text: "$V(X) = E(X^2) - E(X)$", rationale: "X2X2X", isCorrect: false },
-      { text: "$V(X) = E(X^2) + \\{E(X)\\}^2$", rationale: "X", isCorrect: false }
+      { text: "$E(X^2) + \\{E(X)\\}^2$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2016,11 +1990,11 @@ var QUIZ_DATA = [
     category: "X",
     question: "XCVX $\\bar{x}$X $s$ X",
     answerOptions: [
-      { text: "$\\frac{s}{\\bar{x}}$", rationale: "X", isCorrect: true },
-      { text: "$\\frac{\\bar{x}}{s}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{s^2}{\\bar{x}}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{s}{\\bar{x}^2}$", rationale: "X2X", isCorrect: false },
-      { text: "$\\frac{\\bar{x}}{s^2}$", rationale: "X", isCorrect: false }
+      { text: "$CV = \\frac{s}{\\bar{x}}$", rationale: "X", isCorrect: true },
+      { text: "$CV = \\frac{\\bar{x}}{s}$", rationale: "X", isCorrect: false },
+      { text: "$CV = \\frac{s^2}{\\bar{x}}$", rationale: "X", isCorrect: false },
+      { text: "$CV = \\frac{s}{\\bar{x}^2}$", rationale: "X2X", isCorrect: false },
+      { text: "$\\bar{x} / s$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2055,10 +2029,10 @@ var QUIZ_DATA = [
     category: "X",
     question: "XIQR: Interquartile RangeX",
     answerOptions: [
-      { text: "$Q_3 - Q_1$", rationale: "X3X1X50%X", isCorrect: true },
-      { text: "$Q_4 - Q_0$", rationale: "X - X", isCorrect: false },
-      { text: "$\\frac{Q_3 - Q_1}{2}$", rationale: "X", isCorrect: false },
-      { text: "$Q_2 - Q_1$", rationale: "X2X1X", isCorrect: false },
+      { text: "$IQR = Q_3 - Q_1$", rationale: "X3X1X50%X", isCorrect: true },
+      { text: "$IQR = Q_4 - Q_0$", rationale: "X - X", isCorrect: false },
+      { text: "$IQR = \\frac{Q_3 - Q_1}{2}$", rationale: "X", isCorrect: false },
+      { text: "$IQR = Q_2 - Q_1$", rationale: "X2X1X", isCorrect: false },
       { text: "$Q_4 - Q_1$", rationale: "X3X($Q_3$)X1X($Q_1$)X4X", isCorrect: false }
     ]
   },
@@ -2098,7 +2072,7 @@ var QUIZ_DATA = [
       { text: "$f(b) - f(a)$", rationale: "X $F(x)$ X $F(b)-F(a)$ X", isCorrect: false },
       { text: "$\\sum_{x=a}^b f(x)$", rationale: "X", isCorrect: false },
       { text: "$\\frac{f(a) + f(b)}{2} (b-a)$", rationale: "X", isCorrect: false },
-      { text: "$\\\\int_{-\\\\infty}^b f(x) dx - \\\\int_a^{\\\\infty} f(x) dx$", rationale: "X F(b) - F(a) X", isCorrect: false }
+      { text: "$\\int_{-\\infty}^b f(x) dx - \\int_a^{\\infty} f(x) dx$", rationale: "X F(b) - F(a) X", isCorrect: false }
     ]
   },
   {
@@ -2111,7 +2085,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{X - \\mu}{\\sigma^2}$", rationale: "X $\\sigma^2$ X $\\sigma$ X", isCorrect: false },
       { text: "$\\frac{X - \\sigma}{\\mu}$", rationale: "X", isCorrect: false },
       { text: "$(X - \\mu) \\times \\sigma$", rationale: "X", isCorrect: false },
-      { text: "$\\\\frac{X - \\\\mu}{\\\\sqrt{n}}$", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
+      { text: "$\\frac{X - \\mu}{\\sqrt{n}}$", rationale: "X \\\\sqrt{n} X X X \\\\sigma X", isCorrect: false }
     ]
   },
   {
@@ -2241,7 +2215,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_t} \\times 100$", rationale: "X $q_t$ X", isCorrect: false },
       { text: "$\\frac{\\sum p_t}{\\sum p_0} \\times 100$", rationale: "X", isCorrect: false },
       { text: "$\\frac{\\sum p_0 q_t}{\\sum p_t q_t} \\times 100$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{\\sum p_t q_t}{\\sum p_0 q_0} \\times 100$", rationale: "X", isCorrect: false }
+      { text: "$\\\\frac{\\\\sum p_t q_t}{\\\\sum p_0 q_0} \\\\times 100$", rationale: "X", isCorrect: false }
     ]
   },
   {
@@ -2333,19 +2307,6 @@ var QUIZ_DATA = [
       { text: "X: $0$, X: $0$", rationale: "X $0$ X $0$ X", isCorrect: false },
       { text: "X: $0$, X: $\\sigma^2$", rationale: "X $1$ X", isCorrect: false }
       , { text: "$E[X] = 1, V[X] = 0$", rationale: "X0X1X", isCorrect: false }
-    ]
-  },
-  {
-    id: 210,
-    isFormula: 1,
-    category: "X",
-    question: "X $X$ X",
-    answerOptions: [
-      { text: "$\\lambda e^{-\\lambda t}$", rationale: "X", isCorrect: true },
-      { text: "$\\frac{e^{-\\lambda} \\lambda^x}{x!}$", rationale: "X", isCorrect: false },
-      { text: "$\\frac{1}{\\sqrt{2\\pi}} \\exp \\left\\{ -\\frac{x^2}{2} \\right\\}$", rationale: "X", isCorrect: false },
-      { text: "$p(1-p)^{x-1}$", rationale: "X", isCorrect: false },
-      { text: "$e^{-\\lambda x}$", rationale: "X1X $\\lambda$ X", isCorrect: false }
     ]
   },
   {
@@ -2539,7 +2500,7 @@ var QUIZ_DATA = [
       { text: "$ac Cov(X, Y)$", rationale: "X ($+b, +d$) X ($a, c$) X", isCorrect: true },
       { text: "$ac Cov(X, Y) + bd$", rationale: "X ($+b, +d$) X", isCorrect: false },
       { text: "$a Cov(X, Y) + c Cov(X, Y)$", rationale: "X", isCorrect: false },
-      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \times c$ X", isCorrect: false }
+      { text: "$a^2 c^2 Cov(X, Y)$", rationale: "X $V(aX) = a^2 V(X)$ X2X $a \\times c$ X", isCorrect: false }
       , { text: "$ac \\cdot Cov(X, Y) + bd$", rationale: "X $b$ X $d$ X", isCorrect: false }
     ]
   },
@@ -2550,7 +2511,7 @@ var QUIZ_DATA = [
     question: "X $X, Y, Z$ X $Cov(X + Y, Z)$ X",
     answerOptions: [
       { text: "$Cov(X, Z) + Cov(Y, Z)$", rationale: "X", isCorrect: true },
-      { text: "$Cov(X, Z) \times Cov(Y, Z)$", rationale: "X", isCorrect: false },
+      { text: "$Cov(X, Z) \\times Cov(Y, Z)$", rationale: "X", isCorrect: false },
       { text: "$V(X) + V(Y) + 2Cov(X, Y)$", rationale: "X $V(X+Y)$ X", isCorrect: false },
       { text: "$Cov(X, Z) + Cov(Y, Z) + Cov(X, Y)$", rationale: "X $X$ X $Y$ X", isCorrect: false }
       , { text: "$Cov(X, Z) \\cdot Cov(Y, Z)$", rationale: "X", isCorrect: false }
