@@ -1,6 +1,8 @@
 var CATEGORIES = [
   { name: "X", desc: "X", icon: "X" },
+  { name: "X", desc: "X", icon: "X" },
   { name: "X", desc: "Xt/F/X", icon: "X" },
+  { name: "X", desc: "X", icon: "X" },
   { name: "X", desc: "XPX", icon: "X" },
   { name: "X", desc: "X", icon: "X" }
 ];
