@@ -893,19 +893,6 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 70,
-    isFormula: 1,
-    category: "仮説検定",
-    question: "母平均 $\\mu$ の仮説検定（大標本、あるいは母分散 $\\sigma^2$ 既知）において、帰無仮説 $H_0: \\mu = \\mu_0$ を検定するための検定統計量 $Z$ はどれですか？",
-    answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "標本平均から帰無仮説の母平均を引き、標準誤差で割ることで標準化します。", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "分母は母集団の標準偏差ではなく「標本平均の標準偏差（標準誤差）」にする必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "分母は分散ではなく標準偏差（平方根をとったもの）である必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / n}$", rationale: "分母の $n$ は平方根 $\\sqrt{n}$ である必要があります。", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "分母は分散の平方根である標準誤差（\\sigma/\\sqrt{n}）である必要がありますが、分散そのものを使っています。", isCorrect: false }
-    ]
-  },
-  {
     id: 71,
     isFormula: 1,
     category: "推定",
@@ -2193,28 +2180,15 @@ const QUIZ_DATA = [
     ]
   },
   {
-    id: 192,
-    isFormula: 1,
-    category: "仮説検定",
-    question: "ピアソンのカイ二乗検定（適合度検定や独立性の検定）において、観測度数を $O_i$、期待度数を $E_i$ としたときの「検定統計量 $\\chi^2$」の計算式はどれですか？",
-    answerOptions: [
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "観測値と期待値の差の2乗を期待値で割り、すべてのセルについて足し合わせたものがカイ二乗統計量です。", isCorrect: true },
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "分母は観測度数ではなく「期待度数」である必要があります。", isCorrect: false },
-      { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "絶対値ではなく2乗を用います。", isCorrect: false },
-      { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "全体で割るのではなく、各セルごとに期待度数で割ってから足し合わせる必要があります。", isCorrect: false },
-      { text: "$\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}$", rationale: "期待度数 E_i で割るところを、誤って期待度数の2乗 E_i^2 で割っているため、正しいカイ二乗統計量の計算式ではありません。", isCorrect: false }
-    ]
-  },
-  {
     id: 193,
     isFormula: 1,
     category: "仮説検定",
     question: "クロス集計表における「独立性の検定」を行う際、行 $i$、列 $j$ のセルの「期待度数 $E_{ij}$」を算出する計算式として正しいものはどれですか？",
     answerOptions: [
-      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}{\\text{全データの合計}}$", rationale: "独立性を仮定した場合の同時確率は周辺確率の積になるため、合計値の積を全体で割ることで期待度数が求まります。", isCorrect: true },
-      { text: "$E_{ij} = \\frac{(\\text{行 } i \\text{ の合計}) + (\\text{列 } j \\text{ の合計})}{2}$", rationale: "行と列の平均値ではありません。", isCorrect: false },
-      { text: "$E_{ij} = \\frac{\\text{全データの合計}}{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
-      { text: "$E_{ij} = \\sqrt{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "幾何平均ではありません。", isCorrect: false },
+      { text: "$\\frac{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}{\\text{全データの合計}}$", rationale: "独立性を仮定した場合の同時確率は周辺確率の積になるため、合計値の積を全体で割ることで期待度数が求まります。", isCorrect: true },
+      { text: "$\\frac{(\\text{行 } i \\text{ の合計}) + (\\text{列 } j \\text{ の合計})}{2}$", rationale: "行と列の平均値ではありません。", isCorrect: false },
+      { text: "$\\frac{\\text{全データの合計}}{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "分母と分子が逆になっています。", isCorrect: false },
+      { text: "$\\sqrt{(\\text{行 } i \\text{ の合計}) \\times (\\text{列 } j \\text{ の合計})}$", rationale: "幾何平均ではありません。", isCorrect: false },
       { text: "(行 $i$ の合計 $+$ 列 $j$ の合計) / 総度数", rationale: "周辺度数の積を総度数で割るのが正しいですが、積ではなく和にしてしまっているため誤りです。", isCorrect: false }
     ]
   },
@@ -2462,20 +2436,7 @@ const QUIZ_DATA = [
       { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "これは母分散既知の場合の z 統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "これは「対応のあるt検定」で用いられる統計量です。", isCorrect: false },
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは「二標本t検定」で用いられる統計量です。", isCorrect: false },
-      { text: "$t = \\frac{\\bar{x} - \\mu_0}{s^2 / n}$", rationale: "分母は標準誤差（不偏分散の平方根に基づく値）を用いるべきですが、分散のまま計算してしまっているため誤りです。", isCorrect: false }
-    ]
-  },
-  {
-    id: 218,
-    isFormula: 1,
-    category: "仮説検定",
-    question: "「対応のあるt検定（前後差・ペアデータ）」で用いられる検定統計量はどれですか？（差の平均 $\\bar{d}$、差の不偏分散 $s_d^2$）",
-    answerOptions: [
-      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "ペアのデータから「差 $d$」を計算し、その差についての一標本t検定として扱います。自由度は $n-1$ です。", isCorrect: true },
-      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "これは対応のない「2群の平均差の検定」の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "これは一標本t検定の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "これは $\\chi^2$ 検定の統計量です。", isCorrect: false },
-      { text: "$\\frac{\\bar{d} - 0}{s_d}$", rationale: "分母は標準誤差 $s_d / \\sqrt{n}$ でなければなりませんが、サンプルサイズによる調整（$\\sqrt{n}$ で割る処理）が欠落しているため誤りです。", isCorrect: false }
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s^2 / n}$", rationale: "分母は標準誤差（不偏分散の平方根に基づく値）を用いるべきですが、分散のまま計算してしまっているため誤りです。", isCorrect: false }
     ]
   },
   {

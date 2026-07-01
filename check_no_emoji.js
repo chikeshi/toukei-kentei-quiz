@@ -893,19 +893,6 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 70,
-    isFormula: 1,
-    category: "X",
-    question: "X $\\mu$ X $\\sigma^2$ X $H_0: \\mu = \\mu_0$ X $Z$ X",
-    answerOptions: [
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "X", isCorrect: true },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma}$", rationale: "X", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{s / n}$", rationale: "X $n$ X $\\sqrt{n}$ X", isCorrect: false },
-      { text: "$Z = \\frac{\\bar{x} - \\mu_0}{\\sigma^2 / n}$", rationale: "X\\sigma/\\sqrt{n}X", isCorrect: false }
-    ]
-  },
-  {
     id: 71,
     isFormula: 1,
     category: "X",
@@ -2193,28 +2180,15 @@ var QUIZ_DATA = [
     ]
   },
   {
-    id: 192,
-    isFormula: 1,
-    category: "X",
-    question: "X $O_i$X $E_i$ X $\\chi^2$X",
-    answerOptions: [
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{E_i}$", rationale: "X2X", isCorrect: true },
-      { text: "$\\sum \\frac{(O_i - E_i)^2}{O_i}$", rationale: "X", isCorrect: false },
-      { text: "$\\sum \\frac{|O_i - E_i|}{E_i}$", rationale: "X2X", isCorrect: false },
-      { text: "$\\frac{\\sum (O_i - E_i)^2}{\\sum E_i}$", rationale: "X", isCorrect: false },
-      { text: "$\\\\sum \\\\frac{(O_i - E_i)^2}{E_i^2}$", rationale: "X E_i X2X E_i^2 X", isCorrect: false }
-    ]
-  },
-  {
     id: 193,
     isFormula: 1,
     category: "X",
     question: "X $i$X $j$ X $E_{ij}$X",
     answerOptions: [
-      { text: "$E_{ij} = \\frac{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}{\\text{X}}$", rationale: "X", isCorrect: true },
-      { text: "$E_{ij} = \\frac{(\\text{X } i \\text{ X}) + (\\text{X } j \\text{ X})}{2}$", rationale: "X", isCorrect: false },
-      { text: "$E_{ij} = \\frac{\\text{X}}{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}$", rationale: "X", isCorrect: false },
-      { text: "$E_{ij} = \\sqrt{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}{\\text{X}}$", rationale: "X", isCorrect: true },
+      { text: "$\\frac{(\\text{X } i \\text{ X}) + (\\text{X } j \\text{ X})}{2}$", rationale: "X", isCorrect: false },
+      { text: "$\\frac{\\text{X}}{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}$", rationale: "X", isCorrect: false },
+      { text: "$\\sqrt{(\\text{X } i \\text{ X}) \\times (\\text{X } j \\text{ X})}$", rationale: "X", isCorrect: false },
       { text: "(X $i$ X $+$ X $j$ X) / X", rationale: "X", isCorrect: false }
     ]
   },
@@ -2462,20 +2436,7 @@ var QUIZ_DATA = [
       { text: "$\\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$", rationale: "X z X", isCorrect: false },
       { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "XtX", isCorrect: false },
       { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "XtX", isCorrect: false },
-      { text: "$t = \\frac{\\bar{x} - \\mu_0}{s^2 / n}$", rationale: "X", isCorrect: false }
-    ]
-  },
-  {
-    id: 218,
-    isFormula: 1,
-    category: "X",
-    question: "XtX $\\bar{d}$X $s_d^2$X",
-    answerOptions: [
-      { text: "$\\frac{\\bar{d}}{s_d / \\sqrt{n}}$", rationale: "X $d$XtX $n-1$ X", isCorrect: true },
-      { text: "$\\frac{\\bar{x}_1 - \\bar{x}_2}{SE}$", rationale: "X2X", isCorrect: false },
-      { text: "$\\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$", rationale: "XtX", isCorrect: false },
-      { text: "$\\frac{\\sum(O-E)^2}{E}$", rationale: "X $\\chi^2$ X", isCorrect: false },
-      { text: "$\\frac{\\bar{d} - 0}{s_d}$", rationale: "X $s_d / \\sqrt{n}$ X$\\sqrt{n}$ X", isCorrect: false }
+      { text: "$\\frac{\\bar{x} - \\mu_0}{s^2 / n}$", rationale: "X", isCorrect: false }
     ]
   },
   {
