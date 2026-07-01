@@ -1014,12 +1014,12 @@ const QUIZ_DATA = [
     isFormula: 1,
     category: "仮説検定",
     question: "2つの独立な正規母集団の「母分散の比 $\\frac{\\sigma_1^2}{\\sigma_2^2}$」についての仮説検定（等分散性の検定）で用いられる検定統計量はどれですか？（それぞれの不偏分散を $s_1^2, s_2^2$ とする）",
-    answerOptions: [
-      { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2つの不偏分散の比は、母分散が等しいという帰無仮説のもとでF分布に従います。", isCorrect: true },
-      { text: "$t = \\frac{s_1^2 - s_2^2}{\\sqrt{s_1^2/n_1 + s_2^2/n_2}}$", rationale: "t値は主に平均の差の検定に用いられ、分散の比の検定には用いられません。", isCorrect: false },
-      { text: "$\\chi^2 = \\frac{s_1^2 + s_2^2}{\\sigma^2}$", rationale: "カイ二乗値は1つの分散の検定などに用います。", isCorrect: false },
-      { text: "$Z = \\frac{s_1^2 - s_2^2}{\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}$", rationale: "分散の比はZ分布（正規分布）には従いません。", isCorrect: false },
-      { text: "t統計量", rationale: "2つの集団の分散の比の検定（等分散性の検定）にはF分布（F統計量）が用いられます。", isCorrect: false }
+        answerOptions: [
+      { text: "$F = \\frac{s_1^2}{s_2^2}$", rationale: "2つの母分散の比に関する検定（等分散の検定）には、2つの標本不偏分散の比であるF統計量を用います。帰無仮説（等分散）のもとで自由度 $(n_1-1, n_2-1)$ のF分布に従います。", isCorrect: true },
+      { text: "$F = \\frac{s_1^2(n_1-1)}{s_2^2(n_2-1)}$", rationale: "分子分母に $(n-1)$ をかけているため、これは不偏分散の比ではなく「標本平方和の比」になってしまいます。F統計量は不偏分散の比を用います。", isCorrect: false },
+      { text: "$\\chi^2 = \\frac{s_1^2}{s_2^2}$", rationale: "2つの分散の比は $\\chi^2$ 統計量ではなく、F統計量となります。$\\chi^2$ 統計量は1つの母分散の検定などに用いられます。", isCorrect: false },
+      { text: "$\\chi^2 = \\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{\\sigma^2}$", rationale: "これは等分散を仮定した際のプールされた分散に関連する式であり、等分散かどうかの検定（分散の比の検定）の検定統計量ではありません。", isCorrect: false },
+      { text: "$F = \\frac{s_1^2 / n_1}{s_2^2 / n_2}$", rationale: "標本サイズ $n$ で割っているため誤りです。標本平均の分散（平均の差の検定など）の計算で出てくる形と混同した引掛けです。", isCorrect: false }
     ]
   },
   {
